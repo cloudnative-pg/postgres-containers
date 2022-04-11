@@ -27,7 +27,7 @@ jobs:
             # TODO: Remove pip workaround once https://github.com/jazzband/pip-tools/issues/1558 is fixed
             pip3 install --upgrade pip-tools 'pip<22'
             echo "Updating Debian images"
-            ./update.sh
+            ./Debian/update.sh
       - name: Diff
         run: |
           git status
