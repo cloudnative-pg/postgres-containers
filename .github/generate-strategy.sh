@@ -25,8 +25,6 @@ for version in */; do
 done
 debian_versions=("${debian_versions[@]%/}")
 
-
-
 # Sort the version numbers with highest first
 mapfile -t debian_versions < <(IFS=$'\n'; sort -rV <<< "${debian_versions[*]}")
 
@@ -48,23 +46,13 @@ for version in "${debian_versions[@]}"; do
 	releaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
 
 	# Initial aliases are "major version", "optional alias", "full version with release"
-	# i.e. "13", "latest", "13.2-1"
-	# A "-beta" suffix will be appended to the beta images.
-	if [ "${version}" -gt '14' ]; then
-		fullVersion="${fullVersion//'~'/-}"
-		versionAliases=(
-			"${version}-debian"
-			${aliases[$version]:+"${aliases[$version]}-debian"}
-			"${postgresImageVersion}-debian-${releaseVersion}"
+	# i.e. "14", "latest", "14.2-1", "14.2-debian","14.2"
+	versionAliases=(
+			"${version}"
+			${aliases[$version]:+"${aliases[$version]}"}
+			"${postgresImageVersion}-${releaseVersion}"
+			"${postgresImageVersion}"
 		)
-	else
-		versionAliases=(
-			"${version}-debian"
-			${aliases[$version]:+"${aliases[$version]}-debian"}
-			"${postgresImageVersion}-debian-${releaseVersion}"
-		)
-	fi
-
 	# Add all the version prefixes between full version and major version
 	# i.e "13.2"
 	while [ "$postgresImageVersion" != "$version" ] && [ "${postgresImageVersion%[.-]*}" != "$postgresImageVersion" ]; do
