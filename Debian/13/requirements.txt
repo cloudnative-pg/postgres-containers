@@ -13,9 +13,9 @@ azure-core==1.23.1 \
     # via
     #   azure-identity
     #   azure-storage-blob
-azure-identity==1.9.0 \
-    --hash=sha256:0854d19da4c5644641814dc4f951c42e01400b5792f09dfb6bffa726d8b9160d \
-    --hash=sha256:2e75bbf0a72309b8f95f6769214b90bf271f3662d28d962bcddf4d2406157b51
+azure-identity==1.10.0 \
+    --hash=sha256:656e5034d9cef297cf9b35376ed620085273c18cfa52cea4a625bf0d5d2d6409 \
+    --hash=sha256:b386f1ccbea6a48b9ab7e7f162adc456793c345193a7c1a713959562b08dcbbd
 azure-storage-blob==12.11.0 \
     --hash=sha256:49535b3190bb69d0d9ff7a383246b14da4d2b1bdff60cae5f9173920c67ca7ee \
     --hash=sha256:f3dfa605aefb453e7489328b76811a937a411761d7a1613a58c3975c556ec778
@@ -23,12 +23,12 @@ barman[azure,cloud,google,snappy]==2.19 \
     --hash=sha256:43c2cfda1a3833cdea6e58702d033723036903f27597336a149b6d29249ae9b1 \
     --hash=sha256:e1dd2314bc04361549e376a73c604e6941888010183d8f29c1be1bbc6433588d
     # via -r requirements.in
-boto3==1.22.2 \
-    --hash=sha256:1d0c9cf30c5c93ce4628b22f7dff21f80efd104706967be2afb47ea93dcbceb8 \
-    --hash=sha256:fb9a66722a15b0a8edb4f29d63f013877c4c528eff1225bb31dab723c3e5a9ed
-botocore==1.25.2 \
-    --hash=sha256:78363cd023c6123a65d90080e14a9fb625a9639d970ab03471c6fe95258ab8c0 \
-    --hash=sha256:dff4aaf03c2b8ee4a861405fd35c83b585a661a541d520f51e863a31bb18e0f8
+boto3==1.22.3 \
+    --hash=sha256:b291e9b8057158c4ee75a7df8ab22079b4ab915f032af59bcae22677f2a6ceda \
+    --hash=sha256:ef66e2e4f05f0d20aab20b1b655dc670db5c9324d33db6754b576c6867c2ffe9
+botocore==1.25.3 \
+    --hash=sha256:b63343736f1e778f9a658736afd9773ea38b3605d96556fb5585fc0c04a0d1e1 \
+    --hash=sha256:c807e14b956b4b11d6872e84d1d947d1da5ffeedf8aac569a6401063e1752abd
     # via
     #   boto3
     #   s3transfer
@@ -219,9 +219,9 @@ msal==1.17.0 \
     # via
     #   azure-identity
     #   msal-extensions
-msal-extensions==0.3.1 \
-    --hash=sha256:89df9c0237e1adf16938fa58575db59c2bb9de04a83ffb0452c8dfc79031f717 \
-    --hash=sha256:d9029af70f2cbdc5ad7ecfed61cb432ebe900484843ccf72825445dbfe62d311
+msal-extensions==1.0.0 \
+    --hash=sha256:91e3db9620b822d0ed2b4d1850056a0f133cba04455e62f11612e40f5502f2ee \
+    --hash=sha256:c676aba56b0cce3783de1b5c5ecfe828db998167875126ca4b47dc6436451354
     # via azure-identity
 msrest==0.6.21 \
     --hash=sha256:72661bc7bedc2dc2040e8f170b6e9ef226ee6d3892e01affd4d26b06474d68d8 \
