@@ -68,6 +68,47 @@ for version in "${debian_versions[@]}"; do
 	)
 done
 
+# Retrieve the PostgreSQL versions for PostGIS
+cd ${BASE_DIRECTORY}/PostGIS
+for version in */; do
+	[[ $version == src/ ]] && continue
+	postgis_versions+=("$version")
+done
+postgis_versions=("${postgis_versions[@]%/}")
+
+# Sort the version numbers with highest first
+mapfile -t postgis_versions < <(IFS=$'\n'; sort -rV <<< "${postgis_versions[*]}")
+
+for version in "${postgis_versions[@]}"; do
+
+	# Read versions from the definition file
+	versionFile="${version}/.versions.json"
+	postgisImageVersion=$(jq -r '.POSTGIS_IMAGE_VERSION | split("-") | .[0]' "${versionFile}")
+	releaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
+
+	# Initial aliases are "major version", "optional alias", "full version with release"
+	# i.e. "14", "latest", "14.2-1", "14.2-debian","14.2"
+	versionAliases=(
+			"${version}"
+			${aliases[$version]:+"${aliases[$version]}"}
+			"${postgisImageVersion}-${releaseVersion}"
+			"${postgisImageVersion}"
+		)
+	# Add all the version prefixes between full version and major version
+	# i.e "13.2"
+	while [ "$postgisImageVersion" != "$version" ] && [ "${postgisImageVersion%[.-]*}" != "$postgisImageVersion" ]; do
+		versionAliases+=("$postgisImageVersion-debian")
+		postgisImageVersion="${postgisImageVersion%[.-]*}"
+	done
+    # Support platform for container images
+	platforms="linux/amd64,linux/arm64"
+
+	# Build the json entry
+	entries+=(
+		"{\"name\": \"PostGIS ${postgisImageVersion}\", \"platforms\": \"$platforms\", \"dir\": \"PostGIS/$version\", \"file\": \"PostGIS/$version/Dockerfile\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"]}"
+	)
+done
+
 # Build the strategy as a JSON object
 strategy="{\"fail-fast\": false, \"matrix\": {\"include\": [$(join ', ' "${entries[@]}")]}}"
 jq -C . <<<"$strategy" # sanity check / debugging aid

@@ -27,6 +27,8 @@ jobs:
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian images"
             ./Debian/update.sh
+            echo "Updating Debian + PostGIS images"
+            ./PostGIS/update.sh
       - name: Diff
         run: |
           git status
