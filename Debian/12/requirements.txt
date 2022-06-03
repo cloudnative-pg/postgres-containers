@@ -7,9 +7,9 @@
 argcomplete==2.0.0 \
     --hash=sha256:6372ad78c89d662035101418ae253668445b391755cfe94ea52f1b9d22425b20 \
     --hash=sha256:cffa11ea77999bb0dd27bb25ff6dc142a6796142f68d45b1a26b11f58724561e
-azure-core==1.24.0 \
-    --hash=sha256:345b1b041faad7d0205b20d5697f1d0df344302e7aaa8501905580ff87bd0be5 \
-    --hash=sha256:923e492e72d103c768a643dfad331ce6b8ec1669575c7d0832fed19bffd119f7
+azure-core==1.24.1 \
+    --hash=sha256:39c5d59d04209bb70a1a7ee879cef05d07bc76472cd3fb5eaa2e607a90d312bb \
+    --hash=sha256:f48a640affa59fa45ac770565b3bead4c4f834242d16983c1ae2bb173a4b8a6d
     # via
     #   azure-identity
     #   azure-storage-blob
@@ -23,18 +23,18 @@ barman[azure,cloud,google,snappy]==2.19 \
     --hash=sha256:43c2cfda1a3833cdea6e58702d033723036903f27597336a149b6d29249ae9b1 \
     --hash=sha256:e1dd2314bc04361549e376a73c604e6941888010183d8f29c1be1bbc6433588d
     # via -r requirements.in
-boto3==1.23.6 \
-    --hash=sha256:6fed94cfe8e4502ec176821d3fefed9c1973d18ef491530b158108966cfc8ae1 \
-    --hash=sha256:725e507211cde015184e2b5921512df89f63852fb079eda6ab6c282af66f45bd
-botocore==1.26.6 \
-    --hash=sha256:2846ee4a548462ba6db70125bea1542b4ed39793240aabc62ddf96fb6ec7e4d1 \
-    --hash=sha256:ce3fb008ffb041d142cf3949b13529e8dc9a0db5f2ec0e86b159f10f2b56a46e
+boto3==1.24.2 \
+    --hash=sha256:927b5e8e2decad746e6c32bb81f15c2ea9ab4398286134d21f6742493eb893f6 \
+    --hash=sha256:e3c10adc7be890b147568a4162d9cafb876f11f87460c4a0dc90742d6d4ebe7c
+botocore==1.27.2 \
+    --hash=sha256:131f71fe16ef84f9e0e72c54d2e230a6d8e79dd3947f507259a129649649a35d \
+    --hash=sha256:b7cdd4f4a6395a084a381a7d2a25b177e6de5f8a4dfa3c645ec957ba3c83e200
     # via
     #   boto3
     #   s3transfer
-cachetools==5.1.0 \
-    --hash=sha256:4ebbd38701cdfd3603d1f751d851ed248ab4570929f2d8a7ce69e30c420b141c \
-    --hash=sha256:8b3b8fa53f564762e5b221e9896798951e7f915513abf2ba072ce0f07f3f5a98
+cachetools==5.2.0 \
+    --hash=sha256:6a94c6402995a99c3970cc7e4884bb60b4a8639938157eeed436098bf9831757 \
+    --hash=sha256:f9f17d2aec496a9aa6b76f53e3b614c965223c061982d434d160f930c698a9db
     # via google-auth
 certifi==2022.5.18.1 \
     --hash=sha256:9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7 \
@@ -126,9 +126,9 @@ cryptography==37.0.2 \
     #   azure-storage-blob
     #   msal
     #   pyjwt
-google-api-core==2.8.0 \
-    --hash=sha256:065bb8e11c605fd232707ae50963dc1c8af5b3c95b4568887515985e6c1156b3 \
-    --hash=sha256:1b9f59236ce1bae9a687c1d4f22957e79a2669e53d032893f6bf0fca54f6931d
+google-api-core==2.8.1 \
+    --hash=sha256:958024c6aa3460b08f35741231076a4dd9a4c819a6a39d44da9627febe8b28f0 \
+    --hash=sha256:ce1daa49644b50398093d2a9ad886501aa845e2602af70c3001b9f402a9d7359
     # via
     #   google-cloud-core
     #   google-cloud-storage
@@ -195,9 +195,9 @@ google-resumable-media==2.3.3 \
     --hash=sha256:27c52620bd364d1c8116eaac4ea2afcbfb81ae9139fb3199652fcac1724bfb6c \
     --hash=sha256:5b52774ea7a829a8cdaa8bd2d4c3d4bc660c91b30857ab2668d0eb830f4ea8c5
     # via google-cloud-storage
-googleapis-common-protos==1.56.1 \
-    --hash=sha256:6b5ee59dc646eb61a8eb65ee1db186d3df6687c8804830024f32573298bca19b \
-    --hash=sha256:ddcd955b5bb6589368f659fa475373faa1ed7d09cde5ba25e88513d87007e174
+googleapis-common-protos==1.56.2 \
+    --hash=sha256:023eaea9d8c1cceccd9587c6af6c20f33eeeb05d4148670f2b0322dc1511700c \
+    --hash=sha256:b09b56f5463070c2153753ef123f07d2e49235e89148e9b2459ec8ed2f68d7d3
     # via google-api-core
 idna==3.3 \
     --hash=sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff \
@@ -213,9 +213,9 @@ jmespath==1.0.0 \
     # via
     #   boto3
     #   botocore
-msal==1.17.0 \
-    --hash=sha256:04e3cb7bb75c51f56d290381f23056207df1f3eb594ed03d38551f3b16d2a36e \
-    --hash=sha256:5a52d78e70d2c451e267c1e8c2342e4c06f495c75c859aeafd9260d3974f09fe
+msal==1.18.0 \
+    --hash=sha256:576af55866038b60edbcb31d831325a1bd8241ed272186e2832968fd4717d202 \
+    --hash=sha256:9c10e6cb32e0b6b8eaafc1c9a68bc3b2ff71505e0c5b8200799582d8b9f22947
     # via
     #   azure-identity
     #   msal-extensions
@@ -380,9 +380,9 @@ rsa==4.8 \
     --hash=sha256:5c6bd9dc7a543b7fe4304a631f8a8a3b674e2bbfc49c2ae96200cdbe55df6b17 \
     --hash=sha256:95c5d300c4e879ee69708c428ba566c59478fd653cc3a22243eeb8ed846950bb
     # via google-auth
-s3transfer==0.5.2 \
-    --hash=sha256:7a6f4c4d1fdb9a2b640244008e142cbc2cd3ae34b386584ef044dd0f27101971 \
-    --hash=sha256:95c58c194ce657a5f4fb0b9e60a84968c808888aed628cd98ab8771fe1db98ed
+s3transfer==0.6.0 \
+    --hash=sha256:06176b74f3a15f61f1b4f25a1fc29a4429040b7647133a463da8fa5bd28d5ecd \
+    --hash=sha256:2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947
     # via boto3
 six==1.16.0 \
     --hash=sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926 \
