@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 
+#
 # Copyright The CloudNativePG Contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# 
+#
 
 set -Eeuo pipefail
 
@@ -30,10 +30,10 @@ versions=("${versions[@]%/}")
 
 # Get the last postgres base image tag and update time
 fetch_postgres_image_version() {
-    local suite="$1"; 
+    local suite="$1";
     local item="$2";
 	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=bullseye&ordering=last_updated&page_size=20" | \
-	  jq -c ".results[] | select( .name | match(\"^${suite}.[0-9]+-bullseye\"))" | \
+	  jq -c ".results[] | select( .name | match(\"^${suite}.[a-z0-9]+-bullseye\"))" | \
 	  jq -r ".${item}" | \
 	  head -n1
 }
@@ -123,7 +123,7 @@ generate_postgres() {
 		record_version "${versionFile}" "BARMAN_VERSION" "${barmanVersion}"
 	fi
 
-    if [ "$oldPostgresImageVersion" != "$postgresImageVersion" ]; then
+  if [ "$oldPostgresImageVersion" != "$postgresImageVersion" ]; then
 	    echo "PostgreSQL base image changed from $oldPostgresImageVersion to $postgresImageVersion"
 	    record_version "${versionFile}" "IMAGE_RELEASE_VERSION" 1
 		record_version "${versionFile}" "POSTGRES_IMAGE_VERSION" "${postgresImageVersion}"
@@ -133,10 +133,15 @@ generate_postgres() {
 		record_version "${versionFile}" "IMAGE_RELEASE_VERSION" $imageReleaseVersion
 	fi
 
+  dockerTemplate="Dockerfile.template"
+  if [ "${version}" -gt '14' ]; then
+    dockerTemplate="Dockerfile-beta.template"
+  fi
+
 	cp -r src/* "$version/"
 	sed -e 's/%%POSTGRES_IMAGE_VERSION%%/'"$postgresImageVersion"'/g' \
 		-e 's/%%IMAGE_RELEASE_VERSION%%/'"$imageReleaseVersion"'/g' \
-		Dockerfile.template \
+		${dockerTemplate} \
 		> "$version/Dockerfile"
 }
 
