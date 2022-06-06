@@ -60,7 +60,7 @@ for version in "${debian_versions[@]}"; do
 		postgresImageVersion="${postgresImageVersion%[.-]*}"
 	done
     # Support platform for container images
-	platforms="linux/amd64"
+	platforms="linux/amd64,linux/arm64"
 
 	# Build the json entry
 	entries+=(
