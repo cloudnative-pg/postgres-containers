@@ -13,6 +13,7 @@ azure-core==1.24.1 \
     # via
     #   azure-identity
     #   azure-storage-blob
+    #   msrest
 azure-identity==1.10.0 \
     --hash=sha256:656e5034d9cef297cf9b35376ed620085273c18cfa52cea4a625bf0d5d2d6409 \
     --hash=sha256:b386f1ccbea6a48b9ab7e7f162adc456793c345193a7c1a713959562b08dcbbd
@@ -23,12 +24,12 @@ barman[azure,cloud,google,snappy]==2.19 \
     --hash=sha256:43c2cfda1a3833cdea6e58702d033723036903f27597336a149b6d29249ae9b1 \
     --hash=sha256:e1dd2314bc04361549e376a73c604e6941888010183d8f29c1be1bbc6433588d
     # via -r requirements.in
-boto3==1.24.3 \
-    --hash=sha256:1bc562393d7985263e62828173eea6c7d61562031c646dc857a4f0fad1dfddbe \
-    --hash=sha256:7625c5ed92bb7a953e03d2541bcbfcb66c3495f8d7b9421e47b4e2c280dc9162
-botocore==1.27.3 \
-    --hash=sha256:2d48f4ed77220d4cb6f1b1abbb1b782d1b12260645f6ba3f3cd9ae5c98546297 \
-    --hash=sha256:7be5962b956b5770799ba87b0bd2173230068d269982bdf8d16fabaa79483912
+boto3==1.24.4 \
+    --hash=sha256:79b7acf5cf83b34d23a975e400374caaf4711c52266c8717b293f40f3041e0aa \
+    --hash=sha256:8bfb695cbe27d2ee9730ea4e1c894ef1fc255219d3fc7bc804171943ae8d7914
+botocore==1.27.4 \
+    --hash=sha256:54ef4b035c51fe8937a61d3017e30e0a47237916143889ecf4eace481220029a \
+    --hash=sha256:866ac4ad7de326cfb6956462cc224eee1ef1c17987c2313c6fecdbe017e753fc
     # via
     #   boto3
     #   s3transfer
@@ -132,9 +133,9 @@ google-api-core==2.8.1 \
     # via
     #   google-cloud-core
     #   google-cloud-storage
-google-auth==2.6.6 \
-    --hash=sha256:1ba4938e032b73deb51e59c4656a00e0939cf0b1112575099f136babb4563312 \
-    --hash=sha256:349ac49b18b01019453cc99c11c92ed772739778c92f184002b7ab3a5b7ac77d
+google-auth==2.7.0 \
+    --hash=sha256:8a954960f852d5f19e6af14dd8e75c20159609e85d8db37e4013cc8c3824a7e1 \
+    --hash=sha256:df549a1433108801b11bdcc0e312eaf0d5f0500db42f0523e4d65c78722e8475
     # via
     #   google-api-core
     #   google-cloud-core
@@ -223,9 +224,9 @@ msal-extensions==1.0.0 \
     --hash=sha256:91e3db9620b822d0ed2b4d1850056a0f133cba04455e62f11612e40f5502f2ee \
     --hash=sha256:c676aba56b0cce3783de1b5c5ecfe828db998167875126ca4b47dc6436451354
     # via azure-identity
-msrest==0.6.21 \
-    --hash=sha256:72661bc7bedc2dc2040e8f170b6e9ef226ee6d3892e01affd4d26b06474d68d8 \
-    --hash=sha256:c840511c845330e96886011a236440fafc2c9aff7b2df9c0a92041ee2dee3782
+msrest==0.7.0 \
+    --hash=sha256:2210a4dff54c6d3af30bf2fc10db206a1bc5b097c654ce54b0ecd633d762afdf \
+    --hash=sha256:59b06d168ea11448b79921be0760f488347e140d69fb2c2b9f37000615ca4a39
     # via azure-storage-blob
 oauthlib==3.2.0 \
     --hash=sha256:23a8208d75b902797ea29fd31fa80a15ed9dc2c6c16fe73f5d346f83f6fa27a2 \
