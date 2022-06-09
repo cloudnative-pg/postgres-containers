@@ -24,12 +24,12 @@ barman[azure,cloud,google,snappy]==2.19 \
     --hash=sha256:43c2cfda1a3833cdea6e58702d033723036903f27597336a149b6d29249ae9b1 \
     --hash=sha256:e1dd2314bc04361549e376a73c604e6941888010183d8f29c1be1bbc6433588d
     # via -r requirements.in
-boto3==1.24.4 \
-    --hash=sha256:79b7acf5cf83b34d23a975e400374caaf4711c52266c8717b293f40f3041e0aa \
-    --hash=sha256:8bfb695cbe27d2ee9730ea4e1c894ef1fc255219d3fc7bc804171943ae8d7914
-botocore==1.27.4 \
-    --hash=sha256:54ef4b035c51fe8937a61d3017e30e0a47237916143889ecf4eace481220029a \
-    --hash=sha256:866ac4ad7de326cfb6956462cc224eee1ef1c17987c2313c6fecdbe017e753fc
+boto3==1.24.5 \
+    --hash=sha256:7d9f636f4a3327968fec2ba1d556c0d4644917a7f041e8ecc1adf299603093f4 \
+    --hash=sha256:c414013899a63a2d1574e6405fbdc2a8379dae71b7d4defdfdc6682ad75df079
+botocore==1.27.5 \
+    --hash=sha256:2cc567c453eca85a7140bd984be4c761fddd938f4fb26e4747655f0849d64f25 \
+    --hash=sha256:326f3fae882524007edf2c9e352169abe4cb8fb87c148ca559522b99d8dfdc74
     # via
     #   boto3
     #   s3transfer
@@ -144,9 +144,9 @@ google-cloud-core==2.3.0 \
     --hash=sha256:35900f614045a33d5208e1d50f0d7945df98ce088388ce7237e7a2db12d5656e \
     --hash=sha256:fdaa629e6174b4177c2d56eb8ab1ddd87661064d0a3e9bb06b62e4d7e2344669
     # via google-cloud-storage
-google-cloud-storage==2.3.0 \
-    --hash=sha256:9a7b1d07d53bc1df5384a9906c1e6d9c920a2bdb5ffa5982d2c1d2bdaacd70c8 \
-    --hash=sha256:f4cbb0de5e17228e9c09cdc897d81eaa70e2c396f58513f79de0e824584c8f5b
+google-cloud-storage==2.4.0 \
+    --hash=sha256:5fe26f1381b30e3cc328f46e13531ca8525458f870c1e303c616bdeb7b7f5c66 \
+    --hash=sha256:973e7f7d9afcd4805769b6ea9ac15ab9df7037530850374f1494b5a2c8f65b6b
 google-crc32c==1.3.0 \
     --hash=sha256:04e7c220798a72fd0f08242bc8d7a05986b2a08a0573396187fd32c1dcdd58b3 \
     --hash=sha256:05340b60bf05b574159e9bd940152a47d38af3fb43803ffe71f11d704b7696a6 \
@@ -263,7 +263,6 @@ protobuf==3.20.1 \
     --hash=sha256:ff8d8fa42675249bb456f5db06c00de6c2f4c27a065955917b28c4f15978b9c3
     # via
     #   google-api-core
-    #   google-cloud-storage
     #   googleapis-common-protos
 pyasn1==0.4.8 \
     --hash=sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d \
