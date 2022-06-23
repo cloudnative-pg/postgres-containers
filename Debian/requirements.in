@@ -1,1 +1,1 @@
-barman[cloud,azure,snappy,google] == 2.19
+barman[cloud,azure,snappy,google] == 3.0.0
