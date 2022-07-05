@@ -81,7 +81,7 @@ jobs:
         tags: ${{ steps.docker-meta.outputs.tags }}
 
     - name: Dockle scan
-      uses: erzz/dockle-action@v1.3.0
+      uses: erzz/dockle-action@v1.3.1
       with:
         image: "ghcr.io/${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
         exit-code: '1'
