@@ -246,9 +246,9 @@ oauthlib==3.2.0 \
     --hash=sha256:23a8208d75b902797ea29fd31fa80a15ed9dc2c6c16fe73f5d346f83f6fa27a2 \
     --hash=sha256:6db33440354787f9b7f3a6dbd4febf5d0f93758354060e802f6c06cb493022fe
     # via requests-oauthlib
-portalocker==2.4.0 \
-    --hash=sha256:a648ad761b8ea27370cb5915350122cd807b820d2193ed5c9cc28f163df637f4 \
-    --hash=sha256:b092f48e1e30a234ab3dd1cfd44f2f235e8a41f4e310e463fc8d6798d1c3c235
+portalocker==2.5.1 \
+    --hash=sha256:400bae275366e7b840d4baad0654c6ec5994e07c40c423d78e9e1340279b8352 \
+    --hash=sha256:ae8e9cc2660da04bf41fa1a0eef7e300bb5e4a5869adfb1a6d8551632b559b2b
     # via msal-extensions
 protobuf==3.17.3 \
     --hash=sha256:13ee7be3c2d9a5d2b42a1030976f760f28755fcf5863c55b1460fd205e6cd637 \
