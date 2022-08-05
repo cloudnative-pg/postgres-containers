@@ -7,9 +7,9 @@
 argcomplete==2.0.0 \
     --hash=sha256:6372ad78c89d662035101418ae253668445b391755cfe94ea52f1b9d22425b20 \
     --hash=sha256:cffa11ea77999bb0dd27bb25ff6dc142a6796142f68d45b1a26b11f58724561e
-azure-core==1.24.2 \
-    --hash=sha256:0f3a20d245659bf81fb3670070a5410c8d4a43298d5a981e62dce393000a9084 \
-    --hash=sha256:a76856fa83efe1925a4fd917dc179c7daa15917dd71da2774833fa82a96f3dfa
+azure-core==1.25.0 \
+    --hash=sha256:c26ad5f3612b8a2207cf2be0ef67e478a74acfa450b8d25d778c939921f650dc \
+    --hash=sha256:c4a7d0d9e63a70dbde502b5d0cbe58b52244db4fbf247cca6768899e45fa3336
     # via
     #   azure-identity
     #   azure-storage-blob
@@ -17,19 +17,19 @@ azure-core==1.24.2 \
 azure-identity==1.10.0 \
     --hash=sha256:656e5034d9cef297cf9b35376ed620085273c18cfa52cea4a625bf0d5d2d6409 \
     --hash=sha256:b386f1ccbea6a48b9ab7e7f162adc456793c345193a7c1a713959562b08dcbbd
-azure-storage-blob==12.13.0 \
-    --hash=sha256:280a6ab032845bab9627582bee78a50497ca2f14772929b5c5ee8b4605af0cb3 \
-    --hash=sha256:53f0d4cd32970ac9ff9b9753f83dd2fb3f9ac30e1d01e71638c436c509bfd884
+azure-storage-blob==12.13.1 \
+    --hash=sha256:726b86f733dc76218ce45b7a3254b61ba4f0cc3d68b7621be4985248c92ee483 \
+    --hash=sha256:899c4b8e2671812d2cf78f107556a27dbb128caaa2bb06094e72a3d5836740af
 barman[azure,cloud,google,snappy]==3.0.1 \
     --hash=sha256:04a0250dcf4003edb6f34567b34abbc5c86a97ca953bcbee5462e55ba9141773 \
     --hash=sha256:cd53b20b20d13d063d385c32dc11d9a7a3e9837f08ee4fa96eac1f93ca13a25d
     # via -r requirements.in
-boto3==1.24.45 \
-    --hash=sha256:0f7888eaa493b201821290d4798d1326c7390c89a423369564c1eae68fd96767 \
-    --hash=sha256:293c9ce9cea0f4fe6393d8052eecb67868004940e4b1379996196f8bc5f9da2a
-botocore==1.27.45 \
-    --hash=sha256:04bc95fd65a6b557b953bba24c9dc1b314f27a588b50437b2a02796a1c683542 \
-    --hash=sha256:75f450d373059b057132d72ffcb6f897aaa1985ea0e6ca9dd03c90119bd0b71b
+boto3==1.24.46 \
+    --hash=sha256:44026e44549148dbc5b261ead5f6b339e785680c350ef621bf85f7e2fca05b49 \
+    --hash=sha256:b2d9d55f123a9a91eea2fd8e379d90abf37634420fbb45c22d67e10b324ec71b
+botocore==1.27.46 \
+    --hash=sha256:747b7e94aef41498f063fc0be79c5af102d940beea713965179e1ead89c7e9ec \
+    --hash=sha256:f66d8305d1f59d83334df9b11b6512bb1e14698ec4d5d6d42f833f39f3304ca7
     # via
     #   boto3
     #   s3transfer
