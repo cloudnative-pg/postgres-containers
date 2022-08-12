@@ -14,15 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # 
-FROM postgres:12.11-bullseye
+FROM postgres:12.12-bullseye
 
 # Do not split the description, otherwise we will see a blank space in the labels
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="13" \
+      release="1" \
       summary="PostgreSQL Container images." \
-      description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 12.11-bullseye."
+      description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 12.12-bullseye."
 
 COPY requirements.txt /
 
