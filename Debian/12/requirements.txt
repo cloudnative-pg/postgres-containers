@@ -24,12 +24,12 @@ barman[azure,cloud,google,snappy]==3.0.1 \
     --hash=sha256:04a0250dcf4003edb6f34567b34abbc5c86a97ca953bcbee5462e55ba9141773 \
     --hash=sha256:cd53b20b20d13d063d385c32dc11d9a7a3e9837f08ee4fa96eac1f93ca13a25d
     # via -r requirements.in
-boto3==1.24.54 \
-    --hash=sha256:70bf68f291ce40329ca95a1a9e33020027703bb30248da214b46642c5df0b444 \
-    --hash=sha256:732bbe266773125d233c77171978195bfd2fd03204ee1eec257a640c3e3dbd94
-botocore==1.27.54 \
-    --hash=sha256:2d7631187d8f9f3e3a6dfd79fd10def4d26136a79fcc6a354b99352ea1ddfaec \
-    --hash=sha256:811113dd97072b7f157a25a94d58ca2e6dd4577b8a6bdfe7e1fa6635adf64467
+boto3==1.24.55 \
+    --hash=sha256:4b620f55f3015c516a8f8063b02060a7bb9a763e10de3c0f3ec90102cdfa28db \
+    --hash=sha256:9fe6c7c5019671cbea82f02dbaae7e743ec86187443ab5f333ebb3d3bef63dce
+botocore==1.27.55 \
+    --hash=sha256:0b4a17e81c17845245c0e7a3fbf83753c7f6a5544b93dcf6e0fcc0f3f2156ab2 \
+    --hash=sha256:929d6be4bdb33a693e6c8e06383dba76fa628bb72fdb1f9353fd13f5d115dd19
     # via
     #   boto3
     #   s3transfer
