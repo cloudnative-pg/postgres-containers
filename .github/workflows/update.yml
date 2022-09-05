@@ -23,7 +23,7 @@ jobs:
           max_attempts: 3
           command: |
             # pip-tools provides pip-compile used by update.sh
-            pip3 install --upgrade pip-tools
+            pip3 install --upgrade pip-tools pip
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian images"
             ./Debian/update.sh
