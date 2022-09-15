@@ -150,9 +150,6 @@ update_requirements() {
 	# If there's a new version we need to recreate the requirements files
 	echo "barman[cloud,azure,snappy,google] == $barmanVersion" > requirements.in
 
-	# TODO: Remove once barman removes the `protobuf<3.18` requirement
-	echo "google-api-core <= 2.8.2" >> requirements.in
-
 	# This will take the requirements.in file and generate a file
 	# requirements.txt with the hashes for the required packages
 	pip-compile --generate-hashes 2> /dev/null
