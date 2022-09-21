@@ -24,12 +24,12 @@ barman[azure,cloud,google,snappy]==3.1.0 \
     --hash=sha256:70bb2a25ca987255daa3f4af7c87d0c41c341c830c687113f00bcb7798971aa9 \
     --hash=sha256:8a2a85667f274deb93beb026c2492b9017fe51caf494d11ce353aab124f3930a
     # via -r requirements.in
-boto3==1.24.76 \
-    --hash=sha256:5bfcced1a30597b06b3426024c7a9220526882e8fc2dd255f03b9389b5ad8623 \
-    --hash=sha256:aee98e60c7d2ce1396a3beaf47f8ff749e64804cbdaed8e19d4338a6f628f2dc
-botocore==1.27.76 \
-    --hash=sha256:0d4a67801e5a4be4cd84795320ad9fb8c315ed1e7a63e1191b2b3f7a7171d43c \
-    --hash=sha256:b5c32922eba727a466f171dcc281f309d2a313e2f6dc592d43044caad96de338
+boto3==1.24.77 \
+    --hash=sha256:16646de3303779d6dc9c192d8a863095244de81d2e0b94f50692fbde767c6f1b \
+    --hash=sha256:fc16e50263c24631d5fe75464e76f3a1b454b4c0015c864948a61691f9702a6e
+botocore==1.27.77 \
+    --hash=sha256:77a43e970d0762080b4b79a7e00ea572ef2ae7a9f578c3c8e7f0a344ee4b4e6d \
+    --hash=sha256:d88509ed291b95525205cc06ca87b54d077aae996827039f5e32375949c5aaf7
     # via
     #   boto3
     #   s3transfer
@@ -152,9 +152,9 @@ google-api-core==2.8.2 \
     #   -r requirements.in
     #   google-cloud-core
     #   google-cloud-storage
-google-auth==2.11.0 \
-    --hash=sha256:be62acaae38d0049c21ca90f27a23847245c9f161ff54ede13af2cb6afecbac9 \
-    --hash=sha256:ed65ecf9f681832298e29328e1ef0a3676e3732b2e56f41532d45f70a22de0fb
+google-auth==2.11.1 \
+    --hash=sha256:516e6623038b81430dd062a1a25ecd24f173d7c15cdf4e48a9e78bc87e97aeec \
+    --hash=sha256:53bdc0c2b4e25895575779caef4cfb3a6bdff1b7b32dc38a654d71aba35bb5f8
     # via
     #   google-api-core
     #   google-cloud-core
