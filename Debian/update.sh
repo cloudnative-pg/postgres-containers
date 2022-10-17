@@ -134,7 +134,7 @@ generate_postgres() {
 	fi
 
   dockerTemplate="Dockerfile.template"
-  if [ "${version}" -gt '14' ]; then
+  if [ "${version}" -gt '15' ]; then
     dockerTemplate="Dockerfile-beta.template"
   fi
 
