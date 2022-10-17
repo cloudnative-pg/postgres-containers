@@ -1,5 +1,5 @@
 # vim:set ft=dockerfile:
-#
+# 
 # Copyright The CloudNativePG Contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
+# 
 FROM postgres:15.0-bullseye
 
 # Do not split the description, otherwise we will see a blank space in the labels
@@ -25,6 +25,14 @@ LABEL name="PostgreSQL Container Images" \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 15.0-bullseye."
 
 COPY requirements.txt /
+
+# Install pgaudit
+RUN set -xe; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+	    "postgresql-${PG_MAJOR}-pgaudit" ;\
+	rm -fr /tmp/* ; \
+	rm -rf /var/lib/apt/lists/*;
 
 # Install barman-cloud
 RUN set -xe; \
