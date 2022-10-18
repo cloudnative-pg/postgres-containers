@@ -30,8 +30,8 @@ versions=("${versions[@]%/}")
 
 # Get the last postgres base image tag and update time
 fetch_postgres_image_version() {
-    local suite="$1";
-    local item="$2";
+	local suite="$1";
+	local item="$2";
 	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=bullseye&ordering=last_updated&page_size=20" | \
 	  jq -c ".results[] | select( .name | match(\"^${suite}.[a-z0-9]+-bullseye\"))" | \
 	  jq -r ".${item}" | \
@@ -123,9 +123,9 @@ generate_postgres() {
 		record_version "${versionFile}" "BARMAN_VERSION" "${barmanVersion}"
 	fi
 
-  if [ "$oldPostgresImageVersion" != "$postgresImageVersion" ]; then
-	    echo "PostgreSQL base image changed from $oldPostgresImageVersion to $postgresImageVersion"
-	    record_version "${versionFile}" "IMAGE_RELEASE_VERSION" 1
+	if [ "$oldPostgresImageVersion" != "$postgresImageVersion" ]; then
+		echo "PostgreSQL base image changed from $oldPostgresImageVersion to $postgresImageVersion"
+		record_version "${versionFile}" "IMAGE_RELEASE_VERSION" 1
 		record_version "${versionFile}" "POSTGRES_IMAGE_VERSION" "${postgresImageVersion}"
 		imageReleaseVersion=1
 	elif [ "$newRelease" = "true" ]; then
@@ -133,10 +133,10 @@ generate_postgres() {
 		record_version "${versionFile}" "IMAGE_RELEASE_VERSION" $imageReleaseVersion
 	fi
 
-  dockerTemplate="Dockerfile.template"
-  if [ "${version}" -gt '15' ]; then
-    dockerTemplate="Dockerfile-beta.template"
-  fi
+	dockerTemplate="Dockerfile.template"
+	if [ "${version}" -gt '15' ]; then
+		dockerTemplate="Dockerfile-beta.template"
+	fi
 
 	cp -r src/* "$version/"
 	sed -e 's/%%POSTGRES_IMAGE_VERSION%%/'"$postgresImageVersion"'/g' \
