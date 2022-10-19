@@ -10,7 +10,7 @@ set -eu
 
 # Define an optional aliases for some major versions
 declare -A aliases=(
-	[14]='latest'
+	[15]='latest'
 )
 
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}/..")")"
