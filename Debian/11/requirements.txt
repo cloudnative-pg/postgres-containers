@@ -20,15 +20,16 @@ azure-identity==1.11.0 \
 azure-storage-blob==12.14.1 \
     --hash=sha256:52b84658e8df7853a3cf1c563814655b5028b979b2a87905b92aa6bb30be240e \
     --hash=sha256:860d4d82985a4bfc7d3271e71275af330f54f330a754355435a7ba749ccde997
-barman[azure,cloud,google,snappy]==3.1.0 \
-    --hash=sha256:70bb2a25ca987255daa3f4af7c87d0c41c341c830c687113f00bcb7798971aa9 \
-    --hash=sha256:8a2a85667f274deb93beb026c2492b9017fe51caf494d11ce353aab124f3930a
+barman[azure,cloud,google,snappy]==3.2.0 \
+    --hash=sha256:2603776a805a5595eb466d493c4529ad8f7581a7266d5e131ee97ac06c0de8e2 \
+    --hash=sha256:f65178f9d72e098639177fdab713962a7d11293c740a5047fce37bba2ad83326
     # via -r requirements.in
-boto3==1.24.94 \
-    --hash=sha256:f13db0beb3c9fe2cc1ed0f031189f144610d2909b5874a616e77b0bd1ae3b686 \
-    --hash=sha256:f4842b395d1580454756622069f4ca0408993885ecede967001d2c101201cdfa
-botocore==1.27.94 \
-    --hash=sha256:8237c070d2ab29fac4fbcfe9dd2e84e0ee147402e0fed3ac1629f92459c7f1d2
+boto3==1.24.95 \
+    --hash=sha256:05818ed61af104f28f039592c5c54d802a0398b1f158c2d485ec86352b48033f \
+    --hash=sha256:285d29042c1684f8fc68492ddf20180d28b94aac1f19dd7161bcad3067c01314
+botocore==1.27.95 \
+    --hash=sha256:04ff12a8d1d0687a1f1c2dfad5b6fc9f5a81de4b639cf9c9e41fee9449680fd4 \
+    --hash=sha256:0b90945aa7080179a0c4941a3809ce4df30792931e16b9b6ef3c739c4f2b7a59
     # via
     #   boto3
     #   s3transfer
@@ -310,9 +311,9 @@ pycparser==2.21 \
     --hash=sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9 \
     --hash=sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206
     # via cffi
-pyjwt[crypto]==2.5.0 \
-    --hash=sha256:8d82e7087868e94dd8d7d418e5088ce64f7daab4b36db654cbaedb46f9d1ca80 \
-    --hash=sha256:e77ab89480905d86998442ac5788f35333fa85f65047a534adc38edf3c88fc3b
+pyjwt[crypto]==2.6.0 \
+    --hash=sha256:69285c7e31fc44f68a1feb309e948e0df53259d579295e6cfe2b1792329f05fd \
+    --hash=sha256:d83c3d892a77bbb74d3e1a2cfa90afaadb60945205d1095d9221f04466f64c14
     # via msal
 python-dateutil==2.8.2 \
     --hash=sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86 \
@@ -425,10 +426,6 @@ six==1.16.0 \
     #   google-auth
     #   isodate
     #   python-dateutil
-types-cryptography==3.3.23.1 \
-    --hash=sha256:b9f8aa93d9e4d7ff920961cdce3dc7cca479946890924d68356b66f15f4f35e3 \
-    --hash=sha256:f108e7a7161eedd9fe391e1a8ae5a98d40c1da2f0418bc0812a9119990272314
-    # via pyjwt
 typing-extensions==4.4.0 \
     --hash=sha256:1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa \
     --hash=sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e
