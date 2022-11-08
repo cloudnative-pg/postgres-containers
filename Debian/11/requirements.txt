@@ -24,12 +24,12 @@ barman[azure,cloud,google,snappy]==3.2.0 \
     --hash=sha256:2603776a805a5595eb466d493c4529ad8f7581a7266d5e131ee97ac06c0de8e2 \
     --hash=sha256:f65178f9d72e098639177fdab713962a7d11293c740a5047fce37bba2ad83326
     # via -r requirements.in
-boto3==1.26.3 \
-    --hash=sha256:7e871c481f88e5b2fc6ac16eb190c95de21efb43ab2d959beacf8b7b096b11d2 \
-    --hash=sha256:b81e4aa16891eac7532ce6cc9eb690a8d2e0ceea3bcf44b5c5a1309c2500d35f
-botocore==1.29.3 \
-    --hash=sha256:100534532b2745f6fa019b79199a8941f04b8168f9d557d0847191455f1f1eed \
-    --hash=sha256:ac7986fefe1b9c6323d381c4fdee3845c67fa53eb6c9cf586a8e8a07270dbcfe
+boto3==1.26.4 \
+    --hash=sha256:244fd0776fc1f69c3ed34f359db7a90a6108372486abc999ce8515a79bbfc86e \
+    --hash=sha256:9bfe15f394a7cd8ca2520e42722269d9aa2bbc222e348283c527d3aa88484314
+botocore==1.29.4 \
+    --hash=sha256:4c7dedc1096417ac8a120a3f42b81bddaec5451cdd6add7af98680903fd73b18 \
+    --hash=sha256:fa86747f5092723c0dc7f201a48cdfac3ad8d03dd6cb7abc189abc708be43269
     # via
     #   boto3
     #   s3transfer
@@ -151,9 +151,8 @@ google-api-core==2.10.2 \
     # via
     #   google-cloud-core
     #   google-cloud-storage
-google-auth==2.14.0 \
-    --hash=sha256:1ad5b0e6eba5f69645971abb3d2c197537d5914070a8c6d30299dfdb07c5c700 \
-    --hash=sha256:cf24817855d874ede2efd071aa22125445f555de1685b739a9782fcf408c2a3d
+google-auth==2.14.1 \
+    --hash=sha256:f5d8701633bebc12e0deea4df8abd8aff31c28b355360597f7f2ee60f2e4d016
     # via
     #   google-api-core
     #   google-cloud-core
@@ -162,9 +161,9 @@ google-cloud-core==2.3.2 \
     --hash=sha256:8417acf6466be2fa85123441696c4badda48db314c607cf1e5d543fa8bdc22fe \
     --hash=sha256:b9529ee7047fd8d4bf4a2182de619154240df17fbe60ead399078c1ae152af9a
     # via google-cloud-storage
-google-cloud-storage==2.5.0 \
-    --hash=sha256:19a26c66c317ce542cea0830b7e787e8dac2588b6bfa4d3fd3b871ba16305ab0 \
-    --hash=sha256:382f34b91de2212e3c2e7b40ec079d27ee2e3dbbae99b75b1bcd8c63063ce235
+google-cloud-storage==2.6.0 \
+    --hash=sha256:104ca28ae61243b637f2f01455cc8a05e8f15a2a18ced96cb587241cdd3820f5 \
+    --hash=sha256:4ad0415ff61abdd8bb2ae81c1f8f7ec7d91a1011613f2db87c614c550f97bfe9
 google-crc32c==1.5.0 \
     --hash=sha256:024894d9d3cfbc5943f8f230e23950cd4906b2fe004c72e29b209420a1e6b05a \
     --hash=sha256:02c65b9817512edc6a4ae7c7e987fea799d2e0ee40c53ec573a692bee24de876 \
