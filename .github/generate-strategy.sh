@@ -13,6 +13,8 @@ declare -A aliases=(
 	[15]='latest'
 )
 
+GITHUB_ACTIONS=${GITHUB_ACTIONS:-false}
+
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}/..")")"
 BASE_DIRECTORY="$(pwd)"
 
@@ -71,4 +73,7 @@ done
 # Build the strategy as a JSON object
 strategy="{\"fail-fast\": false, \"matrix\": {\"include\": [$(join ', ' "${entries[@]}")]}}"
 jq -C . <<<"$strategy" # sanity check / debugging aid
-echo "::set-output name=strategy::$(jq -c . <<<"$strategy")"
+
+if [[ "$GITHUB_ACTIONS" == "true" ]]; then
+	echo "strategy=$(jq -c . <<<"$strategy")" >> $GITHUB_OUTPUT
+fi
