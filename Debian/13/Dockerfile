@@ -24,6 +24,8 @@ LABEL name="PostgreSQL Container Images" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 13.9-bullseye."
 
+LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 13.9-bullseye."
+
 COPY requirements.txt /
 
 # Install pgaudit
