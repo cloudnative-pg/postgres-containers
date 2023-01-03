@@ -24,7 +24,10 @@ LABEL name="PostgreSQL Container Images" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 10.23-bullseye."
 
-LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 10.23-bullseye."
+LABEL org.opencontainers.image.source="https://github.com/cloudnative-pg/postgres-containers" \
+      org.opencontainers.image.title="PostgreSQL ${PG_VERSION} Container Image" \
+      org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 10.23-bullseye." \
+      org.opencontainers.image.licenses=PostgreSQL
 
 COPY requirements.txt /
 
