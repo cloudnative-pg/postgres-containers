@@ -1,10 +1,9 @@
 # PostgreSQL Container Images
 
 Maintenance scripts to generate Immutable Application Containers
-for all available PostgreSQL versions (10 to 14) to be used as
+for all available PostgreSQL versions (11 to 15) to be used as
 operands with the [CloudNativePG operator](https://cloudnative-pg.io)
-for Kubernetes. PostgreSQL 15 beta images are also available for evaluation
-and testing.
+for Kubernetes.
 
 These images are built on top of the [Official Postgres image](https://hub.docker.com/_/postgres)
 maintained by the [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
