@@ -24,12 +24,12 @@ barman[azure,cloud,google,snappy]==3.4.0 \
     --hash=sha256:b8f544a318e6689163d1216b1b4feb2b57bc29c052b603f911b38a842479c01c \
     --hash=sha256:d60505a9466091a6a8a5abe11c764a7827649b5eb6ebad7029e6f59a14f93ccc
     # via -r requirements.in
-boto3==1.26.60 \
-    --hash=sha256:5fd2810217a74a38078a19fb85a9e5d6934d0c146eb060967a3ffd7ab33cdf00 \
-    --hash=sha256:f0824b3bcf803800d3ecef903b4840427e4b3d37a069f6fc9a86310f7e036ad5
-botocore==1.29.60 \
-    --hash=sha256:a21217ccf4613c9ebbe4c3192e13ba91d46be642560e39a16406662a398a107b \
-    --hash=sha256:c4ae251e7df0cf01d893eb945bc8f23c14989ed349775a8e16c949f08a068f9a
+boto3==1.26.61 \
+    --hash=sha256:5194c16e1f2371c25ee038e8291faf99117b4f2d272d70f48851ba47bcea44b4 \
+    --hash=sha256:78d75f6a08c33618d9ce37acca78e4f80e316a8ce3ac040c562f8054afe6451e
+botocore==1.29.61 \
+    --hash=sha256:22ead51f900e3465d0e4e670d02d091e613c88be8b333c47bfda727f8988eef3 \
+    --hash=sha256:c7a7133d02c5e9a8fcc9e5a238bf15bde2d5369366553520332a88bc05b7358a
     # via
     #   boto3
     #   s3transfer
@@ -340,9 +340,9 @@ jmespath==1.0.1 \
     # via
     #   boto3
     #   botocore
-msal==1.20.0 \
-    --hash=sha256:78344cd4c91d6134a593b5e3e45541e666e37b747ff8a6316c3668dd1e6ab6b2 \
-    --hash=sha256:d2f1c26368ecdc28c8657d457352faa0b81b1845a7b889d8676787721ba86792
+msal==1.21.0 \
+    --hash=sha256:96b5c867830fd116e5f7d0ec8ef1b238b4cda4d1aea86d8fecf518260e136fbf \
+    --hash=sha256:e8444617c1eccdff7bb73f5d4f94036002accea4a2c05f8f39c9efb5bd2b0c6a
     # via
     #   azure-identity
     #   msal-extensions
