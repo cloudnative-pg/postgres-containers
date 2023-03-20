@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes
 #
-argcomplete==2.1.2 \
-    --hash=sha256:4ba9cdaa28c361d251edce884cd50b4b1215d65cdc881bd204426cdde9f52731 \
-    --hash=sha256:fc82ef070c607b1559b5c720529d63b54d9dcf2dcfc2632b10e6372314a34457
+argcomplete==3.0.0 \
+    --hash=sha256:306d687ca620ba2f505e2e5a3d12448b5735560d76e8b1ff11571168296c96be \
+    --hash=sha256:69db74ba0c72897452f2666267bd76c9cd10829686e99889e6758fac99b23286
 azure-core==1.26.3 \
     --hash=sha256:acbd0daa9675ce88623da35c80d819cdafa91731dee6b2695c64d7ca9da82db4 \
     --hash=sha256:f7bad0a7b4d800d6e73733ea7e13a616016221ac111ff9a344fe4cba41e51bbe
