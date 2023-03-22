@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes
 #
-argcomplete==3.0.2 \
-    --hash=sha256:ba35518a5640ebbda5fb77d94e1db535233a7eac18ffb905216753749eaff8e1 \
-    --hash=sha256:fb929c2f609f195a2b11dc914924149b45c2b55b9f48283362e18b8d35f855c1
+argcomplete==3.0.3 \
+    --hash=sha256:10b932b66c039c8de16f98f4b2022822f4a60e64861b98719eafdd871ca11539 \
+    --hash=sha256:54608afc0dcab4f4b60b5f881d013d4a9a4ed362f81c3e0191b5aec934dbdc21
 azure-core==1.26.3 \
     --hash=sha256:acbd0daa9675ce88623da35c80d819cdafa91731dee6b2695c64d7ca9da82db4 \
     --hash=sha256:f7bad0a7b4d800d6e73733ea7e13a616016221ac111ff9a344fe4cba41e51bbe
@@ -23,12 +23,12 @@ barman[azure,cloud,google,snappy]==3.4.0 \
     --hash=sha256:b8f544a318e6689163d1216b1b4feb2b57bc29c052b603f911b38a842479c01c \
     --hash=sha256:d60505a9466091a6a8a5abe11c764a7827649b5eb6ebad7029e6f59a14f93ccc
     # via -r requirements.in
-boto3==1.26.95 \
-    --hash=sha256:2f07523d45da7a970d18037676e1fb78401ce3f44f4cc26a6a991be8c519b62b \
-    --hash=sha256:945d32fa9bbbb5fc775378bc2c19278797b54ad57e24bd4dbd46ab27f0938152
-botocore==1.29.95 \
-    --hash=sha256:5f5f1c8125f8c331f561ca0a7a892f709df206714c306c48fd907eee469926cb \
-    --hash=sha256:e9ffd4a2fc415c313eda03713c212e3121084fdcb21e20aac5b15924a4ae5a9d
+boto3==1.26.96 \
+    --hash=sha256:7017102c58b9984749bef3b9f476940593c311504354b9ee9dd7bb0b4657a77d \
+    --hash=sha256:f961aa704bd7aeefc186ede52cabc3ef4c336979bb4098d3aad7ca922d55fc27
+botocore==1.29.96 \
+    --hash=sha256:b9781108810e33f8406942c3e3aab748650c59d5cddb7c9d323f4e2682e7b0b6 \
+    --hash=sha256:c449d7050e9bc4a8b8a62ae492cbdc931b786bf5752b792867f1276967fadaed
     # via
     #   boto3
     #   s3transfer
@@ -306,9 +306,9 @@ google-resumable-media==2.4.1 \
     --hash=sha256:15b8a2e75df42dc6502d1306db0bce2647ba6013f9cd03b6e17368c0886ee90a \
     --hash=sha256:831e86fd78d302c1a034730a0c6e5369dd11d37bad73fa69ca8998460d5bae8d
     # via google-cloud-storage
-googleapis-common-protos==1.58.0 \
-    --hash=sha256:c727251ec025947d545184ba17e3578840fc3a24a0516a020479edab660457df \
-    --hash=sha256:ca3befcd4580dab6ad49356b46bf165bb68ff4b32389f028f1abd7c10ab9519a
+googleapis-common-protos==1.59.0 \
+    --hash=sha256:4168fcb568a826a52f23510412da405abd93f4d23ba544bb68d943b14ba3cb44 \
+    --hash=sha256:b287dc48449d1d41af0c69f4ea26242b5ae4c3d7249a38b0984c86a4caffff1f
     # via google-api-core
 idna==3.4 \
     --hash=sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4 \
