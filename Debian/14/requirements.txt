@@ -23,12 +23,12 @@ barman[azure,cloud,google,snappy]==3.5.0 \
     --hash=sha256:078643961d421a5f54825d3da4bbd04faa94b96a6a0f6cefe23babdc53aff83a \
     --hash=sha256:bea6885c1efe2e140b640d4b2daec8aff03563a5cee199a73f874ae39fede051
     # via -r requirements.in
-boto3==1.26.116 \
-    --hash=sha256:40d6fb099f7e6041ddcc72aadc37d2eaae6f32d1f7cf2ef5c02199a114be60a3 \
-    --hash=sha256:bfb16f1978be69fdee39b692fe639b5f9c430d33843d282889a59e61ae132051
-botocore==1.29.116 \
-    --hash=sha256:907dec71437386867000912c2427845f482feef5327e7c659e3e81766aac3d34 \
-    --hash=sha256:c058baa1d374111ad2036e1f7d9fe715571b6d66d180a224208fc7fef9bc3c80
+boto3==1.26.117 \
+    --hash=sha256:1e9128b7d8a1b8af789ea6a04a46e641d82446e1e15c022c0fef697d3c9aab97 \
+    --hash=sha256:84cc8947560d89581ef693895cb36d8c8c70d567900d86c8f7cc612d037fdd17
+botocore==1.29.117 \
+    --hash=sha256:1fc4469e80daab657d1254518ee44a82e284320c8b24cbfbaaa60570afc33743 \
+    --hash=sha256:2e6f6c9be770ed5737de093cfe8d592be15f8763f7bf2906afba90f19836d72d
     # via
     #   boto3
     #   s3transfer
@@ -351,15 +351,15 @@ protobuf==4.22.3 \
     # via
     #   google-api-core
     #   googleapis-common-protos
-pyasn1==0.4.8 \
-    --hash=sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d \
-    --hash=sha256:aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba
+pyasn1==0.5.0 \
+    --hash=sha256:87a2121042a1ac9358cabcaf1d07680ff97ee6404333bacca15f76aa8ad01a57 \
+    --hash=sha256:97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde
     # via
     #   pyasn1-modules
     #   rsa
-pyasn1-modules==0.2.8 \
-    --hash=sha256:905f84c712230b2c592c19470d3ca8d552de726050d1d1716282a1f6146be65e \
-    --hash=sha256:a50b808ffeb97cb3601dd25981f6b016cbb3d31fbf57a8b8a87428e6158d0c74
+pyasn1-modules==0.3.0 \
+    --hash=sha256:5bd01446b736eb9d31512a30d46c1ac3395d676c6f3cafa4c03eb54b9925631c \
+    --hash=sha256:d3ccd6ed470d9ffbc716be08bd90efbd44d0734bc9303818f7336070984a162d
     # via google-auth
 pycparser==2.21 \
     --hash=sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9 \
