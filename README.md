@@ -13,7 +13,7 @@ by adding the following software:
 - PGAudit
 
 Barman Cloud is distributed by EnterpriseDB under the
-[GNU GPL 3 License](https://github.com/2ndquadrant-it/barman/blob/master/LICENSE).
+[GNU GPL 3 License](https://github.com/EnterpriseDB/barman/blob/master/LICENSE).
 
 PGAudit is distributed under the
 [PostgreSQL License](https://github.com/pgaudit/pgaudit/blob/master/LICENSE).
