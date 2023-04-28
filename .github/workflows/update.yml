@@ -34,7 +34,7 @@ jobs:
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         id: disable_include_admins
-        uses: benjefferies/branch-protection-bot@1.0.7
+        uses: benjefferies/branch-protection-bot@1.0.8
         with:
           access_token: ${{ secrets.REPO_GHA_PAT }}
           branch: main
@@ -45,7 +45,7 @@ jobs:
           author_email: noreply@cnpg.com
           message: 'Daily automatic update'
       - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@1.0.7
+        uses: benjefferies/branch-protection-bot@1.0.8
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         with:
           access_token: ${{ secrets.REPO_GHA_PAT }}
