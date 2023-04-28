@@ -41,8 +41,8 @@ jobs:
           enforce_admins: false
       - uses: EndBug/add-and-commit@v9
         with:
-          author_name: EnterpriseDB Automated Updates
-          author_email: noreply@enterprisedb.com
+          author_name: CloudNativePG Automated Updates
+          author_email: noreply@cnpg.com
           message: 'Daily automatic update'
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@1.0.8
