@@ -11,12 +11,16 @@ by adding the following software:
 
 - Barman Cloud
 - PGAudit
+- Postgres Failover Slots
 
 Barman Cloud is distributed by EnterpriseDB under the
 [GNU GPL 3 License](https://github.com/EnterpriseDB/barman/blob/master/LICENSE).
 
 PGAudit is distributed under the
 [PostgreSQL License](https://github.com/pgaudit/pgaudit/blob/master/LICENSE).
+
+Postgres Failover Slots is distributed by EnterpriseDB under the
+[PostgreSQL License](https://github.com/EnterpriseDB/pg_failover_slots/blob/master/LICENSE).
 
 Images are available via
 [GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
