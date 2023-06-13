@@ -11,11 +11,15 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    name: Run update script
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.REPO_GHA_PAT }}
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
       - name: Run update script
         uses: nick-fields/retry@v2
         with:
