@@ -26,6 +26,15 @@ LABEL name="PostgreSQL Container Images" \
 
 COPY requirements.txt /
 
+# Install additional extensions
+RUN set -xe; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		"postgresql-${PG_MAJOR}-pgaudit" \
+	; \
+	rm -fr /tmp/* ; \
+	rm -rf /var/lib/apt/lists/*;
+
 # Install barman-cloud
 RUN set -xe; \
 	apt-get update; \
