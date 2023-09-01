@@ -20,7 +20,7 @@ FROM postgres:12.16-bullseye
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="5" \
+      release="6" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 12.16-bullseye."
 
