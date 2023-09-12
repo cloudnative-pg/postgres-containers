@@ -40,7 +40,6 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
       with:
-        image: tonistiigi/binfmt:qemu-v6.1.0
         platforms: ${{ matrix.platforms }}
 
     - name: Docker meta
