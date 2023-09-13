@@ -20,7 +20,7 @@ Barman Cloud is distributed by EnterpriseDB under the
 PGAudit is distributed under the
 [PostgreSQL License](https://github.com/pgaudit/pgaudit/blob/master/LICENSE).
 
-pg_repack is distributed by EnterpriseDB under the
+pg_repack is distributed by the pg_reorg project under the
 [BSD-3-Clause license](https://github.com/reorg/pg_repack/blob/master/COPYRIGHT).
 
 Postgres Failover Slots is distributed by EnterpriseDB under the
