@@ -30,6 +30,7 @@ COPY requirements.txt /
 RUN set -xe; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
+		"postgresql-${PG_MAJOR}-pgvector" \
 		"postgresql-${PG_MAJOR}-pgaudit" \
 	; \
 	rm -fr /tmp/* ; \
