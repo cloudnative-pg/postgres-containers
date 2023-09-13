@@ -13,6 +13,7 @@ by adding the following software:
 - PGAudit
 - Postgres Failover Slots
 - pgvector
+- pg_repack
 
 Barman Cloud is distributed by EnterpriseDB under the
 [GNU GPL 3 License](https://github.com/EnterpriseDB/barman/blob/master/LICENSE).
@@ -25,6 +26,9 @@ Postgres Failover Slots is distributed by EnterpriseDB under the
 
 pgvector is distributed under the
 [PostgreSQL License](https://github.com/pgvector/pgvector/blob/master/LICENSE).
+
+pg_repack is distributed by the pg_reorg project under the
+[BSD-3-Clause license](https://github.com/reorg/pg_repack/blob/master/COPYRIGHT).
 
 Images are available via
 [GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
