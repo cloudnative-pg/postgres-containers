@@ -16,19 +16,19 @@ azure-core==1.29.4 \
 azure-identity==1.14.0 \
     --hash=sha256:72441799f8c5c89bfe21026965e266672a7c5d050c2c65119ef899dd5362e2b1 \
     --hash=sha256:edabf0e010eb85760e1dd19424d5e8f97ba2c9caff73a16e7b30ccbdbcce369b
-azure-storage-blob==12.18.0 \
-    --hash=sha256:11e033f91a9c2bee72251951ef60d45cfcad2eb199476e924074bb1d124e2fed \
-    --hash=sha256:8e50cb4859e5c2abb269ad8213e22c04fc72ffc1294ec61dcf1b0e7885f13259
+azure-storage-blob==12.18.1 \
+    --hash=sha256:00b92568e91d608c04dfd4814c3b180818e690023493bb984c22dfc1a8a96e55 \
+    --hash=sha256:d3265c2403c28d8881326c365e9cf7ed2ad55fdac98404eae753548702b31ba2
 barman[azure,cloud,google,snappy]==3.8.0 \
     --hash=sha256:1ae295842129ba8b7fb6b1c0317e7d41243f160c0c683d44e77f48ce25fb25fb \
     --hash=sha256:2c9a1571047d90d885b962b8167630c7cda6a2b892d09c2779baa6bd49f484ac
     # via -r requirements.in
-boto3==1.28.46 \
-    --hash=sha256:04445d70127c25fad69e2cab7e3f5cb219c8d6e60463af3657f20e29ac517957 \
-    --hash=sha256:2ca2852f7b7c1bc2e56f10f968d4c8483c8228b935ecd89a444ae8292ad0dc24
-botocore==1.31.46 \
-    --hash=sha256:6c30be3371624a80d6a881d9c7771a80e0eb82697ee374aaf522cd59b76e14dd \
-    --hash=sha256:ac0c1258b1782cde42950bd00138fdce6bd7d04855296af8c326d5844a426473
+boto3==1.28.47 \
+    --hash=sha256:27560da44099e7e2ee961d3971d8ea659de2e0dc24e78043d1c3027d89b2d8a2 \
+    --hash=sha256:be69cd28e3732b63ad61f6d2429b1eac92428588911a5a7367faa4e129a4738d
+botocore==1.31.47 \
+    --hash=sha256:6a60f9601270458102529b17fdcba5551b918f9eedc32bbc2f467e63edfb2662 \
+    --hash=sha256:a0ba5629eb17a37bf449bccda9df6ae652d5755f73145519d5eb244f6963b31b
     # via
     #   boto3
     #   s3transfer
