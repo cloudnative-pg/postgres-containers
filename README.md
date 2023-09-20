@@ -1,7 +1,7 @@
 # PostgreSQL Container Images
 
 Maintenance scripts to generate Immutable Application Containers
-for all available PostgreSQL versions (11 to 15) to be used as
+for all available PostgreSQL versions (11 to 16) to be used as
 operands with the [CloudNativePG operator](https://cloudnative-pg.io)
 for Kubernetes.
 
