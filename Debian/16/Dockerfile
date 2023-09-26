@@ -24,14 +24,17 @@ LABEL name="PostgreSQL Container Images" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 16.0-bullseye."
 
+LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 16.0-bullseye."
+
 COPY requirements.txt /
 
 # Install additional extensions
 RUN set -xe; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-		"postgresql-${PG_MAJOR}-pgvector" \
 		"postgresql-${PG_MAJOR}-pgaudit" \
+		"postgresql-${PG_MAJOR}-pgvector" \
+		"postgresql-${PG_MAJOR}-pg-failover-slots" \
 	; \
 	rm -fr /tmp/* ; \
 	rm -rf /var/lib/apt/lists/*;
