@@ -22,7 +22,9 @@ azure-storage-blob==12.18.3 \
 barman[azure,cloud,google,snappy]==3.9.0 \
     --hash=sha256:aa0aa6eae7a13075f00cc6505a0980e2ec0fc7b24faf219a5259986b476f112f \
     --hash=sha256:c3d2cf12543741fb5b5bcbc52f1dd7cfc2bc7e0977890c1e8770adcddfbcd6ea
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   barman
 boto3==1.28.63 \
     --hash=sha256:65d052ec13197460586ee385aa2d6bba0e7378d2d2c7f3e93c044c43ae1ca782 \
     --hash=sha256:94218aba2feb5b404b665b8d76c172dc654f79b4c5fa0e9e92459c098da87bf4
@@ -377,7 +379,9 @@ pycparser==2.21 \
 pyjwt[crypto]==2.8.0 \
     --hash=sha256:57e28d156e3d5c10088e0c68abb90bfac3df82b40a71bd0daa20c65ccd5c23de \
     --hash=sha256:59127c392cc44c2da5bb3192169a91f429924e17aff6534d70fdc02ab3e04320
-    # via msal
+    # via
+    #   msal
+    #   pyjwt
 python-dateutil==2.8.2 \
     --hash=sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86 \
     --hash=sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9
