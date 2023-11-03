@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes
 #
-argcomplete==3.1.3 \
-    --hash=sha256:0ded993e146148e0fe4ebafd3563d56fbcd0adbe39bc3001b351739e599e9223 \
-    --hash=sha256:611c9d068f7a06e71d840d3bea59171aa7c927cb22c9a58557f74dc194f18b4d
+argcomplete==3.1.4 \
+    --hash=sha256:72558ba729e4c468572609817226fb0a6e7e9a0a7d477b882be168c0b4a62b94 \
+    --hash=sha256:fbe56f8cda08aa9a04b307d8482ea703e96a6a801611acb4be9bf3942017989f
 azure-core==1.29.5 \
     --hash=sha256:0fa04b7b1f7d44a4fb8468c4093deb2ea01fdf4faddbf802ed9205615f99d68c \
     --hash=sha256:52983c89d394c6f881a121e5101c5fa67278ca3b1f339c8fb2ef39230c70e9ac
@@ -25,12 +25,12 @@ barman[azure,cloud,google,snappy]==3.9.0 \
     # via
     #   -r requirements.in
     #   barman
-boto3==1.28.76 \
-    --hash=sha256:85e2fa361ad3210d30800bad311688261f2673a9b301e0edab56463d89609761 \
-    --hash=sha256:d18688bc5d688decf3cc404430a3ac3ec317be653cdcfbc51104c01f38a66434
-botocore==1.31.76 \
-    --hash=sha256:479abb5a1ee03eb00faa1ea176bc595b2f46f7494777807681a9df45ed99ea18 \
-    --hash=sha256:74e0a4515d61b2860b24dc208ca89a68d79dc00147125d531746d3ba808822ad
+boto3==1.28.77 \
+    --hash=sha256:1a47e5b8faea527bb2a40d0cf58faf0d09b5a46cf5658e2c5729479af20c96b8 \
+    --hash=sha256:c0899e54df362bea0ae329da59b0a00e4be5e220e99dc764802ed83cdfc4285c
+botocore==1.31.77 \
+    --hash=sha256:4c5c9562b5d1fb8355314ddf37142edf3f6abd7526f4a68cc1b6cd79bdda48ec \
+    --hash=sha256:509168151f8a0e1b8296031a7fc7822d59d027865d3baa86917682b311a74d26
     # via
     #   boto3
     #   s3transfer
