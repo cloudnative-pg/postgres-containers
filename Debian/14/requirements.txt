@@ -16,21 +16,21 @@ azure-core==1.29.5 \
 azure-identity==1.15.0 \
     --hash=sha256:4c28fc246b7f9265610eb5261d65931183d019a23d4b0e99357facb2e6c227c8 \
     --hash=sha256:a14b1f01c7036f11f148f22cd8c16e05035293d714458d6b44ddf534d93eb912
-azure-storage-blob==12.18.3 \
-    --hash=sha256:c278dde2ac41857a68d615c9f2b36d894ba877a7e84d62795603c7e79d0bb5e9 \
-    --hash=sha256:d8ced0deee3367fa3d4f3d1a03cd9edadf4440c0a371f503d623fa6c807554ee
+azure-storage-blob==12.19.0 \
+    --hash=sha256:26c0a4320a34a3c2a1b74528ba6812ebcb632a04cd67b1c7377232c4b01a5897 \
+    --hash=sha256:7bbc2c9c16678f7a420367fef6b172ba8730a7e66df7f4d7a55d5b3c8216615b
 barman[azure,cloud,google,snappy]==3.9.0 \
     --hash=sha256:aa0aa6eae7a13075f00cc6505a0980e2ec0fc7b24faf219a5259986b476f112f \
     --hash=sha256:c3d2cf12543741fb5b5bcbc52f1dd7cfc2bc7e0977890c1e8770adcddfbcd6ea
     # via
     #   -r requirements.in
     #   barman
-boto3==1.28.79 \
-    --hash=sha256:02ce7dcad2d3b054cd99e7ca6df7a708e016a31b1c98b46d8df3b3891070c121 \
-    --hash=sha256:b8acb57a124434284d6ab69c61d32d70e84e13e2c27c33b4ad3c32f15ad407d3
-botocore==1.31.79 \
-    --hash=sha256:07ecb93833475dde68e5c0e02a7ccf8ca22caf68cdc892651c300529894133e1 \
-    --hash=sha256:6f1fc49e9e12f9772b4fef577837670bc84d772a7c946b4d08fe2890e34a4305
+boto3==1.28.80 \
+    --hash=sha256:2f43e032ab804a3c39996d524003d2b906e5d86856a32da3427e36912a22d2b7 \
+    --hash=sha256:c48c6e04e43f894881b883a28fd032f16805f6cb2771b85f0c97f3fe34db0a41
+botocore==1.31.80 \
+    --hash=sha256:1c693c0f8b2553fcbe0df223241191e6f9f60b4245d65c1822c08f659274fef2 \
+    --hash=sha256:d43fe303530c12efca9be4ec3a9104e8a669f11d1ba9feb18f0284d751a9672c
     # via
     #   boto3
     #   s3transfer
@@ -217,9 +217,9 @@ cryptography==41.0.5 \
     #   azure-storage-blob
     #   msal
     #   pyjwt
-google-api-core==2.12.0 \
-    --hash=sha256:c22e01b1e3c4dcd90998494879612c38d0a3411d1f7b679eb89e2abe3ce1f553 \
-    --hash=sha256:ec6054f7d64ad13b41e43d96f735acbd763b0f3b695dabaa2d579673f6a6e160
+google-api-core==2.13.0 \
+    --hash=sha256:44ed591f6c3a0c1ac7a91867d2b3841f92839f860f3d3fe26c464dbd50f97094 \
+    --hash=sha256:abc1da067c9026c6cd15dfbd4f6ad07735a62eeadc541d1cc296314447fc3aad
     # via
     #   google-cloud-core
     #   google-cloud-storage
