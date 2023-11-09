@@ -25,12 +25,12 @@ barman[azure,cloud,google,snappy]==3.9.0 \
     # via
     #   -r requirements.in
     #   barman
-boto3==1.28.81 \
-    --hash=sha256:66e457b5f1580eb1f29855d867dec743eeec42b3935372eee5e6730e5e3124df \
-    --hash=sha256:6ec7da884eed5c07e679d251bd5c66e4e2f64755ed98270a20323b241c54a743
-botocore==1.31.81 \
-    --hash=sha256:afb0886c5a5a542f763cc1644b1c1b4a783698d79980eb48052d1676d6b3d14e \
-    --hash=sha256:eeb09a77c3e931667c9442565e8697e89e685089912a96d95f65b63e4b2c8c71
+boto3==1.28.82 \
+    --hash=sha256:ae1352d0193aaf90c47d6e57ab054b0b1fabf0fbbe9f51eefec431bf2c3e18f4 \
+    --hash=sha256:bb8ecd6f86289ceaed566eefc0ce8ac66a85e5954aef115ed4ac602cbe61f101
+botocore==1.31.82 \
+    --hash=sha256:5f213229348433d0b7b6aac2d9ae2fdd15c4ff9f38c30ea072f5b300bf6c1dcb \
+    --hash=sha256:9d7d8de1789b1ed37b86a2b0a4fcff9fac91deef0548461d411e1626f68ca70c
     # via
     #   boto3
     #   s3transfer
