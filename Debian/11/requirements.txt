@@ -25,12 +25,12 @@ barman[azure,cloud,google,snappy]==3.9.0 \
     # via
     #   -r requirements.in
     #   barman
-boto3==1.29.3 \
-    --hash=sha256:85123ba6ccef12f8230bcd85bf730d3c4218e08e3cc4baaa0b3eae094703e77d \
-    --hash=sha256:d038b19cbe29d488133351ee6eb36ee11a0934df8bcbc0892bbeb2c544a327a4
-botocore==1.32.3 \
-    --hash=sha256:115adb7edf61ad7083fd582ac749b761fa707758bbca94d42e4e6e92940b5d38 \
-    --hash=sha256:be622915db1dbf1d6d5ed907633471f9ed8f5399dd3cf333f9dc2b955cd3e80d
+boto3==1.29.4 \
+    --hash=sha256:ca9b04fc2c75990c2be84c43b9d6edecce828960fc27e07ab29036587a1ca635 \
+    --hash=sha256:d1135647309b89376a014d21407aabfa322998206175f2297def812bf4d824a9
+botocore==1.32.4 \
+    --hash=sha256:3ee73c0d93bdb944d0c46772f08f09cdcf25ef58bd86962e6f4a24e531198bfa \
+    --hash=sha256:6bfa75e28c9ad0321cefefa51b00ff233b16b2416f8b95229796263edba45a39
     # via
     #   boto3
     #   s3transfer
@@ -360,9 +360,9 @@ protobuf==4.25.1 \
     # via
     #   google-api-core
     #   googleapis-common-protos
-pyasn1==0.5.0 \
-    --hash=sha256:87a2121042a1ac9358cabcaf1d07680ff97ee6404333bacca15f76aa8ad01a57 \
-    --hash=sha256:97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde
+pyasn1==0.5.1 \
+    --hash=sha256:4439847c58d40b1d0a573d07e3856e95333f1976294494c325775aeca506eb58 \
+    --hash=sha256:6d391a96e59b23130a5cfa74d6fd7f388dbbe26cc8f1edf39fdddf08d9d6676c
     # via
     #   pyasn1-modules
     #   rsa
