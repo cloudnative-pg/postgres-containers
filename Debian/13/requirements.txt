@@ -337,10 +337,14 @@ msal==1.26.0 \
     # via
     #   azure-identity
     #   msal-extensions
-msal-extensions==1.0.0 \
-    --hash=sha256:91e3db9620b822d0ed2b4d1850056a0f133cba04455e62f11612e40f5502f2ee \
-    --hash=sha256:c676aba56b0cce3783de1b5c5ecfe828db998167875126ca4b47dc6436451354
+msal-extensions==1.1.0 \
+    --hash=sha256:01be9711b4c0b1a151450068eeb2c4f0997df3bba085ac299de3a66f585e382f \
+    --hash=sha256:6ab357867062db7b253d0bd2df6d411c7891a0ee7308d54d1e4317c1d1c54252
     # via azure-identity
+packaging==23.2 \
+    --hash=sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5 \
+    --hash=sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
+    # via msal-extensions
 portalocker==2.8.2 \
     --hash=sha256:2b035aa7828e46c58e9b31390ee1f169b98e1066ab10b9a6a861fe7e25ee4f33 \
     --hash=sha256:cfb86acc09b9aa7c3b43594e19be1345b9d16af3feb08bf92f23d4dce513a28e
