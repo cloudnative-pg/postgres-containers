@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes
 #
-argcomplete==3.1.6 \
-    --hash=sha256:3b1f07d133332547a53c79437527c00be48cca3807b1d4ca5cab1b26313386a6 \
-    --hash=sha256:71f4683bc9e6b0be85f2b2c1224c47680f210903e23512cfebfe5a41edfd883a
+argcomplete==3.2.1 \
+    --hash=sha256:30891d87f3c1abe091f2142613c9d33cac84a5e15404489f033b20399b691fec \
+    --hash=sha256:437f67fb9b058da5a090df505ef9be0297c4883993f3f56cb186ff087778cfb4
 azure-core==1.29.5 \
     --hash=sha256:0fa04b7b1f7d44a4fb8468c4093deb2ea01fdf4faddbf802ed9205615f99d68c \
     --hash=sha256:52983c89d394c6f881a121e5101c5fa67278ca3b1f339c8fb2ef39230c70e9ac
@@ -462,9 +462,9 @@ six==1.16.0 \
     #   azure-core
     #   isodate
     #   python-dateutil
-typing-extensions==4.8.0 \
-    --hash=sha256:8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0 \
-    --hash=sha256:df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef
+typing-extensions==4.9.0 \
+    --hash=sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783 \
+    --hash=sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd
     # via
     #   azure-core
     #   azure-storage-blob
