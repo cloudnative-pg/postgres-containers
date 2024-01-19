@@ -4,16 +4,12 @@
 #
 #    pip-compile --generate-hashes
 #
-anyio==4.2.0 \
-    --hash=sha256:745843b39e829e108e518c489b31dc757de7d2131d53fac32bd8df268227bfee \
-    --hash=sha256:e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f
-    # via azure-core
 argcomplete==3.2.1 \
     --hash=sha256:30891d87f3c1abe091f2142613c9d33cac84a5e15404489f033b20399b691fec \
     --hash=sha256:437f67fb9b058da5a090df505ef9be0297c4883993f3f56cb186ff087778cfb4
-azure-core==1.29.6 \
-    --hash=sha256:13b485252ecd9384ae624894fe51cfa6220966207264c360beada239f88b738a \
-    --hash=sha256:604a005bce6a49ba661bb7b2be84a9b169047e52fcfcd0a4e4770affab4178f7
+azure-core==1.29.7 \
+    --hash=sha256:2944faf1a7ff1558b1f457cabf60f279869cabaeef86b353bed8eb032c7d8c5e \
+    --hash=sha256:95a7b41b4af102e5fcdfac9500fcc82ff86e936c7145a099b7848b9ac0501250
     # via
     #   azure-identity
     #   azure-storage-blob
@@ -29,12 +25,12 @@ barman[azure,cloud,google,snappy]==3.9.0 \
     # via
     #   -r requirements.in
     #   barman
-boto3==1.34.21 \
-    --hash=sha256:206e61ba1f8c830e5df0355606d178ad5bc970df12c4c318b021c71da410eb0c \
-    --hash=sha256:88e3baeb53ae421aabd44bb49ebdd7122b74b53b0f437b0f3e17141f6744574a
-botocore==1.34.21 \
-    --hash=sha256:21983bb0473a19130192c50ec6974d55f0c4aa48a7094bcf40f7882c8b69b8f1 \
-    --hash=sha256:43274fd3f8e02573790ee76313607c60e3c15a7a0d89d24dfe4042f882f1f8c9
+boto3==1.34.22 \
+    --hash=sha256:5909cd1393143576265c692e908a9ae495492c04a0ffd4bae8578adc2e44729e \
+    --hash=sha256:a98c0b86f6044ff8314cc2361e1ef574d674318313ab5606ccb4a6651c7a3f8c
+botocore==1.34.22 \
+    --hash=sha256:c47ba4286c576150d1b6ca6df69a87b5deff3d23bd84da8bcf8431ebac3c40ba \
+    --hash=sha256:e5f7775975b9213507fbcf846a96b7a2aec2a44fc12a44585197b014a4ab0889
     # via
     #   boto3
     #   s3transfer
@@ -221,10 +217,6 @@ cryptography==41.0.7 \
     #   azure-storage-blob
     #   msal
     #   pyjwt
-exceptiongroup==1.2.0 \
-    --hash=sha256:4bfd3996ac73b41e9b9628b04e079f193850720ea5945fc96a08633c66912f14 \
-    --hash=sha256:91f5c769735f051a4290d52edd0858999b57e5876e9f85937691bd4c9fa3ed68
-    # via anyio
 google-api-core==2.15.0 \
     --hash=sha256:2aa56d2be495551e66bbff7f729b790546f87d5c90e74781aa77233bcb395a8a \
     --hash=sha256:abc978a72658f14a2df1e5e12532effe40f94f868f6e23d95133bd6abcca35ca
@@ -328,9 +320,7 @@ googleapis-common-protos==1.62.0 \
 idna==3.6 \
     --hash=sha256:9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca \
     --hash=sha256:c05567e9c24a6b9faaa835c4821bad0590fbb9d5779e7caa6e1cc4978e7eb24f
-    # via
-    #   anyio
-    #   requests
+    # via requests
 isodate==0.6.1 \
     --hash=sha256:0751eece944162659049d35f4f549ed815792b38793f07cf73381c1c87cbed96 \
     --hash=sha256:48c5881de7e8b0a0d648cb024c8062dc84e7b840ed81e864c7614fd3c127bde9
@@ -472,15 +462,10 @@ six==1.16.0 \
     #   azure-core
     #   isodate
     #   python-dateutil
-sniffio==1.3.0 \
-    --hash=sha256:e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101 \
-    --hash=sha256:eecefdce1e5bbfb7ad2eeaabf7c1eeb404d7757c379bd1f7e5cce9d8bf425384
-    # via anyio
 typing-extensions==4.9.0 \
     --hash=sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783 \
     --hash=sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd
     # via
-    #   anyio
     #   azure-core
     #   azure-storage-blob
 urllib3==1.26.18 \
