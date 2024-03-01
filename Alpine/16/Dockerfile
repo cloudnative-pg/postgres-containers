@@ -27,7 +27,6 @@ WORKDIR /barman
 RUN apk add -U --no-cache -t .run-deps \
 		python3 \
 		rsync \
-		postgresql-client \
 		py3-argcomplete \
 		py3-dateutil \
 		py3-psycopg2 \
