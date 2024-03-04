@@ -30,10 +30,11 @@ versions=("${versions[@]%/}")
 
 # Get the last postgres base image tag and update time
 fetch_postgres_image_version() {
-	local suite="$1";
-	local item="$2";
-	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=bookworm&ordering=last_updated&page_size=20" | \
-	  jq -c ".results[] | select( .name | match(\"^${suite}.[a-z0-9]+-bookworm\"))" | \
+	local suite="$1"; shift
+	local distro="$1"; shift
+	local item="$1"; shift
+	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=${distro}&ordering=last_updated&page_size=20" | \
+	  jq -c ".results[] | select( .name | match(\"^${suite}.[a-z0-9]+-${distro}$\"))" | \
 	  jq -r ".${item}" | \
 	  head -n1
 }
@@ -70,15 +71,18 @@ record_version() {
 
 generate_postgres() {
 	local version="$1"; shift
-	versionFile="${version}/.versions.json"
+	local distro="$1"; shift
+
+	versionDir="${version}/${distro}"
+	versionFile="${versionDir}/.versions.json"
 	imageReleaseVersion=1
 
-	postgresImageVersion=$(fetch_postgres_image_version "${version}" "name")
+	postgresImageVersion=$(fetch_postgres_image_version "${version}" "${distro}" "name")
 	if [ -z "$postgresImageVersion" ]; then
 		echo "Unable to retrieve latest postgres ${version} image version"
 		exit 1
 	fi
-	postgresImageLastUpdate=$(fetch_postgres_image_version "${version}" "last_updated")
+	postgresImageLastUpdate=$(fetch_postgres_image_version "${version}" "${distro}" "last_updated")
 	if [ -z "$postgresImageLastUpdate" ]; then
 		echo "Unable to retrieve latest  postgres ${version} image version last update time"
 		exit 1
@@ -99,7 +103,7 @@ generate_postgres() {
 		imageReleaseVersion=$oldImageReleaseVersion
 	else
 		imageReleaseVersion=1
-		echo "{}" > "${versionFile}"
+		mkdir -p "${versionDir}" && echo "{}" > "${versionFile}"
 		record_version "${versionFile}" "IMAGE_RELEASE_VERSION" "${imageReleaseVersion}"
 		record_version "${versionFile}" "BARMAN_VERSION" "${barmanVersion}"
 		record_version "${versionFile}" "POSTGRES_IMAGE_LAST_UPDATED" "${postgresImageLastUpdate}"
@@ -138,11 +142,11 @@ generate_postgres() {
 		dockerTemplate="Dockerfile-beta.template"
 	fi
 
-	cp -r src/* "$version/"
+	cp -r src/* "$versionDir/"
 	sed -e 's/%%POSTGRES_IMAGE_VERSION%%/'"$postgresImageVersion"'/g' \
 		-e 's/%%IMAGE_RELEASE_VERSION%%/'"$imageReleaseVersion"'/g' \
 		${dockerTemplate} \
-		> "$version/Dockerfile"
+		> "$versionDir/Dockerfile"
 }
 
 update_requirements() {
@@ -164,5 +168,6 @@ update_requirements() {
 
 update_requirements
 for version in "${versions[@]}"; do
-	generate_postgres "${version}"
+	generate_postgres "${version}" "bullseye"
+	generate_postgres "${version}" "bookworm"
 done
