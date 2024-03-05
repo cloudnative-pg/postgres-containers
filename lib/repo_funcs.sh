@@ -15,19 +15,6 @@
 # limitations under the License.
 #
 
-set -Eeuo pipefail
-
-cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
-
-versions=("$@")
-if [ ${#versions[@]} -eq 0 ]; then
-	for version in */; do
-		[[ $version = src/ ]] && continue
-		versions+=("$version")
-	done
-fi
-versions=("${versions[@]%/}")
-
 # Get the last postgres base image tag and update time
 fetch_postgres_image_version() {
 	local suite="$1"; shift
@@ -38,7 +25,6 @@ fetch_postgres_image_version() {
 	  jq -r ".${item}" | \
 	  head -n1
 }
-
 
 # Get the latest Barman version
 latest_barman_version=
@@ -82,12 +68,12 @@ generate_postgres() {
 		echo "Unable to retrieve latest postgres ${version} image version"
 		exit 1
 	fi
+
 	postgresImageLastUpdate=$(fetch_postgres_image_version "${version}" "${distro}" "last_updated")
 	if [ -z "$postgresImageLastUpdate" ]; then
 		echo "Unable to retrieve latest  postgres ${version} image version last update time"
 		exit 1
 	fi
-
 
 	barmanVersion=$(get_latest_barman_version)
 	if [ -z "$barmanVersion" ]; then
@@ -165,9 +151,3 @@ update_requirements() {
 	# be added to every container later
 	mv requirements.txt src/
 }
-
-update_requirements
-for version in "${versions[@]}"; do
-	generate_postgres "${version}" "bullseye"
-	generate_postgres "${version}" "bookworm"
-done
