@@ -20,7 +20,7 @@ FROM postgres:16.2-bullseye
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="1" \
+      release="7" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 16.2-bullseye."
 
@@ -47,9 +47,9 @@ RUN set -xe; \
 		python3-psycopg2 \
 		python3-setuptools \
 	; \
-	pip3 install --break-system-packages --upgrade pip; \
+	pip3 install --upgrade pip; \
 # TODO: Remove --no-deps once https://github.com/pypa/pip/issues/9644 is solved
-	pip3 install --break-system-packages --no-deps -r requirements.txt; \
+	pip3 install --no-deps -r requirements.txt; \
 	rm -rf /var/lib/apt/lists/*;
 
 # Change the uid of postgres to 26
