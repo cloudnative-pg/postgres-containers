@@ -81,6 +81,11 @@ generate_postgres() {
 		exit 1
 	fi
 
+	pipOptions=""
+	if [ "$distro" == "bookworm" ]; then
+		pipOptions="--break-system-packages"
+	fi
+
 	if [ -f "${versionFile}" ]; then
 		oldImageReleaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
 		oldBarmanVersion=$(jq -r '.BARMAN_VERSION' "${versionFile}")
@@ -131,6 +136,7 @@ generate_postgres() {
 	cp -r src/* "$versionDir/"
 	sed -e 's/%%POSTGRES_IMAGE_VERSION%%/'"$postgresImageVersion"'/g' \
 		-e 's/%%IMAGE_RELEASE_VERSION%%/'"$imageReleaseVersion"'/g' \
+		-e 's/%%PIP_OPTIONS%%/'"${pipOptions}"'/g' \
 		${dockerTemplate} \
 		> "$versionDir/Dockerfile"
 }
