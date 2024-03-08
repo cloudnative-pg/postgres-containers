@@ -96,6 +96,11 @@ jobs:
         image: "ghcr.io/${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
         args: --severity-threshold=high --file=${{ matrix.file }}
 
+    - uses: actions/upload-artifact@v4
+      with:
+        name: snyk-sarif
+        path: snyk.sarif
+
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v3
       with:
