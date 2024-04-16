@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_STAGING: cloudnative-pg/postgresql-testing
-  IMAGE_RELEASE: cloudnative-pg/postgresql
+  IMAGE_STAGING: "ghcr.io/${{ github.repository_owner }}/postgresql-testing"
+  IMAGE_RELEASE: "ghcr.io/${{ github.repository_owner }}/postgresql"
 
 jobs:
   generate-jobs:
@@ -47,20 +47,14 @@ jobs:
       env:
         TAGS: ${{ toJson(matrix.tags) }}
       run: |
-        # Set a default image
-        echo "BASE_IMAGE=${IMAGE_STAGING}" >> $GITHUB_ENV
-
         RESULT=""
         for tag in $(jq -r '.[]' <<< "${TAGS}")
         do
-          RESULT="${RESULT},ghcr.io/${IMAGE_STAGING}:${tag}"
+          RESULT="${RESULT},${IMAGE_STAGING}:${tag}"
           # If we are running the pipeline in the main branch images are pushed in both -testing and PROD repo
           if [ "${GITHUB_REF#refs/heads/}" == main ]
           then
-            # Set prod as default image
-            echo "BASE_IMAGE=${IMAGE_RELEASE}" >> $GITHUB_ENV
-
-            RESULT="${RESULT},ghcr.io/${IMAGE_RELEASE}:${tag}"
+            RESULT="${RESULT},${IMAGE_RELEASE}:${tag}"
           fi
         done
         echo "TAGS=${RESULT%,}" >> $GITHUB_ENV
@@ -87,7 +81,7 @@ jobs:
     - name: Dockle scan
       uses: erzz/dockle-action@v1
       with:
-        image: "ghcr.io/${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
+        image: "${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
         exit-code: '1'
         failure-threshold: WARN
         accept-keywords: key
@@ -99,7 +93,7 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: "ghcr.io/${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
+        image: "${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
         args: --severity-threshold=high --file=${{ matrix.file }}
 
     - name: Upload result to GitHub Code Scanning
@@ -120,7 +114,13 @@ jobs:
 
     - name: Create artifact
       run: |
-        DIGEST=ghcr.io/${{ env.BASE_IMAGE }}@${{ steps.build.outputs.digest }} \
+        # Set a default image
+        BASE_IMAGE=${IMAGE_STAGING}
+        if [ "${GITHUB_REF#refs/heads/}" == main ]; then
+            BASE_IMAGE=${IMAGE_RELEASE}
+        fi
+
+        DIGEST=${BASE_IMAGE}@${{ steps.build.outputs.digest }} \
         MAJOR=${{ matrix.version }} \
         yq --null-input '{
           "apiVersion": "postgresql.cnpg.io/v1",
