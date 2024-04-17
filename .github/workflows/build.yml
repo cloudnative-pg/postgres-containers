@@ -122,7 +122,7 @@ jobs:
             BASE_IMAGE=${IMAGE_RELEASE}
         fi
 
-        DIGEST=${BASE_IMAGE}@${{ steps.build.outputs.digest }} \
+        IMAGE=${BASE_IMAGE}:${{ matrix.fullTag }}@${{ steps.build.outputs.digest }} \
         MAJOR=${{ matrix.version }} \
         yq --null-input '{
           "apiVersion": "postgresql.cnpg.io/v1",
@@ -132,7 +132,7 @@ jobs:
             "images": [
               {
                 "major": env(MAJOR),
-                "image": env(DIGEST)
+                "image": env(IMAGE)
               }
             ]
           }
