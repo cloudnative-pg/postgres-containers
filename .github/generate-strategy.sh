@@ -49,12 +49,13 @@ for version in "${debian_versions[@]}"; do
 
 	# Initial aliases are "major version", "optional alias", "full version with release"
 	# i.e. "14", "latest", "14.2-1", "14.2-debian","14.2"
+	fullTag="${postgresImageVersion}-${releaseVersion}"
 	versionAliases=(
 			"${version}"
 			${aliases[$version]:+"${aliases[$version]}"}
-			"${postgresImageVersion}-${releaseVersion}"
+			"${fullTag}"
 			"${postgresImageVersion}"
-		)
+	)
 	# Add all the version prefixes between full version and major version
 	# i.e "13.2"
 	while [ "$postgresImageVersion" != "$version" ] && [ "${postgresImageVersion%[.-]*}" != "$postgresImageVersion" ]; do
@@ -66,7 +67,7 @@ for version in "${debian_versions[@]}"; do
 
 	# Build the json entry
 	entries+=(
-		"{\"name\": \"Debian ${postgresImageVersion}\", \"platforms\": \"$platforms\", \"dir\": \"Debian/$version\", \"file\": \"Debian/$version/Dockerfile\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"]}"
+		"{\"name\": \"Debian ${postgresImageVersion}\", \"platforms\": \"$platforms\", \"dir\": \"Debian/$version\", \"file\": \"Debian/$version/Dockerfile\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"], \"fullTag\": \"${fullTag}\"}"
 	)
 done
 

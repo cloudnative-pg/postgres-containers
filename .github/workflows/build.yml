@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - Debian/ClusterImageCatalog.yaml
   workflow_dispatch:
 
 env:
-  IMAGE_STAGING: cloudnative-pg/postgresql-testing
-  IMAGE_RELEASE: cloudnative-pg/postgresql
+  IMAGE_STAGING: "ghcr.io/${{ github.repository_owner }}/postgresql-testing"
+  IMAGE_RELEASE: "ghcr.io/${{ github.repository_owner }}/postgresql"
 
 jobs:
   generate-jobs:
@@ -50,11 +52,11 @@ jobs:
         RESULT=""
         for tag in $(jq -r '.[]' <<< "${TAGS}")
         do
-          RESULT="${RESULT},ghcr.io/${IMAGE_STAGING}:${tag}"
+          RESULT="${RESULT},${IMAGE_STAGING}:${tag}"
           # If we are running the pipeline in the main branch images are pushed in both -testing and PROD repo
           if [ "${GITHUB_REF#refs/heads/}" == main ]
           then
-            RESULT="${RESULT},ghcr.io/${IMAGE_RELEASE}:${tag}"
+            RESULT="${RESULT},${IMAGE_RELEASE}:${tag}"
           fi
         done
         echo "TAGS=${RESULT%,}" >> $GITHUB_ENV
@@ -81,7 +83,7 @@ jobs:
     - name: Dockle scan
       uses: erzz/dockle-action@v1
       with:
-        image: "ghcr.io/${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
+        image: "${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
         exit-code: '1'
         failure-threshold: WARN
         accept-keywords: key
@@ -93,7 +95,7 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: "ghcr.io/${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
+        image: "${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
         args: --severity-threshold=high --file=${{ matrix.file }}
 
     - name: Upload result to GitHub Code Scanning
@@ -103,6 +105,7 @@ jobs:
         sarif_file: snyk.sarif
 
     - name: Build and push
+      id: build
       uses: docker/build-push-action@v5
       with:
         context: ${{ matrix.dir }}
@@ -110,3 +113,81 @@ jobs:
         platforms: ${{ matrix.platforms }}
         push: true
         tags: ${{ env.TAGS }}
+
+    - name: Create artifact
+      run: |
+        # Set a default image
+        BASE_IMAGE=${IMAGE_STAGING}
+        if [ "${GITHUB_REF#refs/heads/}" == main ]; then
+            BASE_IMAGE=${IMAGE_RELEASE}
+        fi
+
+        IMAGE=${BASE_IMAGE}:${{ matrix.fullTag }}@${{ steps.build.outputs.digest }} \
+        MAJOR=${{ matrix.version }} \
+        yq --null-input '{
+          "apiVersion": "postgresql.cnpg.io/v1",
+          "kind": "ClusterImageCatalog",
+          "metadata": {"name":"postgresql"},
+          "spec": {
+            "images": [
+              {
+                "major": env(MAJOR),
+                "image": env(IMAGE)
+              }
+            ]
+          }
+        }' > ${{ matrix.version }}.yaml
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.version }}-clusterimagecatalog
+        path: ${{ matrix.version }}.yaml
+
+  image-catalog:
+    name: Generate ClusterImageCatalog
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.REPO_GHA_PAT }}
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-clusterimagecatalog'
+          path: clusterimagecatalog
+          merge-multiple: true
+
+      - name: Update ClusterImageCatalog
+        run: |
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*.yaml > Debian/ClusterImageCatalog.yaml
+          cat Debian/ClusterImageCatalog.yaml
+
+      - name: Temporarily disable "include administrators" branch protection
+        if: ${{ always() && github.ref == 'refs/heads/main' }}
+        id: disable_include_admins
+        uses: benjefferies/branch-protection-bot@v1.1.2
+        with:
+          access_token: ${{ secrets.REPO_GHA_PAT }}
+          branch: main
+          enforce_admins: false
+
+      - name: Push ClusterImageCatalog updates
+        uses: EndBug/add-and-commit@v9
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          author_name: CloudNativePG Automated Updates
+          author_email: noreply@cnpg.com
+          message: 'Automatic ClusterImageCatalog update'
+          add: 'Debian/ClusterImageCatalog.yaml'
+
+      - name: Enable "include administrators" branch protection
+        uses: benjefferies/branch-protection-bot@v1.1.2
+        if: ${{ always() && github.ref == 'refs/heads/main' }}
+        with:
+          access_token: ${{ secrets.REPO_GHA_PAT }}
+          branch: main
+          enforce_admins: ${{ steps.disable_include_admins.outputs.initial_status }}
