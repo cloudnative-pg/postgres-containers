@@ -80,7 +80,7 @@ generator() {
 
 		# Build the json entry
 		entries+=(
-			"{\"name\": \"Debian ${version} - ${distro}\", \"platforms\": \"$platforms\", \"dir\": \"$os/$versionDir\", \"file\": \"$os/$versionDir/Dockerfile\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"], \"fullTag\": \"${fullTag}\"}"
+			"{\"name\": \"Debian ${version} - ${distro}\", \"platforms\": \"$platforms\", \"dir\": \"$os/$versionDir\", \"file\": \"$os/$versionDir/Dockerfile\", \"distro\": \"$distro\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"], \"fullTag\": \"${fullTag}\"}"
 		)
 	done
 }

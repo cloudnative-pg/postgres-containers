@@ -6,11 +6,13 @@ on:
       - main
     paths-ignore:
       - Debian/ClusterImageCatalog.yaml
+      - Debian/ClusterImageCatalog-bookworm.yaml
   workflow_dispatch:
 
 env:
   IMAGE_STAGING: "ghcr.io/${{ github.repository_owner }}/postgresql-testing"
   IMAGE_RELEASE: "ghcr.io/${{ github.repository_owner }}/postgresql"
+  DEFAULT_DISTRO: "bullseye"
 
 jobs:
   generate-jobs:
@@ -136,13 +138,13 @@ jobs:
               }
             ]
           }
-        }' > ${{ matrix.version }}.yaml
+        }' > ${{ matrix.version }}-${{ matrix.distro }}.yaml
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.version }}-clusterimagecatalog
-        path: ${{ matrix.version }}.yaml
+        name: ${{ matrix.version }}-${{ matrix.distro }}-clusterimagecatalog
+        path: ${{ matrix.version }}-${{ matrix.distro }}.yaml
 
   image-catalog:
     name: Generate ClusterImageCatalog
@@ -163,8 +165,9 @@ jobs:
 
       - name: Update ClusterImageCatalog
         run: |
-          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*.yaml > Debian/ClusterImageCatalog.yaml
-          cat Debian/ClusterImageCatalog.yaml
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-${DEFAULT_DISTRO}.yaml > Debian/ClusterImageCatalog.yaml
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bookworm.yaml > Debian/ClusterImageCatalog-bookworm.yaml
+          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bookworm.yaml
 
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
