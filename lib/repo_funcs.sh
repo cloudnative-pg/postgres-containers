@@ -87,6 +87,9 @@ generate_postgres() {
 		pipOptions="--break-system-packages"
 	fi
 
+	# Output the image being updated
+	echo "$postgresImageVersion"
+
 	if [ -f "${versionFile}" ]; then
 		oldImageReleaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
 		oldBarmanVersion=$(jq -r '.BARMAN_VERSION' "${versionFile}")

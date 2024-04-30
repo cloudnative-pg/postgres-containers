@@ -17,9 +17,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.REPO_GHA_PAT }}
+
       - uses: actions/setup-python@v5
         with:
           python-version: 3.9
+
       - name: Run update script
         uses: nick-fields/retry@v3
         with:
@@ -30,10 +32,12 @@ jobs:
             pip3 install --upgrade pip-tools pip
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian bullseye images"
-            ./Debian/update-bullseye.sh
+            ./Debian/update.sh -d bullseye
+
       - uses: actions/setup-python@v5
         with:
           python-version: 3.11
+
       - name: Run update script
         uses: nick-fields/retry@v3
         with:
@@ -44,11 +48,13 @@ jobs:
             pip3 install --upgrade pip-tools pip
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian bookworm images"
-            ./Debian/update-bookworm.sh
+            ./Debian/update.sh -d bookworm
+
       - name: Diff
         run: |
           git status
           git diff
+
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         id: disable_include_admins
@@ -57,11 +63,13 @@ jobs:
           access_token: ${{ secrets.REPO_GHA_PAT }}
           branch: main
           enforce_admins: false
+
       - uses: EndBug/add-and-commit@v9
         with:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'Daily automatic update'
+
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@v1.1.2
         if: ${{ always() && github.ref == 'refs/heads/main' }}
