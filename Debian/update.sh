@@ -69,6 +69,7 @@ done
 versions=("$@")
 if [ ${#versions[@]} -eq 0 ]; then
 	for version in */; do
+	  [[ ${version} == "src/" ]] && continue
 		versions+=("$version")
 	done
 fi
