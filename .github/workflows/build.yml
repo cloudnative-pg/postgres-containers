@@ -5,8 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - Debian/ClusterImageCatalog.yaml
-      - Debian/ClusterImageCatalog-bookworm.yaml
+      - Debian/ClusterImageCatalog*.yaml
   workflow_dispatch:
 
 env:
