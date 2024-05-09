@@ -13,6 +13,9 @@ declare -A aliases=(
 	[16]='latest'
 )
 
+# Define the current default distribution
+DEFAULT_DISTRO="bullseye"
+
 GITHUB_ACTIONS=${GITHUB_ACTIONS:-false}
 
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}/..")")"
@@ -39,37 +42,54 @@ join() {
 	echo "${out#$sep}"
 }
 
-entries=()
-for version in "${debian_versions[@]}"; do
+generator() {
+	local os="$1"; shift
+	local distro="$1"; shift
 
-	# Read versions from the definition file
-	versionFile="${version}/.versions.json"
-	postgresImageVersion=$(jq -r '.POSTGRES_IMAGE_VERSION | split("-") | .[0]' "${versionFile}")
-	releaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
+	cd "${BASE_DIRECTORY}"/"${os}"/
+	for version in "${debian_versions[@]}"; do
 
-	# Initial aliases are "major version", "optional alias", "full version with release"
-	# i.e. "14", "latest", "14.2-1", "14.2-debian","14.2"
-	fullTag="${postgresImageVersion}-${releaseVersion}"
-	versionAliases=(
-			"${version}"
-			${aliases[$version]:+"${aliases[$version]}"}
-			"${fullTag}"
-			"${postgresImageVersion}"
-	)
-	# Add all the version prefixes between full version and major version
-	# i.e "13.2"
-	while [ "$postgresImageVersion" != "$version" ] && [ "${postgresImageVersion%[.-]*}" != "$postgresImageVersion" ]; do
-		versionAliases+=("$postgresImageVersion-debian")
-		postgresImageVersion="${postgresImageVersion%[.-]*}"
+		# Read versions from the definition file
+		versionDir="${version}/${distro}"
+		versionFile="${versionDir}/.versions.json"
+		postgresImageVersion=$(jq -r '.POSTGRES_IMAGE_VERSION | split("-") | .[0]' "${versionFile}")
+		releaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
+
+		# Setting distribution tags: "major version", "full version", "full version with release"
+		# i.e. "14-bullseye", "14.2-bullseye", "14.2-1-bullseye"
+		fullTag="${postgresImageVersion}-${releaseVersion}-${distro}"
+		versionAliases=(
+				"${version}-${distro}"
+				"${postgresImageVersion}-${distro}"
+				"${fullTag}"
+			)
+
+		# Additional aliases in case we are running in the default distro
+		# i.e. "14", "14.2", "14.2-1", "latest"
+		if [ "${distro}" == "${DEFAULT_DISTRO}" ]; then
+			versionAliases+=(
+				"$version"
+				"${postgresImageVersion}"
+				"${postgresImageVersion}-${releaseVersion}"
+				${aliases[$version]:+"${aliases[$version]}"}
+			)
+		fi
+
+		# Supported platforms for container images
+		platforms="linux/amd64,linux/arm64"
+
+		# Build the json entry
+		entries+=(
+			"{\"name\": \"Debian ${version} - ${distro}\", \"platforms\": \"$platforms\", \"dir\": \"$os/$versionDir\", \"file\": \"$os/$versionDir/Dockerfile\", \"distro\": \"$distro\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"], \"fullTag\": \"${fullTag}\"}"
+		)
 	done
-    # Support platform for container images
-	platforms="linux/amd64,linux/arm64"
+}
 
-	# Build the json entry
-	entries+=(
-		"{\"name\": \"Debian ${postgresImageVersion}\", \"platforms\": \"$platforms\", \"dir\": \"Debian/$version\", \"file\": \"Debian/$version/Dockerfile\", \"version\": \"$version\", \"tags\": [\"$(join "\", \"" "${versionAliases[@]}")\"], \"fullTag\": \"${fullTag}\"}"
-	)
-done
+entries=()
+
+# Debian
+generator "Debian" "bullseye"
+generator "Debian" "bookworm"
 
 # Build the strategy as a JSON object
 strategy="{\"fail-fast\": false, \"matrix\": {\"include\": [$(join ', ' "${entries[@]}")]}}"

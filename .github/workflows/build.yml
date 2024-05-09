@@ -6,11 +6,13 @@ on:
       - main
     paths-ignore:
       - Debian/ClusterImageCatalog.yaml
+      - Debian/ClusterImageCatalog-bookworm.yaml
   workflow_dispatch:
 
 env:
   IMAGE_STAGING: "ghcr.io/${{ github.repository_owner }}/postgresql-testing"
   IMAGE_RELEASE: "ghcr.io/${{ github.repository_owner }}/postgresql"
+  DEFAULT_DISTRO: "bullseye"
 
 jobs:
   generate-jobs:
@@ -87,7 +89,7 @@ jobs:
         exit-code: '1'
         failure-threshold: WARN
         accept-keywords: key
-        accept-filenames: usr/share/cmake/Templates/Windows/Windows_TemporaryKey.pfx,etc/trusted-key.key,usr/share/doc/perl-IO-Socket-SSL/certs/server_enc.p12,usr/share/doc/perl-IO-Socket-SSL/certs/server.p12,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.8/site-packages/azure/core/settings.py,usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,usr/local/lib/python3.7/dist-packages/azure/core/settings.py,etc/ssl/private/ssl-cert-snakeoil.key,usr/lib/python3.9/site-packages/azure/core/settings.py
+        accept-filenames: usr/share/cmake/Templates/Windows/Windows_TemporaryKey.pfx,etc/trusted-key.key,usr/share/doc/perl-IO-Socket-SSL/certs/server_enc.p12,usr/share/doc/perl-IO-Socket-SSL/certs/server.p12,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.8/site-packages/azure/core/settings.py,usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,usr/local/lib/python3.7/dist-packages/azure/core/settings.py,etc/ssl/private/ssl-cert-snakeoil.key,usr/lib/python3.9/site-packages/azure/core/settings.py,usr/local/lib/python3.11/dist-packages/azure/core/settings.py
 
     - name: Run Snyk to check Docker image for vulnerabilities
       uses: snyk/actions/docker@master
@@ -136,13 +138,13 @@ jobs:
               }
             ]
           }
-        }' > ${{ matrix.version }}.yaml
+        }' > ${{ matrix.version }}-${{ matrix.distro }}.yaml
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.version }}-clusterimagecatalog
-        path: ${{ matrix.version }}.yaml
+        name: ${{ matrix.version }}-${{ matrix.distro }}-clusterimagecatalog
+        path: ${{ matrix.version }}-${{ matrix.distro }}.yaml
 
   image-catalog:
     name: Generate ClusterImageCatalog
@@ -163,8 +165,10 @@ jobs:
 
       - name: Update ClusterImageCatalog
         run: |
-          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*.yaml > Debian/ClusterImageCatalog.yaml
-          cat Debian/ClusterImageCatalog.yaml
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bullseye.yaml > Debian/ClusterImageCatalog-bullseye.yaml
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bookworm.yaml > Debian/ClusterImageCatalog-bookworm.yaml
+          ln -f -s ClusterImageCatalog-${DEFAULT_DISTRO}.yaml Debian/ClusterImageCatalog.yaml
+          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bullseye.yaml Debian/ClusterImageCatalog-bookworm.yaml
 
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
@@ -182,7 +186,7 @@ jobs:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'Automatic ClusterImageCatalog update'
-          add: 'Debian/ClusterImageCatalog.yaml'
+          add: 'Debian/ClusterImageCatalog*.yaml'
 
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@v1.1.2
