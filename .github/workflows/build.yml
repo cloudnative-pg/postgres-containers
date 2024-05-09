@@ -165,9 +165,10 @@ jobs:
 
       - name: Update ClusterImageCatalog
         run: |
-          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-${DEFAULT_DISTRO}.yaml > Debian/ClusterImageCatalog.yaml
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bullseye.yaml > Debian/ClusterImageCatalog-bullseye.yaml
           yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bookworm.yaml > Debian/ClusterImageCatalog-bookworm.yaml
-          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bookworm.yaml
+          ln -f -s ClusterImageCatalog-${DEFAULT_DISTRO}.yaml Debian/ClusterImageCatalog.yaml
+          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bullseye.yaml Debian/ClusterImageCatalog-bookworm.yaml
 
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
@@ -185,7 +186,7 @@ jobs:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'Automatic ClusterImageCatalog update'
-          add: 'Debian/ClusterImageCatalog.yaml'
+          add: 'Debian/ClusterImageCatalog*.yaml'
 
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@v1.1.2
