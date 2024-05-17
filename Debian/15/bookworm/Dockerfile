@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM postgres:15.6-bookworm
+FROM postgres:15.7-bookworm
 
 # Do not split the description, otherwise we will see a blank space in the labels
 LABEL name="PostgreSQL Container Images" \
@@ -22,9 +22,9 @@ LABEL name="PostgreSQL Container Images" \
       version="${PG_VERSION}" \
       release="1" \
       summary="PostgreSQL Container images." \
-      description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 15.6-bookworm."
+      description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 15.7-bookworm."
 
-LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 15.6-bookworm."
+LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 15.7-bookworm."
 
 COPY requirements.txt /
 
