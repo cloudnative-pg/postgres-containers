@@ -20,7 +20,7 @@ fetch_postgres_image_version() {
 	local suite="$1"; shift
 	local distro="$1"; shift
 	local item="$1"; shift
-	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=${distro}&ordering=last_updated&page_size=20" | \
+	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=${distro}&ordering=last_updated&page_size=50" | \
 		jq -c ".results[] | select( .name | match(\"^${suite}.[a-z0-9]+-${distro}$\"))" | \
 		jq -r ".${item}" | \
 		head -n1
