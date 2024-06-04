@@ -28,15 +28,29 @@ To add a new beta version, follow these steps:
    with the title "Add PostgreSQL XX beta1 images".
 2. Clone the `postgres-containers` repository.
 3. Create a new branch named after the issue ID (e.g., `dev/YYY`).
-4. Identify the latest Debian version name (e.g., `bookworm`).
-5. Create the `Debian/XX/bookworm` directory.
-6. Copy the latest `.versions.json` file from the latest available stable
-   PostgreSQL version into the newly created directory.
-7. Update the `POSTGRES_IMAGE_VERSION` to point to the corresponding `beta1`
-   image from the DockerHub catalog.
-8. Add the new directory to your commit and push the changes.
-9. Run the `Automatic updates` action on the branch and wait for it to complete
+4. Create the `Debian/XX/` directory.
+5. Identify the latest Debian version name (e.g., `bookworm`).
+6. Run `Debian/update.sh XX -d bookworm` which will create a
+   `.versions.json` file into the `Debian/XX/bookworm/` directory.
+7. Add the new directory to your commit and push the changes.
+8. Run the `Automatic updates` action on the branch and wait for it to complete
    (this will add a commit to the branch).
-10. Ensure that `IMAGE_RELEASE_VERSION` is set to `1` and commit the change.
-11. Submit a pull request.
+9. Submit a pull request.
 
+
+## Troubleshooting
+
+### Common issues
+
+* Error while running `update.sh`
+
+```
+sed: can't read requirements.txt: No such file or directory
+cat: requirements.txt: No such file or directory
+rm: cannot remove 'requirements.txt': No such file or directory
+```
+
+If a similar error appears, the reason is that you are missing the
+`pip-compile` utility that's needed to build the python requirements
+for Barman Cloud. (Note: This requirement will be removed once a
+Barman Cloud plugin supporting CNPG-I is distributed.)
