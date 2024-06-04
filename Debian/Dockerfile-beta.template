@@ -24,6 +24,8 @@ LABEL name="PostgreSQL Container Images" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres %%POSTGRES_IMAGE_VERSION%%."
 
+LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres %%POSTGRES_IMAGE_VERSION%%."
+
 COPY requirements.txt /
 
 # Install additional extensions
@@ -31,7 +33,6 @@ RUN set -xe; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		"postgresql-${PG_MAJOR}-pgvector" \
-		"postgresql-${PG_MAJOR}-pgaudit" \
 	; \
 	rm -fr /tmp/* ; \
 	rm -rf /var/lib/apt/lists/*;
