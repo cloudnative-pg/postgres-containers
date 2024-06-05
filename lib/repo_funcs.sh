@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 
+# Update this everytime a new major release of PostgreSQL is available
+POSTGRESQL_LATEST_MAJOR_RELEASE=16
+
 # Get the last postgres base image tag and update time
 fetch_postgres_image_version() {
 	local suite="$1"; shift
@@ -133,7 +136,7 @@ generate_postgres() {
 	fi
 
 	dockerTemplate="Dockerfile.template"
-	if [[ ${version} -gt "16" ]]; then
+	if [[ ${version} -gt "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
 		dockerTemplate="Dockerfile-beta.template"
 	fi
 
