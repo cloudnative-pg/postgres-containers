@@ -13,7 +13,7 @@ source "${ROOT_DIR}/lib/repo_funcs.sh"
 
 # Define an optional aliases for some major versions
 declare -A aliases=(
-	[16]='latest'
+	[$POSTGRESQL_LATEST_MAJOR_RELEASE]='latest'
 )
 
 # Define the current default distribution
@@ -69,13 +69,18 @@ generator() {
 
 		# Additional aliases in case we are running in the default distro
 		# i.e. "14", "14.2", "14.2-1", "latest"
-		if [[ "${distro}" == "${DEFAULT_DISTRO}" ]] && [[ ${version} -le "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
+		if [[ "${distro}" == "${DEFAULT_DISTRO}" ]]; then
 			versionAliases+=(
-				"$version"
 				"${postgresImageVersion}"
 				"${postgresImageVersion}-${releaseVersion}"
 				${aliases[$version]:+"${aliases[$version]}"}
 			)
+			# Create a tag with just the major (e.g "14") only for stable versions
+			if [[ "${version}" -le "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
+				versionAliases+=(
+					"$version"
+				)
+			fi
 		fi
 
 		# Supported platforms for container images
