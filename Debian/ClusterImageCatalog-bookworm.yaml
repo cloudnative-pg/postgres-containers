@@ -5,14 +5,14 @@ metadata:
 spec:
   images:
     - major: 12
-      image: ghcr.io/cloudnative-pg/postgresql:12.19-1-bookworm@sha256:f4e24d84d6ba8dc639d0648cd730f85033f90812a7577d8800f1bcdc3268c5a9
+      image: ghcr.io/cloudnative-pg/postgresql:12.19-1-bookworm@sha256:627c20b427c336732ff5d63eb98650d7470c068f862d13b2d1dbf84e970b98e6
     - major: 13
-      image: ghcr.io/cloudnative-pg/postgresql:13.15-1-bookworm@sha256:afb9050d6419815caaa67ef183e47712282c35802a139ea0610f632f5b128d40
+      image: ghcr.io/cloudnative-pg/postgresql:13.15-1-bookworm@sha256:0281d50fe2f652a36eb7771774ee190cf13e657b6ed90a96e203dc5b96eae404
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.12-1-bookworm@sha256:7c2741140f0151bdce281aa288e28c9fb0e1f389993d7cfaaf5eb9d8c1a25008
+      image: ghcr.io/cloudnative-pg/postgresql:14.12-1-bookworm@sha256:d18f83eb1248eefd82cf39b06975c3b81e6e95c0ee165077022cfa29668006c6
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.7-1-bookworm@sha256:e8195018d16306c81ce6679207156d3c8245780c32d52b35f5ecb4525b695e48
+      image: ghcr.io/cloudnative-pg/postgresql:15.7-1-bookworm@sha256:9765489855c369648d018cd723f460f76152389fde0cd8ef0a4d23d0d57acbc2
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.3-1-bookworm@sha256:722277edd87a3ae5019f06c4c26a0c1bb711a52ef168479f0ae1ddb714ace44c
+      image: ghcr.io/cloudnative-pg/postgresql:16.3-1-bookworm@sha256:5d3d961951d65f1afbc24a3806778ff08e7786dde8ffbf6cd2ca483b83a8e9d2
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17beta1-1-bookworm@sha256:f3d126da18d8888fdd193addbc198d8a3b2798c731ad154f31067357623ce4f8
+      image: ghcr.io/cloudnative-pg/postgresql:17beta1-1-bookworm@sha256:dd8453af836bb2f97ce3f1db5fdd115ef676b4e103d8545457e0d06f853a5e23
