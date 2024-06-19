@@ -10,9 +10,9 @@ azure-core==1.30.2 \
     # via
     #   azure-identity
     #   azure-storage-blob
-azure-identity==1.16.1 \
-    --hash=sha256:6d93f04468f240d59246d8afde3091494a5040d4f141cad0f49fc0c399d0d91e \
-    --hash=sha256:8fb07c25642cd4ac422559a8b50d3e77f73dcc2bbfaba419d06d6c9d7cff6726
+azure-identity==1.17.0 \
+    --hash=sha256:501d6c2cbb07826ff5e7cebc05ef319ba45612f31f0bdadca260005798e4ef16 \
+    --hash=sha256:a1168f223b2d7fa3968362b78affd157a1f3772f310a8cdce883cc515c6c8998
 azure-storage-blob==12.20.0 \
     --hash=sha256:de6b3bf3a90e9341a6bcb96a2ebe981dffff993e9045818f6549afea827a52a9 \
     --hash=sha256:eeb91256e41d4b5b9bad6a87fd0a8ade07dd58aa52344e2c8d2746e27a017d3b
@@ -20,12 +20,12 @@ barman[azure,cloud,google,snappy]==3.10.1 \
     --hash=sha256:1f543657b0eb70eaf5200c78724093356d6b2f291488c4950c0fa1fa6f2b5777 \
     --hash=sha256:2401208fd96349dbaf56aa4082629eaf0c3e5e95c642d5898985fb0c3f5bd506
     # via -r requirements.in
-boto3==1.34.128 \
-    --hash=sha256:43a6e99f53a8d34b3b4dbe424dbcc6b894350dc41a85b0af7c7bc24a7ec2cead \
-    --hash=sha256:a048ff980a81cd652724a73bc496c519b336fabe19cc8bfc6c53b2ff6eb22c7b
-botocore==1.34.128 \
-    --hash=sha256:8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9 \
-    --hash=sha256:db67fda136c372ab3fa432580c819c89ba18d28a6152a4d2a7ea40d44082892e
+boto3==1.34.129 \
+    --hash=sha256:a7a696fd3e7f5f43a81450b441f3eb6c5a89d28efe867cd97d8fc73ea5d8c139 \
+    --hash=sha256:cc73de1c9d953b1f9da6ee2404af717e93d888f790f3e0291b22d1b8489eb401
+botocore==1.34.129 \
+    --hash=sha256:7c56e25af6112d69c5d14a15b42f76ba7687687abc463a96ac5edca19c0a9c2d \
+    --hash=sha256:86d3dd30996aa459e9c3321edac12aebe47c73cb4acc7556941f9b4c39726088
     # via
     #   boto3
     #   s3transfer
@@ -476,6 +476,7 @@ typing-extensions==4.12.2 \
     --hash=sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8
     # via
     #   azure-core
+    #   azure-identity
     #   azure-storage-blob
 urllib3==1.26.19 \
     --hash=sha256:37a0344459b199fce0e80b0d3569837ec6b6937435c5244e7fd73fa6006830f3 \
