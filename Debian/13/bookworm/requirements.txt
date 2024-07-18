@@ -335,9 +335,9 @@ jmespath==1.0.1 \
     # via
     #   boto3
     #   botocore
-msal==1.29.0 \
-    --hash=sha256:6b301e63f967481f0cc1a3a3bac0cf322b276855bc1b0955468d9deb3f33d511 \
-    --hash=sha256:8f6725f099752553f9b2fe84125e2a5ebe47b49f92eacca33ebedd3a9ebaae25
+msal==1.30.0 \
+    --hash=sha256:423872177410cb61683566dc3932db7a76f661a5d2f6f52f02a047f101e1c1de \
+    --hash=sha256:b4bf00850092e465157d814efa24a18f788284c9a479491024d62903085ea2fb
     # via
     #   azure-identity
     #   msal-extensions
