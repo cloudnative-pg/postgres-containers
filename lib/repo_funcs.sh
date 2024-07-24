@@ -20,11 +20,17 @@ POSTGRESQL_LATEST_MAJOR_RELEASE=17
 
 # Get the last postgres base image tag and update time
 fetch_postgres_image_version() {
-	local suite="$1"; shift
+	local version="$1"; shift
 	local distro="$1"; shift
 	local item="$1"; shift
+
+	regexp="^${version}\\.[0-9]+-${distro}$"
+	if [[ ${version} -gt "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
+		regexp="^${version}beta[0-9]+-${distro}$"
+	fi
+
 	curl -SsL "https://registry.hub.docker.com/v2/repositories/library/postgres/tags/?name=${distro}&ordering=last_updated&page_size=50" | \
-		jq -c ".results[] | select( .name | match(\"^${suite}.[a-z0-9]+-${distro}$\"))" | \
+		jq --arg regexp "$regexp" -c '.results[] | select( .name | match($regexp))' | \
 		jq -r ".${item}" | \
 		head -n1
 }
