@@ -90,6 +90,14 @@ generate_postgres() {
 		pipOptions="--break-system-packages"
 	fi
 
+	dockerTemplate="Dockerfile.template"
+	if [[ ${version} -gt "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
+		dockerTemplate="Dockerfile-beta.template"
+	fi
+
+	# Update requirements.txt
+	echo "$requirements" > "$versionDir/requirements.txt"
+
 	# Output the image being updated
 	echo "$postgresImageVersion"
 
@@ -111,9 +119,9 @@ generate_postgres() {
 
 	newRelease="false"
 
-	# Detect if postgres image updated
+	# Detect an update of the postgres image
 	if [ "$oldPostgresImageLastUpdate" != "$postgresImageLastUpdate" ]; then
-		echo "Debian Image changed from $oldPostgresImageLastUpdate to $postgresImageLastUpdate"
+		echo "Postgres image timestamp changed from $oldPostgresImageLastUpdate to $postgresImageLastUpdate"
 		newRelease="true"
 		record_version "${versionFile}" "POSTGRES_IMAGE_LAST_UPDATED" "${postgresImageLastUpdate}"
 	fi
@@ -123,6 +131,18 @@ generate_postgres() {
 		echo "Barman changed from $oldBarmanVersion to $barmanVersion"
 		newRelease="true"
 		record_version "${versionFile}" "BARMAN_VERSION" "${barmanVersion}"
+	fi
+
+	# Detect an update of Dockerfile template
+	if [[ -n $(git diff --name-status "$dockerTemplate") ]]; then
+		echo "Detected update of $dockerTemplate"
+		newRelease="true"
+	fi
+
+	# Detect an update of requirements.txt
+	if [[ -n $(git diff --name-status "$versionDir/requirements.txt") ]]; then
+		echo "Detected update of requirements.txt dependencies"
+		newRelease="true"
 	fi
 
 	if [ "$oldPostgresImageVersion" != "$postgresImageVersion" ]; then
@@ -135,12 +155,6 @@ generate_postgres() {
 		record_version "${versionFile}" "IMAGE_RELEASE_VERSION" $imageReleaseVersion
 	fi
 
-	dockerTemplate="Dockerfile.template"
-	if [[ ${version} -gt "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
-		dockerTemplate="Dockerfile-beta.template"
-	fi
-
-	echo "$requirements" > "$versionDir/requirements.txt"
 	sed -e 's/%%POSTGRES_IMAGE_VERSION%%/'"$postgresImageVersion"'/g' \
 		-e 's/%%IMAGE_RELEASE_VERSION%%/'"$imageReleaseVersion"'/g' \
 		-e 's/%%PIP_OPTIONS%%/'"${pipOptions}"'/g' \
