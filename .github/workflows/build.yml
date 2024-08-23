@@ -73,7 +73,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and load
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ${{ matrix.dir }}
         file: ${{ matrix.file }}
@@ -107,7 +107,7 @@ jobs:
 
     - name: Build and push
       id: build
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ${{ matrix.dir }}
         file: ${{ matrix.file }}
