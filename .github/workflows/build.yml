@@ -78,10 +78,10 @@ jobs:
       run: |
         echo "MISSING_TAG=false" >> $GITHUB_ENV
         # if we are not on the main branch, always push
-        # if [ "${GITHUB_REF#refs/heads/}" != main ]; then
-        #     echo "MISSING_TAG=true" >> $GITHUB_ENV
-        #     exit 0
-        # fi
+        if [ "${GITHUB_REF#refs/heads/}" != main ]; then
+            echo "MISSING_TAG=true" >> $GITHUB_ENV
+            exit 0
+        fi
         IMAGE="${IMAGE_RELEASE}:${{ matrix.fullTag }}"
         # If the primary tag already exists, skip the building phase
         if skopeo inspect docker://${IMAGE} >/dev/null 2>/dev/null; then
