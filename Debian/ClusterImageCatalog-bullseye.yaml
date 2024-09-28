@@ -5,14 +5,14 @@ metadata:
 spec:
   images:
     - major: 12
-      image: ghcr.io/cloudnative-pg/postgresql:12.20-23-bullseye@sha256:39d83d8f6660ffc6380050f9059561ae05544220d4ea93e6758c642347ebaf25
+      image: ghcr.io/cloudnative-pg/postgresql:12.20-25-bullseye@sha256:4d3f43cb4924e2845b1d2b919390130a6c3747604d5f530d2a597edcf93819b7
     - major: 13
-      image: ghcr.io/cloudnative-pg/postgresql:13.16-23-bullseye@sha256:fc416d34dbdf1bb1fa9f6c0c4a516a437b8e029b4369d53f45b45a5b2b066144
+      image: ghcr.io/cloudnative-pg/postgresql:13.16-25-bullseye@sha256:976a02dda13b242f6f9e1ddcf90d9c222e495f86d339b0743c1927e8eb12911c
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.13-23-bullseye@sha256:0a8683805dec76f8660726cf1ce391cf71797f4d3efd11c92fc5dd0eec9198fe
+      image: ghcr.io/cloudnative-pg/postgresql:14.13-25-bullseye@sha256:bbd30987f018169d5ecf9790e991f1e971812c46fd57a51c736aaf8806712ccf
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.8-23-bullseye@sha256:55af7b5bcde5a21cb5fc12f20529525cf3150cdf669e25dc21296341ca940ab4
+      image: ghcr.io/cloudnative-pg/postgresql:15.8-25-bullseye@sha256:6d6065f44ab47d45b565612a7ed05b8787037c4537d2096bb420f548cdcc568a
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.4-23-bullseye@sha256:adc9158b667cfefeef370eca89212ca0f1395addabf9480d1d9b2bd5d15769f6
+      image: ghcr.io/cloudnative-pg/postgresql:16.4-26-bullseye@sha256:b502c3adb0f721494745d951d92923531124d1e9b7549dd3163d7ed25d41d524
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17rc1-18-bullseye@sha256:bfcca00ac5e801f164d40a2dfbb1557fe2688e7e2f3baab2e69fb425f914f7d1
+      image: ghcr.io/cloudnative-pg/postgresql:17.0-3-bullseye@sha256:4ac01f0f4bc7320d2c7224d1a6d0181153e0bcd89f3623efd3911190308acac8
