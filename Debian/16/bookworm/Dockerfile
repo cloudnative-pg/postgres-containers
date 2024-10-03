@@ -20,7 +20,7 @@ FROM postgres:16.4-bookworm
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="28" \
+      release="29" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 16.4-bookworm."
 
