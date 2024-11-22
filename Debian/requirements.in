@@ -1,1 +1,1 @@
-barman[cloud,azure,snappy,google] == 3.11.1
+barman[cloud,azure,snappy,google] == 3.12.0.dev1830

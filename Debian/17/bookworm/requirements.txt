@@ -16,9 +16,9 @@ azure-identity==1.19.0 \
 azure-storage-blob==12.24.0 \
     --hash=sha256:4f0bb4592ea79a2d986063696514c781c9e62be240f09f6397986e01755bc071 \
     --hash=sha256:eaaaa1507c8c363d6e1d1342bd549938fdf1adec9b1ada8658c8f5bf3aea844e
-barman[azure,cloud,google,snappy]==3.11.1 \
-    --hash=sha256:295b9b7e058e064338f66ca0d10e4892e784a2347f06e4a225164995f6114498 \
-    --hash=sha256:4f424f3327cb24fb82d6a29dc1cdf02222b950c447c78273273d6eb76d7ce8d7
+barman[azure,cloud,google,snappy]==3.12.0.dev1830 \
+    --hash=sha256:28c66c9420c7754ce1326c47dd18e64d8f1229028a2f31bc143ef04da0ac3743 \
+    --hash=sha256:5da2d021892b3466e9d37e1b906473297051c2e4cde5744abc660d64dcb5550d
     # via -r requirements.in
 boto3==1.35.66 \
     --hash=sha256:09a610f8cf4d3c22d4ca69c1f89079e3a1c82805ce94fa0eb4ecdd4d2ba6c4bc \
