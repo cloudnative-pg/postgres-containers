@@ -14,6 +14,8 @@ by adding the following software:
 - Postgres Failover Slots
 - pgvector
 
+Currently, images are automatically rebuilt once a week (Monday).
+
 Barman Cloud is distributed by EnterpriseDB under the
 [GNU GPL 3 License](https://github.com/EnterpriseDB/barman/blob/master/LICENSE).
 
