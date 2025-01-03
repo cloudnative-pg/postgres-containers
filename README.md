@@ -5,31 +5,23 @@ for all available PostgreSQL versions (13 to 17) to be used as
 operands with the [CloudNativePG operator](https://cloudnative-pg.io)
 for Kubernetes.
 
-These images are built on top of the [Official Postgres image](https://hub.docker.com/_/postgres)
-maintained by the [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
-by adding the following software:
-
-- Barman Cloud
-- PGAudit
-- Postgres Failover Slots
-- pgvector
-
 Currently, images are automatically rebuilt once a week (Monday).
-
-Barman Cloud is distributed by EnterpriseDB under the
-[GNU GPL 3 License](https://github.com/EnterpriseDB/barman/blob/master/LICENSE).
-
-PGAudit is distributed under the
-[PostgreSQL License](https://github.com/pgaudit/pgaudit/blob/master/LICENSE).
-
-Postgres Failover Slots is distributed by EnterpriseDB under the
-[PostgreSQL License](https://github.com/EnterpriseDB/pg_failover_slots/blob/master/LICENSE).
-
-pgvector is distributed under the
-[PostgreSQL License](https://github.com/pgvector/pgvector/blob/master/LICENSE).
 
 Images are available via
 [GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
+
+## Older Images  
+
+In January 2025, we transitioned to a new image build process.
+The previous system, which relied on the [Official Postgres image](https://hub.docker.com/_/postgres)
+maintained by the [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
+included Barman Cloud built from source. This legacy system will be retained
+for backward compatibility but is slated for eventual deprecation.  
+
+The [`Debian`](Debian) folder contains the image catalogues to be used as
+[`ClusterImageCatalog`](https://cloudnative-pg.io/documentation/current/image_catalog/)
+and
+[`ImageCatalog`](https://cloudnative-pg.io/documentation/current/image_catalog/).  
 
 ## License and copyright
 
