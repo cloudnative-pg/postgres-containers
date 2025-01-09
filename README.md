@@ -2,7 +2,7 @@
 > process. Previously, the images were based on the
 > [Official Postgres image](https://hub.docker.com/_/postgres), maintained by the
 > [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
-> and included > Barman Cloud built from source.
+> and included Barman Cloud built from source.
 > This legacy approach, referred to as `system` images, will remain available
 > for backward compatibility but is planned for deprecation.
 
@@ -24,16 +24,40 @@ Images are automatically rebuilt weekly on Mondays.
 
 We currently build and support two primary types of images:
 
-- [`minimal`](#minimal)
-- [`standard`](#standard)
-
-For backward compatibility, we also maintain the [`system`](#system-images) image type.
-
-> *Note:* Switching from `system` images to `minimal` or `standard` images on
-> an existing cluster is not supported.
+- [`minimal`](#minimal-images)
+- [`standard`](#standard-images)
 
 Both `minimal` and `standard` images are intended to be used with backup
 plugins, such as [Barman Cloud](https://github.com/cloudnative-pg/plugin-barman-cloud).
+
+> **Note:** for backward compatibility, we also maintain the
+> [`system`](#system-images) image type. Switching from `system` images to
+> `minimal` or `standard` images on an existing cluster is not supported.
+
+### Minimal images
+
+Minimal images are built on top of the [official Debian images](https://hub.docker.com/_/debian), by installing [APT PostgreSQL packages](https://wiki.postgresql.org/wiki/Apt) provided by the PostgreSQL Global Development Group (PGDG).
+
+Minimal images include `minimal` in the tag name, e.g. `17.2-minimal-bookworm`.
+
+
+### Standard Images
+
+Standard images are an extension of the `minimal` images, enhanced with the
+following additional features:
+
+- PGAudit
+- Postgres Failover Slots
+- pgvector
+- All Locales
+
+Standard images are identifiable by the `standard` tag in their names, such as:
+`17.2-standard-bookworm`.
+
+> **Note:** Standard images are designed to offer functionality equivalent to
+> the legacy `system` images when used with CloudNativePG. To achieve parity,
+> you must use the [Barman Cloud Plugin](https://github.com/cloudnative-pg/plugin-barman-cloud)
+> as a replacement for the native Barman Cloud support in `system` images.
 
 ### System Images
 
@@ -55,27 +79,10 @@ The [`Debian`](Debian) folder contains image catalogs, which can be used as:
 > eventually removed. Users are encouraged to migrate to `minimal` or
 > `standard` images as soon as feasible.
 
-### Minimal
+## Building Images
 
-These images are build on top of [official Debian images](https://hub.docker.com/_/debian)
-by installing PostgreSQL.
-
-Minimal images include `minimal` in the tag name, e.g.
-`17.2-standard-bookworm`.
-
-### Standard
-
-These images are build on top of the minimal images by adding the following
-software:
-
-- PGAudit
-- Postgres Failover Slots
-- pgvector
-
-and all the locales.
-
-Standard images include `standard` in the tag name, e.g.
-`17.2-standard-bookworm`.
+For detailed instructions on building PostgreSQL container images, refer to the
+[BUILD.md](BUILD.md) file.
 
 ## License and copyright
 
