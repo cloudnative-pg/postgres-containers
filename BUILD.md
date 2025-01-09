@@ -40,7 +40,7 @@ The `default` target in Bake represents a Cartesian product of the following
 dimensions:
 
 - **Base Image**
-- **Format** (e.g. `minimal` or `standard`)
+- **Type** (e.g. `minimal` or `standard`)
 - **Platforms**
 - **PostgreSQL Versions**
 
@@ -58,7 +58,7 @@ docker buildx bake --push
 > making testing impossible.
 
 If you want to limit the build to a specific combination, you can specify the
-target in the `VERSION-FORMAT-BASE` format. For example, to build an image for
+target in the `VERSION-TYPE-BASE` format. For example, to build an image for
 PostgreSQL 17 with the `minimal` format on the `bullseye` base image:
 
 ```bash

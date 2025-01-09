@@ -1,38 +1,59 @@
+> **IMPORTANT:** As of January 2025, we have transitioned to a new image build
+> process. Previously, the images were based on the
+> [Official Postgres image](https://hub.docker.com/_/postgres), maintained by the
+> [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
+> and included > Barman Cloud built from source.
+> This legacy approach, referred to as `system` images, will remain available
+> for backward compatibility but is planned for deprecation.
+
+---
+
 # PostgreSQL Container Images
 
-Maintenance scripts to generate Immutable Application Containers
-for all available PostgreSQL versions (13 to 17) to be used as
-operands with the [CloudNativePG operator](https://cloudnative-pg.io)
-for Kubernetes.
+This repository provides maintenance scripts to generate immutable application
+containers for all supported PostgreSQL versions (13 to 17).
 
-## Images
-
-We build three types of images:
-* [system](#system)
-* [minimal](#minimal)
-* [standard](#standard)
-
-Switching from system images to minimal or standard images on an existing
-cluster is not currently supported.
-
-Minimal and standard images are supposed to be used alongside a backup plugin
-like [Barman Cloud](https://github.com/cloudnative-pg/plugin-barman-cloud).
-
-Images are available via
+These images are designed to serve as operands for the
+[CloudNativePG operator](https://cloudnative-pg.io)
+inside Kubernetes and are available on the
 [GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
 
-Currently, images are automatically rebuilt once a week (Monday).
+Images are automatically rebuilt weekly on Mondays.
 
-### System
+## Image Types
 
-These images are built on top of the [Official Postgres image](https://hub.docker.com/_/postgres)
-maintained by the [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
-by adding the following software:
+We currently build and support two primary types of images:
+
+- [`minimal`](#minimal)
+- [`standard`](#standard)
+
+For backward compatibility, we also maintain the [`system`](#system-images) image type.
+
+> *Note:* Switching from `system` images to `minimal` or `standard` images on
+> an existing cluster is not supported.
+
+Both `minimal` and `standard` images are intended to be used with backup
+plugins, such as [Barman Cloud](https://github.com/cloudnative-pg/plugin-barman-cloud).
+
+### System Images
+
+System images are based on the [Official Postgres image](https://hub.docker.com/_/postgres), maintained by the
+[PostgreSQL Docker Community](https://github.com/docker-library/postgres).
+These images include additional software to extend PostgreSQL functionality:
 
 - Barman Cloud
 - PGAudit
 - Postgres Failover Slots
 - pgvector
+
+The [`Debian`](Debian) folder contains image catalogs, which can be used as:
+- [`ClusterImageCatalog`](https://cloudnative-pg.io/documentation/current/image_catalog/)
+- [`ImageCatalog`](https://cloudnative-pg.io/documentation/current/image_catalog/)
+
+> **Deprecation Notice:** System images and the associated Debian-based image
+> catalogs will be deprecated in future releases of CloudNativePG and
+> eventually removed. Users are encouraged to migrate to `minimal` or
+> `standard` images as soon as feasible.
 
 ### Minimal
 
@@ -55,25 +76,6 @@ and all the locales.
 
 Standard images include `standard` in the tag name, e.g.
 `17.2-standard-bookworm`.
-
-## SBOMs
-
-Software Bills of Materials (SBOMs) are available for minimal and standard
-images. The SBOM for an image can be retrieved with the following command:
-
-```shell
-docker buildx imagetools inspect <IMAGE> --format "{{ json .SBOM.SPDX}}"
-```
-
-## Testing image builds
-
-Minimal and standard image builds can be tested running bake manually.
-You will need a container registry and a builder with the `docker-container`
-driver.
-
-```
-registry=<REGISTRY_URL> docker buildx bake --builder <BUILDER> --push
-```
 
 ## License and copyright
 
