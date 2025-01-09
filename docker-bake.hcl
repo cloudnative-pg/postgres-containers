@@ -17,6 +17,8 @@ variable "revision" {
 
 fullname = ( environment == "testing") ? "${registry}/postgresql-testing" : "{registry}/postgresql"
 now = timestamp()
+authors = "The CloudNativePG Contributors"
+url = "https://github.com/cloudnative-pg/postgres-containers"
 
 target "default" {
   matrix = {
@@ -61,30 +63,30 @@ target "default" {
   ]
   annotations = [
     "index,manifest:org.opencontainers.image.created=${now}",
-    "index,manifest:org.opencontainers.image.url=https://github.com/cloudnative-pg/postgres-containers",
-    "index,manifest:org.opencontainers.image.source=https://github.com/cloudnative-pg/postgres-containers",
+    "index,manifest:org.opencontainers.image.url=${url}",
+    "index,manifest:org.opencontainers.image.source=${url}",
     "index,manifest:org.opencontainers.image.version=${pgVersion}",
     "index,manifest:org.opencontainers.image.revision=${revision}",
-    "index,manifest:org.opencontainers.image.vendor=The CloudNativePG Contributors",
+    "index,manifest:org.opencontainers.image.vendor=${authors}",
     "index,manifest:org.opencontainers.image.title=CloudNativePG PostgreSQL ${pgVersion} ${tgt}",
     "index,manifest:org.opencontainers.image.description=A ${tgt} PostgreSQL ${pgVersion} container image",
     "index,manifest:org.opencontainers.image.documentation=https://github.com/cloudnative-pg/postgres-containers",
-    "index,manifest:org.opencontainers.image.authors=The CloudNativePG Contributors",
+    "index,manifest:org.opencontainers.image.authors=${authors}",
     "index,manifest:org.opencontainers.image.licenses=Apache-2.0",
     "index,manifest:org.opencontainers.image.base.name=docker.io/library/${tag(base)}",
     "index,manifest:org.opencontainers.image.base.digest=${digest(base)}"
   ]
   labels = {
     "org.opencontainers.image.created" = "${now}",
-    "org.opencontainers.image.url" = "https://github.com/cloudnative-pg/postgres-containers",
-    "org.opencontainers.image.source" = "https://github.com/cloudnative-pg/postgres-containers",
+    "org.opencontainers.image.url" = "${url}",
+    "org.opencontainers.image.source" = "${url}",
     "org.opencontainers.image.version" = "${pgVersion}",
     "org.opencontainers.image.revision" = "${revision}",
-    "org.opencontainers.image.vendor" = "The CloudNativePG Contributors",
+    "org.opencontainers.image.vendor" = "${authors}",
     "org.opencontainers.image.title" = "CloudNativePG PostgreSQL ${pgVersion} ${tgt}",
     "org.opencontainers.image.description" = "A ${tgt} PostgreSQL ${pgVersion} container image",
-    "org.opencontainers.image.documentation" = "https://github.com/cloudnative-pg/postgres-containers",
-    "org.opencontainers.image.authors" = "The CloudNativePG Contributors",
+    "org.opencontainers.image.documentation" = "${url}",
+    "org.opencontainers.image.authors" = "${authors}",
     "org.opencontainers.image.licenses" = "Apache-2.0"
     "org.opencontainers.image.base.name" = "docker.io/library/debian:${tag(base)}"
     "org.opencontainers.image.base.digest" = "${digest(base)}"
