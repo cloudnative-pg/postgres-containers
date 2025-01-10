@@ -14,7 +14,8 @@ Ensure the following tools and components are available before proceeding:
 1. [Docker Buildx](https://github.com/docker/buildx): A CLI plugin for advanced
 image building.
 2. Build Driver for Multi-Architecture Images: For example, `docker-container`
-(see [Build Drivers](https://docs.docker.com/build/builders/drivers/)).
+(see [Build Drivers](https://docs.docker.com/build/builders/drivers/) and
+["Install QEMU Manually"](https://docs.docker.com/build/building/multi-platform/#install-qemu-manually)).
 3. [Distribution Registry](https://distribution.github.io/distribution/):
 Formerly known as Docker Registry, to host and manage the built images.
 
@@ -26,7 +27,7 @@ To confirm your environment is properly set up, run:
 docker buildx bake --check
 ```
 
-If warnings appear, you may need to switch to a different build driver. For
+If errors appear, you may need to switch to a different build driver. For
 example, use the following commands to configure a `docker-container` build
 driver:
 
@@ -38,6 +39,11 @@ docker buildx create \
   --driver-opt network=host \
   --bootstrap
 ```
+
+> *Note:* This page is not intended to serve as a comprehensive guide for
+> building multi-architecture images with Docker and Bake. If you encounter any
+> issues, please refer to the resources listed above for detailed instructions
+> and troubleshooting.
 
 ## Default Target
 

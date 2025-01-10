@@ -5,7 +5,7 @@
 > [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
 > and included Barman Cloud built from source.
 > This legacy approach, referred to as `system` images, will remain available
-> for backward compatibility but is planned for deprecation.
+> for backward compatibility but is planned for a future deprecation.
 
 ---
 
@@ -86,7 +86,7 @@ The [`Debian`](Debian) folder contains image catalogs, which can be used as:
 > **Deprecation Notice:** System images and the associated Debian-based image
 > catalogs will be deprecated in future releases of CloudNativePG and
 > eventually removed. Users are encouraged to migrate to `minimal` or
-> `standard` images as soon as feasible.
+> `standard` images for new clusters as soon as feasible.
 
 ## Build Attestations
 
