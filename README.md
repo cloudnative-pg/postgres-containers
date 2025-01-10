@@ -8,21 +8,26 @@
 
 ---
 
-# PostgreSQL Container Images
+# CNPG PostgreSQL Container Images
 
-This repository provides maintenance scripts to generate immutable application
-containers for all supported PostgreSQL versions (13 to 17).
+This repository provides maintenance scripts for generating immutable
+application containers for all supported PostgreSQL versions (13 to 17). These
+containers are designed to serve as operands for the [CloudNativePG (CNPG)
+operator](https://cloudnative-pg.io) in Kubernetes environments.
 
-These images are designed to serve as operands for the
-[CloudNativePG operator](https://cloudnative-pg.io)
-inside Kubernetes and are available on the
-[GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
+## Key Features
 
-Images are automatically rebuilt weekly on Mondays.
+The CNPG PostgreSQL Container Images:
+
+- Are based on Debian Linux `stable` and `oldstable`
+- Support **multi-architecture builds**, including `linux/amd64` and `linux/arm64`.
+- Include **build attestations**, such as Software Bills of Materials (SBOMs) and provenance metadata.
+- Are published on the [CloudNativePG GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
+- Are **automatically rebuilt weekly** (every Monday) to ensure they remain up-to-date.
 
 ## Image Types
 
-We currently build and support two primary types of images:
+We currently build and support two primary types of PostgreSQL images:
 
 - [`minimal`](#minimal-images)
 - [`standard`](#standard-images)
@@ -34,12 +39,15 @@ plugins, such as [Barman Cloud](https://github.com/cloudnative-pg/plugin-barman-
 > [`system`](#system-images) image type. Switching from `system` images to
 > `minimal` or `standard` images on an existing cluster is not supported.
 
-### Minimal images
+### Minimal Images
 
-Minimal images are built on top of the [official Debian images](https://hub.docker.com/_/debian), by installing [APT PostgreSQL packages](https://wiki.postgresql.org/wiki/Apt) provided by the PostgreSQL Global Development Group (PGDG).
+Minimal images are lightweight and built on top of the
+[official Debian images](https://hub.docker.com/_/debian).
+They use the [APT PostgreSQL packages](https://wiki.postgresql.org/wiki/Apt)
+maintained by the PostgreSQL Global Development Group (PGDG).
 
-Minimal images include `minimal` in the tag name, e.g. `17.2-minimal-bookworm`.
-
+These images are identified by the inclusion of `minimal` in their tag names,
+for example: `17.2-minimal-bookworm`.
 
 ### Standard Images
 
@@ -78,6 +86,30 @@ The [`Debian`](Debian) folder contains image catalogs, which can be used as:
 > catalogs will be deprecated in future releases of CloudNativePG and
 > eventually removed. Users are encouraged to migrate to `minimal` or
 > `standard` images as soon as feasible.
+
+## Build Attestations
+
+CNPG PostgreSQL Container Images are built with the following attestations to
+ensure transparency and traceability:
+
+- **[Software Bill of Materials
+  (SBOM)](https://docs.docker.com/build/metadata/attestations/sbom/):** A
+  comprehensive list of software artifacts included in the image or used during
+  its build process, formatted using the [in-toto SPDX predicate standard](https://github.com/in-toto/attestation/blob/main/spec/predicates/spdx.md).
+
+- **[Provenance](https://docs.docker.com/build/metadata/attestations/slsa-provenance/):**
+  Metadata detailing how the image was built, following the [SLSA Provenance](https://slsa.dev)
+  framework.
+
+For example, you can retrieve the SBOM for a specific image using the following
+command:
+
+```bash
+docker buildx imagetools inspect <IMAGE> --format "{{ json .SBOM.SPDX }}"
+```
+
+This command outputs the SBOM in JSON format, providing a detailed view of the
+software components and build dependencies.
 
 ## Building Images
 
