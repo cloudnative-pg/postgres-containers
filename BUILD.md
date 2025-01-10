@@ -40,6 +40,9 @@ docker buildx create \
   --bootstrap
 ```
 
+> *Note:* The `--driver-opt network=host` setting is required only for testing
+> when you push to a distribution registry listening on `localhost`.
+
 > *Note:* This page is not intended to serve as a comprehensive guide for
 > building multi-architecture images with Docker and Bake. If you encounter any
 > issues, please refer to the resources listed above for detailed instructions
