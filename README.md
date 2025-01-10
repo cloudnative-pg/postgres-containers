@@ -1,5 +1,6 @@
 > **IMPORTANT:** As of January 2025, we have transitioned to a new image build
-> process. Previously, the images were based on the
+> process (see issue [#132](https://github.com/cloudnative-pg/postgres-containers/issues/132)
+> for details). Previously, the images were based on the
 > [Official Postgres image](https://hub.docker.com/_/postgres), maintained by the
 > [PostgreSQL Docker Community](https://github.com/docker-library/postgres),
 > and included Barman Cloud built from source.
