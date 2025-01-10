@@ -35,6 +35,7 @@ docker buildx create \
   --name docker-container \
   --driver docker-container \
   --use \
+  --driver-opt network=host \
   --bootstrap
 ```
 
