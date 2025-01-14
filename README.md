@@ -12,19 +12,24 @@
 # CNPG PostgreSQL Container Images
 
 This repository provides maintenance scripts for generating immutable
-application containers for all supported PostgreSQL versions (13 to 17). These
-containers are designed to serve as operands for the [CloudNativePG (CNPG)
-operator](https://cloudnative-pg.io) in Kubernetes environments.
+application containers for all supported PostgreSQL versions (13 to 17).
+These containers are designed to serve as operands for the
+[CloudNativePG (CNPG) operator](https://cloudnative-pg.io) in Kubernetes
+environments.
 
 ## Key Features
 
 The CNPG PostgreSQL Container Images:
 
 - Are based on Debian Linux `stable` and `oldstable`
-- Support **multi-architecture builds**, including `linux/amd64` and `linux/arm64`.
-- Include **build attestations**, such as Software Bills of Materials (SBOMs) and provenance metadata.
-- Are published on the [CloudNativePG GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
-- Are **automatically rebuilt weekly** (every Monday) to ensure they remain up-to-date.
+- Support **multi-architecture builds**, including `linux/amd64` and
+  `linux/arm64`.
+- Include **build attestations**, such as Software Bills of Materials (SBOMs)
+  and provenance metadata.
+- Are published on the
+  [CloudNativePG GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
+- Are **automatically rebuilt weekly** (every Monday) to ensure they remain
+  up-to-date.
 
 ## Image Types
 
@@ -70,7 +75,8 @@ Standard images are identifiable by the `standard` tag in their names, such as:
 
 ### System Images
 
-System images are based on the [Official Postgres image](https://hub.docker.com/_/postgres), maintained by the
+System images are based on the [Official Postgres image](https://hub.docker.com/_/postgres),
+maintained by the
 [PostgreSQL Docker Community](https://github.com/docker-library/postgres).
 These images include additional software to extend PostgreSQL functionality:
 
