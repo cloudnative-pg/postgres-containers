@@ -55,7 +55,7 @@ target "default" {
   target = "${tgt}"
   args = {
     PG_VERSION = "${pgVersion}"
-    BASE  = "${base}"
+    BASE = "${base}"
   }
   attest = [
     "type=provenance,mode=max",
