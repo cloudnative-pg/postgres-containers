@@ -6,7 +6,7 @@ ARG PG_MAJOR=${PG_VERSION%%.*}
 
 ENV PATH=$PATH:/usr/lib/postgresql/$PG_MAJOR/bin
 
-RUN	apt-get update && \
+RUN apt-get update && \
     apt-get install -y --no-install-recommends postgresql-common ca-certificates gnupg && \
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y && \
        apt-get install --no-install-recommends -o Dpkg::::="--force-confdef" -o Dpkg::::="--force-confold" postgresql-common -y && \
@@ -21,9 +21,6 @@ USER 26
 
 
 FROM minimal AS standard
-
-LABEL org.opencontainers.image.title="CloudNativePG PostgreSQL $PG_VERSION standard"
-LABEL org.opencontainers.image.description="A standard PostgreSQL $PG_VERSION container image, with a minimal set of extensions and all the locales"
 
 USER root
 RUN apt-get update && \
