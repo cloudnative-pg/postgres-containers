@@ -60,7 +60,7 @@ jobs:
       - name: Generated images
         id: images
         run: |
-          echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"" )]')" >>  "$GITHUB_OUTPUT"
+          echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"") ]')" >>  "$GITHUB_OUTPUT"
 
   security:
     name: Security checks
