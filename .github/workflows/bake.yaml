@@ -12,6 +12,10 @@ on:
           - production
         default: testing
         description: "Choose the environment to bake the images for"
+      target:
+        type: string
+        default: ""
+        description: "The target to build the image for comma separated list of targets"
 
 jobs:
   # Start by building images for testing. We want to run security checks before pushing those to production.
@@ -22,6 +26,7 @@ jobs:
       contents: read
       packages: write
       security-events: write
+      id-token: write
     outputs:
       metadata: ${{ steps.build.outputs.metadata }}
       images: ${{ steps.images.outputs.images }}
@@ -55,12 +60,24 @@ jobs:
           revision: ${{ github.sha }}
         with:
           push: true
+          targets: ${{ github.event.inputs.target }}
 
       # Get a list of the images that were built and pushed. We only care about a single tag for each image.
       - name: Generated images
         id: images
         run: |
           echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"") ]')" >>  "$GITHUB_OUTPUT"
+
+      # Even if we're testing we sign the images, so we can push them to production later if that's required
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+      - name: Check Cosign install
+        run: cosign version
+      - name: Sign images using Cosing
+        run: |
+          images=""
+          images=$(echo '${{ steps.build.outputs.metadata }}' | jq -r '.[] | "\(.["image.name"]) \(.["containerimage.digest"])"' | awk -F' ' '{split($1, a, ","); for(i in a) print a[i] "@" $2}' | tr '\n' ' ')
+          cosign sign --yes ${images}
 
   security:
     name: Security checks
