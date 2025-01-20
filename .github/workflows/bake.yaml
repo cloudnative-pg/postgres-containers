@@ -77,10 +77,9 @@ jobs:
         # how to use cosign.
       - name: Sign images
         run: |
-          images=$(echo '${{ steps.build.outputs.metadata }}' |
-            jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"'
-          )
-          cosign sign --yes ${images}
+          echo '${{ steps.build.outputs.metadata }}' | \
+            jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"' | \
+            xargs cosign sign --yes
 
   security:
     name: Security checks
