@@ -11,5 +11,11 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["debian"],
+      "groupName": "Debian base images"
+    }
   ]
 }
