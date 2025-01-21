@@ -136,7 +136,7 @@ To verify the authenticity of an image using its digest, you can run the
 following `cosign` command:
 
 ```sh
-cosign verify IMAGE@DIGEST \
+cosign verify IMAGE \
   --certificate-identity-regexp="^https://github.com/cloudnative-pg/postgres-containers/" \
   --certificate-oidc-issuer="https://token.actions.githubusercontent.com"
 ```
