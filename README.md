@@ -118,6 +118,29 @@ docker buildx imagetools inspect <IMAGE> --format "{{ json .SBOM.SPDX }}"
 This command outputs the SBOM in JSON format, providing a detailed view of the
 software components and build dependencies.
 
+## Image Signatures
+
+CloudNativePG container images are securely signed using
+[cosign](https://github.com/sigstore/cosign), a tool within the
+[Sigstore](https://www.sigstore.dev/) ecosystem.
+This signing process is automated via GitHub Actions and leverages
+[short-lived tokens issued through OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+
+The token issuer is `https://token.actions.githubusercontent.com`, and the
+signing identity corresponds to a GitHub workflow executed under the
+`cloudnative-pg/postgres-containers` repository. This workflow uses the
+[`cosign-installer` action](https://github.com/marketplace/actions/cosign-installer)
+to facilitate the signing process.
+
+To verify the authenticity of an image using its digest, you can run the
+following `cosign` command:
+
+```sh
+cosign verify IMAGE@DIGEST \
+  --certificate-identity-regexp="^https://github.com/cloudnative-pg/postgres-containers/" \
+  --certificate-oidc-issuer="https://token.actions.githubusercontent.com"
+```
+
 ## Building Images
 
 For detailed instructions on building PostgreSQL container images, refer to the
