@@ -16,7 +16,7 @@ env:
 jobs:
   generate-jobs:
     name: Generate Jobs
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       strategy: ${{ steps.generate-jobs.outputs.strategy }}
     steps:
@@ -32,7 +32,7 @@ jobs:
     needs: generate-jobs
     strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy) }}
     name: ${{ matrix.name }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: write
@@ -177,7 +177,7 @@ jobs:
 
   image-catalog:
     name: Generate ClusterImageCatalog
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Checkout Code
