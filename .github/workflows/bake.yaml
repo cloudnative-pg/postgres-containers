@@ -12,6 +12,10 @@ on:
           - production
         default: testing
         description: "Choose the environment to bake the images for"
+      target:
+        type: string
+        default: ""
+        description: "A comma separated list of targets to build. If empty, all targets will be built."
 
 jobs:
   # Start by building images for testing. We want to run security checks before pushing those to production.
@@ -22,6 +26,8 @@ jobs:
       contents: read
       packages: write
       security-events: write
+      # Required by the cosign step
+      id-token: write
     outputs:
       metadata: ${{ steps.build.outputs.metadata }}
       images: ${{ steps.images.outputs.images }}
@@ -55,12 +61,25 @@ jobs:
           revision: ${{ github.sha }}
         with:
           push: true
+          targets: ${{ github.event.inputs.target }}
 
       # Get a list of the images that were built and pushed. We only care about a single tag for each image.
       - name: Generated images
         id: images
         run: |
           echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"") ]')" >>  "$GITHUB_OUTPUT"
+
+      # Even if we're testing we sign the images, so we can push them to production later if that's required
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+        # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
+        # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
+        # how to use cosign.
+      - name: Sign images
+        run: |
+          echo '${{ steps.build.outputs.metadata }}' | \
+            jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"' | \
+            xargs cosign sign --yes
 
   security:
     name: Security checks
@@ -144,3 +163,15 @@ jobs:
           revision: ${{ github.sha }}
         with:
           push: true
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+        # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
+        # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
+        # how to use cosign.
+      - name: Sign images
+        run: |
+          images=$(echo '${{ steps.build.outputs.metadata }}' |
+            jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"'
+          )
+          cosign sign --yes ${images}

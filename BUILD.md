@@ -122,6 +122,13 @@ docker run -d --rm -p 5000:5000 --name registry registry:2
 This command runs a lightweight, temporary instance of the `registry:2`
 container on port `5000`.
 
+## Image Signing Workflow
+
+Postgres operand images are securely signed with [cosign](https://github.com/sigstore/cosign)
+based on their digest through a GitHub workflow, using the
+[`cosign-installer` action](https://github.com/marketplace/actions/cosign-installer), which leverages
+[short-lived tokens issued through OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+
 ## Trademarks
 
 *[Postgres, PostgreSQL and the Slonik Logo](https://www.postgresql.org/about/policies/trademarks/)
