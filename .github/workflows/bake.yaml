@@ -122,11 +122,13 @@ jobs:
           sarif_file: snyk.sarif
 
   # Use the metadata generated in the `testbuild` step to find all the images
-  # that have been built. We copy them one by one to the procuction registry
+  # that have been built. We copy them one by one to the production registry
   # using skopeo. Then we sign the production images too.
   copytoproduction:
     name: Copy images to production
-    if: github.event.inputs.environment == 'production' || github.event_name == 'schedule'
+    if: |
+      github.ref == 'refs/heads/main' &&
+      ( github.event.inputs.environment == 'production' || github.event_name == 'schedule' )
     runs-on: ubuntu-latest
     needs:
       - testbuild
