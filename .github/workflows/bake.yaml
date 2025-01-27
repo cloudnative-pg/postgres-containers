@@ -121,24 +121,25 @@ jobs:
         with:
           sarif_file: snyk.sarif
 
-  # Build the image for production.
-  #
-  # TODO: no need to rebuild everything, just copy the testing images we have generated to the production registry
-  #   if we get here and we are building for production.
-  prodbuild:
-    if: github.event.inputs.environment == 'production' || github.event_name == 'schedule'
-    name: Build for production
+  # Use the metadata generated in the `testbuild` step to find all the images
+  # that have been built. We copy them one by one to the production registry
+  # using skopeo. Then we sign the production images too.
+  copytoproduction:
+    name: Copy images to production
+    if: |
+      github.ref == 'refs/heads/main' &&
+      ( github.event.inputs.environment == 'production' || github.event_name == 'schedule' )
     runs-on: ubuntu-latest
     needs:
+      - testbuild
       - security
     permissions:
       contents: read
       packages: write
       security-events: write
+      # Required by the cosign step
+      id-token: write
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
       - name: Log in to the GitHub Container registry
         uses: docker/login-action@v3
         with:
@@ -146,32 +147,43 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: 'arm64'
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build and push
-        uses: docker/bake-action@v6
-        id: build
-        env:
-          environment: production
-          registry: ghcr.io/${{ github.repository_owner }}
-          revision: ${{ github.sha }}
-        with:
-          push: true
+      - name: Copy images
+        run: |
+          images=$(echo '${{ needs.testbuild.outputs.metadata }}' |
+            jq -r '
+              .[] as $items |
+              (
+                $items."image.name" |
+                split(",")[] +
+                  "@" +
+                  $items."containerimage.digest"
+              )
+            '
+          )
+          for image in $images
+          do
+            testimageshaonly="${image%:*@*}@${image#*@}"
+            testimagenosha="${image%@*}"
+            prodimage="${testimagenosha/-testing/}"
+            echo "Copying ${testimageshaonly} to ${prodimage}"
+            docker run --quiet quay.io/skopeo/stable:v1.17.0-immutable copy -q -a \
+              --dest-creds ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} \
+              docker://${testimageshaonly} docker://${prodimage}
+          done
 
       - name: Install cosign
         uses: sigstore/cosign-installer@v3
-        # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
-        # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
-        # how to use cosign.
+
       - name: Sign images
         run: |
-          images=$(echo '${{ steps.build.outputs.metadata }}' |
-            jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"'
+          images=$(echo '${{ needs.testbuild.outputs.metadata }}' |
+            jq -r '.[] |
+              (
+                ."image.name" |
+                sub(",.*";"") |
+                sub("-testing:[^@]+";"")
+              ) + "@" + ."containerimage.digest"
+            '
           )
+          echo "Signing ${images}"
           cosign sign --yes ${images}
