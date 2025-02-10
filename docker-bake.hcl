@@ -15,7 +15,7 @@ variable "revision" {
   default = ""
 }
 
-fullname = ( environment == "testing") ? "${registry}/postgresql-testing" : "{registry}/postgresql"
+fullname = ( environment == "testing") ? "${registry}/postgresql-testing" : "${registry}/postgresql"
 now = timestamp()
 authors = "The CloudNativePG Contributors"
 url = "https://github.com/cloudnative-pg/postgres-containers"
