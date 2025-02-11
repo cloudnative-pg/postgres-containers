@@ -27,7 +27,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends locales-all \
       "postgresql-${PG_MAJOR}-pgaudit" \
       "postgresql-${PG_MAJOR}-pgvector" \
-      "postgresql-${PG_MAJOR}-pg-failover-slots" && \
+      "postgresql-${PG_MAJOR}-pg-failover-slots" \
+      "postgresql-${PG_MAJOR}-wal2json" && \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
     rm -rf /var/lib/apt/lists/* /var/cache/* /var/log/*
 
