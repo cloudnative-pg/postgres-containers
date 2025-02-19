@@ -50,6 +50,10 @@ jobs:
             echo "Updating Debian bookworm images"
             ./Debian/update.sh -d bookworm
 
+      - name: Run update PostgreSQL versions
+        run: |
+          bash -x update_postgres.sh
+
       - name: Diff
         run: |
           git status
