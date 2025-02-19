@@ -26,13 +26,7 @@ target "default" {
       "minimal",
       "standard"
     ]
-    pgVersion = [
-      "13.20",
-      "14.17",
-      "15.12",
-      "16.8",
-      "17.4"
-    ]
+    pgVersion = ["13.18","14.15","15.10","16.6","17.2"]
     base = [
       // renovate: datasource=docker versioning=loose
       "debian:bookworm-slim@sha256:4b50eb66f977b4062683ff434ef18ac191da862dbe966961bc11990cf5791a8d",
