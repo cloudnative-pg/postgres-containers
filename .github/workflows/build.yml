@@ -45,6 +45,8 @@ jobs:
       uses: docker/setup-qemu-action@v3
       with:
         platforms: ${{ matrix.platforms }}
+        # TODO: remove once https://github.com/docker/setup-qemu-action/issues/198 is fixed
+        image: 'tonistiigi/binfmt:qemu-v7.0.0'
 
     - name: Docker meta
       env:
