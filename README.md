@@ -63,6 +63,7 @@ following additional features:
 - PGAudit
 - Postgres Failover Slots
 - pgvector
+- wal2json
 - All Locales
 
 Standard images are identifiable by the `standard` tag in their names, such as:
@@ -84,6 +85,7 @@ These images include additional software to extend PostgreSQL functionality:
 - PGAudit
 - Postgres Failover Slots
 - pgvector
+- wal2json
 
 The [`Debian`](Debian) folder contains image catalogs, which can be used as:
 - [`ClusterImageCatalog`](https://cloudnative-pg.io/documentation/current/image_catalog/)
@@ -163,6 +165,9 @@ Postgres Failover Slots is distributed by EnterpriseDB under the
 
 pgvector is distributed under the
 [PostgreSQL License](https://github.com/pgvector/pgvector/blob/master/LICENSE).
+
+wal2json is distributed under the
+[BSD-3-Clause License](https://github.com/eulerto/wal2json/blob/master/LICENSE)
 
 ## Trademarks
 
