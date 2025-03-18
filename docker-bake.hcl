@@ -35,9 +35,9 @@ target "default" {
     ]
     base = [
       // renovate: datasource=docker versioning=loose
-      "debian:bookworm-slim@sha256:12c396bd585df7ec21d5679bb6a83d4878bc4415ce926c9e5ea6426d23c60bdc",
+      "debian:bookworm-slim@sha256:1209d8fd77def86ceb6663deef7956481cc6c14a25e1e64daec12c0ceffcc19d",
       // renovate: datasource=docker versioning=loose
-      "debian:bullseye-slim@sha256:33b7c2e071c29e618182ec872c471f39d2dde3d8904d95f5b7a61acf3a592e7b"
+      "debian:bullseye-slim@sha256:e4b93db6aad977a95aa103917f3de8a2b16ead91cf255c3ccdb300c5d20f3015"
     ]
   }
   platforms = [
