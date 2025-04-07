@@ -196,8 +196,9 @@ jobs:
         run: |
           yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bullseye.yaml > Debian/ClusterImageCatalog-bullseye.yaml
           yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bookworm.yaml > Debian/ClusterImageCatalog-bookworm.yaml
+          yq -i '.resources[0] |= "ClusterImageCatalog-" + env(DEFAULT_DISTRO) + ".yaml"' Debian/kustomization.yaml
           ln -f -s ClusterImageCatalog-${DEFAULT_DISTRO}.yaml Debian/ClusterImageCatalog.yaml
-          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bullseye.yaml Debian/ClusterImageCatalog-bookworm.yaml
+          cat Debian/kustomization.yaml Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bullseye.yaml Debian/ClusterImageCatalog-bookworm.yaml
 
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
