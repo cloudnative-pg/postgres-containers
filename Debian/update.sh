@@ -17,6 +17,21 @@
 
 set -Eeuo pipefail
 
+error_trap() {
+  local exit_code=$?
+  local line_number=$LINENO
+  local script_name=$(basename "$0")
+  local func_name=${FUNCNAME[1]:-MAIN}
+
+  echo "❌ ERROR in $script_name at line $line_number"
+  echo "   Function: $func_name"
+  echo "   Command: '$BASH_COMMAND'"
+  echo "   Exit code: $exit_code"
+  exit $exit_code
+}
+
+trap error_trap ERR
+
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 LIBDIR="$(pwd)/../lib"
