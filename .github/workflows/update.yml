@@ -29,7 +29,8 @@ jobs:
           max_attempts: 3
           command: |
             # pip-tools provides pip-compile used by update.sh
-            pip3 install --upgrade pip-tools pip
+            # TODO: Pinning pip due to https://github.com/jazzband/pip-tools/issues/2176, remove when fixed
+            pip3 install --upgrade pip-tools pip\<25.1
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian bullseye images"
             ./Debian/update.sh -d bullseye
@@ -45,7 +46,8 @@ jobs:
           max_attempts: 3
           command: |
             # pip-tools provides pip-compile used by update.sh
-            pip3 install --upgrade pip-tools pip
+            # TODO: Pinning pip due to https://github.com/jazzband/pip-tools/issues/2176, remove when fixed
+            pip3 install --upgrade pip-tools pip\<25.1
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian bookworm images"
             ./Debian/update.sh -d bookworm
