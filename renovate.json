@@ -19,6 +19,12 @@
     {
       "matchPackageNames": ["debian"],
       "groupName": "Debian base images"
+    },
+    {
+      "matchDepTypes": [
+          "action"
+      ],
+      "pinDigests": true
     }
   ]
 }
