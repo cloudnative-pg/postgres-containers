@@ -14,16 +14,16 @@ jobs:
     name: Run update script
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           token: ${{ secrets.REPO_GHA_PAT }}
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: 3.9
 
       - name: Run update script
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 15
           max_attempts: 3
@@ -35,12 +35,12 @@ jobs:
             echo "Updating Debian bullseye images"
             ./Debian/update.sh -d bullseye
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: 3.11
 
       - name: Run update script
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 15
           max_attempts: 3
@@ -60,20 +60,20 @@ jobs:
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         id: disable_include_admins
-        uses: benjefferies/branch-protection-bot@v1.1.2
+        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
         with:
           access_token: ${{ secrets.REPO_GHA_PAT }}
           branch: main
           enforce_admins: false
 
-      - uses: EndBug/add-and-commit@v9
+      - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
         with:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'Daily automatic update'
 
       - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@v1.1.2
+        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         with:
           access_token: ${{ secrets.REPO_GHA_PAT }}

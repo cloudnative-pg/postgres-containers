@@ -21,7 +21,7 @@ jobs:
       strategy: ${{ steps.generate-jobs.outputs.strategy }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Generate Jobs
         id: generate-jobs
         shell: bash
@@ -39,10 +39,10 @@ jobs:
       security-events: write
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
     - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
+      uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
       with:
         platforms: ${{ matrix.platforms }}
 
@@ -63,10 +63,10 @@ jobs:
         echo "TAGS=${RESULT%,}" >> $GITHUB_ENV
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3
 
     - name: Log in to the GitHub Container registry
-      uses: docker/login-action@v3
+      uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -93,7 +93,7 @@ jobs:
         fi
 
     - name: Build and load
-      uses: docker/build-push-action@v6
+      uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6
       if: ${{ env.MISSING_TAG == 'true' }}
       with:
         context: ${{ matrix.dir }}
@@ -103,7 +103,7 @@ jobs:
         tags: ${{ env.TAGS }}
 
     - name: Dockle scan
-      uses: erzz/dockle-action@v1
+      uses: erzz/dockle-action@69369bc745ee29813f730231a821bcd4f71cd290 # v1
       if: ${{ env.MISSING_TAG == 'true' }}
       with:
         image: "${{ env.IMAGE_STAGING }}:${{ matrix.tags[0] }}"
@@ -123,7 +123,7 @@ jobs:
         args: --severity-threshold=high --file=${{ matrix.file }}
 
     - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@28deaeda66b76a05916b6923827895f2b14ab387 # v3
       if: ${{ env.MISSING_TAG == 'true' }}
       continue-on-error: true
       with:
@@ -131,7 +131,7 @@ jobs:
 
     - name: Build and push
       id: build
-      uses: docker/build-push-action@v6
+      uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6
       if: ${{ env.MISSING_TAG == 'true' }}
       with:
         context: ${{ matrix.dir }}
@@ -170,7 +170,7 @@ jobs:
         }' > ${{ matrix.version }}-${{ matrix.distro }}.yaml
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
         name: ${{ matrix.version }}-${{ matrix.distro }}-clusterimagecatalog
         path: ${{ matrix.version }}-${{ matrix.distro }}.yaml
@@ -181,12 +181,12 @@ jobs:
     needs: build
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           token: ${{ secrets.REPO_GHA_PAT }}
 
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           pattern: '*-clusterimagecatalog'
           path: clusterimagecatalog
@@ -202,14 +202,14 @@ jobs:
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         id: disable_include_admins
-        uses: benjefferies/branch-protection-bot@v1.1.2
+        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
         with:
           access_token: ${{ secrets.REPO_GHA_PAT }}
           branch: main
           enforce_admins: false
 
       - name: Push ClusterImageCatalog updates
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           author_name: CloudNativePG Automated Updates
@@ -218,7 +218,7 @@ jobs:
           add: 'Debian/ClusterImageCatalog*.yaml'
 
       - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@v1.1.2
+        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
         if: ${{ always() && github.ref == 'refs/heads/main' }}
         with:
           access_token: ${{ secrets.REPO_GHA_PAT }}
