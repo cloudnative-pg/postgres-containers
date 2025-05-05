@@ -33,7 +33,7 @@ fetch_postgres_image_version() {
 latest_barman_version=
 _raw_get_latest_barman_version() {
 #	curl -s https://pypi.org/pypi/barman/json | jq -r '.releases | keys[]' | sort -Vr | head -n1
-	echo "3.12.1"
+	echo "3.13.3"
 }
 get_latest_barman_version() {
 	if [ -z "$latest_barman_version" ]; then
