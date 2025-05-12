@@ -10,15 +10,15 @@ azure-core==1.34.0 \
     # via
     #   azure-identity
     #   azure-storage-blob
-azure-identity==1.21.0 \
-    --hash=sha256:258ea6325537352440f71b35c3dffe9d240eae4a5126c1b7ce5efd5766bd9fd9 \
-    --hash=sha256:ea22ce6e6b0f429bc1b8d9212d5b9f9877bd4c82f1724bfa910760612c07a9a6
+azure-identity==1.22.0 \
+    --hash=sha256:26d6c63f2ca453c77c3e74be8613941ad074e05d0c8be135247573752c249ad8 \
+    --hash=sha256:c8f5ef23e5295c2fa300c984dd9f5e1fe43503fc25c121c37ff6a15e39b800b9
 azure-storage-blob==12.25.1 \
     --hash=sha256:1f337aab12e918ec3f1b638baada97550673911c4ceed892acc8e4e891b74167 \
     --hash=sha256:4f294ddc9bc47909ac66b8934bd26b50d2000278b10ad82cc109764fdc6e0e3b
-barman[azure,cloud,google,lz4,snappy,zstandard]==3.12.1 \
-    --hash=sha256:258ef7100717f66032402e0abe03c977089c50fc47143df5708e92aa1d772937 \
-    --hash=sha256:9dd7be219b6f74954b80cdc28f9a72f2acb923e7da65edd0f41cdc82fd32e169
+barman[azure,cloud,google,lz4,snappy,zstandard]==3.13.3 \
+    --hash=sha256:0ebc81caf4f9d8a9ca986d364a5cd6398ec90b5ef0292985e6551b8aba501114 \
+    --hash=sha256:d3fe573ea81d820ab0b30ec921c3ed2a226b8a1acdd9990a4bfdb84d3ff38906
     # via -r requirements.in
 boto3==1.35.99 \
     --hash=sha256:83e560faaec38a956dfb3d62e05e1703ee50432b45b788c09e25107c5058bd71 \
@@ -353,15 +353,15 @@ cryptography==44.0.3 \
     #   azure-storage-blob
     #   msal
     #   pyjwt
-google-api-core==2.25.0rc0 \
-    --hash=sha256:38d9d6a67673473457adbbef1ccca27d9ebb755e377c05e8a9b88f89eecab9ad \
-    --hash=sha256:ace58c6ddd3685b102c7f7f4e88f586cddb19a651267f2a9345e3b6d9e9ccb6e
+google-api-core==2.25.0rc1 \
+    --hash=sha256:9826900d88358ad3ac8978ad324e46793ad8137efe6d48ec51e259c0c40e3000 \
+    --hash=sha256:ec279085923652b0d2e4c72fd6bb926ee17e9c960f0b8a472df146a42493957e
     # via
     #   google-cloud-core
     #   google-cloud-storage
-google-auth==2.39.0 \
-    --hash=sha256:0150b6711e97fb9f52fe599f55648950cc4540015565d8fbb31be2ad6e1548a2 \
-    --hash=sha256:73222d43cdc35a3aeacbfdcaf73142a97839f10de930550d89ebfe1d0a00cde7
+google-auth==2.40.1 \
+    --hash=sha256:58f0e8416a9814c1d86c9b7f6acf6816b51aba167b2c76821965271bac275540 \
+    --hash=sha256:ed4cae4f5c46b41bae1d19c036e06f6c371926e97b19e816fc854eff811974ee
     # via
     #   google-api-core
     #   google-cloud-core
