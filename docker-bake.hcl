@@ -27,11 +27,11 @@ target "default" {
       "standard"
     ]
     pgVersion = [
-      "13.20",
-      "14.17",
-      "15.12",
-      "16.8",
-      "17.4"
+      "13.21",
+      "14.18",
+      "15.13",
+      "16.9",
+      "17.5"
     ]
     base = [
       // renovate: datasource=docker versioning=loose
