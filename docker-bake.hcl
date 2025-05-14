@@ -31,7 +31,8 @@ target "default" {
       "14.18",
       "15.13",
       "16.9",
-      "17.5"
+      "17.5",
+      "18~beta1"
     ]
     base = [
       // renovate: datasource=docker versioning=loose
@@ -45,11 +46,11 @@ target "default" {
     "linux/arm64"
   ]
   dockerfile = "Dockerfile"
-  name = "postgresql-${index(split(".",pgVersion),0)}-${tgt}-${distroVersion(base)}"
+  name = "postgresql-${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}"
   tags = [
-    "${fullname}:${index(split(".",pgVersion),0)}-${tgt}-${distroVersion(base)}",
-    "${fullname}:${pgVersion}-${tgt}-${distroVersion(base)}",
-    "${fullname}:${pgVersion}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}"
+    "${fullname}:${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}",
+    "${fullname}:${cleanVersion(pgVersion)}-${tgt}-${distroVersion(base)}",
+    "${fullname}:${cleanVersion(pgVersion)}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}"
   ]
   context = "."
   target = "${tgt}"
@@ -106,4 +107,9 @@ function distroVersion {
 function digest {
   params = [ imageNameWithSha ]
   result = index(split("@", imageNameWithSha), 1)
+}
+
+function cleanVersion {
+    params = [ version ]
+    result = replace(version, "~", "")
 }
