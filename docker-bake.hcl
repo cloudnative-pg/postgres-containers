@@ -20,6 +20,12 @@ now = timestamp()
 authors = "The CloudNativePG Contributors"
 url = "https://github.com/cloudnative-pg/postgres-containers"
 
+extensions = [
+  "pgaudit",
+  "pgvector",
+  "pg-failover-slots"
+]
+
 target "default" {
   matrix = {
     tgt = [
@@ -56,7 +62,9 @@ target "default" {
   target = "${tgt}"
   args = {
     PG_VERSION = "${pgVersion}"
+    PG_MAJOR = "${getMajor(pgVersion)}"
     BASE = "${base}"
+    EXTENSIONS = "${getExtensionsString(pgVersion, extensions)}"
   }
   attest = [
     "type=provenance,mode=max",
@@ -112,4 +120,19 @@ function digest {
 function cleanVersion {
     params = [ version ]
     result = replace(version, "~", "")
+}
+
+function isBeta {
+    params = [ version ]
+    result = (length(regexall("[0-9]+~beta.*", version)) > 0) ? true : false
+}
+
+function getMajor {
+    params = [ version ]
+    result = (isBeta(version) == true) ? index(split("~", version),0) : index(split(".", version),0)
+}
+
+function getExtensionsString {
+    params = [ version, extensions ]
+    result = (isBeta(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
 }
