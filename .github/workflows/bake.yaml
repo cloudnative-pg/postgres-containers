@@ -53,7 +53,7 @@ jobs:
         uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3
 
       - name: Build and push
-        uses: docker/bake-action@76f9fa3a758507623da19f6092dc4089a7e61592 # v6
+        uses: docker/bake-action@212c36739681a6271d58dcfe0d001d2ad13f8e75 # v6
         id: build
         env:
           environment: testing
