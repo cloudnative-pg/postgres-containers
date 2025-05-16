@@ -71,7 +71,7 @@ jobs:
 
       # Even if we're testing we sign the images, so we can push them to production later if that's required
       - name: Install cosign
-        uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3
+        uses: sigstore/cosign-installer@3454372f43399081ed03b604cb2d021dabca52bb # v3
         # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
         # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
         # how to use cosign.
@@ -172,7 +172,7 @@ jobs:
           done
 
       - name: Install cosign
-        uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3
+        uses: sigstore/cosign-installer@3454372f43399081ed03b604cb2d021dabca52bb # v3
 
       - name: Sign images
         run: |
