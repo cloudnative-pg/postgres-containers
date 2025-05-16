@@ -20,6 +20,12 @@ now = timestamp()
 authors = "The CloudNativePG Contributors"
 url = "https://github.com/cloudnative-pg/postgres-containers"
 
+extensions = [
+  "pgaudit",
+  "pgvector",
+  "pg-failover-slots"
+]
+
 target "default" {
   matrix = {
     tgt = [
@@ -31,7 +37,8 @@ target "default" {
       "14.18",
       "15.13",
       "16.9",
-      "17.5"
+      "17.5",
+      "18~beta1"
     ]
     base = [
       // renovate: datasource=docker versioning=loose
@@ -45,17 +52,19 @@ target "default" {
     "linux/arm64"
   ]
   dockerfile = "Dockerfile"
-  name = "postgresql-${index(split(".",pgVersion),0)}-${tgt}-${distroVersion(base)}"
+  name = "postgresql-${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}"
   tags = [
-    "${fullname}:${index(split(".",pgVersion),0)}-${tgt}-${distroVersion(base)}",
-    "${fullname}:${pgVersion}-${tgt}-${distroVersion(base)}",
-    "${fullname}:${pgVersion}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}"
+    "${fullname}:${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}",
+    "${fullname}:${cleanVersion(pgVersion)}-${tgt}-${distroVersion(base)}",
+    "${fullname}:${cleanVersion(pgVersion)}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}"
   ]
   context = "."
   target = "${tgt}"
   args = {
     PG_VERSION = "${pgVersion}"
+    PG_MAJOR = "${getMajor(pgVersion)}"
     BASE = "${base}"
+    EXTENSIONS = "${getExtensionsString(pgVersion, extensions)}"
   }
   attest = [
     "type=provenance,mode=max",
@@ -106,4 +115,24 @@ function distroVersion {
 function digest {
   params = [ imageNameWithSha ]
   result = index(split("@", imageNameWithSha), 1)
+}
+
+function cleanVersion {
+    params = [ version ]
+    result = replace(version, "~", "")
+}
+
+function isBeta {
+    params = [ version ]
+    result = length(regexall("[0-9]+~beta.*", version)) > 0
+}
+
+function getMajor {
+    params = [ version ]
+    result = (isBeta(version) == true) ? index(split("~", version),0) : index(split(".", version),0)
+}
+
+function getExtensionsString {
+    params = [ version, extensions ]
+    result = (isBeta(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
 }
