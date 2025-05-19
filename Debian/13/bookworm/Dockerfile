@@ -20,7 +20,7 @@ FROM postgres:13.21-bookworm
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="1" \
+      release="2" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 13.21-bookworm."
 
@@ -31,6 +31,11 @@ COPY requirements.txt /
 # Install additional extensions
 RUN set -xe; \
 	apt-get update; \
+	if apt list --upgradable 2>/dev/null | grep -q '^postgres'; then \
+		echo "ERROR: Upgradable postgres packages found!"; \
+		apt list --upgradable 2>/dev/null | grep '^postgres'; \
+		exit 1; \
+	fi; \
 	apt-get install -y --no-install-recommends \
 		"postgresql-${PG_MAJOR}-pgaudit" \
 		"postgresql-${PG_MAJOR}-pgvector" \
