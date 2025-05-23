@@ -31,9 +31,9 @@ COPY requirements.txt /
 # Install additional extensions
 RUN set -xe; \
 	apt-get update; \
-	if apt list --upgradable 2>/dev/null | grep -q '^postgres'; then \
+	if apt-get -s upgrade | grep "^Inst postgres"; then \
 		echo "ERROR: Upgradable postgres packages found!"; \
-		apt list --upgradable 2>/dev/null | grep '^postgres'; \
+		apt-get -s upgrade | grep "^Inst postgres"; \
 		exit 1; \
 	fi; \
 	apt-get install -y --no-install-recommends \
