@@ -1,4 +1,4 @@
-ARG BASE=debian:12.10-slim
+ARG BASE=debian:12.11-slim
 FROM $BASE AS minimal
 
 ARG PG_VERSION
