@@ -17,6 +17,8 @@ on:
         default: ""
         description: "A comma separated list of targets to build. If empty, all targets will be built."
 
+permissions: read-all
+
 jobs:
   # Start by building images for testing. We want to run security checks before pushing those to production.
   testbuild:
