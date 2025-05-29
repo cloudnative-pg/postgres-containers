@@ -8,6 +8,8 @@ on:
       - Debian/ClusterImageCatalog*.yaml
   workflow_dispatch:
 
+permissions: read-all
+
 env:
   IMAGE_STAGING: "ghcr.io/${{ github.repository_owner }}/postgresql-testing"
   IMAGE_RELEASE: "ghcr.io/${{ github.repository_owner }}/postgresql"
@@ -179,6 +181,8 @@ jobs:
     name: Generate ClusterImageCatalog
     runs-on: ubuntu-24.04
     needs: build
+    permissions:
+      contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
