@@ -33,7 +33,7 @@ fetch_postgres_image_version() {
 latest_barman_version=
 _raw_get_latest_barman_version() {
 #	curl -s https://pypi.org/pypi/barman/json | jq -r '.releases | keys[]' | sort -Vr | head -n1
-	echo "3.13.3"
+	echo "3.14.0"
 }
 get_latest_barman_version() {
 	if [ -z "$latest_barman_version" ]; then
@@ -167,7 +167,6 @@ update_requirements() {
 	barmanVersion=$(get_latest_barman_version)
 	# If there's a new version we need to recreate the requirements files
 	echo "barman[cloud,azure,snappy,google,zstandard,lz4] == $barmanVersion" > requirements.in
-	echo "boto3 == 1.35.99" >> requirements.in
 
 	# This will take the requirements.in file and generate a file
 	# requirements.txt with the hashes for the required packages
