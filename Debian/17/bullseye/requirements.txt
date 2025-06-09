@@ -20,12 +20,12 @@ barman[azure,cloud,google,lz4,snappy,zstandard]==3.14.0 \
     --hash=sha256:372d5f1c13e4015c4335eb576a829562c350ba62bfca488d0677fabe8d104cb2 \
     --hash=sha256:e99e4bb96e60d0efa20abeb3a5737cc02a6b4a91093dc43a284ccc2e4ee7749c
     # via -r requirements.in
-boto3==1.38.27 \
-    --hash=sha256:94bd7fdd92d5701b362d4df100d21e28f8307a67ff56b6a8b0398119cf22f859 \
-    --hash=sha256:95f5fe688795303a8a15e8b7e7f255cadab35eae459d00cc281a4fd77252ea80
-botocore==1.38.27 \
-    --hash=sha256:9788f7efe974328a38cbade64cc0b1e67d27944b899f88cb786ae362973133b6 \
-    --hash=sha256:a785d5e9a5eda88ad6ab9ed8b87d1f2ac409d0226bba6ff801c55359e94d91a8
+boto3==1.38.32 \
+    --hash=sha256:3faa2c328a61745f3215a63039606a6fcf55d9afe1cc76e3a5e27b9db58cdbf6 \
+    --hash=sha256:b998edac72f6740bd5d9d585cf3880f2dfeb4842e626b34430fd0e9623378011
+botocore==1.38.32 \
+    --hash=sha256:0899a090e352cb5eeaae2c7bb52a987b469d23912c7ece86664dfb5c2e074978 \
+    --hash=sha256:64ab919a5d8b74dd73eaac1f978d0e674d11ff3bbe8815c3d2982477be9a082c
     # via
     #   boto3
     #   s3transfer
@@ -350,15 +350,15 @@ cryptography==45.0.3 \
     #   azure-storage-blob
     #   msal
     #   pyjwt
-google-api-core==2.25.0rc1 \
-    --hash=sha256:9826900d88358ad3ac8978ad324e46793ad8137efe6d48ec51e259c0c40e3000 \
-    --hash=sha256:ec279085923652b0d2e4c72fd6bb926ee17e9c960f0b8a472df146a42493957e
+google-api-core==2.25.0 \
+    --hash=sha256:1db79d1281dcf9f3d10023283299ba38f3dc9f639ec41085968fd23e5bcf512e \
+    --hash=sha256:9b548e688702f82a34ed8409fb8a6961166f0b7795032f0be8f48308dff4333a
     # via
     #   google-cloud-core
     #   google-cloud-storage
-google-auth==2.40.2 \
-    --hash=sha256:a33cde547a2134273226fa4b853883559947ebe9207521f7afc707efbf690f58 \
-    --hash=sha256:f7e568d42eedfded58734f6a60c58321896a621f7c116c411550a4b4a13da90b
+google-auth==2.40.3 \
+    --hash=sha256:1370d4593e86213563547f97a92752fc658456fe4514c809544f330fed45a7ca \
+    --hash=sha256:500c3a29adedeb36ea9cf24b8d10858e152f2412e3ca37829b3fa18e33d63b77
     # via
     #   google-api-core
     #   google-cloud-core
@@ -551,9 +551,9 @@ six==1.17.0 \
     # via
     #   azure-core
     #   python-dateutil
-typing-extensions==4.13.2 \
-    --hash=sha256:a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c \
-    --hash=sha256:e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef
+typing-extensions==4.14.0 \
+    --hash=sha256:8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4 \
+    --hash=sha256:a1514509136dd0b477638fc68d6a91497af5076466ad0fa6c338e44e359944af
     # via
     #   azure-core
     #   azure-identity
