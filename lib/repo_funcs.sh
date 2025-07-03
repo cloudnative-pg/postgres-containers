@@ -170,7 +170,7 @@ update_requirements() {
 
 	# This will take the requirements.in file and generate a file
 	# requirements.txt with the hashes for the required packages
-	pip-compile --generate-hashes 2> /dev/null
+	pip-compile -U --generate-hashes 2> /dev/null
 
 	# Removes psycopg from the list of packages to install
 	sed -i '/psycopg/{:a;N;/barman/!ba};/via barman/d' requirements.txt
