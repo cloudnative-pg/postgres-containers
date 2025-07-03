@@ -1,4 +1,3 @@
-# vim:set ft=dockerfile:
 #
 # Copyright The CloudNativePG Contributors
 #
