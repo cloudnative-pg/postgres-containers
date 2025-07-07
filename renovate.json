@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", "docker:pinDigests"],
+  "extends": [
+    "config:recommended",
+    "docker:pinDigests"
+  ],
   "enabledManagers": [
     "github-actions",
     "custom.regex"
@@ -8,7 +11,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["docker-bake.hcl"],
+      "managerFilePatterns": [
+        "/docker-bake.hcl/"
+      ],
       "matchStrings": [
         "\\/\\/\\s*renovate:\\s*datasource=(?<datasource>.*?)\\s+(versioning=(?<versioning>.*?))?\\s+\"(?<depName>[^:]+):(?<currentValue>[^\\s@]+)(@(?<currentDigest>sha256:[0-9a-f]*))?\""
       ],
@@ -17,12 +22,14 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["debian"],
+      "matchPackageNames": [
+        "debian"
+      ],
       "groupName": "Debian base images"
     },
     {
       "matchDepTypes": [
-          "action"
+        "action"
       ],
       "pinDigests": true
     }
