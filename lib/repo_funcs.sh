@@ -97,6 +97,7 @@ generate_postgres() {
 	fi
 
 	# Update requirements.txt
+	mkdir -p "$versionDir"
 	echo "$requirements" > "$versionDir/requirements.txt"
 
 	# Output the image being updated
