@@ -28,13 +28,13 @@ LABEL org.opencontainers.image.description="This Docker image contains PostgreSQ
 COPY requirements.txt /
 
 # Install additional extensions
-RUN set -xe; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
-		"postgresql-${PG_MAJOR}-pgvector" \
-	; \
-	rm -fr /tmp/* ; \
-	rm -rf /var/lib/apt/lists/*;
+# RUN set -xe; \
+#	apt-get update; \
+#	apt-get install -y --no-install-recommends \
+#		"postgresql-${PG_MAJOR}-pgvector" \
+#	; \
+#	rm -fr /tmp/* ; \
+#	rm -rf /var/lib/apt/lists/*;
 
 # Install barman-cloud
 RUN set -xe; \
