@@ -11,11 +11,13 @@
 
 # CNPG PostgreSQL Container Images
 
-This repository provides maintenance scripts for generating immutable
-application containers for all supported PostgreSQL versions (13 to 18).
-These containers are designed to serve as operands for the
-[CloudNativePG (CNPG) operator](https://cloudnative-pg.io) in Kubernetes
-environments.
+This repository provides maintenance scripts for generating **immutable
+application containers** for all supported PostgreSQL versions (13 to 17),
+as well as for PostgreSQL 18 beta.
+
+These containers are designed to serve as **operands** for the
+[CloudNativePG (CNPG) operator](https://cloudnative-pg.io)
+within Kubernetes environments.
 
 ## Key Features
 
