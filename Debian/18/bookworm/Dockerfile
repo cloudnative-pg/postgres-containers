@@ -13,35 +13,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM postgres:13.21-bookworm
+FROM postgres:18beta1-bookworm
 
 # Do not split the description, otherwise we will see a blank space in the labels
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="12" \
+      release="1" \
       summary="PostgreSQL Container images." \
-      description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 13.21-bookworm."
+      description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 18beta1-bookworm."
 
-LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 13.21-bookworm."
+LABEL org.opencontainers.image.description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 18beta1-bookworm."
 
 COPY requirements.txt /
 
 # Install additional extensions
-RUN set -xe; \
-	apt-get update; \
-	if apt-get -s upgrade | grep "^Inst postgres"; then \
-		echo "ERROR: Upgradable postgres packages found!"; \
-		apt-get -s upgrade | grep "^Inst postgres"; \
-		exit 1; \
-	fi; \
-	apt-get install -y --no-install-recommends \
-		"postgresql-${PG_MAJOR}-pgaudit" \
-		"postgresql-${PG_MAJOR}-pgvector" \
-		"postgresql-${PG_MAJOR}-pg-failover-slots" \
-	; \
-	rm -fr /tmp/* ; \
-	rm -rf /var/lib/apt/lists/*;
+# RUN set -xe; \
+#	apt-get update; \
+#	apt-get install -y --no-install-recommends \
+#		"postgresql-${PG_MAJOR}-pgvector" \
+#	; \
+#	rm -fr /tmp/* ; \
+#	rm -rf /var/lib/apt/lists/*;
 
 # Install barman-cloud
 RUN set -xe; \
