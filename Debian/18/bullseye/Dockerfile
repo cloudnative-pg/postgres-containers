@@ -19,7 +19,7 @@ FROM postgres:18beta1-bullseye
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="1" \
+      release="2" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 18beta1-bullseye."
 
@@ -28,7 +28,8 @@ LABEL org.opencontainers.image.description="This Docker image contains PostgreSQ
 COPY requirements.txt /
 
 # Install additional extensions
-# RUN set -xe; \
+RUN set -xe; \
+	rm -fr /var/lib/postgresql/data
 #	apt-get update; \
 #	apt-get install -y --no-install-recommends \
 #		"postgresql-${PG_MAJOR}-pgvector" \

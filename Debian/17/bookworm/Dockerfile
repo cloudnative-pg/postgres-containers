@@ -19,7 +19,7 @@ FROM postgres:17.5-bookworm
 LABEL name="PostgreSQL Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="12" \
+      release="13" \
       summary="PostgreSQL Container images." \
       description="This Docker image contains PostgreSQL and Barman Cloud based on Postgres 17.5-bookworm."
 
@@ -29,6 +29,7 @@ COPY requirements.txt /
 
 # Install additional extensions
 RUN set -xe; \
+	rm -fr /var/lib/postgresql/data; \
 	apt-get update; \
 	if apt-get -s upgrade | grep "^Inst postgres"; then \
 		echo "ERROR: Upgradable postgres packages found!"; \
