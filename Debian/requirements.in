@@ -1,1 +1,2 @@
 barman[cloud,azure,snappy,google,zstandard,lz4] == 3.14.0
+urllib3 == 2.5.0
