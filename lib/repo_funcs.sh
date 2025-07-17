@@ -29,18 +29,6 @@ fetch_postgres_image_version() {
 		head -n1
 }
 
-# Get the latest urllib3 version
-latest_urllib3_version=
-_raw_get_latest_urllib3_version() {
-    curl -s https://pypi.org/pypi/urllib3/json | jq -r '.releases | keys[]' | sort -Vr | head -n1
-}
-get_latest_urllib3_version() {
-    if [ -z "$latest_urllib3_version" ]; then
-        latest_urllib3_version=$(_raw_get_latest_urllib3_version)
-    fi
-    echo "$latest_urllib3_version"
-}
-
 # Get the latest Barman version
 latest_barman_version=
 _raw_get_latest_barman_version() {
@@ -178,14 +166,12 @@ generate_postgres() {
 
 update_requirements() {
 	barmanVersion=$(get_latest_barman_version)
-	urllib3=$(get_latest_urllib3_version)
-
 	# If there's a new version we need to recreate the requirements files
-	echo -e "barman[cloud,azure,snappy,google,zstandard,lz4] == $barmanVersion\nurllib3 == $urllib3" > requirements.in
+	echo "barman[cloud,azure,snappy,google,zstandard,lz4] == $barmanVersion" > requirements.in
 
 	# This will take the requirements.in file and generate a file
 	# requirements.txt with the hashes for the required packages
-	pip-compile -U --allow-unsafe --generate-hashes --output-file=requirements.txt --strip-extras requirements.in 2> /dev/null
+	pip-compile -U --generate-hashes 2> /dev/null
 
 	# Removes psycopg from the list of packages to install
 	sed -i '/psycopg/{:a;N;/barman/!ba};/via barman/d' requirements.txt
