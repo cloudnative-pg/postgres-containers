@@ -35,7 +35,7 @@ jobs:
             pip3 install --upgrade pip-tools pip\<25.1
             export PATH=$HOME/.local/bin:$PATH
             echo "Updating Debian bullseye images"
-            ./Debian/update.sh -d bullseye
+            bash -x ./Debian/update.sh -d bullseye
 
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
