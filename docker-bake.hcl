@@ -38,7 +38,7 @@ target "default" {
       "15.13",
       "16.9",
       "17.5",
-      "18~beta1"
+      "18~beta2"
     ]
     base = [
       // renovate: datasource=docker versioning=loose
