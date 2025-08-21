@@ -56,7 +56,7 @@ jobs:
         with:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
-          message: 'Daily automatic update'
+          message: 'chore: update PostgreSQL versions'
 
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
