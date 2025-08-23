@@ -13,7 +13,7 @@ permissions: read-all
 env:
   IMAGE_STAGING: "ghcr.io/${{ github.repository_owner }}/postgresql-testing"
   IMAGE_RELEASE: "ghcr.io/${{ github.repository_owner }}/postgresql"
-  DEFAULT_DISTRO: "bullseye"
+  DEFAULT_DISTRO: "bookworm"
 
 jobs:
   generate-jobs:
@@ -198,10 +198,10 @@ jobs:
 
       - name: Update ClusterImageCatalog
         run: |
-          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bullseye.yaml > Debian/ClusterImageCatalog-bullseye.yaml
           yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-bookworm.yaml > Debian/ClusterImageCatalog-bookworm.yaml
+          yq eval-all '. as $item ireduce ({}; . *+ $item )' clusterimagecatalog/*-trixie.yaml > Debian/ClusterImageCatalog-trixie.yaml
           ln -f -s ClusterImageCatalog-${DEFAULT_DISTRO}.yaml Debian/ClusterImageCatalog.yaml
-          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bullseye.yaml Debian/ClusterImageCatalog-bookworm.yaml
+          cat Debian/ClusterImageCatalog.yaml Debian/ClusterImageCatalog-bookworm.yaml Debian/ClusterImageCatalog-trixie.yaml
 
       - name: Temporarily disable "include administrators" branch protection
         if: ${{ always() && github.ref == 'refs/heads/main' }}
