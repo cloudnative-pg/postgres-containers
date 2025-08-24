@@ -63,8 +63,8 @@ while [[ $# -gt 0 ]]; do
 		;;
 	-d|--distro)
 		DISTRO=$2
-		if ! [[ "$DISTRO" =~ (bullseye|bookworm) ]]; then
-			echo "The supported distributions are: bullseye, bookworm"
+		if ! [[ "$DISTRO" =~ (bookworm|trixie) ]]; then
+			echo "The supported distributions are: bookworm, trixie"
 			exit 1
 		fi
 		shift 2
@@ -92,15 +92,15 @@ versions=("${versions[@]%/}")
 requirements=$(update_requirements)
 
 case "$DISTRO" in
-	bullseye|bookworm)
+	bookworm|trixie)
 		for version in "${versions[@]}"; do
 			generate_postgres "${version}" "${DISTRO}" "${requirements}"
 		done
 		;;
 	*)
 		for version in "${versions[@]}"; do
-			generate_postgres "${version}" "bullseye" "${requirements}"
 			generate_postgres "${version}" "bookworm" "${requirements}"
+			generate_postgres "${version}" "trixie" "${requirements}"
 		done
 		;;
 esac

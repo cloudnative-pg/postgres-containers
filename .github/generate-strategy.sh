@@ -17,7 +17,7 @@ declare -A aliases=(
 )
 
 # Define the current default distribution
-DEFAULT_DISTRO="bullseye"
+DEFAULT_DISTRO="bookworm"
 
 GITHUB_ACTIONS=${GITHUB_ACTIONS:-false}
 
@@ -96,8 +96,8 @@ generator() {
 entries=()
 
 # Debian
-generator "Debian" "bullseye"
 generator "Debian" "bookworm"
+generator "Debian" "trixie"
 
 # Build the strategy as a JSON object
 strategy="{\"fail-fast\": false, \"matrix\": {\"include\": [$(join ', ' "${entries[@]}")]}}"
