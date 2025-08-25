@@ -26,8 +26,7 @@ postgreSQLVersions = [
   "14.19",
   "15.14",
   "16.10",
-  "17.6",
-  "18~beta3"
+  "17.6"
 ]
 
 extensions = [
