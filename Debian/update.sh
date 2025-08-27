@@ -41,7 +41,7 @@ source "$LIBDIR/repo_funcs.sh"
 DISTRO=""
 
 usage(){
-	echo "Fetch new updates of the CNPG container images."
+	echo "Fetch new updates of the CNPG system container images."
 	echo "Usage: $(basename "$0") [options]"
 	echo "Options"
 	echo "  -d, --distro the distro to update"
@@ -63,8 +63,8 @@ while [[ $# -gt 0 ]]; do
 		;;
 	-d|--distro)
 		DISTRO=$2
-		if ! [[ "$DISTRO" =~ (bullseye|bookworm) ]]; then
-			echo "The supported distributions are: bullseye, bookworm"
+		if ! [[ "$DISTRO" =~ (bookworm) ]]; then
+			echo "The supported distributions are: bookworm"
 			exit 1
 		fi
 		shift 2
@@ -92,14 +92,13 @@ versions=("${versions[@]%/}")
 requirements=$(update_requirements)
 
 case "$DISTRO" in
-	bullseye|bookworm)
+	bookworm)
 		for version in "${versions[@]}"; do
 			generate_postgres "${version}" "${DISTRO}" "${requirements}"
 		done
 		;;
 	*)
 		for version in "${versions[@]}"; do
-			generate_postgres "${version}" "bullseye" "${requirements}"
 			generate_postgres "${version}" "bookworm" "${requirements}"
 		done
 		;;
