@@ -11,13 +11,8 @@ set -eu
 ROOT_DIR=$(cd "$(dirname "$0")/../"; pwd)
 source "${ROOT_DIR}/lib/repo_funcs.sh"
 
-# Define an optional aliases for some major versions
-declare -A aliases=(
-	[$POSTGRESQL_LATEST_MAJOR_RELEASE]='latest'
-)
-
 # Define the current default distribution
-DEFAULT_DISTRO="bullseye"
+DEFAULT_DISTRO="bookworm"
 
 GITHUB_ACTIONS=${GITHUB_ACTIONS:-false}
 
@@ -59,29 +54,13 @@ generator() {
 		releaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
 
 		# Setting distribution tags: "major version", "full version", "full version with release"
-		# i.e. "14-bullseye", "14.2-bullseye", "14.2-1-bullseye"
+		# i.e. "14-bookworm", "14.2-bookworm", "14.2-1-bookworm"
 		fullTag="${postgresImageVersion}-${releaseVersion}-${distro}"
 		versionAliases=(
 				"${version}-${distro}"
 				"${postgresImageVersion}-${distro}"
 				"${fullTag}"
 			)
-
-		# Additional aliases in case we are running in the default distro
-		# i.e. "14", "14.2", "14.2-1", "latest"
-		if [[ "${distro}" == "${DEFAULT_DISTRO}" ]]; then
-			versionAliases+=(
-				"${postgresImageVersion}"
-				"${postgresImageVersion}-${releaseVersion}"
-				${aliases[$version]:+"${aliases[$version]}"}
-			)
-			# Create a tag with just the major (e.g "14") only for stable versions
-			if [[ "${version}" -le "${POSTGRESQL_LATEST_MAJOR_RELEASE}" ]]; then
-				versionAliases+=(
-					"$version"
-				)
-			fi
-		fi
 
 		# Supported platforms for container images
 		platforms="linux/amd64,linux/arm64"
@@ -96,7 +75,6 @@ generator() {
 entries=()
 
 # Debian
-generator "Debian" "bullseye"
 generator "Debian" "bookworm"
 
 # Build the strategy as a JSON object

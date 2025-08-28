@@ -22,23 +22,6 @@ jobs:
 
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
-          python-version: 3.9
-
-      - name: Run update script
-        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
-        with:
-          timeout_minutes: 15
-          max_attempts: 3
-          command: |
-            # pip-tools provides pip-compile used by update.sh
-            # TODO: Pinning pip due to https://github.com/jazzband/pip-tools/issues/2176, remove when fixed
-            pip3 install --upgrade pip-tools pip\<25.1
-            export PATH=$HOME/.local/bin:$PATH
-            echo "Updating Debian bullseye images"
-            ./Debian/update.sh -d bullseye
-
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
-        with:
           python-version: 3.11
 
       - name: Run update script
