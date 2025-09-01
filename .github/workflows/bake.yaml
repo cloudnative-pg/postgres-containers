@@ -83,6 +83,61 @@ jobs:
             jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"' | \
             xargs cosign sign --yes
 
+      - name: Create Image Catalogs
+        run: |
+          IMAGES=$(
+          echo '${{ steps.build.outputs.metadata }}' |
+              jq -r '.[] as $items |
+                  $items."image.name" | split(",")[] + "@" + $items."containerimage.digest" |
+                  select (. | test("-[0-9]{12}-[a-zA-Z]+")) |
+                  sub("-testing"; "") |
+                  capture("(?<image>[^:]+:(?<major>[^.]+).*-(?<variant>[^-]+)-(?<distro>[^@]+).*)") |
+                  tojson'
+          )
+
+          for IMAGE in $IMAGES
+          do
+              export IMAGE_NAME=$(echo $IMAGE | jq -r '.image')
+              export IMAGE_MAJOR=$(echo $IMAGE | jq -r '.major')
+              export IMAGE_VARIANT=$(echo $IMAGE | jq -r '.variant')
+              export IMAGE_DISTRO=$(echo $IMAGE | jq -r '.distro')
+
+              yq --null-input '{
+                    "apiVersion": "postgresql.cnpg.io/v1",
+                    "kind": "ClusterImageCatalog",
+                    "metadata": {"name":"postgresql-" + env(IMAGE_VARIANT) + "-" + env(IMAGE_DISTRO)},
+                    "spec": {
+                      "images": [
+                        {
+                          "major": env(IMAGE_MAJOR),
+                          "image": env(IMAGE_NAME)
+                        }
+                      ]
+                    }
+                  }' > temp_ClusterImageCatalog-$IMAGE_MAJOR-$IMAGE_VARIANT-$IMAGE_DISTRO.yaml
+          done
+
+          IMAGES_ARRAY=$(echo $IMAGES | jq --slurp '.')
+
+          DISTRIBUTIONS=$(echo $IMAGES_ARRAY | jq -r 'map(.distro) | unique | join(" ")')
+          VARIANTS=$(echo $IMAGES_ARRAY | jq -r 'map(.variant) | unique | join(" ")')
+
+          for VARIANT in $VARIANTS
+          do
+            for DISTRIBUTION in $DISTRIBUTIONS
+            do
+              yq eval-all '. as $item ireduce ({}; . *+ $item )' temp_ClusterImageCatalog-*-$VARIANT-$DISTRIBUTION.yaml > ClusterImageCatalog-$VARIANT-$DISTRIBUTION.yaml
+              echo "Distribution: $DISTRIBUTION, variant: $VARIANT"
+              cat ClusterImageCatalog-$VARIANT-$DISTRIBUTION.yaml
+            done
+          done
+
+      - name: Upload Image Catalogs
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ClusterImageCatalogs
+          path: ClusterImageCatalog-*.yaml
+
   security:
     name: Security checks
     runs-on: ubuntu-latest
