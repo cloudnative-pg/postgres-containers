@@ -29,6 +29,10 @@ postgreSQLVersions = [
   "17.6"
 ]
 
+// Barman version to build
+# renovate: datasource=github-releases depName=EnterpriseDB/barman versioning=loose
+barmanVersion = "3.14.0"
+
 extensions = [
   "pgaudit",
   "pgvector",
@@ -39,7 +43,8 @@ target "default" {
   matrix = {
     tgt = [
       "minimal",
-      "standard"
+      "standard",
+      "system"
     ]
     pgVersion = postgreSQLVersions
     base = [
@@ -69,6 +74,7 @@ target "default" {
     PG_MAJOR = "${getMajor(pgVersion)}"
     BASE = "${base}"
     EXTENSIONS = "${getExtensionsString(pgVersion, extensions)}"
+    BARMAN_VERSION = "${barmanVersion}"
   }
   attest = [
     "type=provenance,mode=max",
