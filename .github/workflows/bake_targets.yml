@@ -1,0 +1,207 @@
+name: Build target images
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "The environment to build for"
+        required: true
+        type: string
+        default: "testing"
+      postgresql_version:
+        description: "The PostgreSQL major version to bake"
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  testbuild:
+    # Start by building images for testing. We want to run security checks before pushing those to production.
+    name: PostgreSQL ${{ inputs.postgresql_version }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+      # Required by the cosign step
+      id-token: write
+    outputs:
+      metadata: ${{ steps.build.outputs.metadata }}
+      images: ${{ steps.images.outputs.images }}
+    steps:
+        - name: Checkout Code
+          uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+
+        - name: List targets
+          id: targets
+          uses: docker/bake-action/subaction/matrix@v6
+          with:
+            target: "default"
+
+        - name: Filter by versions
+          id: extract_targets
+          run: |
+            target=$(echo '${{ steps.targets.outputs.matrix }}' | jq -r '.[] | .[] | select(match("${{ inputs.postgresql_version }}"))' | xargs echo | sed 's/ /,/g')
+            echo "Targets for PostgreSQL ${{ inputs.postgresql_version }}: $target"
+            echo "filtered_targets=$target" >> "$GITHUB_OUTPUT"
+
+        - name: Log in to the GitHub Container registry
+          uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+
+        # TODO: review this when GitHub has linux/arm64 runners available (Q1 2025?)
+        #   https://github.com/github/roadmap/issues/970
+        - name: Set up QEMU
+          uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
+          with:
+            platforms: 'arm64'
+
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
+
+        - name: Build and push
+          uses: docker/bake-action@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
+          id: build
+          env:
+            environment: testing
+            registry: ghcr.io/${{ github.repository_owner }}
+            revision: ${{ github.sha }}
+          with:
+            push: true
+            targets: ${{ steps.extract_targets.outputs.filtered_targets }}
+
+        # Get a list of the images that were built and pushed. We only care about a single tag for each image.
+        - name: Generated images
+          id: images
+          run: |
+            echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"") ]')" >>  "$GITHUB_OUTPUT"
+
+        # Even if we're testing we sign the images, so we can push them to production later if that's required
+        - name: Install cosign
+          uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
+          # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
+          # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
+          # how to use cosign.
+        - name: Sign images
+          run: |
+            echo '${{ steps.build.outputs.metadata }}' | \
+              jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"' | \
+              xargs cosign sign --yes
+
+  security:
+    name: Security checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      security-events: write
+    needs:
+      - testbuild
+    strategy:
+      matrix:
+        image: ${{fromJson(needs.testbuild.outputs.images)}}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+
+      - name: Log in to the GitHub Container registry
+        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Dockle
+        uses: erzz/dockle-action@69369bc745ee29813f730231a821bcd4f71cd290 # v1
+        with:
+          image: ${{ matrix.image }}
+          exit-code: '1'
+          failure-threshold: WARN
+          accept-keywords: key
+          accept-filenames: usr/share/cmake/Templates/Windows/Windows_TemporaryKey.pfx,etc/trusted-key.key,usr/share/doc/perl-IO-Socket-SSL/certs/server_enc.p12,usr/share/doc/perl-IO-Socket-SSL/certs/server.p12,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.8/site-packages/azure/core/settings.py,usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,usr/local/lib/python3.7/dist-packages/azure/core/settings.py,etc/ssl/private/ssl-cert-snakeoil.key,usr/lib/python3.9/site-packages/azure/core/settings.py,usr/local/lib/python3.11/dist-packages/azure/core/settings.py,usr/local/lib/python3.13/dist-packages/azure/core/settings.py
+
+
+      - name: Snyk
+        uses: snyk/actions/docker@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: "${{ matrix.image }}"
+          args: --severity-threshold=high --file=Dockerfile
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d # v3
+        continue-on-error: true
+        with:
+          sarif_file: snyk.sarif
+
+  # Use the metadata generated in the `testbuild` step to find all the images
+  # that have been built. We copy them one by one to the production registry
+  # using skopeo. Then we sign the production images too.
+  copytoproduction:
+    name: Copy images to production
+    if: |
+      github.ref == 'refs/heads/main' &&
+      ( github.event.inputs.environment == 'production' || github.event_name == 'schedule' )
+    runs-on: ubuntu-latest
+    needs:
+      - testbuild
+      - security
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+      # Required by the cosign step
+      id-token: write
+    steps:
+      - name: Log in to the GitHub Container registry
+        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy images
+        run: |
+          images=$(echo '${{ needs.testbuild.outputs.metadata }}' |
+            jq -r '
+              .[] as $items |
+              (
+                $items."image.name" |
+                split(",")[] +
+                  "@" +
+                  $items."containerimage.digest"
+              )
+            '
+          )
+          for image in $images
+          do
+            testimageshaonly="${image%:*@*}@${image#*@}"
+            testimagenosha="${image%@*}"
+            prodimage="${testimagenosha/-testing/}"
+            echo "Copying ${testimageshaonly} to ${prodimage}"
+            docker run --quiet quay.io/skopeo/stable:v1.17.0-immutable copy -q -a \
+              --dest-creds ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} \
+              docker://${testimageshaonly} docker://${prodimage}
+          done
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
+
+      - name: Sign images
+        run: |
+          images=$(echo '${{ needs.testbuild.outputs.metadata }}' |
+            jq -r '.[] |
+              (
+                ."image.name" |
+                sub(",.*";"") |
+                sub("-testing:[^@]+";"")
+              ) + "@" + ."containerimage.digest"
+            '
+          )
+          echo "Signing ${images}"
+          cosign sign --yes ${images}
