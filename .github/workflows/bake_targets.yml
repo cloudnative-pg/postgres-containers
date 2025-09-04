@@ -29,67 +29,67 @@ jobs:
       metadata: ${{ steps.build.outputs.metadata }}
       images: ${{ steps.images.outputs.images }}
     steps:
-        - name: Checkout Code
-          uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - name: Checkout Code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
-        - name: List targets
-          id: targets
-          uses: docker/bake-action/subaction/matrix@v6
-          with:
-            target: "default"
+      - name: List targets
+        id: targets
+        uses: docker/bake-action/subaction/matrix@v6
+        with:
+          target: "default"
 
-        - name: Filter by versions
-          id: extract_targets
-          run: |
-            target=$(echo '${{ steps.targets.outputs.matrix }}' | jq -r '.[] | .[] | select(match("${{ inputs.postgresql_version }}"))' | xargs echo | sed 's/ /,/g')
-            echo "Targets for PostgreSQL ${{ inputs.postgresql_version }}: $target"
-            echo "filtered_targets=$target" >> "$GITHUB_OUTPUT"
+      - name: Filter by versions
+        id: extract_targets
+        run: |
+          target=$(echo '${{ steps.targets.outputs.matrix }}' | jq -r '.[] | .[] | select(match("${{ inputs.postgresql_version }}"))' | xargs echo | sed 's/ /,/g')
+          echo "Targets for PostgreSQL ${{ inputs.postgresql_version }}: $target"
+          echo "filtered_targets=$target" >> "$GITHUB_OUTPUT"
 
-        - name: Log in to the GitHub Container registry
-          uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
-          with:
-            registry: ghcr.io
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Log in to the GitHub Container registry
+        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-        # TODO: review this when GitHub has linux/arm64 runners available (Q1 2025?)
-        #   https://github.com/github/roadmap/issues/970
-        - name: Set up QEMU
-          uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
-          with:
-            platforms: 'arm64'
+      # TODO: review this when GitHub has linux/arm64 runners available (Q1 2025?)
+      #   https://github.com/github/roadmap/issues/970
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
+        with:
+          platforms: 'arm64'
 
-        - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
 
-        - name: Build and push
-          uses: docker/bake-action@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
-          id: build
-          env:
-            environment: testing
-            registry: ghcr.io/${{ github.repository_owner }}
-            revision: ${{ github.sha }}
-          with:
-            push: true
-            targets: ${{ steps.extract_targets.outputs.filtered_targets }}
+      - name: Build and push
+        uses: docker/bake-action@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
+        id: build
+        env:
+          environment: testing
+          registry: ghcr.io/${{ github.repository_owner }}
+          revision: ${{ github.sha }}
+        with:
+          push: true
+          targets: ${{ steps.extract_targets.outputs.filtered_targets }}
 
-        # Get a list of the images that were built and pushed. We only care about a single tag for each image.
-        - name: Generated images
-          id: images
-          run: |
-            echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"") ]')" >>  "$GITHUB_OUTPUT"
+      # Get a list of the images that were built and pushed. We only care about a single tag for each image.
+      - name: Generated images
+        id: images
+        run: |
+          echo "images=$(echo '${{ steps.build.outputs.metadata }}' | jq -c '[ .[]."image.name" | sub(",.*";"") ]')" >>  "$GITHUB_OUTPUT"
 
-        # Even if we're testing we sign the images, so we can push them to production later if that's required
-        - name: Install cosign
-          uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
-          # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
-          # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
-          # how to use cosign.
-        - name: Sign images
-          run: |
-            echo '${{ steps.build.outputs.metadata }}' | \
-              jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"' | \
-              xargs cosign sign --yes
+      # Even if we're testing we sign the images, so we can push them to production later if that's required
+      - name: Install cosign
+        uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
+        # See https://github.blog/security/supply-chain-security/safeguard-container-signing-capability-actions/
+        # and https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml for more details on
+        # how to use cosign.
+      - name: Sign images
+        run: |
+          echo '${{ steps.build.outputs.metadata }}' | \
+            jq '.[] | (."image.name" | sub(",.*";"" )) + "@" + ."containerimage.digest"' | \
+            xargs cosign sign --yes
 
   security:
     name: Security checks
