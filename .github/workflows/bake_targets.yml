@@ -121,8 +121,7 @@ jobs:
           exit-code: '1'
           failure-threshold: WARN
           accept-keywords: key
-          accept-filenames: usr/share/cmake/Templates/Windows/Windows_TemporaryKey.pfx,etc/trusted-key.key,usr/share/doc/perl-IO-Socket-SSL/certs/server_enc.p12,usr/share/doc/perl-IO-Socket-SSL/certs/server.p12,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.8/site-packages/azure/core/settings.py,usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,usr/local/lib/python3.7/dist-packages/azure/core/settings.py,etc/ssl/private/ssl-cert-snakeoil.key,usr/lib/python3.9/site-packages/azure/core/settings.py,usr/local/lib/python3.11/dist-packages/azure/core/settings.py,usr/local/lib/python3.13/dist-packages/azure/core/settings.py
-
+          accept-filenames: usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,etc/ssl/private/ssl-cert-snakeoil.key,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.11/dist-packages/azure/core/settings.py,usr/local/lib/python3.13/dist-packages/azure/core/settings.py
 
       - name: Snyk
         uses: snyk/actions/docker@master
