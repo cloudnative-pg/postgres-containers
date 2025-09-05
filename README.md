@@ -56,7 +56,7 @@ They use the [APT PostgreSQL packages](https://wiki.postgresql.org/wiki/Apt)
 maintained by the PostgreSQL Global Development Group (PGDG).
 
 These images are identified by the inclusion of `minimal` in their tag names,
-for example: `17.2-minimal-bookworm`.
+for example: `17.2-minimal-trixie`.
 
 ### Standard Images
 
@@ -69,7 +69,7 @@ following additional features:
 - All Locales
 
 Standard images are identifiable by the `standard` tag in their names, such as:
-`17.2-standard-bookworm`.
+`17.2-standard-trixie`.
 
 > **Note:** Standard images are designed to offer functionality equivalent to
 > the legacy `system` images when used with CloudNativePG. To achieve parity,
