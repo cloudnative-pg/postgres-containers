@@ -1,3 +1,5 @@
+[![CloudNativePG](./logo/cloudnativepg.png)](https://cloudnative-pg.io/)
+
 > **IMPORTANT:** As of January 2025, we have transitioned to a new image build
 > process (see issue [#132](https://github.com/cloudnative-pg/postgres-containers/issues/132)
 > for details). Previously, the images were based on the
