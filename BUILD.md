@@ -73,10 +73,10 @@ docker buildx bake --push
 
 If you want to limit the build to a specific combination, you can specify the
 target in the `VERSION-TYPE-BASE` format. For example, to build an image for
-PostgreSQL 17 with the `minimal` format on the `bookworm` base image:
+PostgreSQL 17 with the `minimal` format on the `trixie` base image:
 
 ```bash
-docker buildx bake --push postgresql-17-minimal-bookworm
+docker buildx bake --push postgresql-17-minimal-trixie
 ```
 
 You can also limit the build to a single platform, for example AMD64, with:
@@ -90,7 +90,7 @@ The two can be mixed as well:
 ```bash
 docker buildx bake --push \
   --set "*.platform=linux/amd64" \
-  postgresql-17-minimal-bookworm
+  postgresql-17-minimal-trixie
 ```
 
 ## The Distribution Registry

@@ -1,0 +1,53 @@
+name: Bake Images
+
+on:
+  schedule:
+    # Build images once a week, on Mondays
+    - cron: 0 8 * * 1
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options:
+          - testing
+          - production
+        default: testing
+        description: "Choose the environment to bake the target for"
+
+permissions: {}
+
+jobs:
+  get_versions:
+    name: Get PostgreSQL versions
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      versions: ${{ steps.get_versions.outputs.versions }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+
+      - name: Get supported PostgreSQL versions
+        id: get_versions
+        run: |
+          VERSIONS="$(sed -n '/postgreSQLVersions = \[/,/\]/ s/.*"\(.*\)\..*".*/\"\1\"/p' docker-bake.hcl | xargs echo | tr ' ' ',')"
+          echo "PostgreSQL versions: [$VERSIONS]"
+          echo "versions=[$VERSIONS]" >> "$GITHUB_OUTPUT"
+
+  Bake:
+    name: Bake
+    needs: get_versions
+    permissions:
+      packages: write
+      contents: read
+      id-token: write
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ${{ fromJson(needs.get_versions.outputs.versions) }}
+    uses: ./.github/workflows/bake_targets.yml
+    with:
+      environment: ${{ github.event.inputs.environment }}
+      postgresql_version: ${{ matrix.version }}
