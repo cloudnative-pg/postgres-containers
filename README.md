@@ -78,7 +78,7 @@ Standard images are identifiable by the `standard` tag in their names, such as:
 
 ### System Images (deprecated)
 
-Starting from September 2025, system images are based on the `stadard` image
+Starting from September 2025, system images are based on the `standard` image
 and include Barman Cloud binaries.
 
 > **IMPORTANT:** The `system` images are deprecated and will be removed once
