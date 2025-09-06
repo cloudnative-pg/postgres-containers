@@ -16,6 +16,7 @@ variable "revision" {
 }
 
 fullname = ( environment == "testing") ? "${registry}/postgresql-testing" : "${registry}/postgresql"
+barmanFullname = ( environment == "testing") ? "${registry}/barman-testing" : "${registry}/barman"
 now = timestamp()
 authors = "The CloudNativePG Contributors"
 url = "https://github.com/cloudnative-pg/postgres-containers"
@@ -118,6 +119,46 @@ target "default" {
     "org.opencontainers.image.base.name" = "docker.io/library/debian:${tag(base)}"
     "org.opencontainers.image.base.digest" = "${digest(base)}"
   }
+}
+
+target "barman" {
+  matrix = {
+    pgVersion = postgreSQLVersions
+    base = [
+      // renovate: datasource=docker versioning=loose
+      "debian:trixie-slim@sha256:c85a2732e97694ea77237c61304b3bb410e0e961dd6ee945997a06c788c545bb",
+      // renovate: datasource=docker versioning=loose
+      "debian:bookworm-slim@sha256:b1a741487078b369e78119849663d7f1a5341ef2768798f7b7406c4240f86aef",
+      // renovate: datasource=docker versioning=loose
+      "debian:bullseye-slim@sha256:849d9d34d5fe0bf88b5fb3d09eb9684909ac4210488b52f4f7bbe683eedcb851"
+    ]
+    barmanVersion = [
+      "3.14.1",
+      "3.15.0"
+    ]
+  }
+  platforms = [
+    "linux/amd64",
+    "linux/arm64"
+  ]
+
+
+  dockerfile = "Dockerfile.barman"
+  name = "barman-${barmanVersion}-${distroVersion(base)}"
+  tags = [
+    "${barmanFullname}:${barmanVerison}-${distroVersion(base)}",
+    "${barmanFullname}:${barmanVersion}-${formatdate("YYYYMMDDhhmm", now)}-${distroVersion(base)}"
+  ]
+  context = "."
+  target = "barman"
+  args = {
+    BARMAN_VERSION = "${barmanVersion}"
+    BASE = "${base}"
+  }
+  attest = [
+    "type=provenance,mode=max",
+    "type=sbom"
+  ]
 }
 
 function tag {

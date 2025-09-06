@@ -1,0 +1,9 @@
+ARG BASE=debian:12.11-slim
+FROM $BASE AS barman
+
+RUN --mount=type=secret,id=requirements,target=/run/secrets/requirements.txt \
+    apt-get update && \
+    apt-get install -y postgresql-common build-essential && \
+    /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y && \
+    apt-get install -y libpq-dev && \
+    pip install -r /run/secrets/requirements.txt
