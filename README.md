@@ -22,17 +22,38 @@ within Kubernetes environments.
 
 ## Key Features
 
-The CNPG PostgreSQL Container Images:
+CloudNativePG PostgreSQL container images:
 
-- Are based on Debian Linux `stable` and `oldstable`
-- Support **multi-architecture builds**, including `linux/amd64` and
+- Are built on top of **Debian Linux** (`stable` and `oldstable`).
+- Provide **multi-architecture support**, including `linux/amd64` and
   `linux/arm64`.
-- Include **build attestations**, such as Software Bills of Materials (SBOMs)
+- Ship with **build attestations**, such as Software Bills of Materials (SBOMs)
   and provenance metadata.
-- Are published on the
-  [CloudNativePG GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
-- Are **automatically rebuilt weekly** (every Monday) to ensure they remain
-  up-to-date.
+- Are published in the [CloudNativePG GitHub Container Registry](https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql).
+- Are **automatically rebuilt every week** (on Mondays) to remain up to date
+  with the latest upstream security and bug fixes.
+
+## Debian Releases
+
+CloudNativePG PostgreSQL container images are based on the official `stable`
+and `oldstable` Debian releases, maintained and supported by the
+[Debian Project](https://www.debian.org/releases/).
+
+The table below summarises the support lifecycle of relevant Debian versions,
+including End-of-Life (EOL) and Long-Term Support (LTS) dates.
+
+| Name                    | Version | Release Date |     EOL    |     LTS    |
+| ----------------------- | :-----: | :----------: | :--------: | :--------: |
+| Trixie (`stable`)       |    13   |  2025-08-09  | 2028-08-09 | 2030-06-30 |
+| Bookworm (`oldstable`)  |    12   |  2023-06-10  | 2026-06-10 | 2028-06-30 |
+| Bullseye (*deprecated*) |    11   |  2021-08-14  | 2024-08-14 | 2026-08-31 |
+
+> **IMPORTANT:** The CloudNativePG project provides full support for
+> Debian-based images until each release reaches its official End-of-Life
+> (EOL). After EOL and until the start of Long-Term Support (LTS), images for
+> deprecated releases are maintained on a **best-effort basis**. If
+> discontinuation becomes necessary before the LTS date, a minimum
+> **three-month advance notice** will be posted on this page.
 
 ## Image Types
 
@@ -56,7 +77,7 @@ They use the [APT PostgreSQL packages](https://wiki.postgresql.org/wiki/Apt)
 maintained by the PostgreSQL Global Development Group (PGDG).
 
 These images are identified by the inclusion of `minimal` in their tag names,
-for example: `17.2-minimal-trixie`.
+for example: `17.6-minimal-trixie`.
 
 ### Standard Images
 
@@ -69,7 +90,7 @@ following additional features:
 - All Locales
 
 Standard images are identifiable by the `standard` tag in their names, such as:
-`17.2-standard-trixie`.
+`17.6-standard-trixie`.
 
 > **Note:** Standard images are designed to offer functionality equivalent to
 > the legacy `system` images when used with CloudNativePG. To achieve parity,
