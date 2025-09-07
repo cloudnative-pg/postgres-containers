@@ -42,11 +42,11 @@ and `oldstable` Debian releases, maintained and supported by the
 The table below summarises the support lifecycle of relevant Debian versions,
 including End-of-Life (EOL) and Long-Term Support (LTS) dates.
 
-| Name                      | Version | Release Date |     EOL    |     LTS    |
-| ------------------------- | :-----: | :----------: | :--------: | :--------: |
-| Trixie (`stable`)         |    13   |  2025-08-09  | 2028-08-09 | 2030-06-30 |
-| Bookworm (`oldstable`)    |    12   |  2023-06-10  | 2026-06-10 | 2028-06-30 |
-| Bullseye (`oldoldstable`) |    11   |  2021-08-14  | 2024-08-14 | 2026-08-31 |
+| Name                      | Version | Release Date |     EOL    |     LTS    |   Status   |
+| ------------------------- | :-----: | :----------: | :--------: | :--------: | :--------- |
+| Trixie (`stable`)         |    13   |  2025-08-09  | 2028-08-09 | 2030-06-30 | Supported  |
+| Bookworm (`oldstable`)    |    12   |  2023-06-10  | 2026-06-10 | 2028-06-30 | Supported  |
+| Bullseye (`oldoldstable`) |    11   |  2021-08-14  | 2024-08-14 | 2026-08-31 | Deprecated |
 
 > **IMPORTANT:** The CloudNativePG project provides full support for
 > Debian-based images until each release reaches its official End-of-Life
