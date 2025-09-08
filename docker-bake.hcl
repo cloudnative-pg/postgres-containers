@@ -132,17 +132,17 @@ function cleanVersion {
     result = replace(version, "~", "")
 }
 
-function isBeta {
+function isPreview {
     params = [ version ]
     result = length(regexall("[0-9]+~(alpha|beta|rc).*", version)) > 0
 }
 
 function getMajor {
     params = [ version ]
-    result = (isBeta(version) == true) ? index(split("~", version),0) : index(split(".", version),0)
+    result = (isPreview(version) == true) ? index(split("~", version),0) : index(split(".", version),0)
 }
 
 function getExtensionsString {
     params = [ version, extensions ]
-    result = (isBeta(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
+    result = (isPreview(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
 }
