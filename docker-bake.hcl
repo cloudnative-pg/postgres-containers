@@ -29,6 +29,11 @@ postgreSQLVersions = [
   "17.6"
 ]
 
+// PostgreSQL preview versions to build
+postgreSQLPreviewVersions = [
+  "18~rc1",
+]
+
 // Barman version to build
 # renovate: datasource=github-releases depName=EnterpriseDB/barman versioning=loose
 barmanVersion = "3.14.0"
@@ -46,7 +51,7 @@ target "default" {
       "standard",
       "system"
     ]
-    pgVersion = postgreSQLVersions
+    pgVersion = getPgVersions(postgreSQLVersions, postgreSQLPreviewVersions)
     base = [
       // renovate: datasource=docker versioning=loose
       "debian:trixie-slim@sha256:c85a2732e97694ea77237c61304b3bb410e0e961dd6ee945997a06c788c545bb",
@@ -145,4 +150,19 @@ function getMajor {
 function getExtensionsString {
     params = [ version, extensions ]
     result = (isPreview(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
+}
+
+function isMajorPresent {
+  params = [major, pgVersions]
+  result = contains([for v in pgVersions : getMajor(v)], major)
+}
+
+function getPgVersions {
+  params = [stableVersions, previewVersions]
+  result = concat(stableVersions,
+    [
+      for v in previewVersions : v
+      if !isMajorPresent(getMajor(v), stableVersions)
+    ]
+  )
 }
