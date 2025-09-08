@@ -203,4 +203,4 @@ jobs:
             '
           )
           echo "Signing ${images}"
-          cosign sign --yes ${images}
+          cosign sign -t 5m --yes ${images}
