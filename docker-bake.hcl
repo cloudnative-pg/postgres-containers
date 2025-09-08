@@ -134,7 +134,7 @@ function cleanVersion {
 
 function isBeta {
     params = [ version ]
-    result = length(regexall("[0-9]+~beta.*", version)) > 0
+    result = length(regexall("[0-9]+~(alpha|beta|rc).*", version)) > 0
 }
 
 function getMajor {

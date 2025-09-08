@@ -29,6 +29,7 @@ jobs:
             VERSIONS="$(
             curl -Ss -q https://www.postgresql.org/versions.json \
             | jq -r '[.[] | select(.supported == true) | .major + "." + .latestMinor]
+            | . + ["18~rc1"]
             | sort
             | map("  \"" + . + "\"")
             | join(",\n")' \
