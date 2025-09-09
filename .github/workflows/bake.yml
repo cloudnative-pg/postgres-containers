@@ -51,3 +51,15 @@ jobs:
     with:
       environment: ${{ github.event.inputs.environment }}
       postgresql_version: ${{ matrix.version }}
+
+  Catalogs:
+    name: Update Catalogs
+    needs: Bake
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+       - name: Repository Dispatch
+         uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3
+         with:
+           event-type: update-catalogs

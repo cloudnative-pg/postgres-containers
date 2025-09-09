@@ -1,10 +1,9 @@
-name: catalogs-generator
+name: Update Catalogs
 
 on:
-  push:
-  schedule:
-    - cron: "30 0 * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types: [update-catalogs]
 
 permissions: read-all
 
@@ -13,7 +12,7 @@ defaults:
     shell: "bash -Eeuo pipefail -x {0}"
 
 jobs:
-  generate-catalogs:
+  update-catalogs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
