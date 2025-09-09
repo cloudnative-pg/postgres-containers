@@ -118,6 +118,57 @@ and include Barman Cloud binaries.
 > should plan to migrate to either a `minimal` or `standard` image together
 > with the Barman Cloud plugin—or adopt another supported backup solution.
 
+## Image Tags
+
+Each image is identified by its digest and a main tag of the form:
+
+```
+MM.mm-TS-TYPE-OS
+```
+
+where:
+
+- `MM` is the PostgreSQL major version (e.g. `16`)
+- `mm` is the PostgreSQL minor version (e.g. `10`)
+- `TS` is the build timestamp with minute precision (e.g. `202509090953`)
+- `TYPE` is image type (e.g. `minimal`)
+- `OS` is the underlying distribution (e.g. `trixie`)
+
+For example: `16.10-202509090953-minimal-trixie`.
+
+### Rolling Tags
+
+In addition to fully qualified tags, rolling tags are available in the
+following formats:
+
+- `MM.mm-TYPE-OS`: latest image for a given PostgreSQL *minor* version
+  (`16.10`) of a specific type (`minimal`) on a Debian version (`trixie`).
+  For example: `16.10-minimal-trixie`.
+- `MM-TYPE-OS`: latest image for a given PostgreSQL *major* version (`16`) of
+  a specific type (`minimal`) on a Debian version (`trixie`).
+  For example: `16-minimal-trixie`.
+
+### Recommendation
+
+While the most reliable way to reference an image is by its digest, the
+`MM.mm-TYPE-OS` tag usually provides a good balance between stability and
+convenience for most use cases.
+
+### Deprecated Rolling Tags
+
+For historical reasons, the `system` image also carries two additional rolling
+tags:
+
+- `MM.mm`: latest `system` image for a given PostgreSQL *minor* version (e.g.
+  `16.10`) on Debian `bullseye`.
+- `MM`: latest `system` image for a given PostgreSQL *major* version (e.g.
+  `16`) on Debian `bullseye`.
+
+**IMPORTANT:** These tags are **deprecated** and will be **removed when
+`bullseye` images reach end of life**. Please migrate to one of the supported
+tag formats that explicitly include both the **image type** and the
+**distribution version** (e.g. `16.10-minimal-trixie`).
+
 ## Build Attestations
 
 CNPG PostgreSQL Container Images are built with the following attestations to

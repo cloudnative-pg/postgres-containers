@@ -70,11 +70,11 @@ target "default" {
   ]
   dockerfile = "Dockerfile"
   name = "postgresql-${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}"
-  tags = [
+  tags = concat([
     "${fullname}:${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}",
     "${fullname}:${cleanVersion(pgVersion)}-${tgt}-${distroVersion(base)}",
-    "${fullname}:${cleanVersion(pgVersion)}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}"
-  ]
+    "${fullname}:${cleanVersion(pgVersion)}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}",
+  ], (tgt == "system" && distroVersion(base) == "bullseye") ? getRollingTags("${fullname}", pgVersion) : [])
   context = "."
   target = "${tgt}"
   args = {
@@ -169,4 +169,12 @@ function getPgVersions {
       if !isMajorPresent(getMajor(v), stableVersions)
     ]
   )
+}
+
+function getRollingTags {
+    params = [ imageName, pgVersion ]
+    result = [
+      format("%s:%s", imageName, pgVersion),
+      format("%s:%s", imageName, getMajor(pgVersion))
+    ]
 }
