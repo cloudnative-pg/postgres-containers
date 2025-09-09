@@ -125,7 +125,7 @@ jobs:
         args: --severity-threshold=high --file=${{ matrix.file }}
 
     - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d # v3
+      uses: github/codeql-action/upload-sarif@f1f6e5f6af878fb37288ce1c627459e94dbf7d01 # v3
       if: ${{ env.MISSING_TAG == 'true' }}
       continue-on-error: true
       with:
