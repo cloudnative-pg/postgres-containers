@@ -31,7 +31,7 @@ postgreSQLVersions = [
 
 // PostgreSQL preview versions to build, such as "18~beta1" or "18~rc1"
 // Preview versions are automatically filtered out if present in the stable list
-// MANUALLY EDIT THE CONTENT
+// MANUALLY EDIT THE CONTENT - AND UPDATE THE README.md FILE TOO
 postgreSQLPreviewVersions = [
   "18~rc1",
 ]
