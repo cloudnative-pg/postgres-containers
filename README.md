@@ -164,10 +164,10 @@ tags:
 - `MM`: latest `system` image for a given PostgreSQL *major* version (e.g.
   `16`) on Debian `bullseye`.
 
-**IMPORTANT:** These tags are **deprecated** and will be **removed on 1 January
-2026**. You must migrate to one of the supported tag formats that explicitly
-include both the **image type** and the **distribution version** (e.g.
-`16.10-minimal-trixie`).
+**IMPORTANT:** These tags are **deprecated** and will be **removed when
+`bullseye` images reach end of life**. Please migrate to one of the supported
+tag formats that explicitly include both the **image type** and the
+**distribution version** (e.g. `16.10-minimal-trixie`).
 
 ## Build Attestations
 
