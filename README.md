@@ -142,9 +142,11 @@ In addition to fully qualified tags, rolling tags are available in the
 following formats:
 
 - `MM.mm-TYPE-OS`: latest image for a given PostgreSQL *minor* version
-  (`16.10`) of a specific type (`minimal`) on a Debian version (`trixie`)
+  (`16.10`) of a specific type (`minimal`) on a Debian version (`trixie`).
+  For example: `16.10-minimal-trixie`.
 - `MM-TYPE-OS`: latest image for a given PostgreSQL *major* version (`16`) of
-  a specific type (`minimal`) on a Debian version (`trixie`)
+  a specific type (`minimal`) on a Debian version (`trixie`).
+  For example: `16-minimal-trixie`.
 
 ### Recommendation
 
