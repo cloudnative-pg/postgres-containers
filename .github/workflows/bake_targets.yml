@@ -58,6 +58,8 @@ jobs:
         uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
         with:
           platforms: 'arm64'
+          # TODO: remove this line once https://github.com/tonistiigi/binfmt/issues/258
+          # will be released
           image: tonistiigi/binfmt:master
 
       - name: Set up Docker Buildx
