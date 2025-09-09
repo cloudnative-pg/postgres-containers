@@ -74,7 +74,7 @@ target "default" {
     "${fullname}:${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}",
     "${fullname}:${cleanVersion(pgVersion)}-${tgt}-${distroVersion(base)}",
     "${fullname}:${cleanVersion(pgVersion)}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}",
-  ], (tgt == "system" && distroVersion(base) == "bullseye") ? getRollingTags("${fullname}", pgVersion) : [])
+  ], (tgt == "system" && distroVersion(base) == "bullseye" && isPreview(pgVersion) == "false") ? getRollingTags("${fullname}", pgVersion) : [])
   context = "."
   target = "${tgt}"
   args = {
