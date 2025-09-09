@@ -29,7 +29,9 @@ postgreSQLVersions = [
   "17.6"
 ]
 
-// PostgreSQL preview versions to build
+// PostgreSQL preview versions to build, such as "18~beta1" or "18~rc1"
+// Preview versions are automatically filtered out if present in the stable list
+// MANUALLY EDIT THE CONTENT
 postgreSQLPreviewVersions = [
   "18~rc1",
 ]
@@ -51,6 +53,7 @@ target "default" {
       "standard",
       "system"
     ]
+    // Get the list of PostgreSQL versions, filtering preview versions if already stable
     pgVersion = getPgVersions(postgreSQLVersions, postgreSQLPreviewVersions)
     base = [
       // renovate: datasource=docker versioning=loose
@@ -159,6 +162,7 @@ function isMajorPresent {
 
 function getPgVersions {
   params = [stableVersions, previewVersions]
+  // Remove any preview version if already present as stable
   result = concat(stableVersions,
     [
       for v in previewVersions : v
