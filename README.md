@@ -14,7 +14,15 @@
 
 This repository provides maintenance scripts for generating
 **immutable application containers** for all supported
-[PostgreSQL versions](https://www.postgresql.org/support/versioning/).
+[PostgreSQL versions](https://www.postgresql.org/support/versioning/):
+
+| Version |    First Release   |   Final Release   |
+|:-------:|:------------------:|:-----------------:|
+|    17   | September 26, 2024 |  November 8, 2029 |
+|    16   | September 14, 2023 |  November 9, 2028 |
+|    15   |  October 13, 2022  | November 11, 2027 |
+|    14   | September 30, 2021 | November 12, 2026 |
+|    13   | September 24, 2020 | November 13, 2025 |
 
 These containers are intended to be used as **operands** of the
 [CloudNativePG (CNPG) operator](https://cloudnative-pg.io)
