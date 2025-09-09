@@ -31,7 +31,7 @@ jobs:
       - name: Get supported PostgreSQL versions
         id: get_versions
         run: |
-          VERSIONS="$(sed -n '/postgreSQLVersions = \[/,/\]/ s/.*"\(.*\)\..*".*/\"\1\"/p' docker-bake.hcl | xargs echo | tr ' ' ',')"
+          VERSIONS="$(sed -n '/postgreSQL\(Versions\|PreviewVersions\) = \[/,/\]/ s/.*"\([0-9][0-9]*\)[.~][^"]*".*/\1/p' docker-bake.hcl | sort -nu | paste -sd,)"
           echo "PostgreSQL versions: [$VERSIONS]"
           echo "versions=[$VERSIONS]" >> "$GITHUB_OUTPUT"
 
