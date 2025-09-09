@@ -129,6 +129,37 @@ based on their digest through a GitHub workflow, using the
 [`cosign-installer` action](https://github.com/marketplace/actions/cosign-installer), which leverages
 [short-lived tokens issued through OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
+## PostgreSQL Preview Versions
+
+PostgreSQL delivers a new major release every year. Before the stable version
+is published, preview builds are made available in the form of beta releases
+(e.g. `beta1`) and one or more release candidates (e.g. `rc1`).
+
+Once the first beta of a new major release is published as a Debian package,
+you can start building preview images by updating the
+`postgreSQLPreviewVersions` array in the `docker-bake.hcl` file. For example:
+
+```yaml
+postgreSQLPreviewVersions = [
+  "19~beta1",
+]
+```
+
+**NOTE:** Always use the Debian package naming convention when specifying
+preview versions (e.g. `19~beta1`, `19~rc1`).
+
+To confirm that version 19 is included in the build process, run:
+
+```bash
+docker buildx bake --print
+```
+
+**IMPORTANT:** Versions listed in `postgreSQLPreviewVersions` are automatically
+excluded if the same version is already available as a stable release in the
+`postgreSQLVersions` array. Although this safeguard prevents duplication, the
+`postgreSQLPreviewVersions` array should be cleared once a preview version is
+promoted to stable (e.g. when `19~rc1` becomes `19.0`).
+
 ## Trademarks
 
 *[Postgres, PostgreSQL and the Slonik Logo](https://www.postgresql.org/about/policies/trademarks/)

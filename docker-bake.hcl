@@ -29,6 +29,13 @@ postgreSQLVersions = [
   "17.6"
 ]
 
+// PostgreSQL preview versions to build, such as "18~beta1" or "18~rc1"
+// Preview versions are automatically filtered out if present in the stable list
+// MANUALLY EDIT THE CONTENT - AND UPDATE THE README.md FILE TOO
+postgreSQLPreviewVersions = [
+  "18~rc1",
+]
+
 // Barman version to build
 # renovate: datasource=github-releases depName=EnterpriseDB/barman versioning=loose
 barmanVersion = "3.14.0"
@@ -46,7 +53,8 @@ target "default" {
       "standard",
       "system"
     ]
-    pgVersion = postgreSQLVersions
+    // Get the list of PostgreSQL versions, filtering preview versions if already stable
+    pgVersion = getPgVersions(postgreSQLVersions, postgreSQLPreviewVersions)
     base = [
       // renovate: datasource=docker versioning=loose
       "debian:trixie-slim@sha256:c85a2732e97694ea77237c61304b3bb410e0e961dd6ee945997a06c788c545bb",
@@ -132,17 +140,33 @@ function cleanVersion {
     result = replace(version, "~", "")
 }
 
-function isBeta {
+function isPreview {
     params = [ version ]
-    result = length(regexall("[0-9]+~beta.*", version)) > 0
+    result = length(regexall("[0-9]+~(alpha|beta|rc).*", version)) > 0
 }
 
 function getMajor {
     params = [ version ]
-    result = (isBeta(version) == true) ? index(split("~", version),0) : index(split(".", version),0)
+    result = (isPreview(version) == true) ? index(split("~", version),0) : index(split(".", version),0)
 }
 
 function getExtensionsString {
     params = [ version, extensions ]
-    result = (isBeta(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
+    result = (isPreview(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
+}
+
+function isMajorPresent {
+  params = [major, pgVersions]
+  result = contains([for v in pgVersions : getMajor(v)], major)
+}
+
+function getPgVersions {
+  params = [stableVersions, previewVersions]
+  // Remove any preview version if already present as stable
+  result = concat(stableVersions,
+    [
+      for v in previewVersions : v
+      if !isMajorPresent(getMajor(v), stableVersions)
+    ]
+  )
 }
