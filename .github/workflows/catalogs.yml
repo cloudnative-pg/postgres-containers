@@ -1,0 +1,59 @@
+name: catalogs-generator
+
+on:
+  push:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions: read-all
+
+defaults:
+  run:
+    shell: "bash -Eeuo pipefail -x {0}"
+
+jobs:
+  generate-catalogs:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          path: postgres-containers
+
+      - name: Checkout artifacts
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          path: artifacts
+          repository: cloudnative-pg/artifacts
+          token: ${{ secrets.REPO_GHA_PAT }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
+        with:
+          python-version: 3.13
+
+      - name: Install Python dependencies
+        run: |
+          pip install packaging==25.0 PyYAML==6.0.2
+
+      - name: Generate catalogs
+        run: |
+          python postgres-containers/.github/catalogs_generator.py --output-dir artifacts/image-catalogs/
+          cat artifacts/image-catalogs/*.yaml
+
+      - name: Diff
+        working-directory: artifacts
+        run: |
+          git status
+          git diff
+
+      - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          cwd: 'artifacts'
+          add: 'image-catalogs'
+          author_name: CloudNativePG Automated Updates
+          author_email: noreply@cnpg.com
+          message: 'chore: update imageCatalogs'
