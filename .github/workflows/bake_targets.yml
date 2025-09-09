@@ -34,7 +34,7 @@ jobs:
 
       - name: List targets
         id: targets
-        uses: docker/bake-action/subaction/matrix@v6
+        uses: docker/bake-action/subaction/matrix@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
         with:
           target: "default"
 
