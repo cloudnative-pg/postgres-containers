@@ -38,14 +38,16 @@ _token_cache = {"value": None, "expires_at": 0}
 
 
 def get_json(image_name):
-    data = check_output([
-        "docker",
-        "run",
-        "--rm",
-        "quay.io/skopeo/stable",
-        "list-tags",
-        f"docker://{image_name}"
-    ])
+    data = check_output(
+        [
+            "docker",
+            "run",
+            "--rm",
+            "quay.io/skopeo/stable",
+            "list-tags",
+            f"docker://{image_name}",
+        ]
+    )
     repo_json = json.loads(data.decode("utf-8"))
     return repo_json
 
@@ -95,10 +97,7 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
     tags = [item for item in tags if not exclude_preview.search(item)]
 
     # Sort the tags according to semantic versioning
-    tags.sort(
-        key=lambda v: version.Version(v.removesuffix(image_suffix)),
-        reverse=True
-    )
+    tags.sort(key=lambda v: version.Version(v.removesuffix(image_suffix)), reverse=True)
 
     results = {}
     for item in tags:
@@ -131,9 +130,10 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
         },
         "spec": {
             "images": [
-                {"major": int(major), "image": images[0]} for major, images in sorted(results.items(), key=lambda x: int(x[0]))
+                {"major": int(major), "image": images[0]}
+                for major, images in sorted(results.items(), key=lambda x: int(x[0]))
             ]
-        }
+        },
     }
 
     os.makedirs(output_dir, exist_ok=True)
@@ -143,8 +143,12 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="CloudNativePG ClusterImageCatalog YAML generator")
-    parser.add_argument("--output-dir", default=".", help="Directory to save the YAML files")
+    parser = argparse.ArgumentParser(
+        description="CloudNativePG ClusterImageCatalog YAML generator"
+    )
+    parser.add_argument(
+        "--output-dir", default=".", help="Directory to save the YAML files"
+    )
     args = parser.parse_args()
 
     repo_json = get_json(full_repo_name)
