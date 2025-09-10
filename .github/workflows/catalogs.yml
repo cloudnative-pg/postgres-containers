@@ -44,8 +44,9 @@ jobs:
       - name: Diff
         working-directory: artifacts
         run: |
+          git add -A .
           git status
-          git diff
+          git diff --staged
 
       - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
         if: ${{ github.ref == 'refs/heads/main' }}
