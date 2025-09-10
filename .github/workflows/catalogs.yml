@@ -40,7 +40,6 @@ jobs:
       - name: Generate catalogs
         run: |
           python postgres-containers/.github/catalogs_generator.py --output-dir artifacts/image-catalogs/
-          cat artifacts/image-catalogs/*.yaml
 
       - name: Diff
         working-directory: artifacts
