@@ -6,7 +6,7 @@
 > In response, the CloudNativePG project has completed the transition to the
 > new `bake`-based build process for all `system` images. We now build directly
 > on top of the official Debian slim images, fully detaching from the official
-> Postgres image. Additional changes are planned as part of epic #287.
+> Postgres image.
 
 ---
 
@@ -168,6 +168,19 @@ tags:
 `bullseye` images reach end of life**. Please migrate to one of the supported
 tag formats that explicitly include both the **image type** and the
 **distribution version** (e.g. `16.10-minimal-trixie`).
+
+## Image Catalogs
+
+CloudNativePG publishes `ClusterImageCatalog` manifests for CloudNativePG in
+the [`artifacts` repository](https://github.com/cloudnative-pg/artifacts/tree/main/image-catalogs),
+with one catalog available for each supported combination of image type and
+operating system version.
+
+**IMPORTANT:** If you are still relying on the legacy
+[`ClusterImageCatalog-bullseye.yaml`](Debian/ClusterImageCatalog-bullseye.yaml)
+and [`ClusterImageCatalog-bookworm.yaml`](Debian/ClusterImageCatalog-bookworm.yaml)
+manifests, please migrate to the new catalogs as soon as possible. These legacy
+manifests are deprecated and will be removed along with the `system` image.
 
 ## Build Attestations
 
