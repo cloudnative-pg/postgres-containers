@@ -27,6 +27,8 @@ import urllib.request
 from packaging import version
 from subprocess import check_output
 
+supported_img_types = ["minimal", "standard", "system"]
+supported_os_names = ["bullseye", "bookworm", "trixie"]
 min_supported_major = 13
 
 repo_name = "cloudnative-pg/postgresql"
@@ -81,15 +83,20 @@ def get_digest(repository_name, tag):
         return digest
 
 
-def write_catalog(tags, version_re, suffix, output_dir="."):
-    version_re = re.compile(rf"^{version_re}{re.escape(suffix)}$")
+def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
+    image_suffix = f"-{img_type}-{os_name}"
+    version_re = re.compile(rf"^{version_re}{re.escape(image_suffix)}$")
 
     # Filter out all the tags which do not match the version regexp
     tags = [item for item in tags if version_re.search(item)]
 
+    # Filter out preview versions
+    exclude_preview = re.compile(r"(alpha|beta|rc)")
+    tags = [item for item in tags if not exclude_preview.search(item)]
+
     # Sort the tags according to semantic versioning
     tags.sort(
-        key=lambda v: version.Version(v.removesuffix(suffix)),
+        key=lambda v: version.Version(v.removesuffix(image_suffix)),
         reverse=True
     )
 
@@ -112,7 +119,16 @@ def write_catalog(tags, version_re, suffix, output_dir="."):
     catalog = {
         "apiVersion": "postgresql.cnpg.io/v1",
         "kind": "ClusterImageCatalog",
-        "metadata": {"name": f"postgresql{suffix}"},
+        "metadata": {
+            "name": f"postgresql{image_suffix}",
+            "labels": {
+                "images.cnpg.io/family": "postgresql",
+                "images.cnpg.io/type": img_type,
+                "images.cnpg.io/os": os_name,
+                "images.cnpg.io/date": time.strftime("%Y%m%d"),
+                "images.cnpg.io/publisher": "github.com/cloudnative-pg",
+            },
+        },
         "spec": {
             "images": [
                 {"major": int(major), "image": images[0]} for major, images in sorted(results.items(), key=lambda x: int(x[0]))
@@ -121,7 +137,7 @@ def write_catalog(tags, version_re, suffix, output_dir="."):
     }
 
     os.makedirs(output_dir, exist_ok=True)
-    output_file = os.path.join(output_dir, f"catalog{suffix}.yaml")
+    output_file = os.path.join(output_dir, f"catalog{image_suffix}.yaml")
     with open(output_file, "w") as f:
         yaml.dump(catalog, f, sort_keys=False)
 
@@ -134,16 +150,7 @@ if __name__ == "__main__":
     repo_json = get_json(full_repo_name)
     tags = repo_json["Tags"]
 
-    for suffix in [
-        "-minimal-bullseye",
-        "-standard-bullseye",
-        "-system-bullseye",
-        "-minimal-bookworm",
-        "-standard-bookworm",
-        "-system-bookworm",
-        "-minimal-trixie",
-        "-standard-trixie",
-        "-system-trixie",
-    ]:
-        print(f"Generating catalog{suffix}.yaml")
-        write_catalog(tags, pg_regexp, suffix, args.output_dir)
+    for img_type in supported_img_types:
+        for os_name in supported_os_names:
+            print(f"Generating catalog-{img_type}-{os_name}.yaml")
+            write_catalog(tags, pg_regexp, img_type, os_name, args.output_dir)
