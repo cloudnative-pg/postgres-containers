@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           path: postgres-containers
+          token: ${{ secrets.REPO_GHA_PAT }}
 
       - name: Checkout artifacts
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
@@ -41,6 +42,14 @@ jobs:
         run: |
           python postgres-containers/.github/catalogs_generator.py --output-dir artifacts/image-catalogs/
 
+      # TODO: remove this step once system images are EOL
+      - name: Update legacy catalogs
+        run: |
+          cp artifacts/image-catalogs/catalog-system-bullseye.yaml postgres-containers/Debian/ClusterImageCatalog-bullseye.yaml
+          cp artifacts/image-catalogs/catalog-system-bookworm.yaml postgres-containers/Debian/ClusterImageCatalog-bookworm.yaml
+          yq -i '.metadata.name = "postgresql"' postgres-containers/Debian/ClusterImageCatalog-bullseye.yaml
+          yq -i '.metadata.name = "postgresql"' postgres-containers/Debian/ClusterImageCatalog-bookworm.yaml
+
       - name: Diff
         working-directory: artifacts
         run: |
@@ -56,3 +65,40 @@ jobs:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'chore: update imageCatalogs'
+
+      # TODO: remove this step once system images are EOL
+      - name: Temporarily disable "include administrators" branch protection
+        if: ${{ always() && github.ref == 'refs/heads/main' }}
+        id: disable_include_admins
+        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
+        with:
+          access_token: ${{ secrets.REPO_GHA_PAT }}
+          branch: main
+          enforce_admins: false
+
+      # TODO: remove this step once system images are EOL
+      - name: Legacy diff
+        working-directory: postgres-containers
+        run: |
+          git add -A .
+          git status
+          git diff --staged
+
+      # TODO: remove this step once system images are EOL
+      - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          cwd: 'postgres-containers'
+          add: 'Debian/*.yaml'
+          author_name: CloudNativePG Automated Updates
+          author_email: noreply@cnpg.com
+          message: 'chore: update imageCatalogs'
+
+      # TODO: remove this step once system images are EOL
+      - name: Enable "include administrators" branch protection
+        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
+        if: ${{ always() && github.ref == 'refs/heads/main' }}
+        with:
+          access_token: ${{ secrets.REPO_GHA_PAT }}
+          branch: main
+          enforce_admins: ${{ steps.disable_include_admins.outputs.initial_status }}
