@@ -125,7 +125,7 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
                 "images.cnpg.io/type": img_type,
                 "images.cnpg.io/os": os_name,
                 "images.cnpg.io/date": time.strftime("%Y%m%d"),
-                "images.cnpg.io/publisher": "github.com/cloudnative-pg",
+                "images.cnpg.io/publisher": "cnpg.io",
             },
         },
         "spec": {
