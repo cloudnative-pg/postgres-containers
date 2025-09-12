@@ -154,7 +154,19 @@ if __name__ == "__main__":
     repo_json = get_json(full_repo_name)
     tags = repo_json["Tags"]
 
+    catalogs = []
     for img_type in supported_img_types:
         for os_name in supported_os_names:
-            print(f"Generating catalog-{img_type}-{os_name}.yaml")
+            filename = f"catalog-{img_type}-{os_name}.yaml"
+            print(f"Generating {filename}")
             write_catalog(tags, pg_regexp, img_type, os_name, args.output_dir)
+            catalogs.append(filename)
+
+    kustomization = {
+        "apiVersion": "kustomize.config.k8s.io/v1beta1",
+        "kind": "Kustomization",
+        "resources": sorted(catalogs),
+    }
+    kustomization_file = os.path.join(args.output_dir, "kustomization.yaml")
+    with open(kustomization_file, "w") as f:
+        yaml.dump(kustomization, f, sort_keys=False)
