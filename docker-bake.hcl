@@ -40,6 +40,7 @@ postgreSQLPreviewVersions = [
 # renovate: datasource=github-releases depName=EnterpriseDB/barman versioning=loose
 barmanVersion = "3.14.0"
 
+// Extensions to be included in the `standard` image
 extensions = [
   "pgaudit",
   "pgvector",
@@ -82,6 +83,7 @@ target "default" {
     PG_MAJOR = "${getMajor(pgVersion)}"
     BASE = "${base}"
     EXTENSIONS = "${getExtensionsString(pgVersion, extensions)}"
+    STANDARD_ADDITIONAL_POSTGRES_PACKAGES = "${getStandardAdditionalPostgresPackagesPerMajorVersion(getMajor(pgVersion))}"
     BARMAN_VERSION = "${barmanVersion}"
   }
   attest = [
@@ -153,6 +155,17 @@ function getMajor {
 function getExtensionsString {
     params = [ version, extensions ]
     result = (isPreview(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
+}
+
+// This function conditionally adds recommended PostgreSQL packages based on
+// the version. For example, starting with version 18, PGDG moved `jit` out of
+// the main package and into a separate one.
+function getStandardAdditionalPostgresPackagesPerMajorVersion {
+    params = [ majorVersion ]
+    // Add PostgreSQL jit package from version 18
+    result = join(" ", [
+      majorVersion < 18 ? "" : format("postgresql-%s-jit", majorVersion)
+    ])
 }
 
 function isMajorPresent {
