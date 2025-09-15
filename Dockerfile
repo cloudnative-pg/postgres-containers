@@ -22,6 +22,7 @@ USER 26
 
 FROM minimal AS standard
 ARG EXTENSIONS
+ARG STANDARD_ADDITIONAL_POSTGRES_PACKAGES
 USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends locales-all ${STANDARD_ADDITIONAL_POSTGRES_PACKAGES} ${EXTENSIONS} && \
