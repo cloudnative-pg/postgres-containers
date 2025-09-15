@@ -22,9 +22,10 @@ USER 26
 
 FROM minimal AS standard
 ARG EXTENSIONS
+ARG STANDARD_ADDITIONAL_POSTGRES_PACKAGES
 USER root
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends locales-all ${EXTENSIONS} && \
+    apt-get install -y --no-install-recommends locales-all ${STANDARD_ADDITIONAL_POSTGRES_PACKAGES} ${EXTENSIONS} && \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
     rm -rf /var/lib/apt/lists/* /var/cache/* /var/log/*
 
