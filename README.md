@@ -89,6 +89,11 @@ maintained by the PostgreSQL Global Development Group (PGDG).
 These images are identified by the inclusion of `minimal` in their tag names,
 for example: `17.6-minimal-trixie`.
 
+> **NOTE**: Starting with PostgreSQL 18, `minimal` images will **not** include
+> LLVM JIT support (shipped in the `postgresql-MM-jit` package, where `MM`
+> represents the PostgreSQL major version). JIT will be available only in the
+> `standard` image.
+
 ### Standard Images
 
 Standard images are an extension of the `minimal` images, enhanced with the
@@ -98,6 +103,11 @@ following additional features:
 - Postgres Failover Slots
 - pgvector
 - All Locales
+- LLVM JIT support
+  - For PostgreSQL 17 and earlier: included in the main PostgreSQL packages,
+    also available in `minimal` images
+  - From PostgreSQL 18 onwards: provided by the separate `postgresql-MM-jit`
+    package
 
 Standard images are identifiable by the `standard` tag in their names, such as:
 `17.6-standard-trixie`.
