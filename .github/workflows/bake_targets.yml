@@ -99,6 +99,7 @@ jobs:
           revision: ${{ github.sha }}
         with:
           push: true
+          source: .
           files: ${{ inputs.bake_files }}
           targets: ${{ steps.extract_targets.outputs.filtered_targets }}
 
