@@ -12,6 +12,20 @@ on:
         description: "The PostgreSQL major version to bake"
         required: true
         type: string
+      target:
+        description: "The bake target to build"
+        required: false
+        default: "default"
+        type: string
+      bake_files:
+        description: "A comma separated list of bake files to use (order defines priority)"
+        required: false
+        type: string
+        default: "./docker-bake.hcl"
+      bake_remote_source:
+        description: "An additional repository to include an extra bake definition"
+        required: false
+        type: string
 
 permissions: {}
 
@@ -32,11 +46,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
+      # bake-action/subaction/matrix doesn't support remote bake files.
+      # As a workaround, we clone the repository to allow passing the path to a local file.
+      - name: Checkout additional remote source
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        if: ${{ inputs.bake_remote_source != '' }}
+        with:
+          repository: ${{ inputs.bake_remote_source }}
+          ref: main
+          path: source
+
       - name: List targets
         id: targets
         uses: docker/bake-action/subaction/matrix@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
         with:
-          target: "default"
+          target: ${{ inputs.target }}
+          files: ${{ inputs.bake_files }}
 
       - name: Filter by versions
         id: extract_targets
@@ -74,6 +99,7 @@ jobs:
           revision: ${{ github.sha }}
         with:
           push: true
+          files: ${{ inputs.bake_files }}
           targets: ${{ steps.extract_targets.outputs.filtered_targets }}
 
       # Get a list of the images that were built and pushed. We only care about a single tag for each image.
