@@ -6,7 +6,7 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20250915'
+    images.cnpg.io/date: '20250916'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
