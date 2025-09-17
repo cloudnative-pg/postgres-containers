@@ -116,10 +116,10 @@ you can deploy a temporary, disposable [distribution registry](https://distribut
 with the following command:
 
 ```bash
-docker run -d --rm -p 5000:5000 --name registry registry:2
+docker run -d --rm -p 5000:5000 --name registry registry:3
 ```
 
-This command runs a lightweight, temporary instance of the `registry:2`
+This command runs a lightweight, temporary instance of the `registry:3`
 container on port `5000`.
 
 ## Image Signing Workflow
