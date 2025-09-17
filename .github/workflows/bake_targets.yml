@@ -4,26 +4,26 @@ on:
   workflow_call:
     inputs:
       environment:
-        description: "The environment to build for"
+        description: "Target environment for the image build (e.g. testing, production)."
         required: true
         type: string
         default: "testing"
       postgresql_version:
-        description: "The PostgreSQL major version to bake"
+        description: "PostgreSQL major version to pass to bake (e.g. 16, 17)."
         required: true
         type: string
       target:
-        description: "The bake target to build"
+        description: "Bake target name to build (defaults to 'default')."
         required: false
         default: "default"
         type: string
       bake_files:
-        description: "A comma separated list of bake files to use (order defines priority)"
+        description: "Comma-separated list of bake definition files to load, in priority order."
         required: false
         type: string
         default: "./docker-bake.hcl"
       bake_remote_source:
-        description: "An additional repository to include an extra bake definition"
+        description: "Optional Git repository containing additional bake definitions (e.g. cloudnative-pg/postgres-containers)."
         required: false
         type: string
 
