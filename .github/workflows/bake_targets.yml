@@ -23,7 +23,10 @@ on:
         type: string
         default: "./docker-bake.hcl"
       bake_remote_source:
-        description: "Optional Git repository containing additional bake definitions (e.g. cloudnative-pg/postgres-containers)."
+        description: >
+          Optional Git repository with extra bake definitions (e.g.
+          cloudnative-pg/postgres-containers). The repository will be mounted under the
+          `source` directory.
         required: false
         type: string
 
