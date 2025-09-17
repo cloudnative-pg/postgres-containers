@@ -18,7 +18,7 @@ on:
         default: "default"
         type: string
       bake_files:
-        description: "Comma-separated list of bake definition files to load, in priority order."
+        description: "Comma-separated ordered list of bake definition files to load."
         required: false
         type: string
         default: "./docker-bake.hcl"
