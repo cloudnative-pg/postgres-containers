@@ -4,13 +4,30 @@ on:
   workflow_call:
     inputs:
       environment:
-        description: "The environment to build for"
+        description: "Target environment for the image build (e.g. testing, production)."
         required: true
         type: string
         default: "testing"
       postgresql_version:
-        description: "The PostgreSQL major version to bake"
+        description: "PostgreSQL major version to pass to bake (e.g. 16, 17)."
         required: true
+        type: string
+      target:
+        description: "Bake target name to build (defaults to 'default')."
+        required: false
+        default: "default"
+        type: string
+      bake_files:
+        description: "Comma-separated ordered list of bake definition files to load."
+        required: false
+        type: string
+        default: "./docker-bake.hcl"
+      bake_remote_source:
+        description: >
+          Optional Git repository with extra bake definitions (e.g.
+          cloudnative-pg/postgres-containers). The repository will be mounted under the
+          `source` directory.
+        required: false
         type: string
 
 permissions: {}
@@ -32,11 +49,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
+      # bake-action/subaction/matrix doesn't support remote bake files.
+      # As a workaround, we clone the repository to allow passing the path to a local file.
+      - name: Checkout additional remote source
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        if: ${{ inputs.bake_remote_source != '' }}
+        with:
+          repository: ${{ inputs.bake_remote_source }}
+          ref: main
+          path: source
+
       - name: List targets
         id: targets
         uses: docker/bake-action/subaction/matrix@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
         with:
-          target: "default"
+          target: ${{ inputs.target }}
+          files: ${{ inputs.bake_files }}
 
       - name: Filter by versions
         id: extract_targets
@@ -74,6 +102,8 @@ jobs:
           revision: ${{ github.sha }}
         with:
           push: true
+          source: .
+          files: ${{ inputs.bake_files }}
           targets: ${{ steps.extract_targets.outputs.filtered_targets }}
 
       # Get a list of the images that were built and pushed. We only care about a single tag for each image.
