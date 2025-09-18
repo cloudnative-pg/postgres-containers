@@ -2,7 +2,7 @@
 
 This guide outlines the process for building PostgreSQL operand images for
 CloudNativePG using [Docker Bake](https://docs.docker.com/build/bake/) and a
-[GitHub workflow](.github/workflows/bake.yaml).
+[GitHub workflow](.github/workflows/bake.yml).
 
 The central component of this framework is the
 [Bake file (`docker-bake.hcl`)](docker-bake.hcl).

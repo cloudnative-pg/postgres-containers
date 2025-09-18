@@ -37,7 +37,7 @@ postgreSQLPreviewVersions = [
 ]
 
 // Barman version to build
-# renovate: datasource=github-releases depName=EnterpriseDB/barman versioning=loose
+// renovate: datasource=github-releases depName=EnterpriseDB/barman versioning=loose
 barmanVersion = "3.14.0"
 
 // Extensions to be included in the `standard` image
@@ -99,10 +99,10 @@ target "default" {
     "index,manifest:org.opencontainers.image.vendor=${authors}",
     "index,manifest:org.opencontainers.image.title=CloudNativePG PostgreSQL ${pgVersion} ${tgt}",
     "index,manifest:org.opencontainers.image.description=A ${tgt} PostgreSQL ${pgVersion} container image",
-    "index,manifest:org.opencontainers.image.documentation=https://github.com/cloudnative-pg/postgres-containers",
+    "index,manifest:org.opencontainers.image.documentation=${url}",
     "index,manifest:org.opencontainers.image.authors=${authors}",
     "index,manifest:org.opencontainers.image.licenses=Apache-2.0",
-    "index,manifest:org.opencontainers.image.base.name=docker.io/library/${tag(base)}",
+    "index,manifest:org.opencontainers.image.base.name=docker.io/library/debian:${tag(base)}",
     "index,manifest:org.opencontainers.image.base.digest=${digest(base)}"
   ]
   labels = {
