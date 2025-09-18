@@ -15,7 +15,8 @@
         "/docker-bake.hcl/"
       ],
       "matchStrings": [
-        "\\/\\/\\s*renovate:\\s*datasource=(?<datasource>.*?)\\s+(versioning=(?<versioning>.*?))?\\s+\"(?<depName>[^:]+):(?<currentValue>[^\\s@]+)(@(?<currentDigest>sha256:[0-9a-f]*))?\""
+        "\\/\\/\\s*renovate:\\s*datasource=(?<datasource>.*?)\\s+(versioning=(?<versioning>.*?))?\\s+\"(?<depName>[^:]+):(?<currentValue>[^\\s@]+)(@(?<currentDigest>sha256:[0-9a-f]*))?\"",
+        "\\/\\/\\s*renovate:\\s*datasource=(?<datasource>.*?)\\s+(versioning=(?<versioning>.*?))?\\s+depName=(?<depName>.*?)\\s*\\n\\s*[A-Za-z0-9_-]+\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
