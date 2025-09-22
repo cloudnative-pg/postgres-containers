@@ -31,9 +31,8 @@ supported_img_types = ["minimal", "standard", "system"]
 supported_os_names = ["bullseye", "bookworm", "trixie"]
 min_supported_major = 13
 
-repo_name = "cloudnative-pg/postgresql"
-full_repo_name = f"ghcr.io/{repo_name}"
-pg_regexp = r"(\d+)(?:\.\d+|beta\d+|rc\d+|alpha\d+)-(\d{12})"
+default_registry = "ghcr.io/cloudnative-pg/postgresql"
+default_regex = r"(\d+)(?:\.\d+|beta\d+|rc\d+|alpha\d+)-(\d{12})"
 _token_cache = {"value": None, "expires_at": 0}
 
 
@@ -52,14 +51,14 @@ def get_json(image_name):
     return repo_json
 
 
-def get_token(repository_name):
+def get_token(image_name):
     global _token_cache
     now = time.time()
 
     if _token_cache["value"] and now < _token_cache["expires_at"]:
         return _token_cache["value"]
 
-    url = "https://ghcr.io/token?scope=repository:{}:pull".format(repository_name)
+    url = "https://ghcr.io/token?scope=repository:{}:pull".format(image_name)
     with urllib.request.urlopen(url) as response:
         data = json.load(response)
         token = data["token"]
@@ -70,13 +69,14 @@ def get_token(repository_name):
 
 
 def get_digest(repository_name, tag):
-    token = get_token(repository_name)
+    image_name = repository_name.removeprefix("ghcr.io/")
+    token = get_token(image_name)
     media_types = [
         "application/vnd.oci.image.index.v1+json",
         "application/vnd.oci.image.manifest.v1+json",
         "application/vnd.docker.distribution.manifest.v2+json",
     ]
-    url = f"https://ghcr.io/v2/{repository_name}/manifests/{tag}"
+    url = f"https://ghcr.io/v2/{image_name}/manifests/{tag}"
     req = urllib.request.Request(url)
     req.add_header("Authorization", "Bearer {}".format(token))
     req.add_header("Accept", ",".join(media_types))
@@ -112,8 +112,8 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
             continue
 
         if major not in results:
-            digest = get_digest(repo_name, item)
-            results[major] = [f"{full_repo_name}:{item}@{digest}"]
+            digest = get_digest(args.registry, item)
+            results[major] = [f"{args.registry}:{item}@{digest}"]
 
     catalog = {
         "apiVersion": "postgresql.cnpg.io/v1",
@@ -147,19 +147,41 @@ if __name__ == "__main__":
         description="CloudNativePG ClusterImageCatalog YAML generator"
     )
     parser.add_argument(
+        "--registry",
+        default=default_registry,
+        help=f"The registry to interrogate (default: {default_registry})",
+    )
+    parser.add_argument(
         "--output-dir", default=".", help="Directory to save the YAML files"
+    )
+    parser.add_argument(
+        "--regex",
+        default=default_regex,
+        help=f"The regular expression used to retrieve container image. The first capturing group must be the PostgreSQL major version. (default: {default_regex})",
+    )
+    parser.add_argument(
+        "--image-types",
+        nargs="+",
+        default=supported_img_types,
+        help=f"Image types to retrieve (default: {supported_img_types})",
+    )
+    parser.add_argument(
+        "--distributions",
+        nargs="+",
+        default=supported_os_names,
+        help=f"Distributions to retrieve (default: {supported_os_names})",
     )
     args = parser.parse_args()
 
-    repo_json = get_json(full_repo_name)
+    repo_json = get_json(args.registry)
     tags = repo_json["Tags"]
 
     catalogs = []
-    for img_type in supported_img_types:
-        for os_name in supported_os_names:
+    for img_type in args.image_types:
+        for os_name in args.distributions:
             filename = f"catalog-{img_type}-{os_name}.yaml"
             print(f"Generating {filename}")
-            write_catalog(tags, pg_regexp, img_type, os_name, args.output_dir)
+            write_catalog(tags, args.regex, img_type, os_name, args.output_dir)
             catalogs.append(filename)
 
     kustomization = {

@@ -1,0 +1,32 @@
+name: Generate Image Catalogs
+description: Generate Image Catalogs
+inputs:
+  output-path:
+    description: "The path to output directory"
+    required: false
+    default: "."
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      with:
+        repository: cloudnative-pg/postgres-containers
+        path: catalog-generator
+        sparse-checkout-cone-mode: false
+        sparse-checkout: |
+          .github/catalogs_generator.py
+
+    - name: Set up Python
+      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
+      with:
+        python-version: 3.13
+
+    - name: Install Python dependencies
+      run: |
+        pip install packaging==25.0 PyYAML==6.0.2
+
+    - name: Generate catalogs
+      run: |
+        python catalog-generator/.github/catalogs_generator.py \
+          --output-dir ${{ inputs.output_path }} \
