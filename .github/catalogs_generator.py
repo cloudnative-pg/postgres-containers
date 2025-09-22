@@ -35,6 +35,45 @@ default_registry = "ghcr.io/cloudnative-pg/postgresql"
 default_regex = r"(\d+)(?:\.\d+|beta\d+|rc\d+|alpha\d+)-(\d{12})"
 _token_cache = {"value": None, "expires_at": 0}
 
+normalized_pattern = re.compile(
+    r"""
+    ^(?P<pg_version>\d+(?:\.\d+|beta\d+|rc\d+|alpha\d+)) # A mandatory PostgreSQL version
+    (?:-(?P<extension_version>\d+(?:\.\d+)+))?           # An optional extension version
+    (?:-(?P<timestamp>\d{12}))?                          # An optional timestamp
+    $
+    """,
+    re.VERBOSE,
+)
+
+
+# Normalize a tag to make it a valid PEP 440 version.
+# Optional capture groups after the Postgres version will
+# be appended using a "+"" as a local version segment, and
+# concatenated with "." in case there's more then one.
+def normalize_tag(tag):
+    match = normalized_pattern.match(tag)
+    if not match:
+        raise ValueError(f"Unrecognized tag format: {tag}")
+
+    pg_version = match.group("pg_version")
+    extension_version = match.group("extension_version")
+    timestamp = match.group("timestamp")
+
+    # Build PEP 440 compliant version
+    # e.g 17.6, 17.6+202509161052, 17.6+3.6.0.202509161052
+    extra_match = []
+    if extension_version:
+        extra_match.append(extension_version)
+    if timestamp:
+        extra_match.append(timestamp)
+
+    if extra_match:
+        normalized_tag = f"{pg_version}+{'.'.join(extra_match)}"
+    else:
+        normalized_tag = pg_version
+
+    return version.Version(normalized_tag)
+
 
 def get_json(image_name):
     data = check_output(
@@ -97,7 +136,7 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
     tags = [item for item in tags if not exclude_preview.search(item)]
 
     # Sort the tags according to semantic versioning
-    tags.sort(key=lambda v: version.Version(v.removesuffix(image_suffix)), reverse=True)
+    tags.sort(key=lambda v: normalize_tag(v.removesuffix(image_suffix)), reverse=True)
 
     results = {}
     for item in tags:
