@@ -22,6 +22,10 @@ inputs:
     required: false
     type: string
     default: "."
+  family:
+    description: "The family name to assign to the catalogs"
+    required: false
+    type: string
 
 runs:
   using: composite
@@ -44,6 +48,7 @@ runs:
         DISTRIBUTIONS: ${{ inputs.distributions }}
         REGEX: ${{ inputs.regex }}
         OUTPUT_DIR: ${{ inputs.output-dir }}
+        FAMILY: ${{ inputs.family }}
       run: |
         set -euo pipefail
         ARGS=()
@@ -64,6 +69,10 @@ runs:
 
         if [[ -n "${REGEX:-}" ]]; then
           ARGS+=( --regex "$REGEX" )
+        fi
+
+        if [[ -n "${FAMILY:-}" ]]; then
+          ARGS+=( --family "$FAMILY" )
         fi
 
         ARGS+=( --output-dir "$OUTPUT_DIR" )

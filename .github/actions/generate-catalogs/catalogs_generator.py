@@ -32,6 +32,7 @@ supported_os_names = ["bullseye", "bookworm", "trixie"]
 min_supported_major = 13
 
 default_registry = "ghcr.io/cloudnative-pg/postgresql"
+default_family = "postgresql"
 default_regex = r"(\d+)(?:\.\d+|beta\d+|rc\d+|alpha\d+)-(\d{12})"
 _token_cache = {"value": None, "expires_at": 0}
 
@@ -124,6 +125,14 @@ def get_digest(repository_name, tag):
         return digest
 
 
+def get_filename(family, img_type, os_name):
+    filename_prefix = "catalog"
+    if family != default_family:
+        filename_prefix = family
+
+    return f"{filename_prefix}-{img_type}-{os_name}.yaml"
+
+
 def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
     image_suffix = f"-{img_type}-{os_name}"
     version_re = re.compile(rf"^{version_re}{re.escape(image_suffix)}$")
@@ -161,9 +170,9 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
         "apiVersion": "postgresql.cnpg.io/v1",
         "kind": "ClusterImageCatalog",
         "metadata": {
-            "name": f"postgresql{image_suffix}",
+            "name": f"{args.family}{image_suffix}",
             "labels": {
-                "images.cnpg.io/family": "postgresql",
+                "images.cnpg.io/family": args.family,
                 "images.cnpg.io/type": img_type,
                 "images.cnpg.io/os": os_name,
                 "images.cnpg.io/date": time.strftime("%Y%m%d"),
@@ -179,7 +188,7 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
     }
 
     os.makedirs(output_dir, exist_ok=True)
-    output_file = os.path.join(output_dir, f"catalog{image_suffix}.yaml")
+    output_file = os.path.join(output_dir, get_filename(args.family, img_type, os_name))
     with open(output_file, "w") as f:
         yaml.dump(catalog, f, sort_keys=False)
 
@@ -213,6 +222,11 @@ if __name__ == "__main__":
         default=supported_os_names,
         help=f"Distributions to retrieve (default: {supported_os_names})",
     )
+    parser.add_argument(
+        "--family",
+        default=default_family,
+        help=f"The family name to assign to the catalogs (default: {default_family})",
+    )
     args = parser.parse_args()
 
     repo_json = get_json(args.registry)
@@ -221,7 +235,7 @@ if __name__ == "__main__":
     catalogs = []
     for img_type in args.image_types:
         for os_name in args.distributions:
-            filename = f"catalog-{img_type}-{os_name}.yaml"
+            filename = get_filename(args.family, img_type, os_name)
             print(f"Generating {filename}")
             write_catalog(tags, args.regex, img_type, os_name, args.output_dir)
             catalogs.append(filename)
