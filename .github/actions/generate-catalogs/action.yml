@@ -77,4 +77,5 @@ runs:
 
         ARGS+=( --output-dir "$OUTPUT_DIR" )
 
+        echo "Running: python $GITHUB_ACTION_PATH/catalogs_generator.py ${ARGS[*]}"
         python "$GITHUB_ACTION_PATH/catalogs_generator.py" "${ARGS[@]}"
