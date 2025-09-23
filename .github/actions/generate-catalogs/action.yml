@@ -26,15 +26,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-      with:
-        repository: cloudnative-pg/postgres-containers
-        ref: ${{ github.action_ref }}
-        path: catalog-generator
-        sparse-checkout-cone-mode: false
-        sparse-checkout: |
-          .github/catalogs_generator.py
-
     - name: Set up Python
       uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
       with:
@@ -48,7 +39,7 @@ runs:
     - name: Generate catalogs
       shell: bash
       run: |
-        python catalog-generator/.github/catalogs_generator.py \
+        python "$GITHUB_ACTION_PATH/catalogs_generator.py" \
           ${{ inputs.registry && format('--registry "{0}"', inputs.registry) || '' }} \
           ${{ inputs.image-types && format('--image-types "{0}"', inputs.image-types) || '' }} \
           ${{ inputs.distributions && format('--distributions "{0}"', inputs.distributions) || '' }} \
