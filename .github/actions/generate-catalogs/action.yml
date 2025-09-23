@@ -29,6 +29,7 @@ runs:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       with:
         repository: cloudnative-pg/postgres-containers
+        ref: ${{ github.action_ref }}
         path: catalog-generator
         sparse-checkout-cone-mode: false
         sparse-checkout: |
