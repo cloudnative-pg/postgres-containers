@@ -41,7 +41,7 @@ runs:
       run: |
         python "$GITHUB_ACTION_PATH/catalogs_generator.py" \
           ${{ inputs.registry && format('--registry "{0}"', inputs.registry) || '' }} \
-          ${{ inputs.image-types && format('--image-types "{0}"', inputs.image-types) || '' }} \
-          ${{ inputs.distributions && format('--distributions "{0}"', inputs.distributions) || '' }} \
-          ${{ inputs.regex && format('--regex "{0}"', inputs.regex) || '' }} \
+          ${{ inputs.image-types && format('--image-types {0}', inputs.image-types) || '' }} \
+          ${{ inputs.distributions && format('--distributions {0}', inputs.distributions) || '' }} \
+          ${{ inputs.regex && format('--regex \'{0}\'', inputs.regex) || '' }} \
           --output-dir ${{ inputs.output-dir }}
