@@ -6,11 +6,11 @@ inputs:
     required: false
     type: string
   image-types:
-    description: "Image types to retrieve - space separated values"
+    description: "Image types to retrieve - comma separated values"
     required: false
     type: string
   distributions:
-    description: "OS distributions to retrieve - space separated values"
+    description: "OS distributions to retrieve - comma separated values"
     required: false
     type: string
   regex:
@@ -38,10 +38,34 @@ runs:
 
     - name: Generate catalogs
       shell: bash
+      env:
+        REGISTRY: ${{ inputs.registry }}
+        IMAGE_TYPES: ${{ inputs.image-types }}
+        DISTRIBUTIONS: ${{ inputs.distributions }}
+        REGEX: ${{ inputs.regex }}
+        OUTPUT_DIR: ${{ inputs.output-dir }}
       run: |
-        python "$GITHUB_ACTION_PATH/catalogs_generator.py" \
-          ${{ inputs.registry && format('--registry "{0}"', inputs.registry) || '' }} \
-          ${{ inputs.image-types && format('--image-types {0}', inputs.image-types) || '' }} \
-          ${{ inputs.distributions && format('--distributions {0}', inputs.distributions) || '' }} \
-          ${{ inputs.regex && format('--regex \'{0}\'', inputs.regex) || '' }} \
-          --output-dir ${{ inputs.output-dir }}
+        set -euo pipefail
+        ARGS=()
+
+        if [[ -n "${REGISTRY:-}" ]]; then
+          ARGS+=( --registry "$REGISTRY" )
+        fi
+
+        if [[ -n "${IMAGE_TYPES:-}" ]]; then
+          IFS=',' read -r -a image_types <<< "$IMAGE_TYPES"
+          ARGS+=( --image-types "${image_types[@]}" )
+        fi
+
+        if [[ -n "${DISTRIBUTIONS:-}" ]]; then
+          IFS=',' read -r -a distributions <<< "$DISTRIBUTIONS"
+          ARGS+=( --distributions "${distributions[@]}" )
+        fi
+
+        if [[ -n "${REGEX:-}" ]]; then
+          ARGS+=( --regex "$REGEX" )
+        fi
+
+        ARGS+=( --output-dir "$OUTPUT_DIR" )
+
+        python "$GITHUB_ACTION_PATH/catalogs_generator.py" "${ARGS[@]}"
