@@ -1,9 +1,26 @@
 name: Generate Image Catalogs
 description: Generate Image Catalogs
 inputs:
-  output-path:
+  registry:
+    description: "The registry to interrogate"
+    required: false
+    type: string
+  image-types:
+    description: "Image types to retrieve - space separated values"
+    required: false
+    type: string
+  distributions:
+    description: "OS distributions to retrieve - space separated values"
+    required: false
+    type: string
+  regex:
+    description: "The regular expression used to retrieve container images"
+    required: false
+    type: string
+  output-dir:
     description: "The path to output directory"
     required: false
+    type: string
     default: "."
 
 runs:
@@ -23,10 +40,16 @@ runs:
         python-version: 3.13
 
     - name: Install Python dependencies
+      shell: bash
       run: |
         pip install packaging==25.0 PyYAML==6.0.2
 
     - name: Generate catalogs
+      shell: bash
       run: |
         python catalog-generator/.github/catalogs_generator.py \
-          --output-dir ${{ inputs.output_path }} \
+          ${{ inputs.registry && format('--registry "{0}"', inputs.registry) || '' }} \
+          ${{ inputs.image-types && format('--image-types "{0}"', inputs.image-types) || '' }} \
+          ${{ inputs.distributions && format('--distributions "{0}"', inputs.distributions) || '' }} \
+          ${{ inputs.regex && format('--regex "{0}"', inputs.regex) || '' }} \
+          --output-dir ${{ inputs.output-dir }}

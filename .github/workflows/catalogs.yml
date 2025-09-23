@@ -15,7 +15,6 @@ jobs:
   update-catalogs:
     runs-on: ubuntu-24.04
     steps:
-      # TODO: remove this step once system images are EOL
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
@@ -31,9 +30,9 @@ jobs:
           ref: main
 
       - name: Generate catalogs
-        uses: ./.github/actions/generate-catalogs
+        uses: ./postgres-containers/.github/actions/generate-catalogs
         with:
-          output_path: artifacts/image-catalogs/
+          output-dir: artifacts/image-catalogs/
 
       # TODO: remove this step once system images are EOL
       - name: Update legacy catalogs

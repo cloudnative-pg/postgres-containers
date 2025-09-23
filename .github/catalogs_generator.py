@@ -154,6 +154,9 @@ def write_catalog(tags, version_re, img_type, os_name, output_dir="."):
             digest = get_digest(args.registry, item)
             results[major] = [f"{args.registry}:{item}@{digest}"]
 
+    if not results:
+        raise RuntimeError("No results have been found!")
+
     catalog = {
         "apiVersion": "postgresql.cnpg.io/v1",
         "kind": "ClusterImageCatalog",
