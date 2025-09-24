@@ -3,29 +3,22 @@ description: Generate Image Catalogs
 inputs:
   registry:
     description: "The registry to interrogate"
-    required: false
-    type: string
+    required: true
   image-types:
     description: "Image types to retrieve - comma separated values"
-    required: false
-    type: string
+    required: true
   distributions:
     description: "OS distributions to retrieve - comma separated values"
-    required: false
-    type: string
+    required: true
   regex:
     description: "The regular expression used to retrieve container images"
-    required: false
-    type: string
+    required: true
   output-dir:
     description: "The path to output directory"
-    required: false
-    type: string
-    default: "."
+    required: true
   family:
     description: "The family name to assign to the catalogs"
     required: false
-    type: string
 
 runs:
   using: composite

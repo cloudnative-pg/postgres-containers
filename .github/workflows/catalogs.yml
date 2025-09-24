@@ -34,6 +34,11 @@ jobs:
         uses: ./postgres-containers/.github/actions/generate-catalogs
         with:
           output-dir: artifacts/image-catalogs/
+          registry: ghcr.io/cloudnative-pg/postgresql
+          family: postgresql
+          distributions: bullseye,bookworm,trixie
+          image-types: minimal,standard,system
+          regex: '(\d+)(?:\.\d+|beta\d+|rc\d+|alpha\d+)-(\d{12})'
 
       # TODO: remove this step once system images are EOL
       - name: Update legacy catalogs
