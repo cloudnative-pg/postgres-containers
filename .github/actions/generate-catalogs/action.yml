@@ -1,0 +1,74 @@
+name: Generate Image Catalogs
+description: Generate Image Catalogs
+inputs:
+  registry:
+    description: "The registry to interrogate"
+    required: true
+  image-types:
+    description: "Image types to retrieve - comma separated values"
+    required: true
+  distributions:
+    description: "OS distributions to retrieve - comma separated values"
+    required: true
+  regex:
+    description: "The regular expression used to retrieve container images"
+    required: true
+  output-dir:
+    description: "The path to output directory"
+    required: true
+  family:
+    description: "The family name to assign to the catalogs"
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
+      with:
+        python-version: 3.13
+
+    - name: Install Python dependencies
+      shell: bash
+      run: |
+        pip install packaging==25.0 PyYAML==6.0.2
+
+    - name: Generate catalogs
+      shell: bash
+      env:
+        REGISTRY: ${{ inputs.registry }}
+        IMAGE_TYPES: ${{ inputs.image-types }}
+        DISTRIBUTIONS: ${{ inputs.distributions }}
+        REGEX: ${{ inputs.regex }}
+        OUTPUT_DIR: ${{ inputs.output-dir }}
+        FAMILY: ${{ inputs.family }}
+      run: |
+        set -euo pipefail
+        ARGS=()
+
+        if [[ -n "${REGISTRY:-}" ]]; then
+          ARGS+=( --registry "$REGISTRY" )
+        fi
+
+        if [[ -n "${IMAGE_TYPES:-}" ]]; then
+          IFS=',' read -r -a image_types <<< "$IMAGE_TYPES"
+          ARGS+=( --image-types "${image_types[@]}" )
+        fi
+
+        if [[ -n "${DISTRIBUTIONS:-}" ]]; then
+          IFS=',' read -r -a distributions <<< "$DISTRIBUTIONS"
+          ARGS+=( --distributions "${distributions[@]}" )
+        fi
+
+        if [[ -n "${REGEX:-}" ]]; then
+          ARGS+=( --regex "$REGEX" )
+        fi
+
+        if [[ -n "${FAMILY:-}" ]]; then
+          ARGS+=( --family "$FAMILY" )
+        fi
+
+        ARGS+=( --output-dir "$OUTPUT_DIR" )
+
+        echo "Running: python $GITHUB_ACTION_PATH/catalogs_generator.py ${ARGS[*]}"
+        python "$GITHUB_ACTION_PATH/catalogs_generator.py" "${ARGS[@]}"
