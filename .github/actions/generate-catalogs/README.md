@@ -23,14 +23,14 @@ run inside CI pipelines.
 
 ## Inputs
 
-| Name            | Required  | Description                                           | Example                           |
-| --------------- | --------- | ----------------------------------------------------- | --------------------------------- |
-| `registry`      | ✅ yes    | The container registry to query.                      | `ghcr.io/cloudnative-pg/postgres` |
-| `image-types`   | ✅ yes    | Comma-separated list of image types.                  | `minimal,standard`                |
-| `distributions` | ✅ yes    | Comma-separated list of supported OS distributions.   | `bookworm,trixie`                 |
-| `regex`         | ✅ yes    | Regular expression used to match image tags.          | *See [Regex](#regex)*             |
-| `output-dir`    | ✅ yes    | Directory where generated catalogs will be written.   | `./`                              |
-| `family`        | ❌ no     | Family name for generated catalogs (filename prefix). | `my-custom-family`                |
+| Name            | Required | Description                                                                     | Example                           |
+| --------------- |----------|---------------------------------------------------------------------------------| --------------------------------- |
+| `registry`      | ✅ yes    | The container registry to query.                                                | `ghcr.io/cloudnative-pg/postgres` |
+| `image-types`   | ✅ yes    | Comma-separated list of image types.                                            | `minimal,standard`                |
+| `distributions` | ✅ yes    | Comma-separated list of supported OS distributions.                             | `bookworm,trixie`                 |
+| `regex`         | ✅ yes    | Regular expression used to match image tags.                                    | *See [Regex](#regex)*             |
+| `output-dir`    | ✅ yes    | Directory where generated catalogs will be written.                             | `./`                              |
+| `family`        | ❌ no     | Family name for generated catalogs (filename prefix). Defaults to `postgresql`. | `my-custom-family`                |
 
 ---
 
@@ -66,11 +66,13 @@ The `regex` input defines which tags are added to the `ClusterImageCatalog`.
 
 ### Family
 
-The optional `family` input customises:
+The optional `family` input customizes:
 
 1. **File prefix**: `<family>-minimal-trixie.yaml`
 2. **`metadata.name`** in the ImageCatalog: `<family>-minimal-trixie`
 3. **`images.cnpg.io/family` label** on the ImageCatalog object
+
+If not specified it defaults to `postgresql`.
 
 ---
 
