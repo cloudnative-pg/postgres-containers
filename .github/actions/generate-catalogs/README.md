@@ -23,14 +23,14 @@ run inside CI pipelines.
 
 ## Inputs
 
-| Name            | Required | Description                                                                     | Example                           |
-| --------------- |----------|---------------------------------------------------------------------------------| --------------------------------- |
-| `registry`      | ✅ yes    | The container registry to query.                                                | `ghcr.io/cloudnative-pg/postgres` |
-| `image-types`   | ✅ yes    | Comma-separated list of image types.                                            | `minimal,standard`                |
-| `distributions` | ✅ yes    | Comma-separated list of supported OS distributions.                             | `bookworm,trixie`                 |
-| `regex`         | ✅ yes    | Regular expression used to match image tags.                                    | *See [Regex](#regex)*             |
-| `output-dir`    | ✅ yes    | Directory where generated catalogs will be written.                             | `./`                              |
-| `family`        | ❌ no     | Family name for generated catalogs (filename prefix). Defaults to `postgresql`. | `my-custom-family`                |
+| Name            | Required  | Description                                                                     | Example                             |
+| --------------- | --------- | ------------------------------------------------------------------------------- | ----------------------------------- |
+| `registry`      | ✅ yes    | The container registry to query.                                                | `ghcr.io/cloudnative-pg/postgresql` |
+| `image-types`   | ✅ yes    | Comma-separated list of image types.                                            | `minimal,standard`                  |
+| `distributions` | ✅ yes    | Comma-separated list of supported OS distributions.                             | `bookworm,trixie`                   |
+| `regex`         | ✅ yes    | Regular expression used to match image tags.                                    | *See [Regex](#regex)*               |
+| `output-dir`    | ✅ yes    | Directory where generated catalogs will be written.                             | `./`                                |
+| `family`        | ❌ no     | Family name for generated catalogs (filename prefix). Defaults to `postgresql`. | `my-custom-family`                  |
 
 ---
 
