@@ -26,7 +26,8 @@ postgreSQLVersions = [
   "14.19",
   "15.14",
   "16.10",
-  "17.6"
+  "17.6",
+  "18.0"
 ]
 
 // PostgreSQL preview versions to build, such as "18~beta1" or "18~rc1"
