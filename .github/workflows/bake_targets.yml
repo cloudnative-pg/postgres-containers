@@ -163,6 +163,9 @@ jobs:
         uses: snyk/actions/docker@master
         id: snyk
         if: ${{ env.SNYK_TOKEN != '' }}
+        # Snyk can be used to break the build when it detects vulnerabilities.
+        # In this case we want to upload the issues to GitHub Code Scanning.
+        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
