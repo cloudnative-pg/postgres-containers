@@ -34,7 +34,6 @@ postgreSQLVersions = [
 // Preview versions are automatically filtered out if present in the stable list
 // MANUALLY EDIT THE CONTENT - AND UPDATE THE README.md FILE TOO
 postgreSQLPreviewVersions = [
-  "18~rc1",
 ]
 
 // Barman version to build
