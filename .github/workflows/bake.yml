@@ -51,6 +51,8 @@ jobs:
     with:
       environment: ${{ github.event.inputs.environment }}
       postgresql_version: ${{ matrix.version }}
+    secrets:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   Catalogs:
     name: Update Catalogs

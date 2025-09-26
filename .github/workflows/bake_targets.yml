@@ -29,6 +29,9 @@ on:
           `source` directory.
         required: false
         type: string
+    secrets:
+      SNYK_TOKEN:
+        required: false
 
 permissions: {}
 
@@ -158,7 +161,8 @@ jobs:
 
       - name: Snyk
         uses: snyk/actions/docker@master
-        continue-on-error: true
+        id: snyk
+        if: ${{ env.SNYK_TOKEN != '' }}
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
@@ -166,13 +170,14 @@ jobs:
           args: --severity-threshold=high --file=Dockerfile
 
       - name: Replace sarif security-severity invalid values
+        if: ${{ steps.snyk.conclusion == 'success' }}
         run: |
           sed -i 's/"security-severity": "null"/"security-severity": "0"/g' snyk.sarif
           sed -i 's/"security-severity": "undefined"/"security-severity": "0"/g' snyk.sarif
 
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@192325c86100d080feab897ff886c34abd4c83a3 # v3
-        continue-on-error: true
+        if: ${{ steps.snyk.conclusion == 'success' }}
         with:
           sarif_file: snyk.sarif
 
