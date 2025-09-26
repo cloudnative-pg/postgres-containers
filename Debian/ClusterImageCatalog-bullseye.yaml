@@ -6,17 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20250923'
+    images.cnpg.io/date: '20250926'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
-      image: ghcr.io/cloudnative-pg/postgresql:13.22-202509220807-system-bullseye@sha256:16323ff5e13f568c943720756ebc59d162adff4a4f9349038ae1796f757448c8
+      image: ghcr.io/cloudnative-pg/postgresql:13.22-202509261031-system-bullseye@sha256:c4115ce890a79ba085c33271e580e4b6c72c5dfaf64c26fc312c2ec9a04d658e
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.19-202509220807-system-bullseye@sha256:f74e898ab8ef56d2b9cd259871eef9415b8b3dbdc5c916315073cd2144e89d28
+      image: ghcr.io/cloudnative-pg/postgresql:14.19-202509261031-system-bullseye@sha256:cf8bbe2697f5ec55801dd65c4682629438053afd8f8132f314491df6a94a5dc1
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.14-202509220807-system-bullseye@sha256:041340459b4d3ebdaffd55fd2296ca01992fb467301b505bb19b8689434b42a8
+      image: ghcr.io/cloudnative-pg/postgresql:15.14-202509261031-system-bullseye@sha256:fc835a385014307c050bfcdacc7313675ec9b62b0743b9723f3170a4ea722e3d
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.10-202509220807-system-bullseye@sha256:9746b62a5f1981533dd475ebc1bd8c7740b8dc8c60fa06db0407c6c6c1254fed
+      image: ghcr.io/cloudnative-pg/postgresql:16.10-202509261031-system-bullseye@sha256:ab45f6fe7d7f765cc59c189b770ab02258a69bb9e575dd9c73f4e03b19ea2464
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.6-202509220807-system-bullseye@sha256:b9763f1137de625622dab2a4b94a456c5a6587d0444885b282d9c222370b3955
+      image: ghcr.io/cloudnative-pg/postgresql:17.6-202509261031-system-bullseye@sha256:175ccb714d18eacf236658c4403a9e686212e837c605a1d9bcd5b68c7dc4c9a7
+    - major: 18
+      image: ghcr.io/cloudnative-pg/postgresql:18.0-202509261031-system-bullseye@sha256:424fc22287b7bf49e9eb87f6180e5489d0026014b1e610a4e429599d96cadb4d

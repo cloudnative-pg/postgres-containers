@@ -6,17 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20250923'
+    images.cnpg.io/date: '20250926'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
-      image: ghcr.io/cloudnative-pg/postgresql:13.22-202509220807-system-bookworm@sha256:b4a1e2d577546d32e82d44168e6977b3d4b0a4765bb4a7482e353f99ec49216a
+      image: ghcr.io/cloudnative-pg/postgresql:13.22-202509261031-system-bookworm@sha256:f5a48d34e3a9933ec04569adabfa02ed3c7dbef41d400750bc6a950737d668ba
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.19-202509220807-system-bookworm@sha256:fb3a27a77364017ec604a24f19def5124b945e6e45cb4613455f0aee3e15cc47
+      image: ghcr.io/cloudnative-pg/postgresql:14.19-202509261031-system-bookworm@sha256:589e74586d99b0ea82877d2c4aac4e84c7e9fb1b950de9a2d125577434df3ea2
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.14-202509220807-system-bookworm@sha256:fbdf4141d38d6c70e6ab10a2d6ab6b7a5853b62fa1bba78b4353032e0b345740
+      image: ghcr.io/cloudnative-pg/postgresql:15.14-202509261031-system-bookworm@sha256:9ec95d41f020ccae470bc66e0e08be444a183f146b722bf0a97eba910c4d5172
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.10-202509220807-system-bookworm@sha256:41561360238d5fb7a85e2b1d75f1e5d626be37b94a01306432ad7f94cf542dc4
+      image: ghcr.io/cloudnative-pg/postgresql:16.10-202509261031-system-bookworm@sha256:d2835279122d99b6485754cff552e851cf03147b70bf4ce41d5400a5dbecc15c
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.6-202509220807-system-bookworm@sha256:b931f2c7d6e259c1448a88486912da2a3e4039e13c9099e3c09a54cbb25a36cf
+      image: ghcr.io/cloudnative-pg/postgresql:17.6-202509261031-system-bookworm@sha256:c3f0e4bd0ca587be8f1ebd50883163645f00ff12245e122a058d68fe3f95c53e
+    - major: 18
+      image: ghcr.io/cloudnative-pg/postgresql:18.0-202509261031-system-bookworm@sha256:4416ab72b6203303a1168bda6a4d7bf3a575ef08dd0c41087abdde79f9a6fb4d
