@@ -261,6 +261,33 @@ vulnerabilities before they are published or deployed:
 For detailed instructions on building PostgreSQL container images, refer to the
 [BUILD.md](BUILD.md) file.
 
+## Automatic Updating using Renovate
+
+[Renovate](https://github.com/renovatebot/renovate) can be used to automatically update various dependencies.
+As CloudNativePG's `Cluster` CRDs are not automatically picked up by renovate a custom regex manager must be configured:
+
+```json5
+{
+  customManagers: [
+    {
+      // cloudnative-pg instance version
+      customType: 'regex',
+      managerFilePatterns: [
+        '/\\.yaml$/',
+      ],
+      matchStrings: [
+        'imageName: (?<depName>\\S+):(?<currentValue>\\S+)@(?<currentDigest>sha256:[a-f0-9]+)',
+      ],
+      datasourceTemplate: 'docker',
+      // matches: 17.6-202509151215-minimal-trixie
+      versioningTemplate: 'regex:^(?<major>\\d+)\\.(?<minor>\\d+)-(?<patch>\\d+)-(?<compatibility>\\S+)$',
+    }
+  ]
+}
+```
+
+Renovate will never change the `compatibility` part of the tag! So bumping from e.g., `trixie` to the next debian release must be done manually.
+
 ## License and copyright
 
 This software is available under [Apache License 2.0](LICENSE).
