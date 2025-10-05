@@ -276,11 +276,12 @@ As CloudNativePG's `Cluster` CRDs are not automatically picked up by renovate a 
         '/\\.yaml$/',
       ],
       matchStrings: [
-        'imageName: (?<depName>\\S+):(?<currentValue>\\S+)@(?<currentDigest>sha256:[a-f0-9]+)',
+        'imageName: (?<depName>[^\\s:]+):(?<currentValue>[^\\s@]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?',
       ],
       datasourceTemplate: 'docker',
       // matches: 17.6-202509151215-minimal-trixie
       versioningTemplate: 'regex:^(?<major>\\d+)\\.(?<minor>\\d+)-(?<patch>\\d+)-(?<compatibility>\\S+)$',
+      autoReplaceStringTemplate: '{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}',
     }
   ]
 }
