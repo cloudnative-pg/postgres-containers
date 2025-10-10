@@ -26,7 +26,7 @@ permissions:
 
 - [Snyk](https://github.com/snyk/actions):
   - Detects vulnerabilities in OS packages, libraries, and dependencies.
-  - Generates a `snyk.sarif` that uploads to GitHub Code Scanning
+  - Generates a `snyk.sarif` that gets uploaded to GitHub Code Scanning
 
 ---
 
