@@ -152,9 +152,6 @@ jobs:
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           dockerfile: "./Dockerfile"
 
-  # Use the metadata generated in the `testbuild` step to find all the images
-  # that have been built. We copy them one by one to the production registry
-  # using skopeo. Then we sign the production images too.
   copytoproduction:
     name: Copy images to production
     if: |
@@ -167,54 +164,15 @@ jobs:
     permissions:
       contents: read
       packages: write
-      security-events: write
       # Required by the cosign step
       id-token: write
     steps:
-      - name: Log in to the GitHub Container registry
-        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3
+      - name: Checkout Code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+
+      - name: Copy to production
+        uses: ./.github/actions/copy-images
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Copy images
-        run: |
-          images=$(echo '${{ needs.testbuild.outputs.metadata }}' |
-            jq -r '
-              .[] as $items |
-              (
-                $items."image.name" |
-                split(",")[] +
-                  "@" +
-                  $items."containerimage.digest"
-              )
-            '
-          )
-          for image in $images
-          do
-            testimageshaonly="${image%:*@*}@${image#*@}"
-            testimagenosha="${image%@*}"
-            prodimage="${testimagenosha/-testing/}"
-            echo "Copying ${testimageshaonly} to ${prodimage}"
-            docker run --quiet quay.io/skopeo/stable:v1.17.0-immutable copy -q -a \
-              --dest-creds ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} \
-              docker://${testimageshaonly} docker://${prodimage}
-          done
-
-      - name: Install cosign
-        uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
-
-      - name: Sign images
-        run: |
-          images=$(echo '${{ needs.testbuild.outputs.metadata }}' |
-            jq -r '.[] |
-              (
-                ."image.name" |
-                sub(",.*";"") |
-                sub("-testing:[^@]+";"")
-              ) + "@" + ."containerimage.digest"
-            '
-          )
-          echo "Signing ${images}"
-          cosign sign -t 5m --yes ${images}
+          bake_build_metadata: "${{ needs.testbuild.outputs.metadata }}"
+          registry_user: ${{ github.actor }}
+          registry_token: ${{ secrets.GITHUB_TOKEN }}
