@@ -205,11 +205,12 @@ ensure transparency and traceability:
   Metadata detailing how the image was built, following the [SLSA Provenance](https://slsa.dev)
   framework.
 
-For example, you can retrieve the SBOM for a specific image using the following
-command:
+For example, to retrieve the SBOM of a multi-architecture image for a specific
+platform (e.g. `linux/amd64`), you can use the following command:
 
 ```bash
-docker buildx imagetools inspect <IMAGE> --format "{{ json .SBOM.SPDX }}"
+docker buildx imagetools inspect <IMAGE> \
+  --format '{{ json (index .SBOM "linux/amd64").SPDX }}'
 ```
 
 This command outputs the SBOM in JSON format, providing a detailed view of the
