@@ -1,0 +1,75 @@
+name: Copy and sign images
+description: Copy and sign images to the production repository
+inputs:
+  bake_build_metadata:
+    description: "The JSON build metadata of Bake"
+    required: true
+  registry_user:
+    description: "The user used to authenticate to the registry"
+    required: true
+  registry_token:
+    description: "The token used to authenticate to the registry"
+    required: true
+  test_registry_suffix:
+    description: "The testing registry suffix"
+    required: false
+    default: '-testing'
+
+runs:
+  using: composite
+  steps:
+    - name: Log in to the GitHub Container registry
+      uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3
+      with:
+        registry: ghcr.io
+        username: ${{ inputs.registry_user }}
+        password: ${{ inputs.registry_token }}
+
+    - name: Copy images
+      shell: bash
+      env:
+        # renovate: datasource=docker depName=quay.io/skopeo/stable versioning=loose
+        SKOPEO_VERSION: "v1.20.0-immutable"
+        SUFFIX: ${{ inputs.test_registry_suffix }}
+      run: |
+        images=$(echo '${{ inputs.bake_build_metadata }}' |
+          jq -r '
+            .[] as $items |
+            (
+              $items."image.name" |
+              split(",")[] +
+                "@" +
+                $items."containerimage.digest"
+            )
+          '
+        )
+        for image in $images
+        do
+          testimageshaonly="${image%:*@*}@${image#*@}"
+          testimagenosha="${image%@*}"
+          prodimage="${testimagenosha/$SUFFIX/}"
+          echo "Copying ${testimageshaonly} to ${prodimage}"
+          docker run --quiet quay.io/skopeo/stable:$SKOPEO_VERSION copy -q -a \
+            --dest-creds ${{ inputs.registry_user }}:${{ inputs.registry_token }} \
+            docker://${testimageshaonly} docker://${prodimage}
+        done
+
+    - name: Install cosign
+      uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
+
+    - name: Sign images
+      shell: bash
+      env:
+        SUFFIX: ${{ inputs.test_registry_suffix }}
+      run: |
+        images=$(echo '${{ inputs.bake_build_metadata }}' |
+          jq -r --arg suffix "$SUFFIX" '.[] |
+            (
+              ."image.name" |
+              sub(",.*";"") |
+              sub($suffix + ":[^@]+";"")
+            ) + "@" + ."containerimage.digest"
+          '
+        )
+        echo "Signing ${images}"
+        cosign sign -t 5m --yes ${images}
