@@ -191,7 +191,9 @@ and [`ClusterImageCatalog-bookworm.yaml`](Debian/ClusterImageCatalog-bookworm.ya
 manifests, please migrate to the new catalogs as soon as possible. These legacy
 manifests are deprecated and will be removed along with the `system` image.
 
-## Build Attestations
+## Security
+
+### Build Attestations
 
 CNPG PostgreSQL Container Images are built with the following attestations to
 ensure transparency and traceability:
@@ -216,7 +218,7 @@ docker buildx imagetools inspect <IMAGE> \
 This command outputs the SBOM in JSON format, providing a detailed view of the
 software components and build dependencies.
 
-## Image Signatures
+### Image Signatures
 
 The [`minimal`](#minimal-images) and [`standard`](#standard-images) CloudNativePG container images are securely signed using
 [cosign](https://github.com/sigstore/cosign), a tool within the
@@ -238,6 +240,18 @@ cosign verify IMAGE \
   --certificate-identity-regexp="^https://github.com/cloudnative-pg/postgres-containers/" \
   --certificate-oidc-issuer="https://token.actions.githubusercontent.com"
 ```
+
+## Image Scanning in CI/CD
+
+To further strengthen the security of our container images, we perform
+automated image scanning as part of our CI/CD workflows. These scans help
+ensure that our images adhere to best practices and remain free of known
+vulnerabilities before they are published or deployed:
+
+- **Dockle**: Verifies configuration best practices for container images. Runs
+  during the build stage; critical failures can block the build.
+- **Snyk**: Detects vulnerabilities in OS packages, libraries, and dependencies
+  within the container. Runs after image build.
 
 ## Building Images
 
