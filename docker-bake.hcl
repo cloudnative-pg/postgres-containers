@@ -58,11 +58,11 @@ target "default" {
     pgVersion = getPgVersions(postgreSQLVersions, postgreSQLPreviewVersions)
     base = [
       // renovate: datasource=docker versioning=loose
-      "debian:trixie-slim@sha256:1caf1c703c8f7e15dcf2e7769b35000c764e6f50e4d7401c355fb0248f3ddfdb",
+      "debian:trixie-slim@sha256:66b37a5078a77098bfc80175fb5eb881a3196809242fd295b25502854e12cbec",
       // renovate: datasource=docker versioning=loose
-      "debian:bookworm-slim@sha256:7e490910eea2861b9664577a96b54ce68ea3e02ce7f51d89cb0103a6f9c386e0",
+      "debian:bookworm-slim@sha256:78d2f66e0fec9e5a39fb2c72ea5e052b548df75602b5215ed01a17171529f706",
       // renovate: datasource=docker versioning=loose
-      "debian:bullseye-slim@sha256:f807f4b16002c623115b0247dca6a55711c6b1ae821dc64fb8a2339e4ce2115d"
+      "debian:bullseye-slim@sha256:52927eff8153b563244f98cdc802ba97918afcdf67f9e4867cbf1f7afb3d147b"
     ]
   }
   platforms = [
