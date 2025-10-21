@@ -144,7 +144,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - name: Security checks
-        uses: ./.github/actions/security-scans
+        uses: cloudnative-pg/postgres-containers/.github/actions/security-scans@main
         with:
           image: "${{ matrix.image }}"
           registry_user: ${{ github.actor }}
@@ -167,11 +167,8 @@ jobs:
       # Required by the cosign step
       id-token: write
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-
       - name: Copy to production
-        uses: ./.github/actions/copy-images
+        uses: cloudnative-pg/postgres-containers/.github/actions/copy-images@main
         with:
           bake_build_metadata: "${{ needs.testbuild.outputs.metadata }}"
           registry_user: ${{ github.actor }}
