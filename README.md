@@ -287,7 +287,7 @@ As CloudNativePG's `Cluster` CRDs are not automatically picked up by renovate a 
 }
 ```
 
-Renovate will never change the `compatibility` part of the tag! So bumping from e.g., `trixie` to the next debian release must be done manually.
+Renovate will never change the `compatibility` part of the tag, ensuring that the upgraded images will remain compatible.
 
 ## License and copyright
 
