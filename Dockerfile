@@ -1,4 +1,4 @@
-ARG BASE=debian:12.11-slim
+ARG BASE=debian:bookworm-20250929-slim
 FROM $BASE AS minimal
 
 ARG PG_VERSION
