@@ -1,4 +1,4 @@
-ARG BASE=debian:bookworm-20250929-slim
+ARG BASE=debian:trixie-slim@sha256:9b6ccd28f4913155f35e10ecd4437347d86ebce4ecf5853b3568141468faec56
 FROM $BASE AS minimal
 
 ARG PG_VERSION
