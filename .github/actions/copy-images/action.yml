@@ -28,8 +28,7 @@ runs:
     - name: Copy images
       shell: bash
       env:
-        # renovate: datasource=docker depName=quay.io/skopeo/stable versioning=loose
-        SKOPEO_VERSION: "v1.20.0@sha256:82dfe13efeaac954590352dd4956473226993254758fa668d6cbb752cb367df7"
+        SKOPEO_VERSION: "v1.20-immutable"
         SUFFIX: ${{ inputs.test_registry_suffix }}
       run: |
         images=$(echo '${{ inputs.bake_build_metadata }}' |
