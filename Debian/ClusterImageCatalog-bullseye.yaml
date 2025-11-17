@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251115'
+    images.cnpg.io/date: '20251117'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.19-202511100807-system-bullseye@sha256:6fa1874107542e970f3a603caf311ae32d275cd8406c97e8ab6eeaede9b8e655
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511170807-system-bullseye@sha256:140583532f1674632efb8f05981b63eda0c5015c51fd2514106b0ec2198a660d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.14-202511100817-system-bullseye@sha256:d17bae91908c8a6beeae0feba64d26cc2dbf8b6477db87093ee3de9f05f5ac75
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511170807-system-bullseye@sha256:1e7ebe43a2f9d0fe68dc88dab91db266af85d04833bb3592e217fd6c98fbb5cd
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.10-202511100807-system-bullseye@sha256:6287f6497c8c7495305900b79b7aa8d0c9515fa9d3614eff81650068f4d9bacf
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511170807-system-bullseye@sha256:c8612949e28bbb8a201c593bb73bd3fb23b63833b26a4361edcf5af3336fe10e
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.6-202511100807-system-bullseye@sha256:30b304a2e300ed80b6d1b740e4369e9b0f25599fb518de78c01fd9f25531791b
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511170807-system-bullseye@sha256:2e43913490264d281bc9dc4704caa43a5addedbe018e47280c7b4f90fab6db69
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.0-202511100807-system-bullseye@sha256:f06cae6ae14e2f101392130dce800b504bf9c5110b5db5fc0266782464882dbb
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511170807-system-bullseye@sha256:368c8ee05071bca5a2464e54c75da39b423dc9e80698b545b212ae42aa97abba
