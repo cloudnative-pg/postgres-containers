@@ -50,12 +50,12 @@ jobs:
       images: ${{ steps.images.outputs.images }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
 
       # bake-action/subaction/matrix doesn't support remote bake files.
       # As a workaround, we clone the repository to allow passing the path to a local file.
       - name: Checkout additional remote source
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
         if: ${{ inputs.bake_remote_source != '' }}
         with:
           repository: ${{ inputs.bake_remote_source }}
@@ -141,7 +141,7 @@ jobs:
         image: ${{fromJson(needs.testbuild.outputs.images)}}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
 
       - name: Security checks
         uses: cloudnative-pg/postgres-containers/.github/actions/security-scans@main
