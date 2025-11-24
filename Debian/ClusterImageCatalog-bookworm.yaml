@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20251117'
+    images.cnpg.io/date: '20251124'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511170807-system-bookworm@sha256:1b2bf996d091279e7010ed9c09de7252698afa04666730db12d7a240aad30f7f
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511240807-system-bookworm@sha256:535e813e98192390068f4aca7b2367d4b870d44a3618e37626b32e909164e0a2
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511170807-system-bookworm@sha256:31f45a303051ce93e8e70c7908d122e0c07cbc9cce244eee3d36a6c09b502c36
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511240807-system-bookworm@sha256:b88c5f9b167ea596ff83909c9de2d9491dbf527bd66848f6914e9fb061745034
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511170807-system-bookworm@sha256:69af4fa78b21e99a60316008075536a54d6c0e23b930090634bfa65ce64c7902
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511240807-system-bookworm@sha256:5dcfbb2f08f970dfd0607a5ee5e924534b5d8d73ddcbc713ea0f93a73610adab
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511170807-system-bookworm@sha256:7e18ff2a89c972222c35a8a4465f420c1768cdc51a5dc7a8057a8dda5b53d69a
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511240807-system-bookworm@sha256:f5807d92095dc33d10ffadd31bccd690f6548ae185495f8638fe2044ee66fa4d
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511170807-system-bookworm@sha256:810ab8a589c892adffde0bcf6841f79357407955d6b0d2d348c648fcc4988cb1
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511240807-system-bookworm@sha256:f5ea2099ffb1e231a13e72b12a79c58bd9addea27f30716526a21d066a3ba183

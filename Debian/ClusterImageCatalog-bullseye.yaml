@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251117'
+    images.cnpg.io/date: '20251124'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511170807-system-bullseye@sha256:140583532f1674632efb8f05981b63eda0c5015c51fd2514106b0ec2198a660d
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511240807-system-bullseye@sha256:03ca45bde1ab73de114c0c01e5d9f2fcea8cd55047ef4c5ac1b500ab6dcec335
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511170807-system-bullseye@sha256:1e7ebe43a2f9d0fe68dc88dab91db266af85d04833bb3592e217fd6c98fbb5cd
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511240807-system-bullseye@sha256:036436c682db5a72cb270de5396caf6e660f1b2c12249ca9ba2c891303f38a74
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511170807-system-bullseye@sha256:c8612949e28bbb8a201c593bb73bd3fb23b63833b26a4361edcf5af3336fe10e
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511240807-system-bullseye@sha256:9f8ea5c7c1bd7bc1c02b7c848f50a4eba37b80469c6194c67c453dc59be74b26
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511170807-system-bullseye@sha256:2e43913490264d281bc9dc4704caa43a5addedbe018e47280c7b4f90fab6db69
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511240807-system-bullseye@sha256:13765b73f70e7859e800e62c534255b7514ca315e74d95af001bc13d003a632f
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511170807-system-bullseye@sha256:368c8ee05071bca5a2464e54c75da39b423dc9e80698b545b212ae42aa97abba
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511240807-system-bullseye@sha256:dba61fa23ee9c52dc2e34170c45ed4ccf47e465dc66847636b1eae724b5ca947
