@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20251124'
+    images.cnpg.io/date: '20251201'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511240807-system-bookworm@sha256:535e813e98192390068f4aca7b2367d4b870d44a3618e37626b32e909164e0a2
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512010807-system-bookworm@sha256:989fb03e3fc506d9410cb80ed15e1f2de9fce5147bf9000190503c039714ceee
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511240807-system-bookworm@sha256:b88c5f9b167ea596ff83909c9de2d9491dbf527bd66848f6914e9fb061745034
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512010807-system-bookworm@sha256:df1a5d19d0793048a27c33bce93b16051c068140fc5ca0d85fa99df05ab5fe56
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511240807-system-bookworm@sha256:5dcfbb2f08f970dfd0607a5ee5e924534b5d8d73ddcbc713ea0f93a73610adab
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512010807-system-bookworm@sha256:65ba6d87eb5d80f62be0d377b9cb24cc6a36e5b8fa691221be59610d959f2f40
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511240807-system-bookworm@sha256:f5807d92095dc33d10ffadd31bccd690f6548ae185495f8638fe2044ee66fa4d
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512010807-system-bookworm@sha256:bef010ba6c635dc05e7f6e68be91c682d0d2bd3ab8c79d04e71bffb93e9c40be
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511240807-system-bookworm@sha256:f5ea2099ffb1e231a13e72b12a79c58bd9addea27f30716526a21d066a3ba183
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512010807-system-bookworm@sha256:b59a2bb86bb907b1a8f96c28617dc0f10d7e5f2dc230a505eb915957c68da73b

@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251124'
+    images.cnpg.io/date: '20251201'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202511240807-system-bullseye@sha256:03ca45bde1ab73de114c0c01e5d9f2fcea8cd55047ef4c5ac1b500ab6dcec335
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512010807-system-bullseye@sha256:a79ad4b3c96108d1b0386bf62a23f45fc904f5d5af878a5a55bc45a9cd532c1f
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202511240807-system-bullseye@sha256:036436c682db5a72cb270de5396caf6e660f1b2c12249ca9ba2c891303f38a74
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512010807-system-bullseye@sha256:152ec6ff84608de2e16526b6987f7ddef864057ed2e2058b9b3207faa9ad6690
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202511240807-system-bullseye@sha256:9f8ea5c7c1bd7bc1c02b7c848f50a4eba37b80469c6194c67c453dc59be74b26
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512010807-system-bullseye@sha256:fac4230e162e0a8c1475840e5f18074d8bdb3790d15a418e7e63d05aec39ad20
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202511240807-system-bullseye@sha256:13765b73f70e7859e800e62c534255b7514ca315e74d95af001bc13d003a632f
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512010807-system-bullseye@sha256:662c95d66c6decca46856da1750866e51829dc206d9a40998186baf2f98454df
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202511240807-system-bullseye@sha256:dba61fa23ee9c52dc2e34170c45ed4ccf47e465dc66847636b1eae724b5ca947
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512010807-system-bullseye@sha256:765687b22589dd52a2de969c245d7e2b0667f8ab1aa29a9f70d6254f4a7208e0
