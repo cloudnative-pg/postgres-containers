@@ -58,7 +58,7 @@ runs:
         sed -i 's/"security-severity": "undefined"/"security-severity": "0"/g' snyk.sarif
 
     - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@fdbfb4d2750291e159f0156def62b853c2798ca2 # v4
+      uses: github/codeql-action/upload-sarif@fe4161a26a8629af62121b670040955b330f9af2 # v4
       if: ${{ steps.snyk.conclusion == 'success' }}
       with:
         sarif_file: snyk.sarif
