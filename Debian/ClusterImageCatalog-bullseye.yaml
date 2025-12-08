@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251201'
+    images.cnpg.io/date: '20251208'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512010807-system-bullseye@sha256:a79ad4b3c96108d1b0386bf62a23f45fc904f5d5af878a5a55bc45a9cd532c1f
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512080807-system-bullseye@sha256:cf241bee2421bd1f83d8ebf9a33e83a0e213b84240a8f4ece19ebe10ff64400d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512010807-system-bullseye@sha256:152ec6ff84608de2e16526b6987f7ddef864057ed2e2058b9b3207faa9ad6690
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512080807-system-bullseye@sha256:241a9455535b1eb13220d98265463c48a696fb6e1d3d15ff59d1ac4b0bd55842
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512010807-system-bullseye@sha256:fac4230e162e0a8c1475840e5f18074d8bdb3790d15a418e7e63d05aec39ad20
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512080807-system-bullseye@sha256:ac385f2674a5f3ecc3b3b6aec2f58efeb2c41c4c6480d4854585cd6cc6251797
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512010807-system-bullseye@sha256:662c95d66c6decca46856da1750866e51829dc206d9a40998186baf2f98454df
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512080807-system-bullseye@sha256:fe325413533ac12a8eccb9cddf07fc7e3d2d4782c830da308dc4fa2af7632f05
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512010807-system-bullseye@sha256:765687b22589dd52a2de969c245d7e2b0667f8ab1aa29a9f70d6254f4a7208e0
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512080807-system-bullseye@sha256:d3199816380b42a3b1db2a21fb0920acc90c3ca0d5e8fccf65858e79d4abc5a8
