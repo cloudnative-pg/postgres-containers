@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20251208'
+    images.cnpg.io/date: '20251215'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512080807-system-bookworm@sha256:ebacd02c5435061bb51ec92e7aa598a5b6f4e9eb75b21290c3b1128e2088d899
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512150807-system-bookworm@sha256:7cfb34da35fa10821791668b29a56df82d7c15b1e1d3926b3ed126f93750fb32
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512080807-system-bookworm@sha256:8671da9c5c1c0759b368c39906a9cbc32a09d3fc555442605c3de51a00fffda0
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512150807-system-bookworm@sha256:36df47819fdc031c34da5e2bf904afa279052f9101a92789a98b427ae4aaab6f
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512080807-system-bookworm@sha256:5f539338124f6c67743b4c8a58bac9b54a875cd9f56ea4b2238485caddb0b725
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512150807-system-bookworm@sha256:2c76f96627526e1a2429137c13ae80ee1a48c947aa8f96de97e38769afeb70e4
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512080807-system-bookworm@sha256:920788cc96f4e51142d52c8fc1af54fcf4226db0a2bfee115f0a8848b74358ff
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512150807-system-bookworm@sha256:922ebfd356c89e539f490bc9b00c2874fefe5ddd2ea14401ae301598feb06af8
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512080807-system-bookworm@sha256:93ecb850396af2963da6e11e24129420c3a68073b603dc02d104f5a13f97d788
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512150807-system-bookworm@sha256:68ad2d37918bf335614e654150d0d6aee0a1a483041f0a8b2c20b4e863e2bafa
