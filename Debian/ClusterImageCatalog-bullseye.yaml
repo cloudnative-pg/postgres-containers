@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251215'
+    images.cnpg.io/date: '20251222'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512150807-system-bullseye@sha256:3745da250c974e898f3a4fd15f2dd93ccd6b468ae7978f690a18255cc56f7da0
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512220807-system-bullseye@sha256:cb932476d5a286556daaf3b24a9eb36ab6d716ee97311515222183a7f98a2371
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512150807-system-bullseye@sha256:c06035efb7dc46eea28cf0e4770a7043805c9c0f4681e63069929789c83ee89a
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512220807-system-bullseye@sha256:6c11bf2fa89b71ff3ed0390f863228a4a0b43fcb3e4aeca9a274e6c57c2e680a
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512150807-system-bullseye@sha256:2e4d845e4fc5ef8f08d503433139a81cd52277374d93fd20a2166a1dae9e71b1
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512220807-system-bullseye@sha256:63f938b0d63559b129da7a4b7aa870a5354e37521038d37643db2800652ae65e
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512150807-system-bullseye@sha256:45f838c60984508f755986642e7108db09d1c4bb6f1bc38186efdb4e003173dc
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512220807-system-bullseye@sha256:0577d652f8ae83defb6c31d9948388d7f7fffdd5a8f2a9b50f3ba71d3fb80d24
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512150807-system-bullseye@sha256:7f374e054e46fdefd64b52904e32362949703a75c05302dca8ffa1eb78d41891
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512220807-system-bullseye@sha256:43ee7b4edc5c7beea29774d4fbcf03fe80cddc9f04ff45b70e35adc940629a3b
