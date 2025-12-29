@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251222'
+    images.cnpg.io/date: '20251229'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512220807-system-bullseye@sha256:cb932476d5a286556daaf3b24a9eb36ab6d716ee97311515222183a7f98a2371
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512290807-system-bullseye@sha256:1891105f5dbe371d4437d2e1f5a832cc3f8f616ef8e4a1b2e6c89d8fb59985d8
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512220807-system-bullseye@sha256:6c11bf2fa89b71ff3ed0390f863228a4a0b43fcb3e4aeca9a274e6c57c2e680a
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512290807-system-bullseye@sha256:fa8206692a983b636f0db51416657692c2fef5e1cf29d36ba2c9bf9773cdba9a
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512220807-system-bullseye@sha256:63f938b0d63559b129da7a4b7aa870a5354e37521038d37643db2800652ae65e
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512290807-system-bullseye@sha256:a24f13ffa8b795e41e40d67a274db360e210c4180e396b484e80bc3fe9056ee1
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512220807-system-bullseye@sha256:0577d652f8ae83defb6c31d9948388d7f7fffdd5a8f2a9b50f3ba71d3fb80d24
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512290807-system-bullseye@sha256:b473a9c10debd74827c2966632012c84e335ccacff1d87da4ad4facf96a62e21
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512220807-system-bullseye@sha256:43ee7b4edc5c7beea29774d4fbcf03fe80cddc9f04ff45b70e35adc940629a3b
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512290807-system-bullseye@sha256:a0cce97009fafd8e626f9eefade0fb610a9e95747200c9faccecef53b42d7bbe

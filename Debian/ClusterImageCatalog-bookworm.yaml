@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20251222'
+    images.cnpg.io/date: '20251229'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512220807-system-bookworm@sha256:2cbbba1911033062367b90f80be361c610dd370ee577faf4007df559f791e599
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512290807-system-bookworm@sha256:daef3e3d2b07862a95a3eff451a093d17c854e16021bce687e7d5d9ceff3e5da
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512220807-system-bookworm@sha256:3c7db3b300348b5140cdf2d56cd76fe3e3ab8495a0472adedbaaecbfdef377b9
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512290807-system-bookworm@sha256:2c3a00b735dfcc33905c0a28e8752e7a1f84f6716799fb83faa3b412357da935
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512220807-system-bookworm@sha256:e80025127a6b5c9a3d36fc255a0013e9e1394e62d9f2616a36c4ac53b97f0592
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512290807-system-bookworm@sha256:f92bb854a1705006680811e6bdc97f8f7e56c1a1469c10748f2e5cb29d5f6796
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512220807-system-bookworm@sha256:9103c763e199685ddb79bbad123b1678b57f2c986ecb3d3016275c7314b730c5
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512290807-system-bookworm@sha256:e666320e1cd3508e0d58037309897a4af875d6a77f8943e3eff9ad3ff910690d
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512220807-system-bookworm@sha256:8efb1b8db62d4e80d241eb8d604bc7a05e5e396602b5849a58713e50c7e9884f
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512290807-system-bookworm@sha256:6c17d5c3ef2d7cc0ad9c24987f4bafaa2cb02e84d5b48cc54e9c002b59d8143b
