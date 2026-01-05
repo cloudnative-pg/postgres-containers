@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20251229'
+    images.cnpg.io/date: '20260105'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512290807-system-bookworm@sha256:daef3e3d2b07862a95a3eff451a093d17c854e16021bce687e7d5d9ceff3e5da
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601050807-system-bookworm@sha256:5285f147cf865575297c92c5d637370a9130c4b3a93355386dcd4f07921a7b60
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512290807-system-bookworm@sha256:2c3a00b735dfcc33905c0a28e8752e7a1f84f6716799fb83faa3b412357da935
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601050807-system-bookworm@sha256:0f2e319b4fd7a678919b9de37e7e2c5955b2a274b1bf5bb3c5d3dab971172c9f
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512290807-system-bookworm@sha256:f92bb854a1705006680811e6bdc97f8f7e56c1a1469c10748f2e5cb29d5f6796
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601050808-system-bookworm@sha256:3f355d59c910479516ce1242c14e9fb16438fde904bd2baaf9592b24f18a5d72
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512290807-system-bookworm@sha256:e666320e1cd3508e0d58037309897a4af875d6a77f8943e3eff9ad3ff910690d
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601050807-system-bookworm@sha256:400d4afcc07eafa562847a24e26547be45a6472122a22768e0a8b35c91a8167f
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512290807-system-bookworm@sha256:6c17d5c3ef2d7cc0ad9c24987f4bafaa2cb02e84d5b48cc54e9c002b59d8143b
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601050807-system-bookworm@sha256:7cae52d68110446a133c997206d442c61c6f0ecd7125e9d1c39a56673c22d696

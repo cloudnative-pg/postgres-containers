@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20251229'
+    images.cnpg.io/date: '20260105'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202512290807-system-bullseye@sha256:1891105f5dbe371d4437d2e1f5a832cc3f8f616ef8e4a1b2e6c89d8fb59985d8
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601050807-system-bullseye@sha256:35f907aa08b6e4574c580e3901df197d420d0ec3081a4f9832fcd5357e4d0ad3
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202512290807-system-bullseye@sha256:fa8206692a983b636f0db51416657692c2fef5e1cf29d36ba2c9bf9773cdba9a
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601050807-system-bullseye@sha256:e85c373e8cdf29a47adfe48e1ea534b20e5dea4b697aad3a0572162b3da43892
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202512290807-system-bullseye@sha256:a24f13ffa8b795e41e40d67a274db360e210c4180e396b484e80bc3fe9056ee1
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601050808-system-bullseye@sha256:368c1a13935ff8850d76cfb427d5c29877a74de0531e198a7a683d4cfb97260b
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202512290807-system-bullseye@sha256:b473a9c10debd74827c2966632012c84e335ccacff1d87da4ad4facf96a62e21
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601050807-system-bullseye@sha256:7e16b46cef57750dccaa68790a0796f58bdcfa26c35775512bb0030452dc2627
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202512290807-system-bullseye@sha256:a0cce97009fafd8e626f9eefade0fb610a9e95747200c9faccecef53b42d7bbe
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601050807-system-bullseye@sha256:ca2a8fc9fd68fd9a7c774972655ead9a373523a1ab526bf62039986e78ca2d96
