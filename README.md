@@ -88,7 +88,8 @@ maintained by the PostgreSQL Global Development Group (PGDG).
 These images are identified by the inclusion of `minimal` in their tag names,
 for example: `17.6-minimal-trixie`.
 
-> **NOTE**: Starting with PostgreSQL 18, `minimal` images will **not** include
+> [!NOTE]
+> Starting with PostgreSQL 18, `minimal` images will **not** include
 > LLVM JIT support (shipped in the `postgresql-MM-jit` package, where `MM`
 > represents the PostgreSQL major version). JIT will be available only in the
 > `standard` image.
@@ -111,7 +112,8 @@ following additional features:
 Standard images are identifiable by the `standard` tag in their names, such as:
 `17.6-standard-trixie`.
 
-> **Note:** Standard images are designed to offer functionality equivalent to
+> [!NOTE] 
+> Standard images are designed to offer functionality equivalent to
 > the legacy `system` images when used with CloudNativePG. To achieve parity,
 > you must use the [Barman Cloud Plugin](https://github.com/cloudnative-pg/plugin-barman-cloud)
 > as a replacement for the native Barman Cloud support in `system` images.
@@ -121,7 +123,8 @@ Standard images are identifiable by the `standard` tag in their names, such as:
 Starting from September 2025, system images are based on the `standard` image
 and include Barman Cloud binaries.
 
-> **IMPORTANT:** The `system` images are deprecated and will be removed once
+> [!IMPORTANT]
+> The `system` images are deprecated and will be removed once
 > in-core support for Barman Cloud in CloudNativePG is phased out. While you
 > can still use them as long as in-core Barman Cloud remains available, you
 > should plan to migrate to either a `minimal` or `standard` image together
