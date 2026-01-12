@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260105'
+    images.cnpg.io/date: '20260112'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601050807-system-bullseye@sha256:35f907aa08b6e4574c580e3901df197d420d0ec3081a4f9832fcd5357e4d0ad3
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601120807-system-bullseye@sha256:f3856864410b6a914f5aac6efe584ba1c08dd42da8240b323de30ff286d8d99d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601050807-system-bullseye@sha256:e85c373e8cdf29a47adfe48e1ea534b20e5dea4b697aad3a0572162b3da43892
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601120807-system-bullseye@sha256:17087f3b1a618647f0c3a44c5d48a699806ce268ea664c7b5909e3b5101638bc
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601050808-system-bullseye@sha256:368c1a13935ff8850d76cfb427d5c29877a74de0531e198a7a683d4cfb97260b
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601120807-system-bullseye@sha256:f0b8e5538b1766134bfe32499a9ac7bbbf893d5d0ba21d65e81046b13c7830aa
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601050807-system-bullseye@sha256:7e16b46cef57750dccaa68790a0796f58bdcfa26c35775512bb0030452dc2627
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601120807-system-bullseye@sha256:2c3e159e9bbf3f5c5903882d3ec4a14ee2040e0edeb1e8e47be7e536386d028d
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601050807-system-bullseye@sha256:ca2a8fc9fd68fd9a7c774972655ead9a373523a1ab526bf62039986e78ca2d96
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601120807-system-bullseye@sha256:c835ea1053376ab101e3528cd9d3712c8f760378af6f6a4b5bd74c119e35e190

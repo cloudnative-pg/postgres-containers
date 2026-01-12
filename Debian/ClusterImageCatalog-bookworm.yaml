@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260105'
+    images.cnpg.io/date: '20260112'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601050807-system-bookworm@sha256:5285f147cf865575297c92c5d637370a9130c4b3a93355386dcd4f07921a7b60
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601120807-system-bookworm@sha256:f7ff4ea4ee3c8d947ae1a760227d332dbea66ab13ca5526e1a0eede8afcbb015
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601050807-system-bookworm@sha256:0f2e319b4fd7a678919b9de37e7e2c5955b2a274b1bf5bb3c5d3dab971172c9f
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601120807-system-bookworm@sha256:a4dfc0ad16868e9a670753ed2eda796f5e7522aa6edcca5cc02efca6766c1550
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601050808-system-bookworm@sha256:3f355d59c910479516ce1242c14e9fb16438fde904bd2baaf9592b24f18a5d72
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601120807-system-bookworm@sha256:35c2c8d52a9b8fe971bfbfce9882c5a38bf31190d00df920eff8ffa81934e4bc
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601050807-system-bookworm@sha256:400d4afcc07eafa562847a24e26547be45a6472122a22768e0a8b35c91a8167f
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601120807-system-bookworm@sha256:9894c9f6412e7ba4d939b090c67e3d2fda639227087753f46f336bb46c7b36a5
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601050807-system-bookworm@sha256:7cae52d68110446a133c997206d442c61c6f0ecd7125e9d1c39a56673c22d696
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601120807-system-bookworm@sha256:49d33f3e45358858ded38910085c8002a6f94c9f42f37d60a610e62c0653bb55
