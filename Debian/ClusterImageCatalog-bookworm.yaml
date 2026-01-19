@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260112'
+    images.cnpg.io/date: '20260119'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601120807-system-bookworm@sha256:f7ff4ea4ee3c8d947ae1a760227d332dbea66ab13ca5526e1a0eede8afcbb015
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601190807-system-bookworm@sha256:10346cecf4d218e2f713539add725da97e67b832edf4c4461f8275f9b005bc7a
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601120807-system-bookworm@sha256:a4dfc0ad16868e9a670753ed2eda796f5e7522aa6edcca5cc02efca6766c1550
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601190807-system-bookworm@sha256:d51b639ddd219f3f137841e02da8c5a430f5602ad375bbe6c0fa5420e0a121ee
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601120807-system-bookworm@sha256:35c2c8d52a9b8fe971bfbfce9882c5a38bf31190d00df920eff8ffa81934e4bc
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601190807-system-bookworm@sha256:7045b70b4b199df885d5ec3006f63dbfda405eeac93447975f5d5de9b6ee38a7
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601120807-system-bookworm@sha256:9894c9f6412e7ba4d939b090c67e3d2fda639227087753f46f336bb46c7b36a5
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601190807-system-bookworm@sha256:bf9aa51d05934547b3750cb2f413439ce53e692f88f24868d8a1252bd910889c
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601120807-system-bookworm@sha256:49d33f3e45358858ded38910085c8002a6f94c9f42f37d60a610e62c0653bb55
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601190807-system-bookworm@sha256:4f9c92b20b4b491e37660506e65b469b97446ed65c476a770d94375e11927f36

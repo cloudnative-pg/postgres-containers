@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260112'
+    images.cnpg.io/date: '20260119'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601120807-system-bullseye@sha256:f3856864410b6a914f5aac6efe584ba1c08dd42da8240b323de30ff286d8d99d
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601190807-system-bullseye@sha256:ddd035a4bb3adf8bf558e9fb3424f08b13e9dc4de9355b04f45f5a2548c800a1
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601120807-system-bullseye@sha256:17087f3b1a618647f0c3a44c5d48a699806ce268ea664c7b5909e3b5101638bc
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601190807-system-bullseye@sha256:be9f462eef8acccfee6faa70493cfef4b3963b7d6c591f113bf97fbd30b7ebe9
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601120807-system-bullseye@sha256:f0b8e5538b1766134bfe32499a9ac7bbbf893d5d0ba21d65e81046b13c7830aa
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601190807-system-bullseye@sha256:d05d23e406584fdb675b0427eb93acd082fc129312ce37621e4c8df207021e41
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601120807-system-bullseye@sha256:2c3e159e9bbf3f5c5903882d3ec4a14ee2040e0edeb1e8e47be7e536386d028d
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601190807-system-bullseye@sha256:4acc01c2c8a3d9b5953e58998251a9158da34b87a83b9f36c1e1fac1e8e9f55d
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601120807-system-bullseye@sha256:c835ea1053376ab101e3528cd9d3712c8f760378af6f6a4b5bd74c119e35e190
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601190807-system-bullseye@sha256:b53c340d52ae3c5e980147b2dee775e5a569ad2d4a4447a629bfc9bf048c7768
