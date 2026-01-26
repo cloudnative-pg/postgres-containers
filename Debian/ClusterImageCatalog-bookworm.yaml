@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260119'
+    images.cnpg.io/date: '20260126'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601190807-system-bookworm@sha256:10346cecf4d218e2f713539add725da97e67b832edf4c4461f8275f9b005bc7a
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601260808-system-bookworm@sha256:d0adc50148dc201e81c2570df36717a934b4045af4653d65b257c14f1bbdfb88
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601190807-system-bookworm@sha256:d51b639ddd219f3f137841e02da8c5a430f5602ad375bbe6c0fa5420e0a121ee
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601260807-system-bookworm@sha256:5c227c4de5fa509b526f0b6554df5c8e4d49bfb54205b9681131bb57dfdf90cf
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601190807-system-bookworm@sha256:7045b70b4b199df885d5ec3006f63dbfda405eeac93447975f5d5de9b6ee38a7
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601260807-system-bookworm@sha256:d0ed24814adadcfcb48726db8cc92ca305f9c82ce4103b951556c7399819eb73
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601190807-system-bookworm@sha256:bf9aa51d05934547b3750cb2f413439ce53e692f88f24868d8a1252bd910889c
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601260808-system-bookworm@sha256:f23eccef24eee7594557c57cb07c8b31660301db4355db4dc10a1dd1accff88d
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601190807-system-bookworm@sha256:4f9c92b20b4b491e37660506e65b469b97446ed65c476a770d94375e11927f36
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601260808-system-bookworm@sha256:165e755c4f7f9362255a1a72cdba9f5396423d24e909bdfc41cf518eda825e7f
