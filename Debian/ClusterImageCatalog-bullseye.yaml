@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260126'
+    images.cnpg.io/date: '20260202'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202601260808-system-bullseye@sha256:dc00595bde636ae6f3fcc0717349e48eee4b3012f5758b4d721863414c18be61
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202602020815-system-bullseye@sha256:da6b6b4c248668e1c0de7cb7ec25f2f661c7aa7d0f371a0196e8d458747d3fa6
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202601260807-system-bullseye@sha256:0451cd9181b66273a697738b6dd1d0258a5385dfd1c5d6d372b7fba5ed59f3d2
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202602020814-system-bullseye@sha256:4c1d5afdd4f735ff1328cbe39758f4b107a005937dd04183102e278b17b8b4c4
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202601260807-system-bullseye@sha256:44ae136890c37438f5324e4fe5b1f79e556440585688fe558604cc0d408bc560
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202602020815-system-bullseye@sha256:8766b02aeb745c0d11aa1fff1823cde867a37bbe3c4b7bfb1869ed94f368ff88
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202601260808-system-bullseye@sha256:df8b873905a7ee88b6adf351e6d4d14f67e02b92f816a1adea73bf7a34f21804
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202602020815-system-bullseye@sha256:5e2077b0b7a7031ae656c6ab37d9633f674d08f277a382b7f02341c19afc6832
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202601260808-system-bullseye@sha256:3d57af59c8982e55b9b4792f44e7f769e65901b3d579e9d72de003bd27e6fdea
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202602020815-system-bullseye@sha256:2762d1dd965e3c84004f08d5a97526cd8b5395026bc3a1d804d84ffcfa83caa5
