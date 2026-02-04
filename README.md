@@ -70,7 +70,7 @@ We currently provide and maintain three main types of PostgreSQL images:
 
 * [`minimal`](#minimal-images)
 * [`standard`](#standard-images)
-* [`system`](#system-images) (*deprecated*)
+* [`system`](#system-images-deprecated)
 
 Both `minimal` and `standard` images are designed to work with backup plugins
 such as [Barman Cloud](https://github.com/cloudnative-pg/plugin-barman-cloud).
