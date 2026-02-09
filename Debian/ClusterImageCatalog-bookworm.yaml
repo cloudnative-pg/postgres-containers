@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260202'
+    images.cnpg.io/date: '20260209'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202602020815-system-bookworm@sha256:9404112eda67f00820975458e82cfb7ca85c65fad13affbfb43b0541db469b47
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202602090817-system-bookworm@sha256:4621114cc9a4da5e81ef4b1de958ac3744c932127f13065014aa1b8462734f8f
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202602020814-system-bookworm@sha256:45068ef8c43e0dbf423e447c2190958d25cd61d57c16c6c3f807f80d3e74d2f3
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202602090817-system-bookworm@sha256:c3a1a93cc34de118d585704f639f77e5cc8ebfe9af5783e79a51d83c5601c110
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202602020815-system-bookworm@sha256:f664bb956be74bd879c14e9ea4c98efdadf1540805ce6ce467a8137c46f24334
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202602090816-system-bookworm@sha256:ac2abe5e035be7c668af8b3feb4c72b5d48ae68ad112e48719e429bfaba5ff05
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202602020815-system-bookworm@sha256:301fc1cca6cc171275647e83944c980efc4b092320d2274226717ea9049d85e5
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202602090816-system-bookworm@sha256:a50e0db0f9ffed23fd6d6c5570eebb2a0e4201a0835b90a25da983c276ee1078
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202602020815-system-bookworm@sha256:95aaf7e07c4582a1453bbfaab0915f4c7d752871dbae19c733fabd3862416a07
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202602090816-system-bookworm@sha256:61654dc3b1aa2191e083288caf332e60daa342817a64a285283e69e31f1c854d

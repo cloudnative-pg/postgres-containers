@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260202'
+    images.cnpg.io/date: '20260209'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.20-202602020815-system-bullseye@sha256:da6b6b4c248668e1c0de7cb7ec25f2f661c7aa7d0f371a0196e8d458747d3fa6
+      image: ghcr.io/cloudnative-pg/postgresql:14.20-202602090817-system-bullseye@sha256:4e3aa2e36cc0151d43ef74f40ae0f1064bd7ce5d2a2fe717555e1f90bd33d952
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.15-202602020814-system-bullseye@sha256:4c1d5afdd4f735ff1328cbe39758f4b107a005937dd04183102e278b17b8b4c4
+      image: ghcr.io/cloudnative-pg/postgresql:15.15-202602090817-system-bullseye@sha256:030109b6f7555254fedd4b32e014ff211c8798fb8cae9560fe959eaa24276c3d
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.11-202602020815-system-bullseye@sha256:8766b02aeb745c0d11aa1fff1823cde867a37bbe3c4b7bfb1869ed94f368ff88
+      image: ghcr.io/cloudnative-pg/postgresql:16.11-202602090816-system-bullseye@sha256:b062dd03ad85d4d68b7266198301475cc9e644f237add0f88684f1661c0b950c
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.7-202602020815-system-bullseye@sha256:5e2077b0b7a7031ae656c6ab37d9633f674d08f277a382b7f02341c19afc6832
+      image: ghcr.io/cloudnative-pg/postgresql:17.7-202602090816-system-bullseye@sha256:dab846a58e8ca3c8872584ab2225ee93fb9e659a87c52e163fefae9275b46f51
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.1-202602020815-system-bullseye@sha256:2762d1dd965e3c84004f08d5a97526cd8b5395026bc3a1d804d84ffcfa83caa5
+      image: ghcr.io/cloudnative-pg/postgresql:18.1-202602090816-system-bullseye@sha256:cc78f0c280978dd93fa6f49ce6cef60015cf4b56fd0e6a47c8ca49020b875f74
