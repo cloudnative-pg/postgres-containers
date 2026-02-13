@@ -51,7 +51,7 @@ runs:
         args: --severity-threshold=high --file=${{ inputs.dockerfile }}
 
     - name: Replace sarif security-severity invalid values
-      if: ${{ steps.snyk.conclusion == 'success' }}
+      if: ${{ steps.snyk.outcome == 'success' }}
       shell: bash
       run: |
         sed -i 's/"security-severity": "null"/"security-severity": "0"/g' snyk.sarif
@@ -59,6 +59,6 @@ runs:
 
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@45cbd0c69e560cd9e7cd7f8c32362050c9b7ded2 # v4
-      if: ${{ steps.snyk.conclusion == 'success' }}
+      if: ${{ steps.snyk.outcome == 'success' }}
       with:
         sarif_file: snyk.sarif
