@@ -48,7 +48,7 @@ runs:
         SNYK_TOKEN: ${{ inputs.snyk_token }}
       with:
         image: "${{ inputs.image }}"
-        args: --severity-threshold=high --file=${{ inputs.dockerfile }}
+        args: -d --severity-threshold=high --file=${{ inputs.dockerfile }}
 
     - name: Replace sarif security-severity invalid values
       if: ${{ steps.snyk.conclusion == 'success' }}
