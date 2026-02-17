@@ -39,7 +39,7 @@ jobs:
   testbuild:
     # Start by building images for testing. We want to run security checks before pushing those to production.
     name: PostgreSQL ${{ inputs.postgresql_version }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest-16-cores
     permissions:
       contents: read
       packages: write
@@ -130,7 +130,7 @@ jobs:
 
   security:
     name: Security checks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-4-cores
     permissions:
       contents: read
       packages: read
@@ -145,7 +145,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Security checks
-        uses: cloudnative-pg/postgres-containers/.github/actions/security-scans@main
+        uses: ./.github/actions/security-scans/
         with:
           image: "${{ matrix.image }}"
           registry_user: ${{ github.actor }}
