@@ -85,5 +85,5 @@ runs:
         steps.trivy.outcome != 'success'
       shell: bash
       run: |
-        echo "Snyk or Trivy check failed"
+        echo "None of the security checks succeeded (Snyk and Trivy)"
         exit 1
