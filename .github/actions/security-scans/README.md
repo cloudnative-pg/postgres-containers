@@ -28,6 +28,10 @@ permissions:
   - Detects vulnerabilities in OS packages, libraries, and dependencies.
   - Generates a `snyk.sarif` that gets uploaded to GitHub Code Scanning
 
+- [Trivy](https://github.com/aquasecurity/trivy-action):
+  - Detects vulnerabilities in OS packages, misconfigurations, sensitive information, licenses etc.
+  - Generates a `trivy-results.sarif` that gets uploaded to GitHub Code Scanning
+
 ---
 
 ## Inputs
@@ -43,6 +47,9 @@ permissions:
 Note:
 - If a `snyk_token` is not provided, Snyk scans won't be performed.
 - The `dockerfile` path is currently only required by Snyk.
+
+Important:
+- The action will fail if none of the vulnerability scanners is able to generate a Sarif output.
 
 ---
 
