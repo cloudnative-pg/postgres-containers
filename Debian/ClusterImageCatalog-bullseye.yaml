@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260220'
+    images.cnpg.io/date: '20260224'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.21-202602201511-system-bullseye@sha256:6b1738a5cbb427565d894c55ef75ee0971919ae5f151b6b926358b05f47cf1f5
+      image: ghcr.io/cloudnative-pg/postgresql:14.21-202602230816-system-bullseye@sha256:42a1d2962f9e8e631991be8595ca47d7e94e4ce4f3c2b5999a5d14c522e810d2
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.16-202602201511-system-bullseye@sha256:bc1cceab7e23f0da9cbce1a0de818f6730e5c36ba2e67fa52299fb7f2db931a7
+      image: ghcr.io/cloudnative-pg/postgresql:15.16-202602230816-system-bullseye@sha256:9826a0400edfa3b1402c20a89e22a62270dc036ff30af0ae1db8900c24788822
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.12-202602201511-system-bullseye@sha256:7fe820e900df4492243a1d4aeff88e1eb2b9706ac30bb1f10565e4a71099023f
+      image: ghcr.io/cloudnative-pg/postgresql:16.12-202602241232-system-bullseye@sha256:43f62c7195d34e127472c4a6ce5b1f40db236b27d3e4b9138a15fc409ad90aa2
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.8-202602201511-system-bullseye@sha256:ca2259722b27fb744160876673fb7f193b7b2f6cd85a27dbbc88e445fb138353
+      image: ghcr.io/cloudnative-pg/postgresql:17.8-202602230816-system-bullseye@sha256:065411b6de62772ab56e7267676ba512a7cbf74df97fe66ea23657d4b050d75a
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.2-202602201511-system-bullseye@sha256:7e95094990c3fd8150adcdc5888c02eeffb451427eca580a8692a3a4500deae9
+      image: ghcr.io/cloudnative-pg/postgresql:18.2-202602230816-system-bullseye@sha256:b66afcf8e489ba73529471e10f05461c554a42a1c4732f1a21d817d9667376f0
