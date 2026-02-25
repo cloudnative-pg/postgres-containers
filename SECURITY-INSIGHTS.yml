@@ -7,7 +7,7 @@ header:
   project-si-source: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/SECURITY-INSIGHTS.yml
 
 repository:
-  homepage: https://github.com/cloudnative-pg/postgres-containers
+  url: https://github.com/cloudnative-pg/postgres-containers
   status: active
   accepts-change-request: true
   accepts-automated-change-request: true
@@ -35,53 +35,72 @@ repository:
   release:
     automated-pipeline: true
     distribution-points:
-      - uri:  https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql
+      - uri: https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql
         comment: GitHub packages for Postgres container images
 
   security:
     tools:
+      - name: Dockle
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: Lints container images for security best practices.
+        integration:
+          adhoc: false
+          ci: true
+          release: false
       - name: Dependabot
         type: SCA
+        rulesets: ["default"]
+        results: {}
         integration:
           adhoc: true
-          ci: true
-          release: no
+          ci: false
+          release: false
       - name: Renovate
         type: SCA
+        rulesets: ["default"]
+        results: {}
         integration:
           adhoc: true
           ci: true
-          release: no
+          release: false
       - name: Snyk
-        type: SAST
-        comment: |
-          Performs both Static Code Analysis (Snyk Code) and Vulnerability
-          Scanning (Snyk Open Source).
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: Scans container images for known vulnerabilities.
         integration:
-          adhoc: true
+          adhoc: false
           ci: true
           release: true
       - name: Cosign
-        type: automated-tooling
-        comment: Used to cryptographically sign container images (operator and operand).
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: Used to cryptographically sign container images.
         integration:
-          adhoc: true
+          adhoc: false
           ci: true
           release: true
       - name: GitHub Code Scanning
         type: SAST
-        comment: Ingests SARIF results from Snyk for integrated GitHub security alerts.
+        rulesets: ["default"]
+        results: {}
+        comment: Ingests SARIF results from Snyk and Trivy for integrated GitHub security alerts.
         integration:
-          adhoc: true
+          adhoc: false
           ci: true
           release: true
       - name: Trivy
-        type: automated-tooling
+        type: container
+        rulesets: ["default"]
+        results: {}
         comment: |
           Scans container images and file systems for vulnerabilities and
           misconfigurations.
         integration:
-          adhoc: true
+          adhoc: false
           ci: true
           release: true
 
