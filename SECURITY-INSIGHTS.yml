@@ -3,6 +3,7 @@ header:
   last-updated: '2026-02-25'
   last-reviewed: '2026-02-25'
   url: https://raw.githubusercontent.com/cloudnative-pg/postgres-containers/main/SECURITY-INSIGHTS.yml
+  # reference the main SECURITY-INSIGHTS file from CNPG repo
   project-si-source: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/SECURITY-INSIGHTS.yml
 
 repository:
@@ -27,11 +28,6 @@ repository:
     - name: Niccolò Fei
       email: niccolo.fei@enterprisedb.com
       primary: false
-  documentation:
-    contributing-guide: https://github.com/cloudnative-pg/cloudnative-pg/blob/main/CONTRIBUTING.md
-    review-policy: https://github.com/cloudnative-pg/cloudnative-pg/tree/main/contribute#about-our-development-workflow
-    security-policy: https://github.com/cloudnative-pg/cloudnative-pg/security/policy
-    governance: https://github.com/cloudnative-pg/governance/blob/main/GOVERNANCE.md
   license:
     url: https://www.apache.org/licenses/LICENSE-2.0
     expression: Apache-2.0
