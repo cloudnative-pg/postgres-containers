@@ -1,0 +1,94 @@
+header:
+  schema-version: 2.2.0
+  last-updated: '2026-02-25'
+  last-reviewed: '2026-02-25'
+  url: https://raw.githubusercontent.com/cloudnative-pg/postgres-containers/main/SECURITY-INSIGHTS.yml
+  project-si-source: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/SECURITY-INSIGHTS.yml
+
+repository:
+  homepage: https://github.com/cloudnative-pg/postgres-containers
+  status: active
+  accepts-change-request: true
+  accepts-automated-change-request: true
+  no-third-party-packages: false
+  core-team:
+    - name: Gabriele Bartolini
+      email: gabriele.bartolini@enterprisedb.com
+      primary: true
+    - name: Francesco Canovai
+      email: francesco.canovai@enterprisedb.com
+      primary: false
+    - name: Jonathan Gonzalez V.
+      email: jonathan.gonzalez@enterprisedb.com
+      primary: false
+    - name: Marco Nenciarini
+      email: marco.nenciarini@enterprisedb.com
+      primary: false
+    - name: Niccolò Fei
+      email: niccolo.fei@enterprisedb.com
+      primary: false
+  documentation:
+    contributing-guide: https://github.com/cloudnative-pg/cloudnative-pg/blob/main/CONTRIBUTING.md
+    review-policy: https://github.com/cloudnative-pg/cloudnative-pg/tree/main/contribute#about-our-development-workflow
+    security-policy: https://github.com/cloudnative-pg/cloudnative-pg/security/policy
+    governance: https://github.com/cloudnative-pg/governance/blob/main/GOVERNANCE.md
+  license:
+    url: https://www.apache.org/licenses/LICENSE-2.0
+    expression: Apache-2.0
+
+  release:
+    automated-pipeline: true
+    distribution-points:
+      - uri:  https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql
+        comment: GitHub packages for Postgres container images
+
+  security:
+    tools:
+      - name: Dependabot
+        type: SCA
+        integration:
+          adhoc: true
+          ci: true
+          release: no
+      - name: Renovate
+        type: SCA
+        integration:
+          adhoc: true
+          ci: true
+          release: no
+      - name: Snyk
+        type: SAST
+        comment: |
+          Performs both Static Code Analysis (Snyk Code) and Vulnerability
+          Scanning (Snyk Open Source).
+        integration:
+          adhoc: true
+          ci: true
+          release: true
+      - name: Cosign
+        type: automated-tooling
+        comment: Used to cryptographically sign container images (operator and operand).
+        integration:
+          adhoc: true
+          ci: true
+          release: true
+      - name: GitHub Code Scanning
+        type: SAST
+        comment: Ingests SARIF results from Snyk for integrated GitHub security alerts.
+        integration:
+          adhoc: true
+          ci: true
+          release: true
+      - name: Trivy
+        type: automated-tooling
+        comment: |
+          Scans container images and file systems for vulnerabilities and
+          misconfigurations.
+        integration:
+          adhoc: true
+          ci: true
+          release: true
+
+    assessments:
+      self:
+        comment: Refer to the main project.
