@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260224'
+    images.cnpg.io/date: '20260226'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.21-202602230816-system-bookworm@sha256:4b7b880d996091c696af7842ed93274429c02ebae6b397b93740817e53b3c481
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202602261636-system-bookworm@sha256:4814e9430c83306eaccc797e123936673eb6e23399f703d045869a4322fa4735
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.16-202602230816-system-bookworm@sha256:1c27aa6ef53297352520d95914b8ebf93243f52304af366333e1d970e870008e
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202602261636-system-bookworm@sha256:042fa38888baa79700e6a061318da67ed1889b406f444ee2f1921bab95cf4f2b
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.12-202602241232-system-bookworm@sha256:ab60296bf566c5881e647f965e9641079431a828269a6e2bcc3957fc91e4028d
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202602261637-system-bookworm@sha256:350f717de1e417cf017c10716378f5614a85361d9acb3c3e630b3704f30eb2ce
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.8-202602230816-system-bookworm@sha256:9714cbca68836d0a4f5e455d8078afafd60e0751d28944935309be90d9c4ec98
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202602261636-system-bookworm@sha256:9b98bb640afb610dab530b9afab07bdd0527df1c4e1045cf0a0c07a3db6428f4
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.2-202602230816-system-bookworm@sha256:727b1b3971eb684577f6e063f8afda57a0b66ce61172efbb345b53118113dbdb
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202602261638-system-bookworm@sha256:3021655901ead1b8c64b52d812113badfd54ec5578bbbcefc1b7cb893091e646
