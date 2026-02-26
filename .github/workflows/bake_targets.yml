@@ -145,7 +145,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Security checks
-        # NOTE: Do not modify this to point to the local action "./.github/actions/security-scans`,
+        # NOTE: Do not modify this to point to the local action "./.github/actions/security-scans",
         # as it will break workflows running bake_targets.yml (this workflow) from external repositories.
         uses: cloudnative-pg/postgres-containers/.github/actions/security-scans@main
         with:
@@ -171,7 +171,7 @@ jobs:
       id-token: write
     steps:
       - name: Copy to production
-        # NOTE: Do not modify this to point to the local action "./.github/actions/copy-images`,
+        # NOTE: Do not modify this to point to the local action "./.github/actions/copy-images",
         # as it will break workflows running bake_targets.yml (this workflow) from external repositories.
         uses: cloudnative-pg/postgres-containers/.github/actions/copy-images@main
         with:
