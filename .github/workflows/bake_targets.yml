@@ -86,7 +86,7 @@ jobs:
       # TODO: review this when GitHub has linux/arm64 runners available (Q1 2025?)
       #   https://github.com/github/roadmap/issues/970
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3
+        uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4
         with:
           platforms: 'arm64'
           # TODO: remove this line once https://github.com/tonistiigi/binfmt/issues/258
