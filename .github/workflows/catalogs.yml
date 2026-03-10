@@ -13,7 +13,10 @@ defaults:
 
 jobs:
   update-catalogs:
+    name: Updating catalogs
     runs-on: ubuntu-24.04
+    permissions:
+      id-token: write
     steps:
       # TODO: remove this step once system images are EOL
       - name: Checkout code
@@ -47,6 +50,22 @@ jobs:
           cp artifacts/image-catalogs/catalog-system-bookworm.yaml postgres-containers/Debian/ClusterImageCatalog-bookworm.yaml
           yq -i '.metadata.name = "postgresql"' postgres-containers/Debian/ClusterImageCatalog-bullseye.yaml
           yq -i '.metadata.name = "postgresql"' postgres-containers/Debian/ClusterImageCatalog-bookworm.yaml
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
+
+      - name: Sign catalogs
+        run: |
+          for file in artifacts/image-catalogs/*.yaml; do
+              echo "Signing $file..."
+              cosign sign-blob "$file" --bundle "$file.sigstore.json" --yes
+          done
+
+          # TODO: remove this once system images are EOL
+          for file in postgres-containers/Debian/*.yaml; do
+              echo "Signing $file..."
+              cosign sign-blob "$file" --bundle "$file.sigstore.json" --yes
+          done
 
       - name: Diff
         working-directory: artifacts
@@ -87,7 +106,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           cwd: 'postgres-containers'
-          add: 'Debian/*.yaml'
+          add: 'Debian'
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'chore: update imageCatalogs'
