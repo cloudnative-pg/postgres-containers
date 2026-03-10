@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260226'
+    images.cnpg.io/date: '20260310'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202602261636-system-bookworm@sha256:4814e9430c83306eaccc797e123936673eb6e23399f703d045869a4322fa4735
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603090815-system-bookworm@sha256:4178f753ee7f39e194b7f3711f219f131febcdae50d3b3bbfbde6d4f1c2d716d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202602261636-system-bookworm@sha256:042fa38888baa79700e6a061318da67ed1889b406f444ee2f1921bab95cf4f2b
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603090816-system-bookworm@sha256:ddd77f0eb4bace0d3dc9cfa6463662321e0ac3b5431b7569e7c5cdc1ca6a6827
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202602261637-system-bookworm@sha256:350f717de1e417cf017c10716378f5614a85361d9acb3c3e630b3704f30eb2ce
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603090815-system-bookworm@sha256:976b2a519a7e64a149969a5955e23c9b4673aac66add3bc6b2a9b97fd990c1d4
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202602261636-system-bookworm@sha256:9b98bb640afb610dab530b9afab07bdd0527df1c4e1045cf0a0c07a3db6428f4
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603101238-system-bookworm@sha256:3dc4799b381bb27c4e2a6acee801976eed9794dda2ba5b1af828ccb74b4f20da
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202602261638-system-bookworm@sha256:3021655901ead1b8c64b52d812113badfd54ec5578bbbcefc1b7cb893091e646
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603090815-system-bookworm@sha256:0bbf697110347e9097f22f9261efe7c5f5224140baeec3b6b82133ec18e9090b

@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260226'
+    images.cnpg.io/date: '20260310'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202602261636-system-bullseye@sha256:6b1deb9f1ce2dad8154dd4fad7cb490467ac6de8a7813d1422ae340fe37ecf8c
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603090815-system-bullseye@sha256:4cbf58591a93ae82a034a8d0dbd6c77f3401704bcd146b6c450a0b0df8aac791
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202602261636-system-bullseye@sha256:e2c52cb374b218f4ea175f331530316d5c0000e56a7089114f54a222db879ff8
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603090816-system-bullseye@sha256:50d26bf9622ec259c9a2d2906a66c3ba9f3b106c91b4a8120d1e20c6a43b32a7
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202602261637-system-bullseye@sha256:2c1f2b2c6f4f72237f39e52cc7a4e822fed61fca3535d0de77a6703a1d914214
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603090815-system-bullseye@sha256:dccfe58084b97778b36d261d588b3d105754c00d7e37ae117d2526ed61be1bf8
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202602261636-system-bullseye@sha256:049e4a3bf90e6ffd2d0054725cdb7a0519ad1dbcc829eff12881893c97d99330
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603101238-system-bullseye@sha256:11755f4e7f46b509be9c4a08d01267b50d83bfa0b6f1712c1714ea72956e2318
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202602261638-system-bullseye@sha256:b3c3c9643000deec9663802143b04275201924cd82bdc2a932db78ed6110b0f8
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603090815-system-bullseye@sha256:16aa41fdc7df47e7bc45d882227323048a4ea21e3cf384b44e20608e900d3449
