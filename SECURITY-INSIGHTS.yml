@@ -1,0 +1,109 @@
+header:
+  schema-version: 2.2.0
+  last-updated: '2026-02-25'
+  last-reviewed: '2026-02-25'
+  url: https://raw.githubusercontent.com/cloudnative-pg/postgres-containers/main/SECURITY-INSIGHTS.yml
+  # reference the main SECURITY-INSIGHTS file from CNPG repo
+  project-si-source: https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/SECURITY-INSIGHTS.yml
+
+repository:
+  url: https://github.com/cloudnative-pg/postgres-containers
+  status: active
+  accepts-change-request: true
+  accepts-automated-change-request: true
+  no-third-party-packages: false
+  core-team:
+    - name: Gabriele Bartolini
+      email: gabriele.bartolini@enterprisedb.com
+      primary: true
+    - name: Francesco Canovai
+      email: francesco.canovai@enterprisedb.com
+      primary: false
+    - name: Jonathan Gonzalez V.
+      email: jonathan.gonzalez@enterprisedb.com
+      primary: false
+    - name: Marco Nenciarini
+      email: marco.nenciarini@enterprisedb.com
+      primary: false
+    - name: Niccolò Fei
+      email: niccolo.fei@enterprisedb.com
+      primary: false
+  license:
+    url: https://www.apache.org/licenses/LICENSE-2.0
+    expression: Apache-2.0
+
+  release:
+    automated-pipeline: true
+    distribution-points:
+      - uri: https://github.com/cloudnative-pg/postgres-containers/pkgs/container/postgresql
+        comment: GitHub packages for Postgres container images
+
+  security:
+    tools:
+      - name: Dockle
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: Lints container images for security best practices.
+        integration:
+          adhoc: false
+          ci: true
+          release: false
+      - name: Dependabot
+        type: SCA
+        rulesets: ["default"]
+        results: {}
+        integration:
+          adhoc: true
+          ci: false
+          release: false
+      - name: Renovate
+        type: SCA
+        rulesets: ["default"]
+        results: {}
+        integration:
+          adhoc: true
+          ci: true
+          release: false
+      - name: Snyk
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: Scans container images for known vulnerabilities.
+        integration:
+          adhoc: false
+          ci: true
+          release: true
+      - name: Cosign
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: Used to cryptographically sign container images.
+        integration:
+          adhoc: false
+          ci: true
+          release: true
+      - name: GitHub Code Scanning
+        type: SAST
+        rulesets: ["default"]
+        results: {}
+        comment: Ingests SARIF results from Snyk and Trivy for integrated GitHub security alerts.
+        integration:
+          adhoc: false
+          ci: true
+          release: true
+      - name: Trivy
+        type: container
+        rulesets: ["default"]
+        results: {}
+        comment: |
+          Scans container images and file systems for vulnerabilities and
+          misconfigurations.
+        integration:
+          adhoc: false
+          ci: true
+          release: true
+
+    assessments:
+      self:
+        comment: Refer to the main project.
