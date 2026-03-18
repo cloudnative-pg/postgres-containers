@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260310'
+    images.cnpg.io/date: '20260318'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603090815-system-bookworm@sha256:4178f753ee7f39e194b7f3711f219f131febcdae50d3b3bbfbde6d4f1c2d716d
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603160825-system-bookworm@sha256:acd6918c303fa535ab18f84f08ab759e7e8c05eeafb9faf28c9db7f0fbf7432d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603090816-system-bookworm@sha256:ddd77f0eb4bace0d3dc9cfa6463662321e0ac3b5431b7569e7c5cdc1ca6a6827
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603160825-system-bookworm@sha256:a4c9e1317809fdceb8a0a1b813b90857d38c200bf50c6694df4dc9174f5e5cff
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603090815-system-bookworm@sha256:976b2a519a7e64a149969a5955e23c9b4673aac66add3bc6b2a9b97fd990c1d4
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603160825-system-bookworm@sha256:86a5a06e057abbea734b2b62ccc1b4db4841dfc5457a598eadbc91cae1f924a3
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603101238-system-bookworm@sha256:3dc4799b381bb27c4e2a6acee801976eed9794dda2ba5b1af828ccb74b4f20da
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603160825-system-bookworm@sha256:f75f1c81f029807a125c9b758afc313e82e2818e3b9510833f91e36a0f9458dc
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603090815-system-bookworm@sha256:0bbf697110347e9097f22f9261efe7c5f5224140baeec3b6b82133ec18e9090b
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603181216-system-bookworm@sha256:35a3a0b084c4d9b9fb4ecee27bcebc0d0210c48860d963794b0c8fd7dcf0726a
