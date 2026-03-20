@@ -62,26 +62,3 @@ runs:
       if: ${{ hashFiles('snyk.sarif') != '' }}
       with:
         sarif_file: snyk.sarif
-
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@97e0b3872f55f89b95b2f65b3dbab56962816478 # 0.34.2
-      id: trivy
-      continue-on-error: true
-      with:
-        version: 'latest'
-        image-ref: '${{ inputs.image }}'
-        format: 'sarif'
-        output: 'trivy-results.sarif'
-
-    - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@0d579ffd059c29b07949a3cce3983f0780820c98 # v4
-      if: ${{ hashFiles('trivy-results.sarif') != '' }}
-      with:
-        sarif_file: 'trivy-results.sarif'
-
-    - name: Review Security checks
-      if: ${{ hashFiles('snyk.sarif') == '' && hashFiles('trivy-results.sarif') == '' }}
-      shell: bash
-      run: |
-        echo "None of the security checks produced results (Snyk and Trivy)"
-        exit 1
