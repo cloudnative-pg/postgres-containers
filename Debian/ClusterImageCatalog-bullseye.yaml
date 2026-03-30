@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260318'
+    images.cnpg.io/date: '20260330'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603160825-system-bullseye@sha256:7601db58564865c823d430305694c82a2c5ff01eefd05edb22171e4a49037d99
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603300834-system-bullseye@sha256:d786b6babdd15106f595e1cc142e772de93603ff926839dd6fd5de4de06d88f5
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603160825-system-bullseye@sha256:b1e877ff84aaa9455de11291f4b482db1279b97c672a6c0d2cf74ca8a26e9e77
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603300835-system-bullseye@sha256:5353dff29cfa78be0c5cb57265b8fbafdfc2db0ef39ae378332dc7abd9881ff1
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603160825-system-bullseye@sha256:acbed84c842730d6cefb89e7135743fe160233296b645b2f30f49fa18e2ebcf1
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603300836-system-bullseye@sha256:cd222003ce1d712c12a657310d0abc6ca583deaa3125e81bfe0bbb2d9135386e
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603160825-system-bullseye@sha256:148c715c10007a5c0c31f7fdb54bc9991ffbb73c74efa2b35d1fedd3f8103251
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603300836-system-bullseye@sha256:b8e22270846f4c32d50ee6a3743c379ac8830c87eed4b8a5de9db43de6ba23c5
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603181216-system-bullseye@sha256:8a4d61514fb0dcddcc296e1f87dbb05a22a79bb2436566341416260f8632de21
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603300834-system-bullseye@sha256:664ebfe87d1cda6f429613d265ae1db758eb19ee050a2752ac38e856b0bd24ad

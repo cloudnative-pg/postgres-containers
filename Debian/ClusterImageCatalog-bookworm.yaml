@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260318'
+    images.cnpg.io/date: '20260330'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603160825-system-bookworm@sha256:acd6918c303fa535ab18f84f08ab759e7e8c05eeafb9faf28c9db7f0fbf7432d
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603300834-system-bookworm@sha256:ff9b1cde98993f3f74aae47feb96706eb97a761224d223680e992579e87af76a
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603160825-system-bookworm@sha256:a4c9e1317809fdceb8a0a1b813b90857d38c200bf50c6694df4dc9174f5e5cff
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603300835-system-bookworm@sha256:8361a13f2ada24bd100cc4225d3e8c930ba0eb4376875ae71198ba24c647101f
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603160825-system-bookworm@sha256:86a5a06e057abbea734b2b62ccc1b4db4841dfc5457a598eadbc91cae1f924a3
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603300836-system-bookworm@sha256:2b6b6650fd72b7483347ff904d5d7646fba5c2bfc61d09c006c5fae463f3eb2d
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603160825-system-bookworm@sha256:f75f1c81f029807a125c9b758afc313e82e2818e3b9510833f91e36a0f9458dc
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603300836-system-bookworm@sha256:0d0f658b0d7bb8a0a53e2c64b4cd463a34bc52d16d49849aa8013978064597a8
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603181216-system-bookworm@sha256:35a3a0b084c4d9b9fb4ecee27bcebc0d0210c48860d963794b0c8fd7dcf0726a
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603300834-system-bookworm@sha256:b44209c2841499374a93e31bb956692659d8db868cde317ec503925463deb84a
