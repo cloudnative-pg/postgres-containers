@@ -39,7 +39,7 @@ jobs:
   testbuild:
     # Start by building images for testing. We want to run security checks before pushing those to production.
     name: PostgreSQL ${{ inputs.postgresql_version }}
-    runs-on: ubuntu-latest-16-cores
+    runs-on: ${{ github.repository_owner == 'cloudnative-pg' && 'ubuntu-latest-16-cores' || 'ubuntu-24.04' }}
     permissions:
       contents: read
       packages: write
@@ -137,7 +137,7 @@ jobs:
 
   security:
     name: Security checks
-    runs-on: ubuntu-latest-4-cores
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: read
