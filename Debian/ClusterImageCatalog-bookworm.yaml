@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260330'
+    images.cnpg.io/date: '20260406'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202603300834-system-bookworm@sha256:ff9b1cde98993f3f74aae47feb96706eb97a761224d223680e992579e87af76a
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604060836-system-bookworm@sha256:a82ec7f3966f72041b43c84ad9281860c3a54d5bad8fec0aa565c7a6bda8635b
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202603300835-system-bookworm@sha256:8361a13f2ada24bd100cc4225d3e8c930ba0eb4376875ae71198ba24c647101f
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604060834-system-bookworm@sha256:f8e329b77099d3c6aff9dc8a08da2020c2b04ae9c40447f1aa0f59559bc816ad
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202603300836-system-bookworm@sha256:2b6b6650fd72b7483347ff904d5d7646fba5c2bfc61d09c006c5fae463f3eb2d
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604060836-system-bookworm@sha256:e8bad3624dfa1dad6c3670ddf522466e5034152e832c1b7bf79ee8c0fb5e5685
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202603300836-system-bookworm@sha256:0d0f658b0d7bb8a0a53e2c64b4cd463a34bc52d16d49849aa8013978064597a8
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604060836-system-bookworm@sha256:eb2a6b05aa631bcc9141481e10b809ab1e3a0c77783f453d8be01822dd027f6e
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202603300834-system-bookworm@sha256:b44209c2841499374a93e31bb956692659d8db868cde317ec503925463deb84a
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604060836-system-bookworm@sha256:53918f522d14f6ea5758a7cbb9a5031478cafd237f33556a4ea111e7a6bf7987
