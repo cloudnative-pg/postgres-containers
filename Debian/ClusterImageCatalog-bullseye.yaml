@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260406'
+    images.cnpg.io/date: '20260413'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604060836-system-bullseye@sha256:1bec70c5a493308a5c6ad715e6f9467b8cd6f075e998e3ec38c8a06ed3451343
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604131157-system-bullseye@sha256:f1197e6b6e1b58441f7c713f9837c3e30f63d76c58060df8493b28c582b91215
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604060834-system-bullseye@sha256:61d2251fcd8d3a15ca89bd3c633362eaf385e41651b0d44a5d93cae42a37c3dd
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604131159-system-bullseye@sha256:bfed15dddfc3a61a7654b6748a5d8c09fec5d13c57e2350169068cb1676a666e
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604060836-system-bullseye@sha256:a93b1974ead1779795ea6a17dccd4acbffed1464172f84d79c2010d3e80722d3
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604131156-system-bullseye@sha256:2bc26604d2f0650f9b98668a51a95679c02024860d512ace92e7fcf69da7d611
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604060836-system-bullseye@sha256:b1885e2c8224bab6d75ce5fb7dfad339b4acf8976158d2dd561ab7458dee4f2b
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604131158-system-bullseye@sha256:e58d9e22220bb15d3fb53a4a6868b2a38dcdedee0d6aeafa3b3315be9cc9e797
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604060836-system-bullseye@sha256:d7fc326bcf58b361a6df4338f4d7775ce533716aabf3fd2ee27a1776c688bb8f
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604131157-system-bullseye@sha256:36f19b80864f5ae23bb6ce87166e413154bf8c1b705e893ec8360ebb4791e63e

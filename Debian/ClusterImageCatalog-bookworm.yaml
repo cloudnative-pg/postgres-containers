@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260406'
+    images.cnpg.io/date: '20260413'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604060836-system-bookworm@sha256:a82ec7f3966f72041b43c84ad9281860c3a54d5bad8fec0aa565c7a6bda8635b
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604131157-system-bookworm@sha256:aecb41f1a99b2f224bc0b2ff4304cb3ab4c90d675785815e8dae5236a0bf8242
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604060834-system-bookworm@sha256:f8e329b77099d3c6aff9dc8a08da2020c2b04ae9c40447f1aa0f59559bc816ad
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604131159-system-bookworm@sha256:dabcd708a7f5c512a9559050d620d92a279bdb14d117a890bdc783c15301a1ec
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604060836-system-bookworm@sha256:e8bad3624dfa1dad6c3670ddf522466e5034152e832c1b7bf79ee8c0fb5e5685
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604131156-system-bookworm@sha256:725cef49cf929efe2cac73a10ff6be688b5c266e59632cf2d66b871e12f05ce5
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604060836-system-bookworm@sha256:eb2a6b05aa631bcc9141481e10b809ab1e3a0c77783f453d8be01822dd027f6e
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604131158-system-bookworm@sha256:9f2db2378f9529c555c4a91548c80c3b3b4660da7be6f8c8a902f869f7571d1a
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604060836-system-bookworm@sha256:53918f522d14f6ea5758a7cbb9a5031478cafd237f33556a4ea111e7a6bf7987
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604131157-system-bookworm@sha256:9a2cc9f0bf9a67827e214484f83362f1829b3ac839da6d2c2cff902a720d5e5f
