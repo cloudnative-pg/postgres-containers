@@ -2,7 +2,10 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "docker:pinDigests"
+    "docker:pinDigests",
+    ":gitSignOff",
+    ":automergeMinor",
+    ":automergeDigest"
   ],
   "enabledManagers": [
     "github-actions",
