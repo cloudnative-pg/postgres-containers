@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260413'
+    images.cnpg.io/date: '20260420'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604131157-system-bookworm@sha256:aecb41f1a99b2f224bc0b2ff4304cb3ab4c90d675785815e8dae5236a0bf8242
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604200858-system-bookworm@sha256:8ee929be5478c84683fde376cadf9ec29120f0f9aebab9cd9dce12b774e37dc2
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604131159-system-bookworm@sha256:dabcd708a7f5c512a9559050d620d92a279bdb14d117a890bdc783c15301a1ec
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604200853-system-bookworm@sha256:4233550579d3ce332258ce6aeed7c7a304cfee06ee1ea82bcf40682d9b00548c
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604131156-system-bookworm@sha256:725cef49cf929efe2cac73a10ff6be688b5c266e59632cf2d66b871e12f05ce5
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604200852-system-bookworm@sha256:3cf2688da27a414e76b6a5514f2d3514c103ff869952200492df74ce62b458d1
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604131158-system-bookworm@sha256:9f2db2378f9529c555c4a91548c80c3b3b4660da7be6f8c8a902f869f7571d1a
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604200854-system-bookworm@sha256:b1ffd186d4e2bb3673c74ea6662b650b8e59c757f1f67f1d8d9972b2c6db4d41
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604131157-system-bookworm@sha256:9a2cc9f0bf9a67827e214484f83362f1829b3ac839da6d2c2cff902a720d5e5f
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604200849-system-bookworm@sha256:1427c8955f188664d86a232f2743478e7daa9a45b4564e3bd12caec66c598a73

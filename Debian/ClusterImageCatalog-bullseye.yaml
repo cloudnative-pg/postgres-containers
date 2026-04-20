@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260413'
+    images.cnpg.io/date: '20260420'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604131157-system-bullseye@sha256:f1197e6b6e1b58441f7c713f9837c3e30f63d76c58060df8493b28c582b91215
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604200858-system-bullseye@sha256:1f5d583052d60d57bd4a36bf3feb060a261de9c66e3967790ce70e03a7c82526
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604131159-system-bullseye@sha256:bfed15dddfc3a61a7654b6748a5d8c09fec5d13c57e2350169068cb1676a666e
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604200853-system-bullseye@sha256:c91506f0b48d26c151cba76856b2667f593b5a0e71c7130cfc471d530f2bc9fc
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604131156-system-bullseye@sha256:2bc26604d2f0650f9b98668a51a95679c02024860d512ace92e7fcf69da7d611
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604200852-system-bullseye@sha256:e05777da3dd583b99537dae500b4b63794c5b4fe01ececb2aaca1148bf555a8f
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604131158-system-bullseye@sha256:e58d9e22220bb15d3fb53a4a6868b2a38dcdedee0d6aeafa3b3315be9cc9e797
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604200854-system-bullseye@sha256:1b07685bbf9f1fe7496cc88573bffc07a4120896d8db17434b8faffc14c6b582
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604131157-system-bullseye@sha256:36f19b80864f5ae23bb6ce87166e413154bf8c1b705e893ec8360ebb4791e63e
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604200849-system-bullseye@sha256:766a236947fe082987bdb07d5a5bc9dca0f0ad4204d77de03cbefb14333b645d
