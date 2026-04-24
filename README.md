@@ -265,7 +265,7 @@ For detailed instructions on building PostgreSQL container images, refer to the
 
 This software is available under [Apache License 2.0](LICENSE).
 
-Copyright The CloudNativePG Contributors.
+Copyright © contributors to CloudNativePG, established as CloudNativePG a Series of LF Projects, LLC.
 
 Barman Cloud is distributed by EnterpriseDB under the
 [GNU GPL 3 License](https://github.com/EnterpriseDB/barman/blob/master/LICENSE).
