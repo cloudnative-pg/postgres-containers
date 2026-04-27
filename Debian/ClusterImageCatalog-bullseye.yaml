@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260420'
+    images.cnpg.io/date: '20260427'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604200858-system-bullseye@sha256:1f5d583052d60d57bd4a36bf3feb060a261de9c66e3967790ce70e03a7c82526
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604270853-system-bullseye@sha256:c3afca4a262cee425de2b1c5419e84801a3c8027c2d560da7512ec605937573e
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604200853-system-bullseye@sha256:c91506f0b48d26c151cba76856b2667f593b5a0e71c7130cfc471d530f2bc9fc
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604270853-system-bullseye@sha256:23d56b4e6232954ba7ae9eda453a9630946f382325e3bb63af3c2c32fce9a119
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604200852-system-bullseye@sha256:e05777da3dd583b99537dae500b4b63794c5b4fe01ececb2aaca1148bf555a8f
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604270853-system-bullseye@sha256:da09a5927dd7af1572591df6c2c1a192d441054ff73e6df823402fcbf08c5ff0
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604200854-system-bullseye@sha256:1b07685bbf9f1fe7496cc88573bffc07a4120896d8db17434b8faffc14c6b582
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604270853-system-bullseye@sha256:e0fb2fb58800324ab831e7a7fe0a3ed5995b9244a435142f647f9ee9bf0dfa27
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604200849-system-bullseye@sha256:766a236947fe082987bdb07d5a5bc9dca0f0ad4204d77de03cbefb14333b645d
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604270853-system-bullseye@sha256:2f072060b5d03630781e11119b597f7020f06135bc29b030d8b6834c39b45e85

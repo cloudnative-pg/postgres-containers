@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260420'
+    images.cnpg.io/date: '20260427'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604200858-system-bookworm@sha256:8ee929be5478c84683fde376cadf9ec29120f0f9aebab9cd9dce12b774e37dc2
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604270853-system-bookworm@sha256:e3b33bfaba348b02f560c520c5090e0b07ad3bf2d0567c44de1d3b10248870ab
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604200853-system-bookworm@sha256:4233550579d3ce332258ce6aeed7c7a304cfee06ee1ea82bcf40682d9b00548c
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604270853-system-bookworm@sha256:6859db79ae1a499f82c1d5daa0c0a42104180721629fef1992da5d7a1bd1328d
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604200852-system-bookworm@sha256:3cf2688da27a414e76b6a5514f2d3514c103ff869952200492df74ce62b458d1
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604270853-system-bookworm@sha256:fbd2f5e2269b20d4448543d7ea4fdb8bebf871513847c3ee6dd29c56105ecf41
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604200854-system-bookworm@sha256:b1ffd186d4e2bb3673c74ea6662b650b8e59c757f1f67f1d8d9972b2c6db4d41
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604270853-system-bookworm@sha256:40943cbbf283143c90deb6143b12a300d4f1d8ccb068be18c87ebee9433396c5
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604200849-system-bookworm@sha256:1427c8955f188664d86a232f2743478e7daa9a45b4564e3bd12caec66c598a73
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604270853-system-bookworm@sha256:73110ae76402e63a849eb4f4dfb7608d2222758cbf2d66a2df60628458b9cd4f
