@@ -4,6 +4,7 @@ on:
   schedule:
     # Build images once a week, on Mondays
     - cron: 0 8 * * 1
+  pull_request:
   workflow_dispatch:
     inputs:
       environment:
