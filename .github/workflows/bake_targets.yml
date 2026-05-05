@@ -154,7 +154,7 @@ jobs:
       - name: Security checks
         # NOTE: Do not modify this to point to the local action "./.github/actions/security-scans",
         # as it will break workflows running bake_targets.yml (this workflow) from external repositories.
-        uses: cloudnative-pg/postgres-containers/.github/actions/security-scans@main
+        uses: cloudnative-pg/postgres-containers/.github/actions/security-scans@a855a9ec4c0685169e39222854b442ec236071ea # main
         with:
           image: "${{ matrix.image }}"
           registry_user: ${{ github.actor }}
@@ -180,7 +180,7 @@ jobs:
       - name: Copy to production
         # NOTE: Do not modify this to point to the local action "./.github/actions/copy-images",
         # as it will break workflows running bake_targets.yml (this workflow) from external repositories.
-        uses: cloudnative-pg/postgres-containers/.github/actions/copy-images@main
+        uses: cloudnative-pg/postgres-containers/.github/actions/copy-images@a855a9ec4c0685169e39222854b442ec236071ea # main
         with:
           bake_build_metadata: "${{ needs.testbuild.outputs.metadata }}"
           registry_user: ${{ github.actor }}
