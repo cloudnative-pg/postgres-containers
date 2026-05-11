@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260427'
+    images.cnpg.io/date: '20260511'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202604270853-system-bookworm@sha256:e3b33bfaba348b02f560c520c5090e0b07ad3bf2d0567c44de1d3b10248870ab
+      image: ghcr.io/cloudnative-pg/postgresql:14.22-202605110912-system-bookworm@sha256:2d38ef3aa2a9ee5572fb7595ef1af7da39d517d59a74b6f6cb91332c5e54415f
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202604270853-system-bookworm@sha256:6859db79ae1a499f82c1d5daa0c0a42104180721629fef1992da5d7a1bd1328d
+      image: ghcr.io/cloudnative-pg/postgresql:15.17-202605110912-system-bookworm@sha256:ce92730c48402c2377ea438d978dd3d76702800a2d215fcbdd53ab83d4833524
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202604270853-system-bookworm@sha256:fbd2f5e2269b20d4448543d7ea4fdb8bebf871513847c3ee6dd29c56105ecf41
+      image: ghcr.io/cloudnative-pg/postgresql:16.13-202605110913-system-bookworm@sha256:98df8a04201d957af5975be2a2d52f357b8cfdc11f554a76be0321b0660ebfb6
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202604270853-system-bookworm@sha256:40943cbbf283143c90deb6143b12a300d4f1d8ccb068be18c87ebee9433396c5
+      image: ghcr.io/cloudnative-pg/postgresql:17.9-202605110912-system-bookworm@sha256:12b6b2e168aa1504a2c069daa1f23dce44f2b7c3202a976a18e4d6ae70d6b488
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202604270853-system-bookworm@sha256:73110ae76402e63a849eb4f4dfb7608d2222758cbf2d66a2df60628458b9cd4f
+      image: ghcr.io/cloudnative-pg/postgresql:18.3-202605110912-system-bookworm@sha256:487eaadfcbf6cec92e1e9b46c2e641ae242b8261d743c9b47782eda1d0ee6a4c
