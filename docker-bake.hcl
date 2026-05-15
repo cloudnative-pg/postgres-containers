@@ -85,6 +85,9 @@ target "default" {
     STANDARD_ADDITIONAL_POSTGRES_PACKAGES = "${getStandardAdditionalPostgresPackagesPerMajorVersion(getMajor(pgVersion))}"
     BARMAN_VERSION = "${barmanVersion}"
   }
+  output = [
+    "type=image,oci-mediatypes=true,oci-artifact=true",
+  ]
   attest = [
     "type=provenance,mode=max",
     "type=sbom"
