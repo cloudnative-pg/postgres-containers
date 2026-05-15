@@ -281,7 +281,7 @@ As CloudNativePG's `Cluster` CRDs are not automatically picked up by renovate a 
       datasourceTemplate: 'docker',
       // matches: 17.6-202509151215-minimal-trixie
       versioningTemplate: 'regex:^(?<major>\\d+)\\.(?<minor>\\d+)-(?<patch>\\d+)-(?<compatibility>\\S+)$',
-      autoReplaceStringTemplate: '{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}',
+      autoReplaceStringTemplate: 'imageName: {{{depName}}}:{{{newValue}}}{{#if newDigest}}@{{{newDigest}}}{{/if}}',
     }
   ]
 }
