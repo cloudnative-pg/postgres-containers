@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260511'
+    images.cnpg.io/date: '20260518'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202605110912-system-bullseye@sha256:d32e3d8ec579c3a09146542e3a242851afd18981b535a856ef9566389757326a
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202605180814-system-bullseye@sha256:e467f369e10200aac3fb6749917cc0bc5195cede24009c15c54fbfbed9cb455e
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202605110912-system-bullseye@sha256:9e197ea13fe53dd85b3870cca114c2ce2b07d8038d4526069be24b83b8687bc4
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202605180839-system-bullseye@sha256:a38050554c3111e377abc9bd5fdb86b872f50e5c9c71c01c035c3e2198e27aef
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202605110913-system-bullseye@sha256:425e365273a0519c9cc1deb199a69c226734041a9a59a1f8250fecb06f6dcbb5
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202605180814-system-bullseye@sha256:8c0bc715bff42162c1a7da081c93e3d081d16218e0d0d16ffaf83da7f286876d
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202605110912-system-bullseye@sha256:ae81813008a9ef66ee9b348114c96d11c204981ac0d74b38f07fae4174c2973e
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202605180839-system-bullseye@sha256:5656486b022a9c0850f399dfdad37183667c53595d466c232f1d9b58500d958f
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202605110912-system-bullseye@sha256:5e30290fba3d990b08a9caea6ddb49c661ad8246cbb2688adad7e6cc78df6c3f
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202605180839-system-bullseye@sha256:70516d5620512874419f653939ea6c672a354172a10ffc6c90c073334b1423ec

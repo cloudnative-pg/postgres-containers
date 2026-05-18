@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260511'
+    images.cnpg.io/date: '20260518'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.22-202605110912-system-bookworm@sha256:2d38ef3aa2a9ee5572fb7595ef1af7da39d517d59a74b6f6cb91332c5e54415f
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202605180814-system-bookworm@sha256:04823c0b55695a63e81583c6e087704ffa5e9cd1c58628e8364a235def9fc3ba
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.17-202605110912-system-bookworm@sha256:ce92730c48402c2377ea438d978dd3d76702800a2d215fcbdd53ab83d4833524
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202605180839-system-bookworm@sha256:b23abbf910ccc86c65b2f91324c92c155a147e3d4ac8bf36c1682fc78fa28995
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.13-202605110913-system-bookworm@sha256:98df8a04201d957af5975be2a2d52f357b8cfdc11f554a76be0321b0660ebfb6
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202605180814-system-bookworm@sha256:6eeba4720622380c20c47c85e31ed99e18e00bf4d830907352f0da6399ecd662
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.9-202605110912-system-bookworm@sha256:12b6b2e168aa1504a2c069daa1f23dce44f2b7c3202a976a18e4d6ae70d6b488
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202605180839-system-bookworm@sha256:a95ccc35635f55aecaed2687f4a8f7af684f8ad4ba48bae8a61119fbd9714083
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.3-202605110912-system-bookworm@sha256:487eaadfcbf6cec92e1e9b46c2e641ae242b8261d743c9b47782eda1d0ee6a4c
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202605180839-system-bookworm@sha256:cd34e2e24b2009d1dd1ef1ecfd392c9634e0bd483958fa46ce4d6839cfb1d49f
