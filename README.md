@@ -25,6 +25,8 @@ This repository provides maintenance scripts for generating
 |    14   | 2021-09-30   | 2026-11-12 |
 |    13   | 2020-09-24   | 2025-11-13 |
 
+In addition, PostgreSQL 19 Beta 1 is provided for testing purposes only.
+
 These images are designed to serve as operands of the
 [CloudNativePG (CNPG) operator](https://cloudnative-pg.io) in Kubernetes
 environments, and are not intended for standalone use.
