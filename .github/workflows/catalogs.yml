@@ -20,13 +20,13 @@ jobs:
     steps:
       # TODO: remove this step once system images are EOL
       - name: Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           path: postgres-containers
           token: ${{ secrets.REPO_GHA_PAT }}
 
       - name: Checkout artifacts
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           path: artifacts
           repository: cloudnative-pg/artifacts
