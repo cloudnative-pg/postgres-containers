@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260518'
+    images.cnpg.io/date: '20260605'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202605180814-system-bookworm@sha256:04823c0b55695a63e81583c6e087704ffa5e9cd1c58628e8364a235def9fc3ba
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606050113-system-bookworm@sha256:7e6f24e712e968e20f27a9619c021975a0aa59acb37ce0bd665e0a8f372f9be4
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202605180839-system-bookworm@sha256:b23abbf910ccc86c65b2f91324c92c155a147e3d4ac8bf36c1682fc78fa28995
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606050103-system-bookworm@sha256:7c5e07764f911bc08bc18b7f7a544991779f3554c98de0f78e593abea3b04eab
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202605180814-system-bookworm@sha256:6eeba4720622380c20c47c85e31ed99e18e00bf4d830907352f0da6399ecd662
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606050113-system-bookworm@sha256:bf5a9873d861225e99c7674d792ad483097d3b3ab20e795f0d897efbf59b4b1a
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202605180839-system-bookworm@sha256:a95ccc35635f55aecaed2687f4a8f7af684f8ad4ba48bae8a61119fbd9714083
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606050113-system-bookworm@sha256:eb9beab66db256170d39134ff638a60a9efbf43aec1447e985d9b681d8f4a1e6
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202605180839-system-bookworm@sha256:cd34e2e24b2009d1dd1ef1ecfd392c9634e0bd483958fa46ce4d6839cfb1d49f
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606050102-system-bookworm@sha256:622c729b8b1c3d6043cdffc38fb0c7e63e9df766f1d08b2ee937de8a68cc0192
