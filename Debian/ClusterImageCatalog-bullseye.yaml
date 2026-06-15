@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260605'
+    images.cnpg.io/date: '20260615'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606050113-system-bullseye@sha256:1672d1105a876a843064bb3a29df5d19632117c96551d6dc24b325d576fb6c88
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606151231-system-bullseye@sha256:9adcfe23d7530f6b2e8749b08a304e4193e1ba955f12aa7c717dfd1ef6fe719d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606050103-system-bullseye@sha256:439475943de77aee20a6f2c85816a44973b6cc2ef3e24db69b747c5d40a2cb30
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606151154-system-bullseye@sha256:035e39c2545b2078de702ceda3be4a18b587fb00e9ee7833710bbe13adf6871a
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606050113-system-bullseye@sha256:f7196bfa1ff06d111cab37f7edbadb3d8b6209029bef24921190956b62280e96
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606151355-system-bullseye@sha256:027303cd89644acdeba67d2b37f70eff6a7f345220f127721ff92504e1e4eae6
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606050113-system-bullseye@sha256:8fa2cd169b6bb748eea4e8a3fb0a15c40ad748f7f880cc2c7eb486a3334535dd
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606151230-system-bullseye@sha256:e62489a417c64e6d679baffae21a129d196ba44f1362bb109ae84e304396e6ac
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606050102-system-bullseye@sha256:1a8ef3dc0dc214c1764660291b29a98288b13753c09e9981b86eaf0c75de8bdc
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606151012-system-bullseye@sha256:c4d03ff9119154edbdae8879313cdf0aa5143a26e7ae400ca3ebe22dfc680a73
