@@ -50,12 +50,12 @@ jobs:
       images: ${{ steps.images.outputs.images }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       # bake-action/subaction/matrix doesn't support remote bake files.
       # As a workaround, we clone the repository to allow passing the path to a local file.
       - name: Checkout additional remote source
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         if: ${{ inputs.bake_remote_source != '' }}
         with:
           repository: ${{ inputs.bake_remote_source }}
@@ -149,7 +149,7 @@ jobs:
         image: ${{fromJson(needs.testbuild.outputs.images)}}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       - name: Security checks
         # NOTE: Do not modify this to point to the local action "./.github/actions/security-scans",
