@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260615'
+    images.cnpg.io/date: '20260622'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606151231-system-bullseye@sha256:9adcfe23d7530f6b2e8749b08a304e4193e1ba955f12aa7c717dfd1ef6fe719d
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606221003-system-bullseye@sha256:e22a8b53731bf24b195f645fc7613cbd6b62c040ec429a53a0252a9c775daafc
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606151154-system-bullseye@sha256:035e39c2545b2078de702ceda3be4a18b587fb00e9ee7833710bbe13adf6871a
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606221003-system-bullseye@sha256:471f093390eab615037d455e5a6d81686aa813a0fc4d1372c1f174fd2aa12008
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606151355-system-bullseye@sha256:027303cd89644acdeba67d2b37f70eff6a7f345220f127721ff92504e1e4eae6
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606221003-system-bullseye@sha256:a5da0dc248c87de7595b8215fc1e6c3b0fee2ac7307b98e9dbb142f456bc7958
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606151230-system-bullseye@sha256:e62489a417c64e6d679baffae21a129d196ba44f1362bb109ae84e304396e6ac
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606221003-system-bullseye@sha256:916d505d999e6bb85ead15dc2b965b9f968a9eb09e6d9c2e59e50a174f785e71
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606151012-system-bullseye@sha256:c4d03ff9119154edbdae8879313cdf0aa5143a26e7ae400ca3ebe22dfc680a73
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606221003-system-bullseye@sha256:21497884139dc18c9015e11f02a28a28962d9f670a42d9bf4481b7fd37b5213c
