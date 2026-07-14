@@ -38,7 +38,7 @@ runs:
         accept-filenames: usr/share/postgresql-common/pgdg/apt.postgresql.org.asc,etc/ssl/private/ssl-cert-snakeoil.key,usr/local/lib/python3.9/dist-packages/azure/core/settings.py,usr/local/lib/python3.11/dist-packages/azure/core/settings.py,usr/local/lib/python3.13/dist-packages/azure/core/settings.py
 
     - name: Snyk
-      uses: snyk/actions/docker@master
+      uses: snyk/actions/docker@8e119fbb6c251787721d34ba683ed48eba792766 # master
       id: snyk
       if: ${{ inputs.snyk_token != '' }}
       # Snyk can be used to break the build when it detects vulnerabilities.
