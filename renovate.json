@@ -36,6 +36,15 @@
         "action"
       ],
       "pinDigests": true
+    },
+    {
+      "matchDepTypes": [
+        "action"
+      ],
+      "matchPackageNames": [
+        "/^cloudnative-pg\\/postgres-containers\\/\\.github\\/actions\\//"
+      ],
+      "pinDigests": false
     }
   ]
 }
