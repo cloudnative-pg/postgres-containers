@@ -42,7 +42,7 @@
         "action"
       ],
       "matchPackageNames": [
-        "/^cloudnative-pg\\/postgres-containers\\/\\.github\\/actions\\//"
+        "cloudnative-pg/postgres-containers"
       ],
       "pinDigests": false
     }
