@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260622'
+    images.cnpg.io/date: '20260717'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606221003-system-bookworm@sha256:ea75830c065af0b77bfecf5ab28492d67aac0edd3a5a1c517a59f64d231a608e
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607170949-system-bookworm@sha256:11cfd1719b8621eebde5b04c401a846eab983609dd8d46bde8dd1c98a3f4767d
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606221003-system-bookworm@sha256:7bb2d58ca07043b85b07288a2c9a7c6751f5214dc02270683dd385c9a988516d
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607170948-system-bookworm@sha256:8d33e2443b0c4f85649f7b808266a5f84beeff7195e365ff8820dbfd15abf801
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606221003-system-bookworm@sha256:917c9ecaa35c773b35ebe89eeb54c8324043555cd3c2b1c2b7dffe342f4e0c90
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607170949-system-bookworm@sha256:58eefaf423a91d7d992abefc704dcfc5e24d5a3c0361628149b366b4db25853f
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606221003-system-bookworm@sha256:f7ee6ba4f221a4c8ee8a83edf6e7eb8acd373fb118237665080ab6f9cdec8618
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607171029-system-bookworm@sha256:062d750d85cf46e85e289371838d3f0fad36cd55fb0c6da3134352ba1c2d1e95
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606221003-system-bookworm@sha256:b7524e85ed5300d66cd399641f8748bf13da6fdb7a0aec976afbd1664ea24df5
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607170948-system-bookworm@sha256:99b0b9a2739eee3f1968234bf97fac96cf29bd25bc7070ba80ac68a1879ae8eb

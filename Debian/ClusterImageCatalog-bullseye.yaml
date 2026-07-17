@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260622'
+    images.cnpg.io/date: '20260717'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202606221003-system-bullseye@sha256:e22a8b53731bf24b195f645fc7613cbd6b62c040ec429a53a0252a9c775daafc
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607170949-system-bullseye@sha256:e35289b3452bad4c68b865807a5c71f148e3b2f9ffe09685c497d2faad71b5bc
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202606221003-system-bullseye@sha256:471f093390eab615037d455e5a6d81686aa813a0fc4d1372c1f174fd2aa12008
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607170948-system-bullseye@sha256:e2ad17bebe8d464f095da84c773ac275ec5b6f4d93233b3d27597b448691fb26
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202606221003-system-bullseye@sha256:a5da0dc248c87de7595b8215fc1e6c3b0fee2ac7307b98e9dbb142f456bc7958
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607170949-system-bullseye@sha256:75fb3e464277ca882451cd8403afc0184c953618c22efc33b809f531cd27ada1
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202606221003-system-bullseye@sha256:916d505d999e6bb85ead15dc2b965b9f968a9eb09e6d9c2e59e50a174f785e71
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607171029-system-bullseye@sha256:d548fc6aa21639df474d7e866abe0f44a280a67b3c0c005b5c2177ca189bb5c9
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202606221003-system-bullseye@sha256:21497884139dc18c9015e11f02a28a28962d9f670a42d9bf4481b7fd37b5213c
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607170948-system-bullseye@sha256:dabf20b4a1d0d2d26ad3f39b25dc57a270ffdaf0ca7105a6c897dc9f17c0ac83
