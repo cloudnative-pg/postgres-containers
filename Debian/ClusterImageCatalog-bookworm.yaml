@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260717'
+    images.cnpg.io/date: '20260720'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607170949-system-bookworm@sha256:11cfd1719b8621eebde5b04c401a846eab983609dd8d46bde8dd1c98a3f4767d
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607200905-system-bookworm@sha256:cf2710aabed7705dcdae8cd2a452565660e593a026dd1e77aebd6ed4955d0bb5
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607170948-system-bookworm@sha256:8d33e2443b0c4f85649f7b808266a5f84beeff7195e365ff8820dbfd15abf801
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607200904-system-bookworm@sha256:6020e601d496f27eaa6367038d7d50041670fe5022f8c22c18b52cfb24a1a4dd
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607170949-system-bookworm@sha256:58eefaf423a91d7d992abefc704dcfc5e24d5a3c0361628149b366b4db25853f
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607200906-system-bookworm@sha256:3a70c9018ddd39e21347c205e6a37075546b33d8708484a2893917482d11307d
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607171029-system-bookworm@sha256:062d750d85cf46e85e289371838d3f0fad36cd55fb0c6da3134352ba1c2d1e95
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607200905-system-bookworm@sha256:4c1e15c27bb33361d847db66e6516a9432a7388f8a5404e06eaa2d665f5836f6
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607170948-system-bookworm@sha256:99b0b9a2739eee3f1968234bf97fac96cf29bd25bc7070ba80ac68a1879ae8eb
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607200905-system-bookworm@sha256:b6314146119ec88c00ed62ead0b365e5a4496948169b0066eba454e4f21b2109

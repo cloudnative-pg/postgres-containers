@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260717'
+    images.cnpg.io/date: '20260720'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607170949-system-bullseye@sha256:e35289b3452bad4c68b865807a5c71f148e3b2f9ffe09685c497d2faad71b5bc
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607200905-system-bullseye@sha256:5cfc3ea4ddca1838f3b77e1d934470d617597cb9c87202920cb5b12fb6f615c3
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607170948-system-bullseye@sha256:e2ad17bebe8d464f095da84c773ac275ec5b6f4d93233b3d27597b448691fb26
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607200904-system-bullseye@sha256:484b00c93544fb466f3c41e8ce25b9a623b440cceb9c81b294448ea39cc9b39b
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607170949-system-bullseye@sha256:75fb3e464277ca882451cd8403afc0184c953618c22efc33b809f531cd27ada1
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607200906-system-bullseye@sha256:bbbe9a3ede60dcb3fe5c2a11e527bcc06f998ea11631ad02a10c3f2d268865bf
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607171029-system-bullseye@sha256:d548fc6aa21639df474d7e866abe0f44a280a67b3c0c005b5c2177ca189bb5c9
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607200905-system-bullseye@sha256:7acb58e230d7e18dacce74b61ddc9b2d9a90d105745b486dea118d6b5daced3b
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607170948-system-bullseye@sha256:dabf20b4a1d0d2d26ad3f39b25dc57a270ffdaf0ca7105a6c897dc9f17c0ac83
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607200905-system-bullseye@sha256:b38bee8f92acd6d7276d5be32e9af36a0ea72c9d339945f1ae205a2acc3cbb89
