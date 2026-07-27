@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260720'
+    images.cnpg.io/date: '20260727'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607200905-system-bullseye@sha256:5cfc3ea4ddca1838f3b77e1d934470d617597cb9c87202920cb5b12fb6f615c3
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607270908-system-bullseye@sha256:943582ad081f63202f1951036645a35a4370c0d83ccff15a7b5451ff8222b0ec
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607200904-system-bullseye@sha256:484b00c93544fb466f3c41e8ce25b9a623b440cceb9c81b294448ea39cc9b39b
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607270909-system-bullseye@sha256:2d5964fe692209a813eb81eca94f17476ecbf5885c58f0dc4003c373619d9c9d
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607200906-system-bullseye@sha256:bbbe9a3ede60dcb3fe5c2a11e527bcc06f998ea11631ad02a10c3f2d268865bf
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607270908-system-bullseye@sha256:51e1f280076dd6eafd4e2ccc16edbeb8cb62c9b2623e79ed0609965151e79bd6
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607200905-system-bullseye@sha256:7acb58e230d7e18dacce74b61ddc9b2d9a90d105745b486dea118d6b5daced3b
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607271318-system-bullseye@sha256:04aa5d1157637716ef2d990fb623a33a59e321429365685c3338309ab5ad2266
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607200905-system-bullseye@sha256:b38bee8f92acd6d7276d5be32e9af36a0ea72c9d339945f1ae205a2acc3cbb89
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607270910-system-bullseye@sha256:2b124b4c9e9710a449b868fc72ae59bcb2907386d48ddb3e7a7f82491ac0d1e1

@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260720'
+    images.cnpg.io/date: '20260727'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607200905-system-bookworm@sha256:cf2710aabed7705dcdae8cd2a452565660e593a026dd1e77aebd6ed4955d0bb5
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607270908-system-bookworm@sha256:4c10bf92795f904a226e4ffc62ddab2e19454e3d9d06b314afdfcba93d6419c0
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607200904-system-bookworm@sha256:6020e601d496f27eaa6367038d7d50041670fe5022f8c22c18b52cfb24a1a4dd
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607270909-system-bookworm@sha256:5e7160d597bdddbabcbfafba61fa49461f92175af801ae77687cdfe7ab4fa641
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607200906-system-bookworm@sha256:3a70c9018ddd39e21347c205e6a37075546b33d8708484a2893917482d11307d
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607270908-system-bookworm@sha256:0fd578912f7786e218b7ed223458824236c03084f38030563b274865679ecd62
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607200905-system-bookworm@sha256:4c1e15c27bb33361d847db66e6516a9432a7388f8a5404e06eaa2d665f5836f6
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607271318-system-bookworm@sha256:cde69872615f2ed3454375e3c5cf0ce4bb70d3ec884c8ff5b5dc28297f0d45bf
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607200905-system-bookworm@sha256:b6314146119ec88c00ed62ead0b365e5a4496948169b0066eba454e4f21b2109
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607270910-system-bookworm@sha256:41c9b4423bcf9d9be5994bb3bab91d21d994505e1551bbcdfcada3cda51b2ba3
