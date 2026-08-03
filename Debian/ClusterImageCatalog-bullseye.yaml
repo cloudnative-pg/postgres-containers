@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260727'
+    images.cnpg.io/date: '20260803'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607270908-system-bullseye@sha256:943582ad081f63202f1951036645a35a4370c0d83ccff15a7b5451ff8222b0ec
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202608030910-system-bullseye@sha256:2c33852673907f9a2860c12ba74039938c0f636bb6dd4140e587160ea8ee70af
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607270909-system-bullseye@sha256:2d5964fe692209a813eb81eca94f17476ecbf5885c58f0dc4003c373619d9c9d
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202608031127-system-bullseye@sha256:42fe91cbf915c496469fa224f299a9cbb7dbd02f75cd40cdf066da42aade64d3
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607270908-system-bullseye@sha256:51e1f280076dd6eafd4e2ccc16edbeb8cb62c9b2623e79ed0609965151e79bd6
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202608030910-system-bullseye@sha256:d9942fd46669234d39c5e6152e23a973bd38df4d2e2eddb6b69bb71b76625ce1
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607271318-system-bullseye@sha256:04aa5d1157637716ef2d990fb623a33a59e321429365685c3338309ab5ad2266
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202608030910-system-bullseye@sha256:405d29f68759fb823da5e378e99b68194bb9f93fa47f575f0a7ae95024910f38
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607270910-system-bullseye@sha256:2b124b4c9e9710a449b868fc72ae59bcb2907386d48ddb3e7a7f82491ac0d1e1
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202608030910-system-bullseye@sha256:7af186660aead1b948d827ef1c52c20a8d2cb7b2a4089424b8f612e0a61dc2f9

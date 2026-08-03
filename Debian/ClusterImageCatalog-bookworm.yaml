@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260727'
+    images.cnpg.io/date: '20260803'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202607270908-system-bookworm@sha256:4c10bf92795f904a226e4ffc62ddab2e19454e3d9d06b314afdfcba93d6419c0
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202608030910-system-bookworm@sha256:ff26ea4b40ddab1e67b914c62bcb6e2e884c4748fd1025652076370b447f3b7f
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202607270909-system-bookworm@sha256:5e7160d597bdddbabcbfafba61fa49461f92175af801ae77687cdfe7ab4fa641
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202608031127-system-bookworm@sha256:9381635711a7869b7cfbfabcedb6eb59fb4e4e2333e57aff774d69e73af66748
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202607270908-system-bookworm@sha256:0fd578912f7786e218b7ed223458824236c03084f38030563b274865679ecd62
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202608030910-system-bookworm@sha256:edaeb5e50f740333356ff3307061f06b340c226ede5d77bfd8b8c731eac44fbf
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202607271318-system-bookworm@sha256:cde69872615f2ed3454375e3c5cf0ce4bb70d3ec884c8ff5b5dc28297f0d45bf
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202608030910-system-bookworm@sha256:8561d04754c2caf8ed203b52e96163a24ff045782ca726d01b01bbcb0649222c
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202607270910-system-bookworm@sha256:41c9b4423bcf9d9be5994bb3bab91d21d994505e1551bbcdfcada3cda51b2ba3
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202608030910-system-bookworm@sha256:63ba2470bb07cd0f4492c1f088689a6a01bbf20b5c5fc6c6472507353d14002c
