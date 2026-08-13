@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260803'
+    images.cnpg.io/date: '20260813'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202608030910-system-bullseye@sha256:2c33852673907f9a2860c12ba74039938c0f636bb6dd4140e587160ea8ee70af
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202608130737-system-bullseye@sha256:a946c767823fdf19513b94e8add693bc01baf5978ed30726264872046cd8a3b5
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202608031127-system-bullseye@sha256:42fe91cbf915c496469fa224f299a9cbb7dbd02f75cd40cdf066da42aade64d3
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202608100833-system-bullseye@sha256:de2016cf8ede30d38fe7d2fed59c9ad5461614e8fba2624691a70711644d3b81
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202608030910-system-bullseye@sha256:d9942fd46669234d39c5e6152e23a973bd38df4d2e2eddb6b69bb71b76625ce1
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202608100833-system-bullseye@sha256:93d0456be6e8e7a5d2d4e54953967f8b2d7f410c5ab7ca1739f42383436df035
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202608030910-system-bullseye@sha256:405d29f68759fb823da5e378e99b68194bb9f93fa47f575f0a7ae95024910f38
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202608100833-system-bullseye@sha256:eb298ae82db3e3f849db57a44bfe6fed4c4a3c95451655611980340409e5c2ec
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202608030910-system-bullseye@sha256:7af186660aead1b948d827ef1c52c20a8d2cb7b2a4089424b8f612e0a61dc2f9
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202608130737-system-bullseye@sha256:6138f19539304b585c6cafd1af82ca407f184139459a8e06f0880df4556d3588

@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260803'
+    images.cnpg.io/date: '20260813'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.23-202608030910-system-bookworm@sha256:ff26ea4b40ddab1e67b914c62bcb6e2e884c4748fd1025652076370b447f3b7f
+      image: ghcr.io/cloudnative-pg/postgresql:14.23-202608130737-system-bookworm@sha256:0993fc3ebc6b0ee73308dcb3d4a71f40c566210261e1183288450f17d764aaab
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.18-202608031127-system-bookworm@sha256:9381635711a7869b7cfbfabcedb6eb59fb4e4e2333e57aff774d69e73af66748
+      image: ghcr.io/cloudnative-pg/postgresql:15.18-202608100833-system-bookworm@sha256:13221bfad995607f74d4f8bb4cb88e9214297a18bc8ced39a7b6246acde7f20f
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.14-202608030910-system-bookworm@sha256:edaeb5e50f740333356ff3307061f06b340c226ede5d77bfd8b8c731eac44fbf
+      image: ghcr.io/cloudnative-pg/postgresql:16.14-202608100833-system-bookworm@sha256:e67d7da5ff549a70db71e9128bd84e62f4499f0a7ee7040b4f9f2a10024bd414
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.10-202608030910-system-bookworm@sha256:8561d04754c2caf8ed203b52e96163a24ff045782ca726d01b01bbcb0649222c
+      image: ghcr.io/cloudnative-pg/postgresql:17.10-202608100833-system-bookworm@sha256:768906f10c8a39983e534dc3d91b2b0e6cba37c6a664763258bb5f9bbfb18672
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.4-202608030910-system-bookworm@sha256:63ba2470bb07cd0f4492c1f088689a6a01bbf20b5c5fc6c6472507353d14002c
+      image: ghcr.io/cloudnative-pg/postgresql:18.4-202608130737-system-bookworm@sha256:8df3e45d46fec57dbd85d8fa2e275907e1dcaeba6fd8c9d354fce69c69b78c33
