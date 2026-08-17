@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260815'
+    images.cnpg.io/date: '20260817'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608131513-system-bullseye@sha256:b876db9209fc37463dc965756e7ff536d9687f939793ebac1b0acd2ba919dd3b
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608170814-system-bullseye@sha256:d9bbdd7ab2bcb4c2b89bc6c9e7285060c674581c81c883c706488a66a5e0c0d9
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608131515-system-bullseye@sha256:ee47b3d30c6e922aaa6fc1a966da2881dbe1193dc502a3d610347ba403bc29f1
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608170814-system-bullseye@sha256:cbab476b80bb605e9563a6ae9b0fa7fedc0e6fa923986a99c332fd740ec80611
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608131515-system-bullseye@sha256:6b0a34e3773a7c90428c7cca6287510efc38d930aa864f2d50b950554272e799
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608170814-system-bullseye@sha256:e38d10bb2c7420e62efe9afabf207c005d93cdcf30f19f692d047f7dc660271e
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608131515-system-bullseye@sha256:26ca47f8c5ebe5dad7d7818474681f8c5fc8d1fcaa136c8a8d8f716904d683a1
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608170816-system-bullseye@sha256:03cacc5491ebdabf58eeecec2ae401076f1062f14f84af9956fd6ec235082188
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608131513-system-bullseye@sha256:6d207b34e2859e55ee7653d57321ef28c86d9c4b42e9e66609756565f0cc5542
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608170814-system-bullseye@sha256:d7a81cb5da3182d95d0da5fabfb9e484e375db899dcd54b684105f1e8966e9ca
