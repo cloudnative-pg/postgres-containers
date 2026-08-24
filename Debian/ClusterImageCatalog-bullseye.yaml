@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bullseye
-    images.cnpg.io/date: '20260817'
+    images.cnpg.io/date: '20260824'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bullseye@sha256:bd12cfd185d2a5cb09ac51dd7c61cb7801da6250e8d9bd72d2891fcdedace32b
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608170814-system-bullseye@sha256:d9bbdd7ab2bcb4c2b89bc6c9e7285060c674581c81c883c706488a66a5e0c0d9
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608240816-system-bullseye@sha256:57d66bdf1ce59912fb75e609c7642d9084a44b58f239aded0787a0eec3c3d267
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608170814-system-bullseye@sha256:cbab476b80bb605e9563a6ae9b0fa7fedc0e6fa923986a99c332fd740ec80611
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608240816-system-bullseye@sha256:2d45563ff8074fbdab683acbe69c2acedecbc1ba99fcef5b908c3d16fe1ff0e4
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608170814-system-bullseye@sha256:e38d10bb2c7420e62efe9afabf207c005d93cdcf30f19f692d047f7dc660271e
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608240846-system-bullseye@sha256:2df439412099abae19e8d2ccba95a9bc21ee58af4462c9f62d02cd6bdd026dba
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608170816-system-bullseye@sha256:03cacc5491ebdabf58eeecec2ae401076f1062f14f84af9956fd6ec235082188
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608240816-system-bullseye@sha256:fa6e2b2e14d19a109cc142cf857d328420bb7f1656b08c96e08be377692247ab
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608170814-system-bullseye@sha256:d7a81cb5da3182d95d0da5fabfb9e484e375db899dcd54b684105f1e8966e9ca
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608240816-system-bullseye@sha256:a66f9e4c34950b78668fa4741bf55e6a58227cc31a6e60c128f2ce1d4c072928
