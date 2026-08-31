@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260824'
+    images.cnpg.io/date: '20260831'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608240816-system-bookworm@sha256:07b4614a5dbd5947df5a9cf9c1ec6ffaae5340c760ef349fc5d2b6d55e06ed82
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608310817-system-bookworm@sha256:b19d2ca088ddbd9f4dd11bf9ddeb302a178390432b694857ac09587b793c5a9f
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608240816-system-bookworm@sha256:4aa4fa8b9f931365c9c3ee88f04ed395087ad712e12123e46e73e1caa7c2dc10
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608310817-system-bookworm@sha256:330561600e28acce0da770043054db7abedddd22a50cc00f794512d2acba9390
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608240846-system-bookworm@sha256:cd1b49c3e167738e2deafa870c1c9d115421bcda0e2d842035f5e06a8e8d2502
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608310817-system-bookworm@sha256:71d67d2b23c79833b00fdf6b8e1cd9f717f3b3b2137e979586c8db7ae022e381
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608240816-system-bookworm@sha256:b335cb2cd3e6c6db21ec25c6cd23b785d0244c25e556d51dafa127e8c99a3638
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608310816-system-bookworm@sha256:d0e93a6fb034e97067733ea2febe701dd97a070011c82d5fdabe99ca84b1f3d4
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608240816-system-bookworm@sha256:13fb02b09f3bc1f41b2ccdbb591e7475ad1a8fd954cd4ba89d921f6fa425b605
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608310817-system-bookworm@sha256:03a330ba618ce3537b5fb7c9ff652b023034e7742c2ac32417ad3e14d6240e71
