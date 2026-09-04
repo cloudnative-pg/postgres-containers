@@ -39,16 +39,14 @@ jobs:
           output-dir: artifacts/image-catalogs/
           registry: ghcr.io/cloudnative-pg/postgresql
           family: postgresql
-          distributions: bullseye,bookworm,trixie
+          distributions: bookworm,trixie
           image-types: minimal,standard,system
           regex: '(\d+)(?:\.\d+|beta\d+|rc\d+|alpha\d+)-(\d{12})'
 
       # TODO: remove this step once system images are EOL
       - name: Update legacy catalogs
         run: |
-          cp artifacts/image-catalogs/catalog-system-bullseye.yaml postgres-containers/Debian/ClusterImageCatalog-bullseye.yaml
           cp artifacts/image-catalogs/catalog-system-bookworm.yaml postgres-containers/Debian/ClusterImageCatalog-bookworm.yaml
-          yq -i '.metadata.name = "postgresql"' postgres-containers/Debian/ClusterImageCatalog-bullseye.yaml
           yq -i '.metadata.name = "postgresql"' postgres-containers/Debian/ClusterImageCatalog-bookworm.yaml
 
       - name: Install cosign

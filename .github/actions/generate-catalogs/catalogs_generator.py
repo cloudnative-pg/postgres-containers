@@ -28,7 +28,7 @@ from packaging import version
 from subprocess import check_output
 
 supported_img_types = ["minimal", "standard", "system"]
-supported_os_names = ["bullseye", "bookworm", "trixie"]
+supported_os_names = ["bookworm", "trixie"]
 min_supported_major = 13
 
 default_registry = "ghcr.io/cloudnative-pg/postgresql"
