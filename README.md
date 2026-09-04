@@ -57,7 +57,6 @@ including End-of-Life (EOL) and Long-Term Support (LTS) dates.
 | ------------------------- | :-----: | :----------: | :--------: | :--------: | :--------- |
 | Trixie (`stable`)         |    13   |  2025-08-09  | 2028-08-09 | 2030-06-30 | Supported  |
 | Bookworm (`oldstable`)    |    12   |  2023-06-10  | 2026-06-10 | 2028-06-30 | Supported  |
-| Bullseye (`oldoldstable`) |    11   |  2021-08-14  | 2024-08-14 | 2026-08-31 | Deprecated |
 
 > **IMPORTANT:** The CloudNativePG project provides full support for
 > Debian-based images until each release reaches its official End-of-Life
@@ -168,21 +167,6 @@ While the most reliable way to reference an image is by its digest, the
 `MM.mm-TYPE-OS` tag usually provides a good balance between stability and
 convenience for most use cases.
 
-### Deprecated Rolling Tags
-
-For historical reasons, the `system` image also carries two additional rolling
-tags:
-
-- `MM.mm`: latest `system` image for a given PostgreSQL *minor* version (e.g.
-  `16.10`) on Debian `bullseye`.
-- `MM`: latest `system` image for a given PostgreSQL *major* version (e.g.
-  `16`) on Debian `bullseye`.
-
-**IMPORTANT:** These tags are **deprecated** and will be **removed when
-`bullseye` images reach end of life**. Please migrate to one of the supported
-tag formats that explicitly include both the **image type** and the
-**distribution version** (e.g. `16.10-minimal-trixie`).
-
 ## Image Catalogs
 
 CloudNativePG publishes `ClusterImageCatalog` manifests for CloudNativePG in
@@ -191,10 +175,9 @@ with one catalog available for each supported combination of image type and
 operating system version.
 
 **IMPORTANT:** If you are still relying on the legacy
-[`ClusterImageCatalog-bullseye.yaml`](Debian/ClusterImageCatalog-bullseye.yaml)
-and [`ClusterImageCatalog-bookworm.yaml`](Debian/ClusterImageCatalog-bookworm.yaml)
-manifests, please migrate to the new catalogs as soon as possible. These legacy
-manifests are deprecated and will be removed along with the `system` image.
+[`ClusterImageCatalog-bookworm.yaml`](Debian/ClusterImageCatalog-bookworm.yaml)
+manifest, please migrate to the new catalog as soon as possible. This legacy
+manifest is deprecated and will be removed along with the `system` image.
 
 ## Security
 

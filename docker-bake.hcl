@@ -60,9 +60,7 @@ target "default" {
       // renovate: datasource=docker versioning=loose
       "debian:trixie-slim@sha256:d7e12182ce18b85b93007c1dedf31f2d29e01ccf3182cc4017c709b6259bc132",
       // renovate: datasource=docker versioning=loose
-      "debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171",
-      // renovate: datasource=docker versioning=loose
-      "debian:bullseye-slim@sha256:e5b6442dd2e9684cf5e87d8338b5968f3b348636fc0be6d7850a381e3731a2bd"
+      "debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171"
     ]
   }
   platforms = [
@@ -71,11 +69,11 @@ target "default" {
   ]
   dockerfile = "Dockerfile"
   name = "postgresql-${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}"
-  tags = concat([
+  tags = [
     "${fullname}:${index(split(".",cleanVersion(pgVersion)),0)}-${tgt}-${distroVersion(base)}",
     "${fullname}:${cleanVersion(pgVersion)}-${tgt}-${distroVersion(base)}",
     "${fullname}:${cleanVersion(pgVersion)}-${formatdate("YYYYMMDDhhmm", now)}-${tgt}-${distroVersion(base)}",
-  ], (tgt == "system" && distroVersion(base) == "bullseye" && isPreview(pgVersion) == false) ? getRollingTags("${fullname}", pgVersion) : [])
+  ]
   context = "."
   target = "${tgt}"
   args = {
@@ -185,12 +183,4 @@ function getPgVersions {
       if !isMajorPresent(getMajor(v), stableVersions)
     ]
   )
-}
-
-function getRollingTags {
-    params = [ imageName, pgVersion ]
-    result = [
-      format("%s:%s", imageName, pgVersion),
-      format("%s:%s", imageName, getMajor(pgVersion))
-    ]
 }
