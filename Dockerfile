@@ -7,6 +7,7 @@ ARG PG_MAJOR
 ENV PATH=$PATH:/usr/lib/postgresql/$PG_MAJOR/bin
 
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends postgresql-common ca-certificates gnupg && \
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y -c "${PG_MAJOR}" && \
     apt-get install -y --no-install-recommends -o Dpkg::::="--force-confdef" -o Dpkg::::="--force-confold" postgresql-common && \
