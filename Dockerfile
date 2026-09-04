@@ -27,7 +27,6 @@ ARG EXTENSIONS
 ARG STANDARD_ADDITIONAL_POSTGRES_PACKAGES
 USER root
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends locales-all ${STANDARD_ADDITIONAL_POSTGRES_PACKAGES} ${EXTENSIONS} && \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
     rm -rf /var/lib/apt/lists/* /var/cache/* /var/log/*
@@ -42,7 +41,6 @@ ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 USER root
 RUN apt-get update && \
-    apt-get upgrade -y && \
 	apt-get install -y --no-install-recommends \
 		# We require build-essential and python3-dev to build lz4 on arm64 since there isn't a pre-compiled wheel available
 		build-essential python3-dev \
