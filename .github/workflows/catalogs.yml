@@ -83,13 +83,22 @@ jobs:
 
       # TODO: remove this step once system images are EOL
       - name: Temporarily disable "include administrators" branch protection
-        if: ${{ always() && github.ref == 'refs/heads/main' }}
+        if: always() && github.ref == 'refs/heads/main'
         id: disable_include_admins
-        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
-          access_token: ${{ secrets.REPO_GHA_PAT }}
-          branch: main
-          enforce_admins: false
+          github-token: ${{ secrets.REPO_GHA_PAT }}
+          script: |
+            const params = {
+              owner: 'cloudnative-pg',
+              repo: 'postgres-containers',
+              branch: 'main',
+            };
+            const { data } = await github.rest.repos.getAdminBranchProtection(params);
+            core.setOutput('initial_status', data.enabled);
+            if (data.enabled) {
+              await github.rest.repos.deleteAdminBranchProtection(params);
+            }
 
       # TODO: remove this step once system images are EOL
       - name: Legacy diff
@@ -110,10 +119,17 @@ jobs:
           message: 'chore: update imageCatalogs'
 
       # TODO: remove this step once system images are EOL
-      - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@af281f37de86139d1c7a27b91176b5dc1c2c827c # v1.1.2
-        if: ${{ always() && github.ref == 'refs/heads/main' }}
+      - name: Restore "include administrators" branch protection
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        if: |
+          always() &&
+          github.ref == 'refs/heads/main' &&
+          steps.disable_include_admins.outputs.initial_status == 'true'
         with:
-          access_token: ${{ secrets.REPO_GHA_PAT }}
-          branch: main
-          enforce_admins: ${{ steps.disable_include_admins.outputs.initial_status }}
+          github-token: ${{ secrets.REPO_GHA_PAT }}
+          script: |
+            await github.rest.repos.setAdminBranchProtection({
+              owner: 'cloudnative-pg',
+              repo: 'postgres-containers',
+              branch: 'main',
+            });
