@@ -167,6 +167,21 @@ While the most reliable way to reference an image is by its digest, the
 `MM.mm-TYPE-OS` tag usually provides a good balance between stability and
 convenience for most use cases.
 
+### Deprecated Rolling Tags
+
+For historical reasons, the `system` image used to carry two additional rolling
+tags:
+
+- `MM.mm`: latest `system` image for a given PostgreSQL *minor* version (e.g.
+  `16.10`) on Debian `bullseye`.
+- `MM`: latest `system` image for a given PostgreSQL *major* version (e.g.
+  `16`) on Debian `bullseye`.
+
+**IMPORTANT:** These tags are **deprecated**, they aren't being generated anymore
+and existing ones will be **removed** from the container registry.
+Please migrate to one of the supported tag formats that explicitly include
+both the **image type** and the **distribution version** (e.g. `16.10-minimal-trixie`).
+
 ## Image Catalogs
 
 CloudNativePG publishes `ClusterImageCatalog` manifests for CloudNativePG in
