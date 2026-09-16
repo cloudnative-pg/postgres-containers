@@ -43,41 +43,8 @@ jobs:
           git status
           git diff
 
-      - name: Temporarily disable "include administrators" branch protection
-        if: always() && github.ref == 'refs/heads/main'
-        id: disable_include_admins
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
-        with:
-          github-token: ${{ secrets.REPO_GHA_PAT }}
-          script: |
-            const params = {
-              owner: 'cloudnative-pg',
-              repo: 'postgres-containers',
-              branch: 'main',
-            };
-            const { data } = await github.rest.repos.getAdminBranchProtection(params);
-            core.setOutput('initial_status', data.enabled);
-            if (data.enabled) {
-              await github.rest.repos.deleteAdminBranchProtection(params);
-            }
-
       - uses: EndBug/add-and-commit@cc9c08ba6c8df3b93a8f2db63e89b98368ae2ae8 # v11
         with:
           author_name: CloudNativePG Automated Updates
           author_email: noreply@cnpg.com
           message: 'chore: update PostgreSQL versions'
-
-      - name: Restore "include administrators" branch protection
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
-        if: |
-          always() &&
-          github.ref == 'refs/heads/main' &&
-          steps.disable_include_admins.outputs.initial_status == 'true'
-        with:
-          github-token: ${{ secrets.REPO_GHA_PAT }}
-          script: |
-            await github.rest.repos.setAdminBranchProtection({
-              owner: 'cloudnative-pg',
-              repo: 'postgres-containers',
-              branch: 'main',
-            });
