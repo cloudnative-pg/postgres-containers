@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260831'
+    images.cnpg.io/date: '20260918'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202608310817-system-bookworm@sha256:b19d2ca088ddbd9f4dd11bf9ddeb302a178390432b694857ac09587b793c5a9f
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202609140816-system-bookworm@sha256:71900421ec4b8fa292d6c5cee1e8a5def18e792af515e80d59b7f666ae9f8eec
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202608310817-system-bookworm@sha256:330561600e28acce0da770043054db7abedddd22a50cc00f794512d2acba9390
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202609140816-system-bookworm@sha256:eab43df7719e7a83c06fe27bae7485bb48e39cfb1d1584af5f95c2d55f8da577
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202608310817-system-bookworm@sha256:71d67d2b23c79833b00fdf6b8e1cd9f717f3b3b2137e979586c8db7ae022e381
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202609140815-system-bookworm@sha256:3cb9b8243719906adfab0832c38f6d9734a67f81196bec5344003c8d0fa9352b
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202608310816-system-bookworm@sha256:d0e93a6fb034e97067733ea2febe701dd97a070011c82d5fdabe99ca84b1f3d4
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202609140816-system-bookworm@sha256:b5c87e7420a8f651b25861d716d50c1e14d9e21b62f0dcac1e8e789c31b10025
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202608310817-system-bookworm@sha256:03a330ba618ce3537b5fb7c9ff652b023034e7742c2ac32417ad3e14d6240e71
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202609140816-system-bookworm@sha256:673aaebec30c40ccb2498a3428230c4e2c8b6a10f66a568f962574dc00fcdbe9
