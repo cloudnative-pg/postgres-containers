@@ -47,7 +47,7 @@ RUN apt-get update && \
 		python3-pip \
 		python3-psycopg2 \
 	&& \
-	pip3 install --no-cache-dir barman[cloud,azure,snappy,google,zstandard,lz4]==${BARMAN_VERSION} && \
+	pip3 install --no-cache-dir --ignore-requires-python barman[cloud,azure,snappy,google,zstandard,lz4]==${BARMAN_VERSION} && \
 	python3 -c "import sysconfig, compileall; compileall.compile_dir(sysconfig.get_path('stdlib'), quiet=1); compileall.compile_dir(sysconfig.get_path('purelib'), quiet=1); compileall.compile_dir(sysconfig.get_path('platlib'), quiet=1)" && \
 	apt-get remove -y --purge --autoremove build-essential python3-dev && \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
