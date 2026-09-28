@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20260921'
+    images.cnpg.io/date: '20260928'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202609210816-system-bookworm@sha256:62694b7f043d45be77ad1112322101b26535a953e16e6ea4152a24673d78ae12
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202609281634-system-bookworm@sha256:51f887c9ae21460039452241656e617d5eee2bd04fbc771d9667c51035cfdc67
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202609210816-system-bookworm@sha256:005ca8acc15c760dbd8d5c6b81033b1783e1bbc8f5c15c358c8eee46c6f2130b
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202609281634-system-bookworm@sha256:0476091eebbffebba691747b1eeabb5fa6dac5aa296148faa48bc5d2d7cb3f63
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202609210816-system-bookworm@sha256:ff013d7a0b938067bbb33de2ae33908b6450bca99902579b975a945d2cd6aea7
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202609281634-system-bookworm@sha256:0247662c3abc95f79adc342bf9f01ff64ffaa45f71f49189943733ffda47fea6
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202609210816-system-bookworm@sha256:fde59743f1e6a0611585f05f504c7c77d1adef5274af4c34708a7acbd505089e
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202609281634-system-bookworm@sha256:7b0b59d214b94048cc361e88cf0aae5e6a77aad1a04b5d872e64319484a549b2
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202609210816-system-bookworm@sha256:379978f68e3865084f1f6e9e28836b42772bf1ec1fcad56ad6b2b8ff503c452a
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202609281634-system-bookworm@sha256:dc7fa2b7418ac5a3c0b25514f70fcdce52b16c3b0eacfc9dd006143adfb0f7c0
