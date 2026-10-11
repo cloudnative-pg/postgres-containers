@@ -49,7 +49,7 @@ RUN apt-get update && \
 	&& \
 	pip3 install --no-cache-dir --ignore-requires-python barman[cloud,azure,snappy,google,zstandard,lz4]==${BARMAN_VERSION} && \
 	python3 -c "import sysconfig, compileall; compileall.compile_dir(sysconfig.get_path('stdlib'), quiet=1); compileall.compile_dir(sysconfig.get_path('purelib'), quiet=1); compileall.compile_dir(sysconfig.get_path('platlib'), quiet=1)" && \
-	apt-get remove -y --purge --autoremove build-essential python3-dev && \
+	apt-get remove -y --purge --autoremove build-essential python3-dev python3-pip && \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
 	rm -rf /var/lib/apt/lists/* /var/cache/* /var/log/*
 
