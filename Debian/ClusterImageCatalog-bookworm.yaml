@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20261005'
+    images.cnpg.io/date: '20261012'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202610050823-system-bookworm@sha256:db599c7db9f8a2792e4c03db4b6076d99f279a15c7ec641f9e8d8ab0117ef085
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202610120828-system-bookworm@sha256:ba8f354f583d7f622ca50530954e2163e66450b5546937793fc69c54f23bbdf1
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202610050823-system-bookworm@sha256:a0695b4b7e133f1bc2ea9a613ce2fd5612a1ecf195196957a44f707c9326acf5
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202610120828-system-bookworm@sha256:6e5c6d7d9884e86e0f90399ff6ce4cf5353de9e172c1e009a38f74f238e72eba
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202610050823-system-bookworm@sha256:18db2679228571d798438a4cb9301bccd18acaf3c8a9f184e43f2d4aa5cdf507
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202610120828-system-bookworm@sha256:0d28a2e0b14d82cc4fd1cbe9c2bdf0c47043cdb3b74281800b614a3263c601cb
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202610050823-system-bookworm@sha256:d2a149bc3de0161d37ca21e7e0869ee6e8c9050a8825b8ba9e6d185ee940a2c9
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202610120828-system-bookworm@sha256:e3956ffc1fe5cfe6618f8d1195e74e9fde4c91fef0e80ceaecb3688ebfed889a
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202610050823-system-bookworm@sha256:b4bec141fa5ca2bab490b197c814fb1342147c8405be1fb0673951fa6db7f699
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202610120828-system-bookworm@sha256:0dadb410826a95fff57f2a5bf1c88d4e813eb2c0b0ccf91827190a21debdb435
