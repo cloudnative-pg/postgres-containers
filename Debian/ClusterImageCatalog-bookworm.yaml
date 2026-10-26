@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20261019'
+    images.cnpg.io/date: '20261026'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202610190957-system-bookworm@sha256:c47673f3689390b537f137b3e8f7391fbcc2498ed759a06d77bbad3af98c7161
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202610260820-system-bookworm@sha256:d1c54f9247cb0f82e52a36fb328c0d6c5fb77debccdf113f8605af7a7d8753da
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202610190958-system-bookworm@sha256:470aa9f486a57bc0ef80fbe1bf085e5de491a9e4ba3bd5fc1ba309b53796eb53
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202610260819-system-bookworm@sha256:535be417275ececbcfbdb92624a26c6ea97acd50adae2c38d7d7d7e86dee08ae
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202610190958-system-bookworm@sha256:34be1a40793eb0f1452200cb52facebdc6c4a2fb8ca040688788eda07b7529a0
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202610260820-system-bookworm@sha256:ca1ca2e092bdc01d28d558a20d9ce71360aacb501608e7efea1a63fb9ce5c9a7
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202610190957-system-bookworm@sha256:fbcdae3402edf6b3869642e9c9119f07b540a3dff7683497abd9b4a9422aaf07
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202610260819-system-bookworm@sha256:9cf9466e674a794aee83693b9c28d8b3103d612a943bf144117a718b97b9d1db
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202610190957-system-bookworm@sha256:c2aa9f950288b5c9ed8db0c4733cf168d1442ac0ec30a13bc77d45e7de541396
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202610260820-system-bookworm@sha256:4ab49dc4f4bf4bcf583b6443e58bd410af3a69fd04c5e34e657edc7181e95086
