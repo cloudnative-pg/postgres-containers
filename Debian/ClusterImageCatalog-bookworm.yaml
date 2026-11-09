@@ -6,19 +6,19 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20261103'
+    images.cnpg.io/date: '20261109'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
     - major: 13
       image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
     - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.24-202611020810-system-bookworm@sha256:6730f130a70ed6642d6c4eb7d697e9b755728e9c820cb561b3898330fffd0d35
+      image: ghcr.io/cloudnative-pg/postgresql:14.24-202611090810-system-bookworm@sha256:ee13ec29840f18cb092ad33aa242e92bcba3b1abe26180f6d4bcef25b5e17b80
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.19-202611020810-system-bookworm@sha256:6c859b243e64ff135cf4768064bc722919a630b3ccc3d01eded9f1f4e18bafa0
+      image: ghcr.io/cloudnative-pg/postgresql:15.19-202611090810-system-bookworm@sha256:99a52e701529ffd91ad3f3495bdc6725c50104f95815596dc73485d143cf203f
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.15-202611020810-system-bookworm@sha256:639ef58e1ecca2ecb91ba6aa52f55a25fc59dd1792df99f2e99d81d85043a8d6
+      image: ghcr.io/cloudnative-pg/postgresql:16.15-202611090810-system-bookworm@sha256:66f4ed55116a20c70534d80d5c36840c7265460b832c3c49335319595e1cb154
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.11-202611020810-system-bookworm@sha256:b548f1bdfaff8c6a5b44646355502435be2beb28ae1bbb3520b8d6c44e6fbc5f
+      image: ghcr.io/cloudnative-pg/postgresql:17.11-202611090810-system-bookworm@sha256:1d4180c155a2a7b4c59f4f13b7cdc5a1795bb8d85f3c92fd7647dae9e929f72e
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.6-202611030838-system-bookworm@sha256:605c6e45e733ce0e908505e9ac3c441637d6794d330ec0e9d8d6f631b6918b1e
+      image: ghcr.io/cloudnative-pg/postgresql:18.6-202611090812-system-bookworm@sha256:f8ef6a9da5e15aa7b7e777d6645e02bd37b272c150467c9a20ba0b0c89aea7fb
