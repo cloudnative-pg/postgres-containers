@@ -22,11 +22,11 @@ url = "https://github.com/cloudnative-pg/postgres-containers"
 
 // PostgreSQL versions to build
 postgreSQLVersions = [
-  "14.25",
   "15.20",
   "16.16",
   "17.12",
-  "18.7"
+  "18.7",
+  "19.0"
 ]
 
 // PostgreSQL preview versions to build, such as "18~beta1" or "18~rc1"
