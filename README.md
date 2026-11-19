@@ -102,6 +102,9 @@ following additional features:
 
 - PGAudit
 - Postgres Failover Slots
+  - For PostgreSQL 16 and earlier: included
+  - From PostgreSQL 17 onwards: not included, as PostgreSQL natively
+    supports failover slots
 - pgvector
 - All Locales
 - LLVM JIT support

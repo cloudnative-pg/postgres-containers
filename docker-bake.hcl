@@ -47,6 +47,13 @@ extensions = [
   "pg-failover-slots"
 ]
 
+// Extensions that are only built for PostgreSQL majors up to (and including)
+// the given one. pg-failover-slots is not needed from PostgreSQL 17, which
+// natively supports failover slots.
+extensionsMaxMajor = {
+  "pg-failover-slots" = 16
+}
+
 target "default" {
   matrix = {
     tgt = [
@@ -155,7 +162,10 @@ function getMajor {
 
 function getExtensionsString {
     params = [ version, extensions ]
-    result = (isPreview(version) == true) ? "" : join(" ", formatlist("postgresql-%s-%s", getMajor(version), extensions))
+    result = (isPreview(version) == true) ? "" : join(" ", [
+      for e in extensions : format("postgresql-%s-%s", getMajor(version), e)
+      if getMajor(version) <= lookup(extensionsMaxMajor, e, 999)
+    ])
 }
 
 // This function conditionally adds recommended PostgreSQL packages based on
