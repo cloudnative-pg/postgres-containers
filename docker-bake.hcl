@@ -32,9 +32,7 @@ postgreSQLVersions = [
 // PostgreSQL preview versions to build, such as "18~beta1" or "18~rc1"
 // Preview versions are automatically filtered out if present in the stable list
 // MANUALLY EDIT THE CONTENT - AND UPDATE THE README.md FILE TOO
-postgreSQLPreviewVersions = [
-  "19~rc2",
-]
+postgreSQLPreviewVersions = []
 
 // Barman version to build
 // renovate: datasource=pypi versioning=loose depName=barman
