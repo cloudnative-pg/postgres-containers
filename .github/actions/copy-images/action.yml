@@ -71,4 +71,4 @@ runs:
           '
         )
         echo "Signing ${images}"
-        cosign sign -t 5m --yes ${images}
+        cosign sign -t 5m --yes --recursive ${images}
