@@ -47,11 +47,11 @@ extensions = [
   "pg-failover-slots"
 ]
 
-// Extensions that are only built for PostgreSQL majors up to (and including)
-// the given one. pg-failover-slots is not needed from PostgreSQL 17, which
-// natively supports failover slots.
+// Extensions that are only installed for PostgreSQL majors up to (and
+// including) the given one. pg-failover-slots is not available from
+// PostgreSQL 19. It stays on 17 and 18 to ease upgrades.
 extensionsMaxMajor = {
-  "pg-failover-slots" = 16
+  "pg-failover-slots" = 18
 }
 
 target "default" {
