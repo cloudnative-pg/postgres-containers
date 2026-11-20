@@ -6,19 +6,17 @@ metadata:
     images.cnpg.io/family: postgresql
     images.cnpg.io/type: system
     images.cnpg.io/os: bookworm
-    images.cnpg.io/date: '20261116'
+    images.cnpg.io/date: '20261120'
     images.cnpg.io/publisher: cnpg.io
 spec:
   images:
-    - major: 13
-      image: ghcr.io/cloudnative-pg/postgresql:13.22-202511100817-system-bookworm@sha256:9a87084ccdc4c51742b861177c4924e2a13a7dd3731782dc20d355b12bab8bcd
-    - major: 14
-      image: ghcr.io/cloudnative-pg/postgresql:14.25-202611160820-system-bookworm@sha256:2496b8213f5f8bf7acdc96125dafbaa202a46fc38abe28cbad18c745c5ff28bc
     - major: 15
-      image: ghcr.io/cloudnative-pg/postgresql:15.20-202611160820-system-bookworm@sha256:457b7cb2a7e7a3004ea14f6903673aea49cc336635ed43e082fbbbafb0b3804d
+      image: ghcr.io/cloudnative-pg/postgresql:15.20-202611201710-system-bookworm@sha256:a61b9311b8b1253b4706e27a317a322293176003be98624768ea1261c369bd4b
     - major: 16
-      image: ghcr.io/cloudnative-pg/postgresql:16.16-202611160820-system-bookworm@sha256:f8e727e663ecffc14b906abb40000b7a00b31f3d546f4efe78f8e1c4839d8645
+      image: ghcr.io/cloudnative-pg/postgresql:16.16-202611201711-system-bookworm@sha256:c8926dfb47a4d23bbbcd8ee1f9b88c9cd5f4b0a844ef602b03db8c0d22915c9b
     - major: 17
-      image: ghcr.io/cloudnative-pg/postgresql:17.12-202611160820-system-bookworm@sha256:2b71f805acb6744c3d8d82c29256ee6e0580ea49e7a14e8e99b321a21c674439
+      image: ghcr.io/cloudnative-pg/postgresql:17.12-202611201711-system-bookworm@sha256:7bfe2e96f4592b1dcfa8669810f571192b860b99732ba552e8abd34824af5927
     - major: 18
-      image: ghcr.io/cloudnative-pg/postgresql:18.7-202611160820-system-bookworm@sha256:5774670ec4a849c08d14f9db34320dff32a1a5f4ad6d41601ac492966ded3ad9
+      image: ghcr.io/cloudnative-pg/postgresql:18.7-202611201711-system-bookworm@sha256:e6770e842a0a6eabe2029dd5cc3153d6b34a5aec7197b88330005a5ecf5edacd
+    - major: 19
+      image: ghcr.io/cloudnative-pg/postgresql:19.0-202611201710-system-bookworm@sha256:554422fb2a436802e908a75248b1fad1de3499dd75c0464a06f0514603695f36
