@@ -102,6 +102,9 @@ following additional features:
 
 - PGAudit
 - Postgres Failover Slots
+  - For PostgreSQL 18 and earlier: included
+  - From PostgreSQL 19 onwards: not included, as the package is not
+    available
 - pgvector
 - All Locales
 - LLVM JIT support
