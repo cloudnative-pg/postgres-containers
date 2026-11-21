@@ -36,7 +36,7 @@ postgreSQLPreviewVersions = []
 
 // Barman version to build
 // renovate: datasource=pypi versioning=loose depName=barman
-barmanVersion = "3.20.1"
+barmanVersion = "3.21.0"
 
 // Extensions to be included in the `standard` image
 extensions = [
