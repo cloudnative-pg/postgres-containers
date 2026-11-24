@@ -8,7 +8,10 @@ ENV PATH=$PATH:/usr/lib/postgresql/$PG_MAJOR/bin
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends postgresql-common ca-certificates gnupg && \
+    apt-get install -y --no-install-recommends postgresql-common ca-certificates gnupg \
+      # systemd-standalone-* stop postgresql-common from pulling in the full systemd
+      # See https://bugs.debian.org/1141909
+      systemd-standalone-sysusers systemd-standalone-tmpfiles && \
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y -c "${PG_MAJOR}" && \
     apt-get install -y --no-install-recommends -o Dpkg::::="--force-confdef" -o Dpkg::::="--force-confold" postgresql-common && \
     sed -ri 's/#(create_main_cluster) .*$/\1 = false/' /etc/postgresql-common/createcluster.conf && \
